@@ -69,9 +69,10 @@ function App() {
 
 
   var divStyle = {
-    width: "100%",
-    height: "100vh",
     backgroundImage: `url(${background})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   }
   var pokemonWho = {
     transform: "scale(0.8)",
@@ -83,8 +84,7 @@ function App() {
   return (
     <div className="App">
 
-      <header className="App-header">
-        <div style={ divStyle }>
+      <header className="App-header" style={ divStyle }>
 
         <div alt="which pokemon">
         <img style={ pokemonWho } className="Pokemon" alt="Pokemon" />
@@ -100,7 +100,6 @@ function App() {
         <button className="button" onClick={answer}>{pokemonC}</button><button className="button" onClick={answer}>{pokemonD}</button>
         </div>
 
-        </div>
       </header>
     </div>
   );
