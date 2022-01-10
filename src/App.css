@@ -6,6 +6,30 @@
   height: 40vmin;
   pointer-events: none;
 }
+.button {
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  margin: 2%;
+  width: 45%;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: blue;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: cyan}
+
+.button:active {
+  background-color: blue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -21,7 +45,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
