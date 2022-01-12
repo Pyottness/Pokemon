@@ -4,6 +4,9 @@ import * as React from 'react'
 
 
 function App() {
+  const [pokemons, setPokemons] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('pokemons')) ?? initialPokemons,
+  )
 
   const initialPokemons = React.useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
@@ -14,10 +17,6 @@ function App() {
     .catch((error) => console.log(error))
   )
   }, [])
-
-  const [pokemons, setPokemons] = React.useState(
-    () => window.localStorage.getItem('pokemons') ?? initialPokemons,
-  )
 
   React.useEffect(() => {
     window.localStorage.setItem('pokemons', JSON.stringify(pokemons))
@@ -33,7 +32,11 @@ function App() {
   const pokemonC = pokemons === undefined ? "loading..." : pokemons[2].name
   const pokemonD = pokemons === undefined ? "loading..." : pokemons[3].name
 
-  const play = () => {
+  const correctName = pokemons === undefined ? "loading..." : pokemons[0].name
+
+
+
+  const play = ({pokemons}) => {
     //shuffle pokemons and slice to four options//
     const shuffled = pokemons === undefined ? "loading..." : pokemons.sort(() => 0.5 - Math.random())
     const sliced = shuffled === undefined ? "loading..." : shuffled.slice(0, 3)
@@ -52,6 +55,13 @@ function App() {
     const pokemonC = slicedShuffled === undefined ? "loading..." : slicedShuffled[2].name
     const pokemonD = slicedShuffled === undefined ? "loading..." : slicedShuffled[3].name
 
+    console.log(correctName)
+    console.log(number)
+    console.log(pokemonA)
+    console.log(pokemonB)
+    console.log(pokemonC)
+    console.log(pokemonD)
+
     return (
       correctName,
       number,
@@ -62,12 +72,12 @@ function App() {
     )
   }
 
-  const answer = () => {
-
+  var correct = {
+    backgroundColor: "green"
   }
-
-
-
+  var wrong = {
+    backgroundColor: "red"
+  }
   var divStyle = {
     backgroundImage: `url(${background})`,
     backgroundRepeat: "no-repeat",
@@ -96,8 +106,8 @@ function App() {
         </div>
 
         <div alt="answers">
-        <button className="button" onClick={answer}>{pokemonA}</button><button className="button" onClick={answer}>{pokemonB}</button>
-        <button className="button" onClick={answer}>{pokemonC}</button><button className="button" onClick={answer}>{pokemonD}</button>
+        <button className="button" onClick={(correctName, pokemonA, correct, wrong) => {return correctName === pokemonA ? `${<style>{correct}</style>}` : `${<style>{wrong}</style>}`}}>{pokemonA}</button><button className="button" onClick={(correctName, pokemonB, correct, wrong) => {return correctName === pokemonB ? `${<style>{correct}</style>}` : `${<style>{wrong}</style>}`}}>{pokemonB}</button>
+        <button className="button" onClick={(correctName, pokemonC, correct, wrong) => {return correctName === pokemonC ? `${<style>{correct}</style>}` : `${<style>{wrong}</style>}`}}>{pokemonC}</button><button className="button" onClick={(correctName, pokemonD, correct, wrong) => {return correctName === pokemonD ? `${<style>{correct}</style>}` : `${<style>{wrong}</style>}`}}>{pokemonD}</button>
         </div>
 
       </header>

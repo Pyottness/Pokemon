@@ -27,8 +27,8 @@
 
 .button:active {
   background-color: blue;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+  box-shadow: 0 3px #666;
+  transform: translateY(10px);
 }
 
 @media (prefers-reduced-motion: no-preference) {
