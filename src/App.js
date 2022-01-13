@@ -22,24 +22,22 @@ function App() {
     window.localStorage.setItem('pokemons', JSON.stringify(pokemons))
   }, [pokemons])
 
-  const url = pokemons === undefined ? "151" : pokemons[0].url
-  const regex = /(\d+)\/$/
-  const getNumber = url === undefined ? "151" : url.match(regex)
-  const number = getNumber === null ? "151" : getNumber[1]
+  //const url = pokemons === undefined ? "151" : pokemons[0].url
+  //const regex = /(\d+)\/$/
+  //const getNumber = url === undefined ? "151" : url.match(regex)
+  //const number = getNumber === null ? "151" : getNumber[1]
 
-  const pokemonA = pokemons === undefined ? "loading..." : pokemons[0].name
-  const pokemonB = pokemons === undefined ? "loading..." : pokemons[1].name
-  const pokemonC = pokemons === undefined ? "loading..." : pokemons[2].name
-  const pokemonD = pokemons === undefined ? "loading..." : pokemons[3].name
+  const [correctName, setCorrectname] = React.useState('Mew')
+  const [number, setNumber] = React.useState(151)
+  const [pokemonA, setPokemonA] = React.useState('Bulbasaur')
+  const [pokemonB, setPokemonB] = React.useState('Mew')
+  const [pokemonC, setPokemonC] = React.useState('Charizard')
+  const [pokemonD, setPokemonD] = React.useState('Pikachu')
 
-  const correctName = pokemons === undefined ? "loading..." : pokemons[0].name
-
-
-
-  const play = ({pokemons}) => {
+  const play = async () => {
     //shuffle pokemons and slice to four options//
-    const shuffled = pokemons === undefined ? "loading..." : pokemons.sort(() => 0.5 - Math.random())
-    const sliced = shuffled === undefined ? "loading..." : shuffled.slice(0, 3)
+    const shuffled = await pokemons === undefined ? "loading..." : pokemons.sort(() => 0.5 - Math.random())
+    const sliced = await shuffled === undefined ? "loading..." : shuffled.slice(0, 4)
 
     //retrieve correct pokemon name and number//
     const url = sliced === undefined ? "loading..." : sliced[0].url
@@ -49,27 +47,24 @@ function App() {
     const correctName = sliced === undefined ? "loading..." : sliced[0].name
 
     //shuffle four options//
-    const slicedShuffled = sliced === undefined ? "loading..." : sliced.sort(() => 0.5 - Math.random())
+    const slicedShuffled = await sliced === undefined ? "loading..." : sliced.sort(() => 0.5 - Math.random())
     const pokemonA = slicedShuffled === undefined ? "loading..." : slicedShuffled[0].name
     const pokemonB = slicedShuffled === undefined ? "loading..." : slicedShuffled[1].name
     const pokemonC = slicedShuffled === undefined ? "loading..." : slicedShuffled[2].name
     const pokemonD = slicedShuffled === undefined ? "loading..." : slicedShuffled[3].name
 
-    console.log(correctName)
-    console.log(number)
-    console.log(pokemonA)
-    console.log(pokemonB)
-    console.log(pokemonC)
-    console.log(pokemonD)
+    setCorrectname(correctName)
+    setNumber(number)
+    setPokemonA(pokemonA)
+    setPokemonB(pokemonB)
+    setPokemonC(pokemonC)
+    setPokemonD(pokemonD)
 
-    return (
-      correctName,
-      number,
-      pokemonA,
-      pokemonB,
-      pokemonC,
-      pokemonD
-    )
+    return null
+  }
+
+  const answer = () => {
+    
   }
 
   var correct = {
@@ -106,8 +101,8 @@ function App() {
         </div>
 
         <div alt="answers">
-        <button className="button" onClick={(correctName, pokemonA, correct, wrong) => {return correctName === pokemonA ? `${<style>{correct}</style>}` : `${<style>{wrong}</style>}`}}>{pokemonA}</button><button className="button" onClick={(correctName, pokemonB, correct, wrong) => {return correctName === pokemonB ? `${<style>{correct}</style>}` : `${<style>{wrong}</style>}`}}>{pokemonB}</button>
-        <button className="button" onClick={(correctName, pokemonC, correct, wrong) => {return correctName === pokemonC ? `${<style>{correct}</style>}` : `${<style>{wrong}</style>}`}}>{pokemonC}</button><button className="button" onClick={(correctName, pokemonD, correct, wrong) => {return correctName === pokemonD ? `${<style>{correct}</style>}` : `${<style>{wrong}</style>}`}}>{pokemonD}</button>
+        <button className="button" onClick={answer}>{pokemonA}</button><button className="button" onClick={answer}>{pokemonB}</button>
+        <button className="button" onClick={answer}>{pokemonC}</button><button className="button" onClick={answer}>{pokemonD}</button>
         </div>
 
       </header>
