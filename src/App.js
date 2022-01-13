@@ -73,17 +73,17 @@ function App() {
   }
 
   const answer = () => {
-    if (pokemonA == correctName) {
+    if (pokemonA === correctName) {
       setbuttonA({backgroundColor: "green"})
       setbuttonB({backgroundColor: "red"})
       setbuttonC({backgroundColor: "red"})
       setbuttonD({backgroundColor: "red"})
-    } else if (pokemonB == correctName) {
+    } else if (pokemonB === correctName) {
       setbuttonA({backgroundColor: "red"})
       setbuttonB({backgroundColor: "green"})
       setbuttonC({backgroundColor: "red"})
       setbuttonD({backgroundColor: "red"})
-    } else if (pokemonC == correctName) {
+    } else if (pokemonC === correctName) {
       setbuttonA({backgroundColor: "red"})
       setbuttonB({backgroundColor: "red"})
       setbuttonC({backgroundColor: "green"})
