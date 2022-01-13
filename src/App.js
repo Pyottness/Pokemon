@@ -22,17 +22,19 @@ function App() {
     window.localStorage.setItem('pokemons', JSON.stringify(pokemons))
   }, [pokemons])
 
-  //const url = pokemons === undefined ? "151" : pokemons[0].url
-  //const regex = /(\d+)\/$/
-  //const getNumber = url === undefined ? "151" : url.match(regex)
-  //const number = getNumber === null ? "151" : getNumber[1]
-
+  //pokemon constants//
   const [correctName, setCorrectname] = React.useState('Mew')
   const [number, setNumber] = React.useState(151)
   const [pokemonA, setPokemonA] = React.useState('Bulbasaur')
   const [pokemonB, setPokemonB] = React.useState('Mew')
   const [pokemonC, setPokemonC] = React.useState('Charizard')
   const [pokemonD, setPokemonD] = React.useState('Pikachu')
+
+  //button constants//
+  const [buttonA, setbuttonA] = React.useState({backgroundColor: "blue"})
+  const [buttonB, setbuttonB] = React.useState({backgroundColor: "blue"})
+  const [buttonC, setbuttonC] = React.useState({backgroundColor: "blue"})
+  const [buttonD, setbuttonD] = React.useState({backgroundColor: "blue"})
 
   const play = async () => {
     //shuffle pokemons and slice to four options//
@@ -53,6 +55,7 @@ function App() {
     const pokemonC = slicedShuffled === undefined ? "loading..." : slicedShuffled[2].name
     const pokemonD = slicedShuffled === undefined ? "loading..." : slicedShuffled[3].name
 
+    //set pokemon states//
     setCorrectname(correctName)
     setNumber(number)
     setPokemonA(pokemonA)
@@ -60,19 +63,39 @@ function App() {
     setPokemonC(pokemonC)
     setPokemonD(pokemonD)
 
+    //set button states//
+    setbuttonA({backgroundColor: "blue"})
+    setbuttonB({backgroundColor: "blue"})
+    setbuttonC({backgroundColor: "blue"})
+    setbuttonD({backgroundColor: "blue"})
+
     return null
   }
 
   const answer = () => {
-    
+    if (pokemonA == correctName) {
+      setbuttonA({backgroundColor: "green"})
+      setbuttonB({backgroundColor: "red"})
+      setbuttonC({backgroundColor: "red"})
+      setbuttonD({backgroundColor: "red"})
+    } else if (pokemonB == correctName) {
+      setbuttonA({backgroundColor: "red"})
+      setbuttonB({backgroundColor: "green"})
+      setbuttonC({backgroundColor: "red"})
+      setbuttonD({backgroundColor: "red"})
+    } else if (pokemonC == correctName) {
+      setbuttonA({backgroundColor: "red"})
+      setbuttonB({backgroundColor: "red"})
+      setbuttonC({backgroundColor: "green"})
+      setbuttonD({backgroundColor: "red"})
+    } else {
+      setbuttonA({backgroundColor: "red"})
+      setbuttonB({backgroundColor: "red"})
+      setbuttonC({backgroundColor: "red"})
+      setbuttonD({backgroundColor: "green"})
+    }
   }
 
-  var correct = {
-    backgroundColor: "green"
-  }
-  var wrong = {
-    backgroundColor: "red"
-  }
   var divStyle = {
     backgroundImage: `url(${background})`,
     backgroundRepeat: "no-repeat",
@@ -101,8 +124,8 @@ function App() {
         </div>
 
         <div alt="answers">
-        <button className="button" onClick={answer}>{pokemonA}</button><button className="button" onClick={answer}>{pokemonB}</button>
-        <button className="button" onClick={answer}>{pokemonC}</button><button className="button" onClick={answer}>{pokemonD}</button>
+        <button className="button" style={buttonA} onClick={answer}>{pokemonA}</button><button className="button" style={buttonB} onClick={answer}>{pokemonB}</button>
+        <button className="button" style={buttonC} onClick={answer}>{pokemonC}</button><button className="button" style={buttonD} onClick={answer}>{pokemonD}</button>
         </div>
 
       </header>
