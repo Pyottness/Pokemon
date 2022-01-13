@@ -36,6 +36,13 @@ function App() {
   const [buttonC, setbuttonC] = React.useState({backgroundColor: "blue"})
   const [buttonD, setbuttonD] = React.useState({backgroundColor: "blue"})
 
+  //image constant//
+  const [pokemonWho, setPokemonwho] = React.useState({
+    transform: "scale(0.8)",
+    content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
+    filter: "brightness(0)",
+  })
+
   const play = async () => {
     //shuffle pokemons and slice to four options//
     const shuffled = await pokemons === undefined ? "loading..." : pokemons.sort(() => 0.5 - Math.random())
@@ -47,6 +54,13 @@ function App() {
     const getNumber = url === undefined ? "loading..." : url.match(regex)
     const number = getNumber === null ? "loading..." : getNumber[1]
     const correctName = sliced === undefined ? "loading..." : sliced[0].name
+
+    //set image dark//
+    setPokemonwho({
+      transform: "scale(0.8)",
+      content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
+      filter: "brightness(0)",
+    })
 
     //shuffle four options//
     const slicedShuffled = await sliced === undefined ? "loading..." : sliced.sort(() => 0.5 - Math.random())
@@ -78,21 +92,45 @@ function App() {
       setbuttonB({backgroundColor: "red"})
       setbuttonC({backgroundColor: "red"})
       setbuttonD({backgroundColor: "red"})
+      //set image appear//
+      setPokemonwho({
+        transform: "scale(0.8)",
+        content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
+        filter: "none",
+      })
     } else if (pokemonB === correctName) {
       setbuttonA({backgroundColor: "red"})
       setbuttonB({backgroundColor: "green"})
       setbuttonC({backgroundColor: "red"})
       setbuttonD({backgroundColor: "red"})
+      //set image appear//
+      setPokemonwho({
+        transform: "scale(0.8)",
+        content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
+        filter: "none",
+      })
     } else if (pokemonC === correctName) {
       setbuttonA({backgroundColor: "red"})
       setbuttonB({backgroundColor: "red"})
       setbuttonC({backgroundColor: "green"})
       setbuttonD({backgroundColor: "red"})
+      //set image appear//
+      setPokemonwho({
+        transform: "scale(0.8)",
+        content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
+        filter: "none",
+      })
     } else {
       setbuttonA({backgroundColor: "red"})
       setbuttonB({backgroundColor: "red"})
       setbuttonC({backgroundColor: "red"})
       setbuttonD({backgroundColor: "green"})
+      //set image appear//
+      setPokemonwho({
+        transform: "scale(0.8)",
+        content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
+        filter: "none",
+      })
     }
   }
 
@@ -102,12 +140,6 @@ function App() {
     backgroundSize: "cover",
     backgroundPosition: "center",
   }
-  var pokemonWho = {
-    transform: "scale(0.8)",
-    content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
-    filter: "brightness(0)",
-  }
-
 
   return (
     <div className="App">
@@ -115,7 +147,7 @@ function App() {
       <header className="App-header" style={ divStyle }>
 
         <div alt="which pokemon">
-        <img style={ pokemonWho } className="Pokemon" alt="Pokemon" />
+        <img style={ pokemonWho } className="pokemon" alt="Pokemon" />
         </div>
 
         <div alt="play">
