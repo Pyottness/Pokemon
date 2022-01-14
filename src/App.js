@@ -41,7 +41,7 @@ function App() {
     transform: "scale(0.8)",
     filter: "brightness(0)",
   })
-  const pokemonImage = require(`./pokemon/${number}.png`)
+  const pokemonImage = require(`../node_modules/pokemon-sprites/sprites/pokemon/other/official-artwork/${number}.png`)
 
   const play = async () => {
     //shuffle pokemons and slice to four options//
@@ -49,11 +49,11 @@ function App() {
     const sliced = await shuffled === undefined ? "loading..." : shuffled.slice(0, 4)
 
     //retrieve correct pokemon name and number//
-    const url = sliced === undefined ? "loading..." : sliced[0].url
+    const url = await sliced === undefined ? "loading..." : sliced[0].url
     const regex = /(\d+)\/$/
-    const getNumber = url === undefined ? "loading..." : url.match(regex)
-    const number = getNumber === null ? "loading..." : getNumber[1]
-    const correctName = sliced === undefined ? "loading..." : sliced[0].name
+    const getNumber = await url === undefined ? "loading..." : url.match(regex)
+    const number = await getNumber === null ? "loading..." : getNumber[1]
+    const correctName = await sliced === undefined ? "loading..." : sliced[0].name
 
     //set image dark//
     setPokemonwho({
