@@ -39,9 +39,9 @@ function App() {
   //image constant//
   const [pokemonWho, setPokemonwho] = React.useState({
     transform: "scale(0.8)",
-    content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
     filter: "brightness(0)",
   })
+  const pokemonImage = require(`./pokemon/${number}.png`)
 
   const play = async () => {
     //shuffle pokemons and slice to four options//
@@ -58,7 +58,6 @@ function App() {
     //set image dark//
     setPokemonwho({
       transform: "scale(0.8)",
-      content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
       filter: "brightness(0)",
     })
 
@@ -95,7 +94,6 @@ function App() {
       //set image appear//
       setPokemonwho({
         transform: "scale(0.8)",
-        content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
         filter: "none",
       })
     } else if (pokemonB === correctName) {
@@ -106,7 +104,6 @@ function App() {
       //set image appear//
       setPokemonwho({
         transform: "scale(0.8)",
-        content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
         filter: "none",
       })
     } else if (pokemonC === correctName) {
@@ -117,7 +114,6 @@ function App() {
       //set image appear//
       setPokemonwho({
         transform: "scale(0.8)",
-        content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
         filter: "none",
       })
     } else {
@@ -128,7 +124,6 @@ function App() {
       //set image appear//
       setPokemonwho({
         transform: "scale(0.8)",
-        content: `url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${number}.png")`,
         filter: "none",
       })
     }
@@ -147,7 +142,7 @@ function App() {
       <header className="App-header" style={ divStyle }>
 
         <div alt="which pokemon">
-        <img style={ pokemonWho } className="pokemon" alt="Pokemon" />
+        <img src={pokemonImage} style={pokemonWho} className="pokemon" alt="Pokemon" />
         </div>
 
         <div alt="play">
