@@ -80,8 +80,14 @@ function App() {
     }
   }
 
+  //disable constant//
+  const [disable, setDisable] = React.useState(false)
+
   //play initializer//
   const play = async () => {
+    //make answer buttons active//
+    setDisable(false)
+
     //shuffle pokemons and slice to four options//
     const shuffled = await pokemons === undefined ? "loading..." : pokemons.sort(() => 0.5 - Math.random())
     const sliced = await shuffled === undefined ? "loading..." : shuffled.slice(0, 4)
@@ -184,8 +190,8 @@ function App() {
         </div>
 
         <div alt="answers">
-        <button className="button" value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e);}}>{pokemonA}</button><button className="button" value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e);}}>{pokemonB}</button>
-        <button className="button" value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e);}}>{pokemonC}</button><button className="button" value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e);}}>{pokemonD}</button>
+        <button className="button" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonA}</button><button className="button" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonB}</button>
+        <button className="button" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonC}</button><button className="button" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonD}</button>
         </div>
 
         <div alt="counter">
