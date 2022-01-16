@@ -42,6 +42,45 @@ function App() {
   })
   const pokemonImage = require(`../node_modules/pokemon-sprites/sprites/pokemon/other/official-artwork/${number}.png`)
 
+  //handle input//
+
+  //counter constant//
+  const initialCount = {count: 0}
+
+  function reducer(counter, action) {
+    switch (action.type) {
+      case 'increment':
+      return {count: counter.count + 1}
+      case 'reset':
+      return {count: counter.count = 0}
+      default:
+      throw new Error();
+    }
+  }
+
+  const [counter, dispatch] = React.useReducer(reducer, initialCount)
+  const [maxScore, setMaxscore] = React.useState(
+    () => JSON.parse(window.localStorage.getItem("maxScore")) ?? counter.count,
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem("maxScore", JSON.stringify(maxScore))
+  }, [maxScore])
+
+  const score = (e) => {
+    if(correctName === e.target.value) {
+      dispatch({type: 'increment'})
+    } else {
+      if(counter.count > maxScore) {
+        setMaxscore(counter.count)
+        dispatch({type: 'reset'})
+      } else {
+        dispatch({type: 'reset'})
+      }
+    }
+  }
+
+  //play initializer//
   const play = async () => {
     //shuffle pokemons and slice to four options//
     const shuffled = await pokemons === undefined ? "loading..." : pokemons.sort(() => 0.5 - Math.random())
@@ -145,8 +184,13 @@ function App() {
         </div>
 
         <div alt="answers">
-        <button className="button" style={buttonA} onClick={answer}>{pokemonA}</button><button className="button" style={buttonB} onClick={answer}>{pokemonB}</button>
-        <button className="button" style={buttonC} onClick={answer}>{pokemonC}</button><button className="button" style={buttonD} onClick={answer}>{pokemonD}</button>
+        <button className="button" value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e);}}>{pokemonA}</button><button className="button" value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e);}}>{pokemonB}</button>
+        <button className="button" value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e);}}>{pokemonC}</button><button className="button" value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e);}}>{pokemonD}</button>
+        </div>
+
+        <div alt="counter">
+          <div>Score: {counter.count} </div>
+          <div>Highest score: {maxScore} </div>
         </div>
 
       </div>
