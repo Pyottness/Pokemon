@@ -38,7 +38,6 @@ function App() {
 
   //image constant//
   const [pokemonWho, setPokemonwho] = React.useState({
-    transform: "scale(0.8)",
     filter: "brightness(0)",
   })
   const pokemonImage = require(`../node_modules/pokemon-sprites/sprites/pokemon/other/official-artwork/${number}.png`)
@@ -57,7 +56,6 @@ function App() {
 
     //set image dark//
     setPokemonwho({
-      transform: "scale(0.8)",
       filter: "brightness(0)",
     })
 
@@ -93,7 +91,6 @@ function App() {
       setbuttonD({backgroundColor: "red"})
       //set image appear//
       setPokemonwho({
-        transform: "scale(0.8)",
         filter: "none",
       })
     } else if (pokemonB === correctName) {
@@ -103,7 +100,6 @@ function App() {
       setbuttonD({backgroundColor: "red"})
       //set image appear//
       setPokemonwho({
-        transform: "scale(0.8)",
         filter: "none",
       })
     } else if (pokemonC === correctName) {
@@ -113,7 +109,6 @@ function App() {
       setbuttonD({backgroundColor: "red"})
       //set image appear//
       setPokemonwho({
-        transform: "scale(0.8)",
         filter: "none",
       })
     } else {
@@ -123,7 +118,6 @@ function App() {
       setbuttonD({backgroundColor: "green"})
       //set image appear//
       setPokemonwho({
-        transform: "scale(0.8)",
         filter: "none",
       })
     }
@@ -132,14 +126,14 @@ function App() {
   var divStyle = {
     backgroundImage: `url(${background})`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
+    backgroundSize: "100% 100%",
     backgroundPosition: "center",
   }
 
   return (
-    <div className="App">
+    <div className="App" style={ divStyle }>
 
-      <header className="App-header" style={ divStyle }>
+      <div className="game">
 
         <div alt="which pokemon">
         <img src={pokemonImage} style={pokemonWho} className="pokemon" alt="Pokemon" />
@@ -155,7 +149,8 @@ function App() {
         <button className="button" style={buttonC} onClick={answer}>{pokemonC}</button><button className="button" style={buttonD} onClick={answer}>{pokemonD}</button>
         </div>
 
-      </header>
+      </div>
+
     </div>
   );
 }
