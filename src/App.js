@@ -88,44 +88,47 @@ function App() {
     //make answer buttons active//
     setDisable(false)
 
-    //shuffle pokemons and slice to four options//
-    const shuffled = await pokemons === undefined ? "loading..." : pokemons.sort(() => 0.5 - Math.random())
-    const sliced = await shuffled === undefined ? "loading..." : shuffled.slice(0, 4)
+    try {
+      //shuffle pokemons and slice to four options//
+      const shuffled = await pokemons.sort(() => 0.5 - Math.random())
+      const sliced = await shuffled.slice(0, 4)
 
-    //retrieve correct pokemon name and number//
-    const url = await sliced === undefined ? "loading..." : sliced[0].url
-    const regex = /(\d+)\/$/
-    const getNumber = await url === undefined ? "loading..." : url.match(regex)
-    const number = await getNumber === null ? "loading..." : getNumber[1]
-    const correctName = await sliced === undefined ? "loading..." : sliced[0].name
+      //retrieve correct pokemon name and number//
+      const url = await sliced[0].url
+      const regex = /(\d+)\/$/
+      const getNumber = await url.match(regex)
+      const number = await getNumber[1]
+      const correctName = await sliced[0].name
 
-    //set image dark//
-    setPokemonwho({
-      filter: "brightness(0)",
-    })
+      //set image dark//
+      setPokemonwho({
+        filter: "brightness(0)",
+      })
 
-    //shuffle four options//
-    const slicedShuffled = await sliced === undefined ? "loading..." : sliced.sort(() => 0.5 - Math.random())
-    const pokemonA = slicedShuffled === undefined ? "loading..." : slicedShuffled[0].name
-    const pokemonB = slicedShuffled === undefined ? "loading..." : slicedShuffled[1].name
-    const pokemonC = slicedShuffled === undefined ? "loading..." : slicedShuffled[2].name
-    const pokemonD = slicedShuffled === undefined ? "loading..." : slicedShuffled[3].name
+      //shuffle four options//
+      const slicedShuffled = await sliced === undefined ? "loading..." : sliced.sort(() => 0.5 - Math.random())
+      const pokemonA = await slicedShuffled[0].name
+      const pokemonB = await slicedShuffled[1].name
+      const pokemonC = await slicedShuffled[2].name
+      const pokemonD = await slicedShuffled[3].name
 
-    //set pokemon states//
-    setCorrectname(correctName)
-    setNumber(number)
-    setPokemonA(pokemonA)
-    setPokemonB(pokemonB)
-    setPokemonC(pokemonC)
-    setPokemonD(pokemonD)
+      //set pokemon states//
+      setCorrectname(correctName)
+      setNumber(number)
+      setPokemonA(pokemonA)
+      setPokemonB(pokemonB)
+      setPokemonC(pokemonC)
+      setPokemonD(pokemonD)
 
-    //set button states//
-    setbuttonA({backgroundColor: "blue"})
-    setbuttonB({backgroundColor: "blue"})
-    setbuttonC({backgroundColor: "blue"})
-    setbuttonD({backgroundColor: "blue"})
+      //set button states//
+      setbuttonA({backgroundColor: "blue"})
+      setbuttonB({backgroundColor: "blue"})
+      setbuttonC({backgroundColor: "blue"})
+      setbuttonD({backgroundColor: "blue"})
 
-    return null
+    } catch(error) {
+      alert(error)
+    }
   }
 
   const answer = () => {
