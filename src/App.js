@@ -187,19 +187,22 @@ function App() {
         <img src={pokemonImage} style={pokemonWho} className="pokemon" alt="Pokemon" />
         </div>
 
-        <div alt="play">
-        <button className="button" onClick={play}>Play</button>
-        <div>Hey, these are your Pokemon options. </div>
-        </div>
+        <div className="pokedex" alt="pokedex">
+          <button className="pokedex-button" alt="pokedex-button" />
+          <div className="score" alt="score">
+            <div>Score: {counter.count} </div>
+            <div>Highest score: {maxScore} </div>
+          </div>
 
-        <div alt="answers">
-        <button className="button" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonA}</button><button className="button" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonB}</button>
-        <button className="button" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonC}</button><button className="button" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonD}</button>
-        </div>
+          <div alt="play">
+            <button className="button" onClick={play}>Play</button>
+          </div>
 
-        <div alt="counter">
-          <div>Score: {counter.count} </div>
-          <div>Highest score: {maxScore} </div>
+          <div alt="answers">
+            <button className="button" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonA}</button><button className="button" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonB}</button>
+            <button className="button" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonC}</button><button className="button" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonD}</button>
+          </div>
+
         </div>
 
       </div>

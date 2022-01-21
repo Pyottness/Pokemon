@@ -16,14 +16,27 @@ body {
   min-height: 100vh;
   align-items: center;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: black;
-
 }
 .pokemon {
   max-width: 100%;
   max-height: 100%;
+}
+.pokedex {
+  height: 220px;
+  width: 230px;
+  margin: 1%;
+  padding: 0px 20px 20px 20px;
+  background-color: darkred;
+  border-radius: 10%;
+}
+.score {
+  padding: 10px;
+  background-color: black;
+  border-radius: 15%;
+  color: lightgreen;
 }
 
 .button {
@@ -40,15 +53,27 @@ body {
   background-color: blue;
   border: none;
   border-radius: 25px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 5px #999;
 }
 
 .button:hover {background-color: cyan}
 
 .button:active {
   background-color: blue;
-  box-shadow: 0 3px #666;
-  transform: translateY(10px);
+  box-shadow: 0 1px #666;
+  transform: translateY(7px);
+}
+
+.pokedex-button {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1%;
+  padding: 10px;
+  background-color: blue;
+  border-radius: 100%;
+}
+.pokedex-button:active {
+  background-color: cyan;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -64,4 +89,38 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+@media only screen and (min-width: 700px) {
+  .game {
+    position: fixed;
+    left: 5%;
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .game {
+    position: fixed;
+    left: 10%;
+  }
+  .pokedex {
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+@media screen and (min-device-width: 1020px) and (max-device-height: 600px) {
+  .pokedex {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 330px;
+  }
+}
+
+  @media screen and (min-device-width: 900px) and (min-device-height: 1360px) {
+    .pokedex {
+      width: 300px;
+      height: 260px;
+    }
 }
