@@ -31,18 +31,17 @@ function App() {
   const [pokemonD, setPokemonD] = React.useState('Pikachu')
 
   //button constants//
-  const [buttonA, setbuttonA] = React.useState({backgroundColor: "blue"})
-  const [buttonB, setbuttonB] = React.useState({backgroundColor: "blue"})
-  const [buttonC, setbuttonC] = React.useState({backgroundColor: "blue"})
-  const [buttonD, setbuttonD] = React.useState({backgroundColor: "blue"})
+  const [buttonPlay, setButtonplay] = React.useState({backgroundColor: "blue", color: "blue",})
+  const [buttonA, setbuttonA] = React.useState({backgroundColor: "blue", color: "blue",})
+  const [buttonB, setbuttonB] = React.useState({backgroundColor: "blue", color: "blue",})
+  const [buttonC, setbuttonC] = React.useState({backgroundColor: "blue", color: "blue",})
+  const [buttonD, setbuttonD] = React.useState({backgroundColor: "blue", color: "blue",})
 
   //image constant//
   const [pokemonWho, setPokemonwho] = React.useState({
     filter: "brightness(0)",
   })
   const pokemonImage = require(`../node_modules/pokemon-sprites/sprites/pokemon/other/official-artwork/${number}.png`)
-
-  //handle input//
 
   //counter constant//
   const initialCount = {count: 0}
@@ -81,7 +80,40 @@ function App() {
   }
 
   //disable constant//
-  const [disable, setDisable] = React.useState(false)
+  const [disable, setDisable] = React.useState(true)
+  const [disablePlay, setDisableplay] = React.useState(true)
+
+  //pokedex constants//
+  const [pokedexButton, setPokedexbutton] = React.useState(false)
+  const [pokedexButtonStyle, setPokedexbuttonstyle] = React.useState({backgroundColor: 'blue'})
+  const [pokedexScreen, setPokedexscreen] = React.useState({color: 'black'})
+
+  //pokedex//
+  const pokedex = () => {
+    if(pokedexButton === false) {
+      setPokedexbutton(true)
+      setPokedexbuttonstyle({backgroundColor: 'cyan'})
+      setPokedexscreen({color: 'lightgreen'})
+      setDisableplay(false)
+      setDisable(false)
+      setButtonplay({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "white",})
+      setbuttonB({backgroundColor: "blue", color: "white",})
+      setbuttonC({backgroundColor: "blue", color: "white",})
+      setbuttonD({backgroundColor: "blue", color: "white",})
+    } else {
+      setPokedexbutton(false)
+      setPokedexbuttonstyle({backgroundColor: 'blue'})
+      setPokedexscreen({color: 'black'})
+      setDisableplay(true)
+      setDisable(true)
+      setButtonplay({backgroundColor: "blue", color: "blue",})
+      setbuttonA({backgroundColor: "blue", color: "blue",})
+      setbuttonB({backgroundColor: "blue", color: "blue",})
+      setbuttonC({backgroundColor: "blue", color: "blue",})
+      setbuttonD({backgroundColor: "blue", color: "blue",})
+    }
+  }
 
   //play initializer//
   const play = async () => {
@@ -188,14 +220,14 @@ function App() {
         </div>
 
         <div className="pokedex" alt="pokedex">
-          <button className="pokedex-button" alt="pokedex-button" />
-          <div className="score" alt="score">
+          <button className="pokedex-button" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex} />
+          <div className="score" alt="score" style={pokedexScreen}>
             <div>Score: {counter.count} </div>
             <div>Highest score: {maxScore} </div>
           </div>
 
           <div alt="play">
-            <button className="button" onClick={play}>Play</button>
+            <button className="button" disabled={disablePlay} style={buttonPlay} onClick={play}>Play</button>
           </div>
 
           <div alt="answers">
