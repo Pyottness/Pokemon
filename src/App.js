@@ -95,7 +95,7 @@ function App() {
       setPokedexbuttonstyle({backgroundColor: 'cyan'})
       setPokedexscreen({color: 'lightgreen'})
       setDisableplay(false)
-      setDisable(false)
+      setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white",})
       setbuttonA({backgroundColor: "blue", color: "white",})
       setbuttonB({backgroundColor: "blue", color: "white",})
