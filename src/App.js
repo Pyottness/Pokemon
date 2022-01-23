@@ -1,6 +1,6 @@
 import background from './PokemonBackground.png';
 import './App.css';
-import * as React from 'react'
+import * as React from 'react';
 
 
 function App() {
@@ -165,37 +165,37 @@ function App() {
 
   const answer = () => {
     if (pokemonA === correctName) {
-      setbuttonA({backgroundColor: "green"})
-      setbuttonB({backgroundColor: "red"})
-      setbuttonC({backgroundColor: "red"})
-      setbuttonD({backgroundColor: "red"})
+      setbuttonA({backgroundColor: "green", boxShadow: "0 5px darkgreen"})
+      setbuttonB({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonC({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonD({backgroundColor: "red", boxShadow: "0 5px brown"})
       //set image appear//
       setPokemonwho({
         filter: "none",
       })
     } else if (pokemonB === correctName) {
-      setbuttonA({backgroundColor: "red"})
-      setbuttonB({backgroundColor: "green"})
-      setbuttonC({backgroundColor: "red"})
-      setbuttonD({backgroundColor: "red"})
+      setbuttonA({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonB({backgroundColor: "green", boxShadow: "0 5px darkgreen"})
+      setbuttonC({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonD({backgroundColor: "red", boxShadow: "0 5px brown"})
       //set image appear//
       setPokemonwho({
         filter: "none",
       })
     } else if (pokemonC === correctName) {
-      setbuttonA({backgroundColor: "red"})
-      setbuttonB({backgroundColor: "red"})
-      setbuttonC({backgroundColor: "green"})
-      setbuttonD({backgroundColor: "red"})
+      setbuttonA({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonB({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonC({backgroundColor: "green", boxShadow: "0 5px darkgreen"})
+      setbuttonD({backgroundColor: "red", boxShadow: "0 5px brown"})
       //set image appear//
       setPokemonwho({
         filter: "none",
       })
     } else {
-      setbuttonA({backgroundColor: "red"})
-      setbuttonB({backgroundColor: "red"})
-      setbuttonC({backgroundColor: "red"})
-      setbuttonD({backgroundColor: "green"})
+      setbuttonA({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonB({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonC({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonD({backgroundColor: "green", boxShadow: "0 5px darkgreen"})
       //set image appear//
       setPokemonwho({
         filter: "none",

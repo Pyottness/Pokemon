@@ -31,6 +31,7 @@ body {
   padding: 0px 20px 20px 20px;
   background-color: darkred;
   border-radius: 10%;
+  box-shadow: 2px 5px red;
 }
 .score {
   padding: 10px;
@@ -53,13 +54,13 @@ body {
   background-color: blue;
   border: none;
   border-radius: 25px;
-  box-shadow: 0 5px #999;
+  box-shadow: 0 5px darkblue;
 }
 
 .button:hover {background-color: cyan}
 
 .button:active {
-  box-shadow: 0 1px #666;
+  box-shadow: 0 1px darkblue;
   transform: translateY(7px);
 }
 
