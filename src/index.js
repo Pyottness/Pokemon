@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
 import SecondGeneration from './SecondGeneration.js'
+import ThirdGeneration from './ThirdGeneration.js'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -12,6 +13,7 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/secondgeneration" element={<SecondGeneration />} />
+      <Route path="/thirdgeneration" element={<ThirdGeneration />} />
     </Routes>
   </BrowserRouter>
   </React.StrictMode>,
