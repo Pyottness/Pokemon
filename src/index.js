@@ -7,6 +7,8 @@ import SecondGeneration from './Views/SecondGeneration.js'
 import ThirdGeneration from './Views/ThirdGeneration.js'
 import FourthGeneration from './Views/FourthGeneration.js'
 import FifthGeneration from './Views/FifthGeneration.js'
+import SixthGeneration from './Views/SixthGeneration.js'
+import SeventhGeneration from './Views/SeventhGeneration.js'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -18,6 +20,8 @@ ReactDOM.render(
       <Route path="/thirdgeneration" element={<ThirdGeneration />} />
       <Route path="/fourthgeneration" element={<FourthGeneration />} />
       <Route path="/fifthgeneration" element={<FifthGeneration />} />
+      <Route path="/sixthgeneration" element={<SixthGeneration />} />
+      <Route path="/seventhgeneration" element={<SeventhGeneration />} />
     </Routes>
   </BrowserRouter>
   </React.StrictMode>,

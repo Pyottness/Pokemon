@@ -3,31 +3,31 @@ import '../App.css';
 import * as React from 'react'
 import { NavLink } from "react-router-dom";
 
-export default function SecondGeneration() {
+export default function SeventhGeneration() {
 
-  const secondGeneration = React.useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=100&offset=151')
+  const seventhGeneration = React.useEffect(() => {
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=88&offset=721')
     .then((response) => response.json()
     .then((response) => {
-      setPokemons2(response.results)
+      setPokemons7(response.results)
     })
     .catch((error) => console.log(error))
   )
   }, [])
 
-    const [pokemons2, setPokemons2] = React.useState(
-      () => JSON.parse(window.localStorage.getItem('pokemons2')) ?? secondGeneration,
+    const [pokemons7, setPokemons7] = React.useState(
+      () => JSON.parse(window.localStorage.getItem('pokemons7')) ?? seventhGeneration,
     )
 
     React.useEffect(() => {
-      window.localStorage.setItem('pokemons2', JSON.stringify(pokemons2))
-    }, [pokemons2])
+      window.localStorage.setItem('pokemons7', JSON.stringify(pokemons7))
+    }, [pokemons7])
 
     //pokemon constants//
-    const [correctName, setCorrectname] = React.useState('celebi')
-    const [number, setNumber] = React.useState(251)
+    const [correctName, setCorrectname] = React.useState('melmetal')
+    const [number, setNumber] = React.useState(809)
     const [pokemonA, setPokemonA] = React.useState('bulbasaur')
-    const [pokemonB, setPokemonB] = React.useState('celebi')
+    const [pokemonB, setPokemonB] = React.useState('melmetal')
     const [pokemonC, setPokemonC] = React.useState('charizard')
     const [pokemonD, setPokemonD] = React.useState('pikachu')
 
@@ -85,6 +85,14 @@ export default function SecondGeneration() {
     const [disablePlay, setDisableplay] = React.useState(true)
 
     //pokedex constants//
+    //const initPokedexButton = false
+    //const [pokedexButton, setPokedexbutton] = React.useState(
+      //() => JSON.parse(window.localStorage.getItem('pokedexButton')) ?? initPokedexButton,
+    //)
+
+    //React.useEffect(() => {
+      //window.localStorage.setItem('pokedexButton', JSON.stringify(pokedexButton))
+    //}, [pokedexButton])
     const [pokedexButton, setPokedexbutton] = React.useState(false)
     const [pokedexButtonStyle, setPokedexbuttonstyle] = React.useState({backgroundColor: 'blue'})
     const [pokedexScreen, setPokedexscreen] = React.useState({color: 'black'})
@@ -123,7 +131,7 @@ export default function SecondGeneration() {
 
       try {
         //shuffle pokemons and slice to four options//
-        const shuffled = await pokemons2.sort(() => 0.5 - Math.random())
+        const shuffled = await pokemons7.sort(() => 0.5 - Math.random())
         const sliced = await shuffled.slice(0, 4)
 
         //retrieve correct pokemon name and number//
