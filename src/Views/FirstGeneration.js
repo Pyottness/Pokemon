@@ -244,6 +244,10 @@ export default function FirstGeneration() {
               return {backgroundColor: isActive ? "cyan" : ""};}}  alt="SecondGeneration">2</NavLink>
             <NavLink to="/thirdgeneration" className="button buttonNav" style={({ isActive }) => {
               return {backgroundColor: isActive ? "cyan" : ""};}}  alt="ThirdGeneration">3</NavLink>
+            <NavLink to="/fourthgeneration" className="button buttonNav" style={({ isActive }) => {
+              return {backgroundColor: isActive ? "cyan" : ""};}}  alt="FourthGeneration">4</NavLink>
+            <NavLink to="/fifthgeneration" className="button buttonNav" style={({ isActive }) => {
+              return {backgroundColor: isActive ? "cyan" : ""};}}  alt="FifthGeneration">5</NavLink>
           </div>
 
         </div>

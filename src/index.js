@@ -5,6 +5,8 @@ import './index.css';
 import App from './App';
 import SecondGeneration from './Views/SecondGeneration.js'
 import ThirdGeneration from './Views/ThirdGeneration.js'
+import FourthGeneration from './Views/FourthGeneration.js'
+import FifthGeneration from './Views/FifthGeneration.js'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -14,6 +16,8 @@ ReactDOM.render(
       <Route path="/" element={<App />} />
       <Route path="/secondgeneration" element={<SecondGeneration />} />
       <Route path="/thirdgeneration" element={<ThirdGeneration />} />
+      <Route path="/fourthgeneration" element={<FourthGeneration />} />
+      <Route path="/fifthgeneration" element={<FifthGeneration />} />
     </Routes>
   </BrowserRouter>
   </React.StrictMode>,
