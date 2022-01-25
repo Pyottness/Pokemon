@@ -1,6 +1,6 @@
 import './App.css';
 import * as React from 'react';
-import FirstGeneration from './FirstGeneration.js'
+import FirstGeneration from './Views/FirstGeneration.js'
 
 
 function App() {

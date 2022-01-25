@@ -1,5 +1,5 @@
-import background from './PokemonBackground.png';
-import './App.css';
+import background from '../Assets/Images/PokemonBackground.png';
+import '../App.css';
 import * as React from 'react';
 import { NavLink } from "react-router-dom";
 
@@ -43,7 +43,7 @@ export default function FirstGeneration() {
   const [pokemonWho, setPokemonwho] = React.useState({
     filter: "brightness(0)",
   })
-  const pokemonImage = require(`../node_modules/pokemon-sprites/sprites/pokemon/other/official-artwork/${number}.png`)
+  const pokemonImage = require(`../../node_modules/pokemon-sprites/sprites/pokemon/other/official-artwork/${number}.png`)
 
   //counter constant//
   const initialCount = {count: 0}

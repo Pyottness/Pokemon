@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
-import SecondGeneration from './SecondGeneration.js'
-import ThirdGeneration from './ThirdGeneration.js'
+import SecondGeneration from './Views/SecondGeneration.js'
+import ThirdGeneration from './Views/ThirdGeneration.js'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
