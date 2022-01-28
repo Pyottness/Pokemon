@@ -1,42 +1,58 @@
+import background from '../Assets/Images/PokemonBackground.png';
 import '../App.css';
 import * as React from 'react';
 import { NavLink } from "react-router-dom";
 
 export default function Login() {
 
-  const emailRef = React.useRef()
-  const passwordRef = React.useRef()
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
 
-  const handleInput = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(email)
+    console.log(password)
+  }
 
+  var divStyle = {
+    backgroundImage: `url(${background})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% 100%",
+    backgroundPosition: "center",
   }
 
   return (
-    <form>
+    <div className="App" style={ divStyle }>
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center"}}>
+    <form onSubmit={handleSubmit} className="pokedex">
 
       <div alt="Login Form">
 
       <label alt="Email">Email</label>
-      <input alt="Email" type="email" ref={emailRef} onChange={handleInput()} placeholder="Enter Email"></input>
+      <input alt="Email" type="email" value={email} onChange={event => setEmail(event.target.value)} placeholder="Enter Email" />
 
       <label alt="Password">Password</label>
-      <input alt="Password" type="password" ref={passwordRef} onChange={handleInput()} placeholder="Enter Password"></input>
+      <input alt="Password" type="password" value={password} onChange={event => setPassword(event.target.value)} placeholder="Enter Password" />
 
       </div>
 
       <div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="button" alt="log in">Log in</button>
       </div>
+
+      <p style={{color: 'white'}}>Don't have an account?</p>
 
       <div alt="links">
 
-      <NavLink to="/register" className="button buttonNav" style={({ isActive }) => {
+      <NavLink to="/register" className="button" style={({ isActive }) => {
         return {backgroundColor: isActive ? "cyan" : ""};}} alt="Register">Register</NavLink>
-      <NavLink to="/" className="button buttonNav" style={({ isActive }) => {
-        return {backgroundColor: isActive ? "cyan" : ""};}} alt="FirstGeneration">1</NavLink>
+      <NavLink to="/" className="button" style={({ isActive }) => {
+        return {backgroundColor: isActive ? "cyan" : ""};}} alt="FirstGeneration">Home</NavLink>
 
       </div>
 
     </form>
+    </div>
+    </div>
   );
 }

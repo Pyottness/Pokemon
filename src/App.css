@@ -78,6 +78,17 @@ body {
   width: 10%;
 }
 
+@keyframes headshakeNo {
+    25% {
+        /* far-right */
+        transform: translateX(2%);
+    }
+    75% {
+        /* far-left */
+        transform: translateX(2% * -1);
+    }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .loading {
     animation: loading infinite 20s linear;
@@ -91,6 +102,32 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+label {
+  color: white;
+}
+
+input {
+  -webkit-appearance: none;
+  background-color: black;
+  color: white;
+  border: 2px solid blue;
+  border-radius: .4rem;
+  box-shadow: none;
+  box-sizing: inherit;
+  height: 2rem;
+  padding: .6rem 1.0rem .7rem;
+  width: 90%;
+}
+
+input[type='email']:not(:focus):invalid,
+input[type='password']:not(:focus):invalid,
+input[id='user_name']:not(:focus):invalid {
+  color: white;
+  border: 2px solid red;
+  background: red;
+  animation: headshakeNo 100ms cubic-bezier(.4,.1,.6,.9) 2;
 }
 
 @media only screen and (min-width: 700px) {
