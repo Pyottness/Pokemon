@@ -39,15 +39,15 @@ export default function Register() {
       <input alt="Email" type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter Email"></input>
 
       <label alt="Password">Password</label>
-      <input alt="Password" type="password" onChange={event => setPassword(event.target.value)} placeholder="Enter Password"></input>
+      <input alt="Password" type="password" style={password === rePassword && password.length !== 0  ? {backgroundColor: "green"} : password.length === 0 ? {backgroundColor: "black"} : {backgroundColor: "red"}} onChange={event => setPassword(event.target.value)} placeholder="Enter Password"></input>
 
       <label alt="Repeat Password">Repeat Password</label>
-      <input alt="Repeat Password" type="password" onChange={event => setRepassword(event.target.value)} placeholder="Retype Password"></input>
+      <input alt="Repeat Password" type="password" style={password === rePassword && password.length !== 0  ? {backgroundColor: "green"} : rePassword.length === 0 ? {backgroundColor: "black"} : {backgroundColor: "red"}} onChange={event => setRepassword(event.target.value)} placeholder="Retype Password"></input>
 
       </div>
 
       <div>
-        <button type="submit" className="button" alt="register">Register</button>
+        <button type="submit" disabled={password === rePassword && password.length !== 0 && username.length !== 0 && email.length !== 0 ? false : true} className="button" alt="register">Register</button>
       </div>
 
       <p style={{color: "white"}}>Already a user?</p>
