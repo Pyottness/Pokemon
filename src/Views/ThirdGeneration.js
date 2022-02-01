@@ -6,10 +6,10 @@ import { NavLink } from "react-router-dom";
 export default function ThirdGeneration() {
 
   const thirdGeneration = React.useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=135&offset=251')
+    fetch('http://localhost:3001/api/gen3')
     .then((response) => response.json()
     .then((response) => {
-      setPokemons3(response.results)
+      setPokemons3(response)
     })
     .catch((error) => console.log(error))
   )

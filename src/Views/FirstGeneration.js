@@ -7,10 +7,10 @@ import { NavLink } from "react-router-dom";
 export default function FirstGeneration() {
 
   const initialPokemons = React.useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+    fetch('http://localhost:3001/api/gen1')
     .then((response) => response.json()
     .then((response) => {
-      setPokemons(response.results)
+      setPokemons(response)
     })
     .catch((error) => console.log(error))
   )

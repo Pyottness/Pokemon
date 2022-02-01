@@ -6,10 +6,10 @@ import { NavLink } from "react-router-dom";
 export default function FifthGeneration() {
 
   const fifthGeneration = React.useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=156&offset=493')
+    fetch('http://localhost:3001/api/gen5')
     .then((response) => response.json()
     .then((response) => {
-      setPokemons5(response.results)
+      setPokemons5(response)
     })
     .catch((error) => console.log(error))
   )

@@ -6,10 +6,10 @@ import { NavLink } from "react-router-dom";
 export default function SeventhGeneration() {
 
   const seventhGeneration = React.useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=88&offset=721')
+    fetch('http://localhost:3001/api/gen7')
     .then((response) => response.json()
     .then((response) => {
-      setPokemons7(response.results)
+      setPokemons7(response)
     })
     .catch((error) => console.log(error))
   )
