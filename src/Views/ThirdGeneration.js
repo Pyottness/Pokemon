@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 export default function ThirdGeneration() {
 
   const thirdGeneration = React.useEffect(() => {
-    fetch('http://localhost:9000/.netlify/functions/app/api/gen3')
+    fetch('/.netlify/functions/app/api/gen3')
     .then((response) => response.json()
     .then((response) => {
       setPokemons3(response)

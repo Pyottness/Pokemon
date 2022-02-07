@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 export default function SecondGeneration() {
 
   const secondGeneration = React.useEffect(() => {
-    fetch('http://localhost:9000/.netlify/functions/app/api/gen2')
+    fetch('/.netlify/functions/app/api/gen2')
     .then((response) => response.json()
     .then((response) => {
       setPokemons2(response)
