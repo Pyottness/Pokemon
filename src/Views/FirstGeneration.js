@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 export default function FirstGeneration() {
 
   const initialPokemons = React.useEffect(() => {
-    fetch('http://localhost:3001/api/gen1')
+    fetch('http://localhost:9000/.netlify/functions/app/api/gen1')
     .then((response) => response.json()
     .then((response) => {
       setPokemons(response)

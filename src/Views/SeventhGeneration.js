@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 export default function SeventhGeneration() {
 
   const seventhGeneration = React.useEffect(() => {
-    fetch('http://localhost:3001/api/gen7')
+    fetch('http://localhost:9000/.netlify/functions/app/api/gen7')
     .then((response) => response.json()
     .then((response) => {
       setPokemons7(response)

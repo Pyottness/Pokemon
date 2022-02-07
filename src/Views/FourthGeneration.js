@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 export default function FourthGeneration() {
 
   const fourthGeneration = React.useEffect(() => {
-    fetch('http://localhost:3001/api/gen4')
+    fetch('http://localhost:9000/.netlify/functions/app/api/gen4')
     .then((response) => response.json()
     .then((response) => {
       setPokemons4(response)
