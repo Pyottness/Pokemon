@@ -28,7 +28,7 @@ export default function Register() {
   return (
     <div className="App" style={ divStyle }>
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center"}}>
-    <form onSubmit={handleSubmit} style={{height: "420px"}} className="pokedex">
+    <form onSubmit={handleSubmit} style={{height: "420px"}} className="pokedexForm">
 
       <div alt="Registration Form">
 

@@ -24,7 +24,7 @@ export default function Login() {
   return (
     <div className="App" style={ divStyle }>
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center"}}>
-    <form onSubmit={handleSubmit} className="pokedex">
+    <form onSubmit={handleSubmit} className="pokedexForm">
 
       <div alt="Login Form">
 
@@ -49,6 +49,10 @@ export default function Login() {
       <NavLink to="/" className="button" style={({ isActive }) => {
         return {backgroundColor: isActive ? "cyan" : ""};}} alt="FirstGeneration">Home</NavLink>
 
+      </div>
+
+      <div>
+      <p style={{color: 'white'}}>Forgot your password?</p>
       </div>
 
     </form>

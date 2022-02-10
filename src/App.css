@@ -33,6 +33,15 @@ body {
   border-radius: 10%;
   box-shadow: 2px 5px red;
 }
+.pokedexForm {
+  height: 350px;
+  width: 230px;
+  margin: 1%;
+  padding: 0px 20px 20px 20px;
+  background-color: darkred;
+  border-radius: 10%;
+  box-shadow: 2px 5px red;
+}
 .score {
   padding: 10px;
   background-color: black;
