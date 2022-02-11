@@ -1,10 +1,20 @@
 
 const express = require('express');
 const serverless = require('serverless-http');
+const mongoose = require('mongoose');
 const app = express();
 const router = express.Router();
 
 process.env.CONTEXT = "production";
+
+mongoose.connect('')
+  .then(() => {
+    console.log('Successfully connected to MongoDB Atlas!');
+  })
+  .catch((error) => {
+    console.log('Unable to connect to MongoDB Atlas!');
+    console.error(error);
+  });
 
 app.use(express.json());
 
