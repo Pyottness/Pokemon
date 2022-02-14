@@ -12,12 +12,20 @@
   "author": "Mark J Pyott",
   "license": "ISC",
   "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.8",
+    "aws-sdk": "^2.1073.0",
+    "aws4": "^1.11.0",
     "bcrypt": "^5.0.1",
+    "bson-ext": "^4.0.2",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
+    "mock-aws-s3": "^4.0.2",
     "mongoose": "^6.1.8",
     "mongoose-unique-validator": "^3.0.0",
     "netlify-lambda": "^2.0.15",
-    "serverless-http": "^2.7.0"
+    "nock": "^13.2.4",
+    "node-gyp": "^8.4.1",
+    "serverless-http": "^2.7.0",
+    "snappy": "^7.1.1"
   }
 }

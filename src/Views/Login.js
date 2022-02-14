@@ -24,7 +24,7 @@ export default function Login() {
   return (
     <div className="App" style={ divStyle }>
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center"}}>
-    <form action="/.netlify/functions/app/login" method="post" onSubmit={handleSubmit} className="pokedexForm">
+    <form action="/.netlify/functions/app/auth/login" method="post" onSubmit={handleSubmit} className="pokedexForm">
 
       <div alt="Login Form">
 

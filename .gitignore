@@ -4,6 +4,7 @@
 /node_modules
 /Backend/node_modules
 /Backend/functions
+/Backend/src/secrets
 /functions
 /.pnp
 .pnp.js

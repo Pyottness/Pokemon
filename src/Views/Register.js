@@ -11,7 +11,25 @@ export default function Register() {
   const [rePassword, setRepassword] = React.useState('')
 
   const handleSubmit = (event) => {
-
+    event.preventDefault()
+    fetch("/.netlify/functions/app/auth/register", {
+      method: 'POST',
+      body: JSON.stringify({"username": username,
+                            "email": email,
+                            "password": password}),
+      headers: {
+        'Content-Type': 'applications/json'
+      }
+    })
+    .then(res => res.json())
+    .then(
+      (result) => {
+        console.log(result)
+      }
+    )
+    .catch(error => {
+      console.error(error);
+    });
   }
 
   var divStyle = {
@@ -24,7 +42,7 @@ export default function Register() {
   return (
     <div className="App" style={ divStyle }>
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center"}}>
-    <form method="post" action="http://localhost:9000/.netlify/functions/app/register" onSubmit={handleSubmit} style={{height: "420px"}} className="pokedexForm">
+    <form onSubmit={handleSubmit} style={{height: "420px"}} className="pokedexForm">
 
       <div alt="Registration Form">
 

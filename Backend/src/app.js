@@ -2,12 +2,14 @@
 const express = require('express');
 const serverless = require('serverless-http');
 const mongoose = require('mongoose');
+const secrets = require('./secrets');
 const app = express();
 const router = express.Router();
+const userRoutes = require('./routes/user');
 
 process.env.CONTEXT = "production";
 
-mongoose.connect('')
+mongoose.connect('mongodb+srv://' + process.env['DB_USERNAME'] + ':' + process.env['DB_PASSWORD'] + '@pokemon.svjq7.mongodb.net/Pokemon?retryWrites=true&w=majority')
   .then(() => {
     console.log('Successfully connected to MongoDB Atlas!');
   })
@@ -892,6 +894,12 @@ router.get('/api/gen7', (req, res, next) => {
   res.status(200).json(gen7);
 });
 
+//App
+
 app.use('/.netlify/functions/app', router);
+
+//Users
+
+app.use('/.netlify/functions/app/auth', userRoutes);
 
 module.exports.handler = serverless(app);
