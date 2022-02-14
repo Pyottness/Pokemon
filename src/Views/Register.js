@@ -12,6 +12,9 @@ export default function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+
+    //handle form submission
+    
     fetch("/.netlify/functions/app/auth/register", {
       method: 'POST',
       body: JSON.stringify({"username": username,
