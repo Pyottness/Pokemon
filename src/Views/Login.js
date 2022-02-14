@@ -10,8 +10,26 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(email)
-    console.log(password)
+
+    //handle login submission
+
+    fetch("/.netlify/functions/app/auth/register", {
+      method: 'POST',
+      body: JSON.stringify({"email": email,
+                            "password": password}),
+      headers: {
+        'Content-Type': 'applications/json'
+      }
+    })
+    .then(res => res.json())
+    .then(
+      (result) => {
+        console.log(result)
+      }
+    )
+    .catch(error => {
+      console.error(error);
+    });
   }
 
   var divStyle = {
