@@ -14,12 +14,12 @@ export default function Register() {
     event.preventDefault()
 
     //handle form submission
-    
+
     fetch("/.netlify/functions/app/auth/register", {
       method: 'POST',
-      body: JSON.stringify({"username": username,
-                            "email": email,
-                            "password": password}),
+      body: JSON.stringify({"email": email,
+                            "password": password,
+                            "username": username}),
       headers: {
         'Content-Type': 'applications/json'
       }
@@ -31,7 +31,7 @@ export default function Register() {
       }
     )
     .catch(error => {
-      console.error(error);
+      console.log(error);
     });
   }
 

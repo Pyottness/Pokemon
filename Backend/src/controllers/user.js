@@ -1,10 +1,10 @@
 const User = require('../models/user');
-//const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 exports.register = (req, res, next) => {
-  bcrypt.hash(req.body.password, 10).then(
-    (hash) => {
+  bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(req.body.password, salt, function(err, hash) {
       const user = new User({
         email: req.body.email,
         password: hash,
@@ -23,8 +23,8 @@ exports.register = (req, res, next) => {
           })
         }
       )
-    }
-  )
+    });
+});
 };
 
 exports.login = (req, res, next) => {
