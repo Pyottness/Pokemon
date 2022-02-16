@@ -1,12 +1,14 @@
 import background from '../Assets/Images/PokemonBackground.png';
 import '../App.css';
 import * as React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Login() {
 
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -24,6 +26,11 @@ export default function Login() {
     .then(res => res.json())
     .then(
       (result) => {
+        if(result.message === 'Connected'){
+          navigate('/');
+        } else {
+          alert(result.error);
+        }
         console.log(result)
       }
     )

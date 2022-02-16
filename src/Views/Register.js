@@ -1,7 +1,7 @@
 import background from '../Assets/Images/PokemonBackground.png';
 import '../App.css';
 import * as React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Register() {
 
@@ -9,6 +9,8 @@ export default function Register() {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [rePassword, setRepassword] = React.useState('')
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -27,9 +29,17 @@ export default function Register() {
     .then(res => res.json())
     .then(
       (result) => {
-        console.log(result)
-        alert(result.message);
-        alert(result.error.message);
+        if(result.message === 'User created successfully'){
+          navigate('/');
+        } else if(result.error.message.match('expected `username` to be unique.') && result.error.message.match('expected `email` to be unique.')){
+          alert('User already created.')
+        } else if(result.error.message.match('expected `username` to be unique.')){
+          alert('Username already taken')
+        } else if(result.error.message.match('expected `email` to be unique.')){
+          alert('Email already in use.')
+        } else {
+          alert(result.error.message);
+        }
       }
     )
     .catch(error => {
