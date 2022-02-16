@@ -13,12 +13,12 @@ export default function Login() {
 
     //handle login submission
 
-    fetch("/.netlify/functions/app/auth/register", {
+    fetch("/.netlify/functions/app/auth/login", {
       method: 'POST',
       body: JSON.stringify({"email": email,
                             "password": password}),
       headers: {
-        'Content-Type': 'applications/json'
+        'Content-Type': 'application/json'
       }
     })
     .then(res => res.json())
@@ -42,7 +42,7 @@ export default function Login() {
   return (
     <div className="App" style={ divStyle }>
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center"}}>
-    <form action="/.netlify/functions/app/auth/login" method="post" onSubmit={handleSubmit} className="pokedexForm">
+    <form onSubmit={handleSubmit} className="pokedexForm">
 
       <div alt="Login Form">
 

@@ -21,13 +21,15 @@ export default function Register() {
                             "password": password,
                             "username": username}),
       headers: {
-        'Content-Type': 'applications/json'
+        'Content-Type': 'application/json'
       }
     })
     .then(res => res.json())
     .then(
       (result) => {
         console.log(result)
+        alert(result.message);
+        alert(result.error.message);
       }
     )
     .catch(error => {

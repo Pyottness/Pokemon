@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const secrets = require('./secrets');
 const app = express();
 const router = express.Router();
+const bodyParser = require("body-parser");
 const userRoutes = require('./routes/user');
 
 process.env.CONTEXT = "production";
@@ -19,6 +20,7 @@ mongoose.connect('mongodb+srv://' + process.env['DB_USERNAME'] + ':' + process.e
   });
 
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //headers
 
