@@ -75,15 +75,31 @@ body {
 
 .pokedex-button {
   -webkit-tap-highlight-color: transparent;
-  display: flex;
-  justify-content: flex-start;
   margin: 1%;
-  padding: 10px;
+  padding: 15px;
   border-radius: 100%;
+}
+.pokedexTop {
+  height: 45px;
+}
+.pokedex-init {
+  float: left;
+}
+
+.users {
+  float: right;
+  padding: 2px;
 }
 
 .buttonNav {
   -webkit-tap-highlight-color: transparent;
+  width: 10%;
+}
+
+.buttonLogin {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  justify-content: center;
   width: 10%;
 }
 

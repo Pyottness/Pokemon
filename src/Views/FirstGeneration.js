@@ -205,6 +205,8 @@ export default function FirstGeneration() {
     }
   }
 
+  //background image
+
   var divStyle = {
     backgroundImage: `url(${background})`,
     backgroundRepeat: "no-repeat",
@@ -222,7 +224,11 @@ export default function FirstGeneration() {
         </div>
 
         <div className="pokedex" alt="pokedex">
-          <button className="pokedex-button" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex} />
+        <div className="pokedexTop" alt="pokedexTop">
+          <button className="pokedex-button pokedex-init" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex} />
+          <NavLink to="/login" className="pokedex-button users" alt="Login" style={({ isLoggedIn }) => {
+            return {backgroundColor: isLoggedIn ? "green" : "red"};}}>🙋</NavLink>
+        </div>
           <div className="score" alt="score" style={pokedexScreen}>
             <div>Score: {counter.count} </div>
             <div>Highest score: {maxScore} </div>
