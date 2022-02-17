@@ -11,6 +11,7 @@ import SixthGeneration from './Views/SixthGeneration.js'
 import SeventhGeneration from './Views/SeventhGeneration.js'
 import Login from './Views/Login.js'
 import Register from './Views/Register.js'
+import About from './Views/About.js'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -26,6 +27,7 @@ ReactDOM.render(
       <Route path="/seventhgeneration" element={<SeventhGeneration />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   </BrowserRouter>
   </React.StrictMode>,

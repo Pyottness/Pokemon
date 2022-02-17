@@ -76,7 +76,7 @@ body {
 .pokedex-button {
   -webkit-tap-highlight-color: transparent;
   margin: 1%;
-  padding: 15px;
+  padding: 8px;
   border-radius: 100%;
 }
 .pokedexTop {
@@ -93,13 +93,6 @@ body {
 
 .buttonNav {
   -webkit-tap-highlight-color: transparent;
-  width: 10%;
-}
-
-.buttonLogin {
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  justify-content: center;
   width: 10%;
 }
 

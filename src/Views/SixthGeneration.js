@@ -229,8 +229,15 @@ export default function SixthGeneration() {
           </div>
 
           <div className="pokedex" alt="pokedex">
-            <button className="pokedex-button" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex} />
-            <div className="score" alt="score" style={pokedexScreen}>
+
+          <div className="pokedexTop" alt="pokedexTop">
+            <button className="pokedex-button pokedex-init" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex}>⚡</button>
+            <NavLink to="/about" className="pokedex-button users" alt="About" style={{backgroundColor: "yellow", textDecoration: "none"}}>❓</NavLink>
+            <NavLink to="/login" className="pokedex-button users" alt="Login" style={({ isLoggedIn }) => {
+              return {backgroundColor: isLoggedIn ? "green" : "red", textDecoration: "none"};}}>🙋</NavLink>
+          </div>
+
+          <div className="score" alt="score" style={pokedexScreen}>
               <div>Score: {counter.count} </div>
               <div>Highest score: {maxScore} </div>
             </div>
