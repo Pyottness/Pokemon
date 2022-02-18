@@ -12,6 +12,7 @@ import SeventhGeneration from './Views/SeventhGeneration.js'
 import Login from './Views/Login.js'
 import Register from './Views/Register.js'
 import About from './Views/About.js'
+import Profile from './Views/Profile.js'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -28,6 +29,7 @@ ReactDOM.render(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/about" element={<About />} />
+      <Route path="/profile/:user" element={<Profile />} />
     </Routes>
   </BrowserRouter>
   </React.StrictMode>,
