@@ -29,7 +29,7 @@ ReactDOM.render(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/about" element={<About />} />
-      <Route path="/profile/:user" element={<Profile />} />
+      <Route path="/profile/:username" element={<Profile />} />
     </Routes>
   </BrowserRouter>
   </React.StrictMode>,

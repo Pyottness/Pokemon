@@ -7,6 +7,12 @@ export default function Login() {
 
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
+  const [token, setToken] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('token')))
+
+  React.useEffect(() => {
+    window.localStorage.setItem('token', JSON.stringify(token))
+  }, [token])
 
   const navigate = useNavigate();
 
@@ -27,6 +33,9 @@ export default function Login() {
     .then(
       (result) => {
         if(result.message === 'Connected'){
+
+          setToken(result.token)
+
           navigate('/');
         } else {
           alert(result.error);

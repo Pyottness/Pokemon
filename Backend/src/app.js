@@ -11,7 +11,7 @@ const userRoutes = require('./routes/user');
 
 process.env.CONTEXT = "production";
 
-mongoose.connect('mongodb+srv://' + DB_USERNAME + ':' + DB_PASSWORD + '@pokemon.svjq7.mongodb.net/Pokemon?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://' + process.env.DB_USERNAME + ':' + process.env.DB_PASSWORD + '@pokemon.svjq7.mongodb.net/Pokemon?retryWrites=true&w=majority')
   .then(() => {
     console.log('Successfully connected to MongoDB Atlas!');
   })

@@ -6,6 +6,7 @@ import { NavLink, useParams } from "react-router-dom";
 export default function Profile() {
 
   const { username } = useParams();
+  const token = window.localStorage.getItem('token');
   const character = '🙋‍♀️‍';
   const badges = 0;
 
