@@ -8,21 +8,26 @@ export default function FirstGeneration() {
 
   //First Generation Pokemon data
 
-  const initialPokemons = React.useEffect(() => {
+  const [pokemons, setPokemons] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('pokemons'))
+  )
+
+  //Pokemon data to be set depending on number button pressed
+
+  const [pokemonData, setPokemondata] = React.useState(pokemons)
+
+  React.useEffect(() => {
     if (window.localStorage.getItem('pokemons') === null){
       fetch('/.netlify/functions/app/api/gen1')
       .then((response) => response.json()
       .then((response) => {
         setPokemons(response)
+        setPokemondata(response)
       })
       .catch((error) => console.log(error))
     )
     }
   }, [])
-
-  const [pokemons, setPokemons] = React.useState(
-    () => JSON.parse(window.localStorage.getItem('pokemons')) ?? initialPokemons,
-  )
 
   React.useEffect(() => {
     window.localStorage.setItem('pokemons', JSON.stringify(pokemons))
@@ -158,10 +163,6 @@ export default function FirstGeneration() {
       React.useEffect(() => {
         window.localStorage.setItem('pokemons7', JSON.stringify(pokemons7))
       }, [pokemons7])
-
-  //Pokemon data to be set depending on number button pressed
-
-  const [pokemonData, setPokemondata] = React.useState(pokemons)
 
   //pokemon constants//
   const [correctName, setCorrectname] = React.useState('Mew')
