@@ -6,13 +6,15 @@ import { NavLink } from "react-router-dom";
 export default function FourthGeneration() {
 
   const fourthGeneration = React.useEffect(() => {
-    fetch('/.netlify/functions/app/api/gen4')
-    .then((response) => response.json()
-    .then((response) => {
-      setPokemons4(response)
-    })
-    .catch((error) => console.log(error))
-  )
+    if (window.localStorage.getItem('pokemons4') === null){
+      fetch('/.netlify/functions/app/api/gen4')
+      .then((response) => response.json()
+      .then((response) => {
+        setPokemons4(response)
+      })
+      .catch((error) => console.log(error))
+    )
+    }
   }, [])
 
     const [pokemons4, setPokemons4] = React.useState(

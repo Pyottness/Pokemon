@@ -6,13 +6,15 @@ import { NavLink } from "react-router-dom";
 export default function SixthGeneration() {
 
   const sixthGeneration = React.useEffect(() => {
-    fetch('/.netlify/functions/app/api/gen6')
-    .then((response) => response.json()
-    .then((response) => {
-      setPokemons6(response)
-    })
-    .catch((error) => console.log(error))
-  )
+    if (window.localStorage.getItem('pokemons6') === null){
+      fetch('/.netlify/functions/app/api/gen6')
+      .then((response) => response.json()
+      .then((response) => {
+        setPokemons6(response)
+      })
+      .catch((error) => console.log(error))
+    )
+    }  
   }, [])
 
     const [pokemons6, setPokemons6] = React.useState(

@@ -6,13 +6,15 @@ import { NavLink } from "react-router-dom";
 export default function ThirdGeneration() {
 
   const thirdGeneration = React.useEffect(() => {
-    fetch('/.netlify/functions/app/api/gen3')
-    .then((response) => response.json()
-    .then((response) => {
-      setPokemons3(response)
-    })
-    .catch((error) => console.log(error))
-  )
+    if (window.localStorage.getItem('pokemons3') === null){
+      fetch('/.netlify/functions/app/api/gen3')
+      .then((response) => response.json()
+      .then((response) => {
+        setPokemons3(response)
+      })
+      .catch((error) => console.log(error))
+    )
+    }
   }, [])
 
     const [pokemons3, setPokemons3] = React.useState(

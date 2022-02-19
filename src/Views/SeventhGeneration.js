@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 export default function SeventhGeneration() {
 
   const seventhGeneration = React.useEffect(() => {
+    if (window.localStorage.getItem('pokemons7') === null)
     fetch('/.netlify/functions/app/api/gen7')
     .then((response) => response.json()
     .then((response) => {

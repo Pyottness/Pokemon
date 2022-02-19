@@ -6,13 +6,15 @@ import { NavLink } from "react-router-dom";
 export default function FifthGeneration() {
 
   const fifthGeneration = React.useEffect(() => {
-    fetch('/.netlify/functions/app/api/gen5')
-    .then((response) => response.json()
-    .then((response) => {
-      setPokemons5(response)
-    })
-    .catch((error) => console.log(error))
-  )
+    if (window.localStorage.getItem('pokemons5') === null){
+      fetch('/.netlify/functions/app/api/gen5')
+      .then((response) => response.json()
+      .then((response) => {
+        setPokemons5(response)
+      })
+      .catch((error) => console.log(error))
+    )
+    }
   }, [])
 
     const [pokemons5, setPokemons5] = React.useState(
