@@ -6,6 +6,8 @@ import { NavLink } from "react-router-dom";
 
 export default function FirstGeneration() {
 
+  //First Generation Pokemon data
+
   const initialPokemons = React.useEffect(() => {
     if (window.localStorage.getItem('pokemons') === null){
       fetch('/.netlify/functions/app/api/gen1')
@@ -26,6 +28,141 @@ export default function FirstGeneration() {
     window.localStorage.setItem('pokemons', JSON.stringify(pokemons))
   }, [pokemons])
 
+  //Second Generation Pokemon data
+
+  const secondGeneration = React.useEffect(() => {
+    if (window.localStorage.getItem('pokemons2') === null){
+      fetch('/.netlify/functions/app/api/gen2')
+      .then((response) => response.json()
+      .then((response) => {
+        setPokemons2(response)
+      })
+      .catch((error) => console.log(error))
+    )
+    }
+  }, [])
+
+  const [pokemons2, setPokemons2] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('pokemons2')) ?? secondGeneration,
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('pokemons2', JSON.stringify(pokemons2))
+  }, [pokemons2])
+
+  //Third Generation Pokemon data
+
+  const thirdGeneration = React.useEffect(() => {
+    if (window.localStorage.getItem('pokemons3') === null){
+      fetch('/.netlify/functions/app/api/gen3')
+      .then((response) => response.json()
+      .then((response) => {
+        setPokemons3(response)
+      })
+      .catch((error) => console.log(error))
+    )
+    }
+  }, [])
+
+    const [pokemons3, setPokemons3] = React.useState(
+      () => JSON.parse(window.localStorage.getItem('pokemons3')) ?? thirdGeneration,
+    )
+
+    React.useEffect(() => {
+      window.localStorage.setItem('pokemons3', JSON.stringify(pokemons3))
+    }, [pokemons3])
+
+    //Fourth Generation Pokemon data
+
+    const fourthGeneration = React.useEffect(() => {
+      if (window.localStorage.getItem('pokemons4') === null){
+        fetch('/.netlify/functions/app/api/gen4')
+        .then((response) => response.json()
+        .then((response) => {
+          setPokemons4(response)
+        })
+        .catch((error) => console.log(error))
+      )
+      }
+    }, [])
+
+      const [pokemons4, setPokemons4] = React.useState(
+        () => JSON.parse(window.localStorage.getItem('pokemons4')) ?? fourthGeneration,
+      )
+
+      React.useEffect(() => {
+        window.localStorage.setItem('pokemons4', JSON.stringify(pokemons4))
+      }, [pokemons4])
+
+    //Fifth Generation Pokemon data
+
+    const fifthGeneration = React.useEffect(() => {
+      if (window.localStorage.getItem('pokemons5') === null){
+        fetch('/.netlify/functions/app/api/gen5')
+        .then((response) => response.json()
+        .then((response) => {
+          setPokemons5(response)
+        })
+        .catch((error) => console.log(error))
+      )
+      }
+    }, [])
+
+      const [pokemons5, setPokemons5] = React.useState(
+        () => JSON.parse(window.localStorage.getItem('pokemons5')) ?? fifthGeneration,
+      )
+
+      React.useEffect(() => {
+        window.localStorage.setItem('pokemons5', JSON.stringify(pokemons5))
+      }, [pokemons5])
+
+    //Sixth Generation Pokemon data
+
+    const sixthGeneration = React.useEffect(() => {
+      if (window.localStorage.getItem('pokemons6') === null){
+        fetch('/.netlify/functions/app/api/gen6')
+        .then((response) => response.json()
+        .then((response) => {
+          setPokemons6(response)
+        })
+        .catch((error) => console.log(error))
+      )
+      }
+    }, [])
+
+      const [pokemons6, setPokemons6] = React.useState(
+        () => JSON.parse(window.localStorage.getItem('pokemons6')) ?? sixthGeneration,
+      )
+
+      React.useEffect(() => {
+        window.localStorage.setItem('pokemons6', JSON.stringify(pokemons6))
+      }, [pokemons6])
+
+    //Seventh Generation Pokemon data
+
+    const seventhGeneration = React.useEffect(() => {
+      if (window.localStorage.getItem('pokemons7') === null)
+      fetch('/.netlify/functions/app/api/gen7')
+      .then((response) => response.json()
+      .then((response) => {
+        setPokemons7(response)
+      })
+      .catch((error) => console.log(error))
+    )
+    }, [])
+
+      const [pokemons7, setPokemons7] = React.useState(
+        () => JSON.parse(window.localStorage.getItem('pokemons7')) ?? seventhGeneration,
+      )
+
+      React.useEffect(() => {
+        window.localStorage.setItem('pokemons7', JSON.stringify(pokemons7))
+      }, [pokemons7])
+
+  //Pokemon data to be set depending on number button pressed
+
+  const [pokemonData, setPokemondata] = React.useState(pokemons)
+
   //pokemon constants//
   const [correctName, setCorrectname] = React.useState('Mew')
   const [number, setNumber] = React.useState(151)
@@ -41,7 +178,7 @@ export default function FirstGeneration() {
   const [buttonC, setbuttonC] = React.useState({backgroundColor: "blue", color: "blue",})
   const [buttonD, setbuttonD] = React.useState({backgroundColor: "blue", color: "blue",})
 
-  //image constant//
+  //image constant set to hidden//
   const [pokemonWho, setPokemonwho] = React.useState({
     filter: "brightness(0)",
   })
@@ -119,6 +256,130 @@ export default function FirstGeneration() {
     }
   }
 
+  //pokemon data handler
+
+  const pokemonDatahandler = (n) => {
+    if(n === 1){
+      setPokemondata(pokemons)
+      setNumber(151)
+      setPokemonA('bulbasaur')
+      setPokemonB('mew')
+      setPokemonC('charizard')
+      setPokemonD('pikachu')
+      setDisable(true)
+      setButtonplay({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "white",})
+      setbuttonB({backgroundColor: "blue", color: "white",})
+      setbuttonC({backgroundColor: "blue", color: "white",})
+      setbuttonD({backgroundColor: "blue", color: "white",})
+      setPokemonwho({
+        filter: "brightness(0)",
+      })
+    }
+    if(n === 2){
+      setPokemondata(pokemons2)
+      setNumber(251)
+      setPokemonA('bulbasaur')
+      setPokemonB('celebi')
+      setPokemonC('charizard')
+      setPokemonD('pikachu')
+      setDisable(true)
+      setButtonplay({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "white",})
+      setbuttonB({backgroundColor: "blue", color: "white",})
+      setbuttonC({backgroundColor: "blue", color: "white",})
+      setbuttonD({backgroundColor: "blue", color: "white",})
+      setPokemonwho({
+        filter: "brightness(0)",
+      })
+    }
+    if(n === 3){
+      setPokemondata(pokemons3)
+      setNumber(252)
+      setPokemonA('bulbasaur')
+      setPokemonB('treecko')
+      setPokemonC('charizard')
+      setPokemonD('pikachu')
+      setDisable(true)
+      setButtonplay({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "white",})
+      setbuttonB({backgroundColor: "blue", color: "white",})
+      setbuttonC({backgroundColor: "blue", color: "white",})
+      setbuttonD({backgroundColor: "blue", color: "white",})
+      setPokemonwho({
+        filter: "brightness(0)",
+      })
+    }
+    if(n === 4){
+      setPokemondata(pokemons4)
+      setNumber(387)
+      setPokemonA('bulbasaur')
+      setPokemonB('turtwig')
+      setPokemonC('charizard')
+      setPokemonD('pikachu')
+      setDisable(true)
+      setButtonplay({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "white",})
+      setbuttonB({backgroundColor: "blue", color: "white",})
+      setbuttonC({backgroundColor: "blue", color: "white",})
+      setbuttonD({backgroundColor: "blue", color: "white",})
+      setPokemonwho({
+        filter: "brightness(0)",
+      })
+    }
+    if(n === 5){
+      setPokemondata(pokemons5)
+      setNumber(649)
+      setPokemonA('bulbasaur')
+      setPokemonB('genesect')
+      setPokemonC('charizard')
+      setPokemonD('pikachu')
+      setDisable(true)
+      setButtonplay({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "white",})
+      setbuttonB({backgroundColor: "blue", color: "white",})
+      setbuttonC({backgroundColor: "blue", color: "white",})
+      setbuttonD({backgroundColor: "blue", color: "white",})
+      setPokemonwho({
+        filter: "brightness(0)",
+      })
+    }
+    if(n === 6){
+      setPokemondata(pokemons6)
+      setNumber(721)
+      setPokemonA('bulbasaur')
+      setPokemonB('volcanion')
+      setPokemonC('charizard')
+      setPokemonD('pikachu')
+      setDisable(true)
+      setButtonplay({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "white",})
+      setbuttonB({backgroundColor: "blue", color: "white",})
+      setbuttonC({backgroundColor: "blue", color: "white",})
+      setbuttonD({backgroundColor: "blue", color: "white",})
+      setPokemonwho({
+        filter: "brightness(0)",
+      })
+    }
+    if(n === 7){
+      setPokemondata(pokemons7)
+      setNumber(809)
+      setPokemonA('bulbasaur')
+      setPokemonB('melmetal')
+      setPokemonC('charizard')
+      setPokemonD('pikachu')
+      setDisable(true)
+      setButtonplay({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "white",})
+      setbuttonB({backgroundColor: "blue", color: "white",})
+      setbuttonC({backgroundColor: "blue", color: "white",})
+      setbuttonD({backgroundColor: "blue", color: "white",})
+      setPokemonwho({
+        filter: "brightness(0)",
+      })
+    }
+  }
+
   //play initializer//
   const play = async () => {
     //make answer buttons active//
@@ -126,7 +387,7 @@ export default function FirstGeneration() {
 
     try {
       //shuffle pokemons and slice to four options//
-      const shuffled = await pokemons.sort(() => 0.5 - Math.random())
+      const shuffled = await pokemonData.sort(() => 0.5 - Math.random())
       const sliced = await shuffled.slice(0, 4)
 
       //retrieve correct pokemon name and number//
@@ -249,20 +510,13 @@ export default function FirstGeneration() {
           </div>
 
           <div alt="links">
-            <NavLink to="/" className="button buttonNav" style={({ isActive }) => {
-              return {backgroundColor: isActive ? "cyan" : ""};}} alt="FirstGeneration">1</NavLink>
-            <NavLink to="/secondgeneration" className="button buttonNav" style={({ isActive }) => {
-              return {backgroundColor: isActive ? "cyan" : ""};}}  alt="SecondGeneration">2</NavLink>
-            <NavLink to="/thirdgeneration" className="button buttonNav" style={({ isActive }) => {
-              return {backgroundColor: isActive ? "cyan" : ""};}}  alt="ThirdGeneration">3</NavLink>
-            <NavLink to="/fourthgeneration" className="button buttonNav" style={({ isActive }) => {
-              return {backgroundColor: isActive ? "cyan" : ""};}}  alt="FourthGeneration">4</NavLink>
-            <NavLink to="/fifthgeneration" className="button buttonNav" style={({ isActive }) => {
-              return {backgroundColor: isActive ? "cyan" : ""};}}  alt="FifthGeneration">5</NavLink>
-            <NavLink to="/sixthgeneration" className="button buttonNav" style={({ isActive }) => {
-              return {backgroundColor: isActive ? "cyan" : ""};}}  alt="SixthGeneration">6</NavLink>
-            <NavLink to="/seventhgeneration" className="button buttonNav" style={({ isActive }) => {
-              return {backgroundColor: isActive ? "cyan" : ""};}}  alt="SeventhGeneration">7</NavLink>
+            <button className="button buttonNav" alt="FirstGeneration" onClick={(n) => {pokemonDatahandler(n = 1)}}>1</button>
+            <button className="button buttonNav"  alt="SecondGeneration" onClick={(n) => {pokemonDatahandler(n = 2)}}>2</button>
+            <button className="button buttonNav" alt="ThirdGeneration" onClick={(n) => {pokemonDatahandler(n = 3)}}>3</button>
+            <button className="button buttonNav" alt="FourthGeneration" onClick={(n) => {pokemonDatahandler(n = 4)}}>4</button>
+            <button className="button buttonNav" alt="FifthGeneration" onClick={(n) => {pokemonDatahandler(n = 5)}}>5</button>
+            <button className="button buttonNav" alt="SixthGeneration" onClick={(n) => {pokemonDatahandler(n = 6)}}>6</button>
+            <button className="button buttonNav" alt="SeventhGeneration" onClick={(n) => {pokemonDatahandler(n = 7)}}>7</button>
           </div>
 
         </div>
