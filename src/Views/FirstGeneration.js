@@ -256,27 +256,26 @@ export default function FirstGeneration() {
     }
   }
 
-  //pokemon data handler
+  //pokemon data handler that sets the pokemon generation
 
   const pokemonDatahandler = (n) => {
-    if(n === 1){
-      setPokemondata(pokemons)
-      setNumber(151)
-      setPokemonA('bulbasaur')
-      setPokemonB('mew')
-      setPokemonC('charizard')
-      setPokemonD('pikachu')
-      setDisable(true)
-      setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "white",})
-      setbuttonB({backgroundColor: "blue", color: "white",})
-      setbuttonC({backgroundColor: "blue", color: "white",})
-      setbuttonD({backgroundColor: "blue", color: "white",})
-      setPokemonwho({
-        filter: "brightness(0)",
-      })
-    }
-    if(n === 2){
+    if (n === 1){
+        setPokemondata(pokemons)
+        setNumber(151)
+        setPokemonA('bulbasaur')
+        setPokemonB('mew')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "white",})
+        setbuttonA({backgroundColor: "blue", color: "white",})
+        setbuttonB({backgroundColor: "blue", color: "white",})
+        setbuttonC({backgroundColor: "blue", color: "white",})
+        setbuttonD({backgroundColor: "blue", color: "white",})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+    } else if(n === 2){
       setPokemondata(pokemons2)
       setNumber(251)
       setPokemonA('bulbasaur')
@@ -292,8 +291,7 @@ export default function FirstGeneration() {
       setPokemonwho({
         filter: "brightness(0)",
       })
-    }
-    if(n === 3){
+    } else if(n === 3){
       setPokemondata(pokemons3)
       setNumber(252)
       setPokemonA('bulbasaur')
@@ -309,8 +307,7 @@ export default function FirstGeneration() {
       setPokemonwho({
         filter: "brightness(0)",
       })
-    }
-    if(n === 4){
+    } else if(n === 4){
       setPokemondata(pokemons4)
       setNumber(387)
       setPokemonA('bulbasaur')
@@ -326,8 +323,7 @@ export default function FirstGeneration() {
       setPokemonwho({
         filter: "brightness(0)",
       })
-    }
-    if(n === 5){
+    } else if(n === 5){
       setPokemondata(pokemons5)
       setNumber(649)
       setPokemonA('bulbasaur')
@@ -343,8 +339,7 @@ export default function FirstGeneration() {
       setPokemonwho({
         filter: "brightness(0)",
       })
-    }
-    if(n === 6){
+    } else if(n === 6){
       setPokemondata(pokemons6)
       setNumber(721)
       setPokemonA('bulbasaur')
@@ -360,8 +355,7 @@ export default function FirstGeneration() {
       setPokemonwho({
         filter: "brightness(0)",
       })
-    }
-    if(n === 7){
+    } else if(n === 7){
       setPokemondata(pokemons7)
       setNumber(809)
       setPokemonA('bulbasaur')
@@ -377,6 +371,8 @@ export default function FirstGeneration() {
       setPokemonwho({
         filter: "brightness(0)",
       })
+    } else {
+        setPokemondata(pokemons)
     }
   }
 
@@ -501,22 +497,22 @@ export default function FirstGeneration() {
           </div>
 
           <div alt="play">
-            <button className="button" disabled={disablePlay} style={buttonPlay} onClick={play}>Play</button>
+            <button className="button" disabled={disablePlay} style={buttonPlay} onClick={() => {play();}}>Play</button>
           </div>
 
           <div alt="answers">
-            <button className="button" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonA}</button><button className="button" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonB}</button>
-            <button className="button" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonC}</button><button className="button" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonD}</button>
+            <button className="button-answer" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonA}</button><button className="button-answer" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonB}</button>
+            <button className="button-answer" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonC}</button><button className="button-answer" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonD}</button>
           </div>
 
           <div alt="links">
-            <button className="button buttonNav" alt="FirstGeneration" onClick={(n) => {pokemonDatahandler(n = 1)}}>1</button>
-            <button className="button buttonNav"  alt="SecondGeneration" onClick={(n) => {pokemonDatahandler(n = 2)}}>2</button>
-            <button className="button buttonNav" alt="ThirdGeneration" onClick={(n) => {pokemonDatahandler(n = 3)}}>3</button>
-            <button className="button buttonNav" alt="FourthGeneration" onClick={(n) => {pokemonDatahandler(n = 4)}}>4</button>
-            <button className="button buttonNav" alt="FifthGeneration" onClick={(n) => {pokemonDatahandler(n = 5)}}>5</button>
-            <button className="button buttonNav" alt="SixthGeneration" onClick={(n) => {pokemonDatahandler(n = 6)}}>6</button>
-            <button className="button buttonNav" alt="SeventhGeneration" onClick={(n) => {pokemonDatahandler(n = 7)}}>7</button>
+            <button className="button buttonNav" alt="FirstGeneration" onClick={(n) => {pokemonDatahandler(n = 1);}}>1</button>
+            <button className="button buttonNav"  alt="SecondGeneration" onClick={(n) => {pokemonDatahandler(n = 2);}}>2</button>
+            <button className="button buttonNav" alt="ThirdGeneration" onClick={(n) => {pokemonDatahandler(n = 3);}}>3</button>
+            <button className="button buttonNav" alt="FourthGeneration" onClick={(n) => {pokemonDatahandler(n = 4);}}>4</button>
+            <button className="button buttonNav" alt="FifthGeneration" onClick={(n) => {pokemonDatahandler(n = 5);}}>5</button>
+            <button className="button buttonNav" alt="SixthGeneration" onClick={(n) => {pokemonDatahandler(n = 6);}}>6</button>
+            <button className="button buttonNav" alt="SeventhGeneration" onClick={(n) => {pokemonDatahandler(n = 7);}}>7</button>
           </div>
 
         </div>
