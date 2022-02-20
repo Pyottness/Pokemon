@@ -20,19 +20,28 @@ body {
   font-size: calc(10px + 2vmin);
   color: black;
 }
+
+/* The size of the pokemon image. */
+
 .pokemon {
   max-width: 90%;
   max-height: 90%;
 }
+
+/* The red remote in the game which is called a pokedex. */
+
 .pokedex {
   height: 270px;
   width: 260px;
   margin: 1%;
-  padding: 0px 20px 20px 20px;
+  padding: 2px 20px 20px 20px;
   background-color: darkred;
   border-radius: 10%;
   box-shadow: 2px 5px red;
 }
+
+/* The red form in login and Registration pages. */
+
 .pokedexForm {
   height: 350px;
   width: 230px;
@@ -42,6 +51,9 @@ body {
   border-radius: 10%;
   box-shadow: 2px 5px red;
 }
+
+/* The black screen in the pokedex. */
+
 .score {
   padding: 10px;
   background-color: black;
@@ -49,28 +61,13 @@ body {
   color: lightgreen;
 }
 
+/* Regular buttons in the app. */
+
 .button {
   -webkit-tap-highlight-color: transparent;
   display: inline-block;
   margin: 4px;
   width: 45%;
-  font-size: 18px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: white;
-  background-color: blue;
-  border: none;
-  border-radius: 25px;
-  box-shadow: 0 5px darkblue;
-}
-.button-answer {
-  -webkit-tap-highlight-color: transparent;
-  display: inline-block;
-  margin: 4px;
-  width: 115px;
-  height: 40px;
   font-size: 18px;
   cursor: pointer;
   text-align: center;
@@ -90,28 +87,62 @@ body {
   transform: translateY(7px);
 }
 
+/* The four answer buttons in the game. */
+
+.button-answer {
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  margin: 4px;
+  width: 115px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: blue;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 5px darkblue;
+}
+
+/* The buttons at the top of the pokedex. */
+
 .pokedex-button {
   -webkit-tap-highlight-color: transparent;
   margin: 1%;
   padding: 8px;
   border-radius: 100%;
 }
+
+/* The space at the top of the pokedex. */
+
 .pokedexTop {
   height: 45px;
 }
+
+/* The start button in the pokedex is pushed left. */
+
 .pokedex-init {
   float: left;
 }
+
+/* The User and About button in the pokedex are pushed right. */
 
 .users {
   float: right;
   padding: 2px;
 }
 
+/* The buttons in the pokedex at the bottom that pick the generation of pokemon displayed. */
+
 .buttonNav {
   -webkit-tap-highlight-color: transparent;
   width: 10%;
 }
+
+/* The animation moves side to side as if to say no. */
 
 @keyframes headshakeNo {
     25% {
@@ -123,6 +154,8 @@ body {
         transform: translateX(2% * -1);
     }
 }
+
+/* The animation to indicate loading. */
 
 @media (prefers-reduced-motion: no-preference) {
   .loading {
@@ -142,6 +175,8 @@ body {
 label {
   color: white;
 }
+
+/* Input boxes in Login and Registration forms. */
 
 input {
   -webkit-appearance: none;
@@ -164,6 +199,8 @@ input[id='user_name']:not(:focus):invalid {
   background: red;
   animation: headshakeNo 100ms cubic-bezier(.4,.1,.6,.9) 2;
 }
+
+/* Media to resize or move the pokedex on screen for different devices. */
 
 @media only screen and (min-width: 700px) {
   .game {
