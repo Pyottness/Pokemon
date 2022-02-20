@@ -16,13 +16,88 @@ export default function FirstGeneration() {
 
   const [pokemonData, setPokemondata] = React.useState(pokemons)
 
+  //Second Generation Pokemon data
+
+  const [pokemons2, setPokemons2] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('pokemons2'))
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('pokemons2', JSON.stringify(pokemons2))
+  }, [pokemons2])
+
+  //Third Generation Pokemon data
+
+    const [pokemons3, setPokemons3] = React.useState(
+      () => JSON.parse(window.localStorage.getItem('pokemons3'))
+    )
+
+    React.useEffect(() => {
+      window.localStorage.setItem('pokemons3', JSON.stringify(pokemons3))
+    }, [pokemons3])
+
+    //Fourth Generation Pokemon data
+
+      const [pokemons4, setPokemons4] = React.useState(
+        () => JSON.parse(window.localStorage.getItem('pokemons4'))
+      )
+
+      React.useEffect(() => {
+        window.localStorage.setItem('pokemons4', JSON.stringify(pokemons4))
+      }, [pokemons4])
+
+    //Fifth Generation Pokemon data
+
+      const [pokemons5, setPokemons5] = React.useState(
+        () => JSON.parse(window.localStorage.getItem('pokemons5'))
+      )
+
+      React.useEffect(() => {
+        window.localStorage.setItem('pokemons5', JSON.stringify(pokemons5))
+      }, [pokemons5])
+
+    //Sixth Generation Pokemon data
+
+      const [pokemons6, setPokemons6] = React.useState(
+        () => JSON.parse(window.localStorage.getItem('pokemons6'))
+      )
+
+      React.useEffect(() => {
+        window.localStorage.setItem('pokemons6', JSON.stringify(pokemons6))
+      }, [pokemons6])
+
+    //Seventh Generation Pokemon data
+
+      const [pokemons7, setPokemons7] = React.useState(
+        () => JSON.parse(window.localStorage.getItem('pokemons7'))
+      )
+
+      React.useEffect(() => {
+        window.localStorage.setItem('pokemons7', JSON.stringify(pokemons7))
+      }, [pokemons7])
+
+  //fetch all the pokemon data
+
   React.useEffect(() => {
     if (window.localStorage.getItem('pokemons') === null){
-      fetch('/.netlify/functions/app/api/gen1')
+      fetch('/.netlify/functions/app/api/everygen')
       .then((response) => response.json()
       .then((response) => {
-        setPokemons(response)
-        setPokemondata(response)
+        const gen1 = response.slice(0, 151)
+        const gen2 = response.slice(151, 251)
+        const gen3 = response.slice(251, 386)
+        const gen4 = response.slice(386, 493)
+        const gen5 = response.slice(493, 649)
+        const gen6 = response.slice(649, 721)
+        const gen7 = response.slice(721, 809)
+        setPokemons(gen1)
+        setPokemondata(gen1)
+        setPokemons2(gen2)
+        setPokemons3(gen3)
+        setPokemons4(gen4)
+        setPokemons5(gen5)
+        setPokemons6(gen6)
+        setPokemons7(gen7)
       })
       .catch((error) => console.log(error))
     )
@@ -32,137 +107,6 @@ export default function FirstGeneration() {
   React.useEffect(() => {
     window.localStorage.setItem('pokemons', JSON.stringify(pokemons))
   }, [pokemons])
-
-  //Second Generation Pokemon data
-
-  const secondGeneration = React.useEffect(() => {
-    if (window.localStorage.getItem('pokemons2') === null){
-      fetch('/.netlify/functions/app/api/gen2')
-      .then((response) => response.json()
-      .then((response) => {
-        setPokemons2(response)
-      })
-      .catch((error) => console.log(error))
-    )
-    }
-  }, [])
-
-  const [pokemons2, setPokemons2] = React.useState(
-    () => JSON.parse(window.localStorage.getItem('pokemons2')) ?? secondGeneration,
-  )
-
-  React.useEffect(() => {
-    window.localStorage.setItem('pokemons2', JSON.stringify(pokemons2))
-  }, [pokemons2])
-
-  //Third Generation Pokemon data
-
-  const thirdGeneration = React.useEffect(() => {
-    if (window.localStorage.getItem('pokemons3') === null){
-      fetch('/.netlify/functions/app/api/gen3')
-      .then((response) => response.json()
-      .then((response) => {
-        setPokemons3(response)
-      })
-      .catch((error) => console.log(error))
-    )
-    }
-  }, [])
-
-    const [pokemons3, setPokemons3] = React.useState(
-      () => JSON.parse(window.localStorage.getItem('pokemons3')) ?? thirdGeneration,
-    )
-
-    React.useEffect(() => {
-      window.localStorage.setItem('pokemons3', JSON.stringify(pokemons3))
-    }, [pokemons3])
-
-    //Fourth Generation Pokemon data
-
-    const fourthGeneration = React.useEffect(() => {
-      if (window.localStorage.getItem('pokemons4') === null){
-        fetch('/.netlify/functions/app/api/gen4')
-        .then((response) => response.json()
-        .then((response) => {
-          setPokemons4(response)
-        })
-        .catch((error) => console.log(error))
-      )
-      }
-    }, [])
-
-      const [pokemons4, setPokemons4] = React.useState(
-        () => JSON.parse(window.localStorage.getItem('pokemons4')) ?? fourthGeneration,
-      )
-
-      React.useEffect(() => {
-        window.localStorage.setItem('pokemons4', JSON.stringify(pokemons4))
-      }, [pokemons4])
-
-    //Fifth Generation Pokemon data
-
-    const fifthGeneration = React.useEffect(() => {
-      if (window.localStorage.getItem('pokemons5') === null){
-        fetch('/.netlify/functions/app/api/gen5')
-        .then((response) => response.json()
-        .then((response) => {
-          setPokemons5(response)
-        })
-        .catch((error) => console.log(error))
-      )
-      }
-    }, [])
-
-      const [pokemons5, setPokemons5] = React.useState(
-        () => JSON.parse(window.localStorage.getItem('pokemons5')) ?? fifthGeneration,
-      )
-
-      React.useEffect(() => {
-        window.localStorage.setItem('pokemons5', JSON.stringify(pokemons5))
-      }, [pokemons5])
-
-    //Sixth Generation Pokemon data
-
-    const sixthGeneration = React.useEffect(() => {
-      if (window.localStorage.getItem('pokemons6') === null){
-        fetch('/.netlify/functions/app/api/gen6')
-        .then((response) => response.json()
-        .then((response) => {
-          setPokemons6(response)
-        })
-        .catch((error) => console.log(error))
-      )
-      }
-    }, [])
-
-      const [pokemons6, setPokemons6] = React.useState(
-        () => JSON.parse(window.localStorage.getItem('pokemons6')) ?? sixthGeneration,
-      )
-
-      React.useEffect(() => {
-        window.localStorage.setItem('pokemons6', JSON.stringify(pokemons6))
-      }, [pokemons6])
-
-    //Seventh Generation Pokemon data
-
-    const seventhGeneration = React.useEffect(() => {
-      if (window.localStorage.getItem('pokemons7') === null)
-      fetch('/.netlify/functions/app/api/gen7')
-      .then((response) => response.json()
-      .then((response) => {
-        setPokemons7(response)
-      })
-      .catch((error) => console.log(error))
-    )
-    }, [])
-
-      const [pokemons7, setPokemons7] = React.useState(
-        () => JSON.parse(window.localStorage.getItem('pokemons7')) ?? seventhGeneration,
-      )
-
-      React.useEffect(() => {
-        window.localStorage.setItem('pokemons7', JSON.stringify(pokemons7))
-      }, [pokemons7])
 
   //pokemon constants//
   const [correctName, setCorrectname] = React.useState('Mew')

@@ -32,10 +32,10 @@ app.use((req, res, next) => {
   next();
 });
 
-//pokemon First Generation
+//Every Pokemon Generation
 
-router.get('/api/gen1', (req, res, next) => {
-  const gen1 = [
+router.get('/api/everygen', (req, res, next) => {
+  const everyGen = [
    {name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/'},
    {name: 'ivysaur', url: 'https://pokeapi.co/api/v2/pokemon/2/'},
    {name: 'venusaur', url: 'https://pokeapi.co/api/v2/pokemon/3/'},
@@ -187,14 +187,6 @@ router.get('/api/gen1', (req, res, next) => {
    {name: 'dragonite', url: 'https://pokeapi.co/api/v2/pokemon/149/'},
    {name: 'mewtwo', url: 'https://pokeapi.co/api/v2/pokemon/150/'},
    {name: 'mew', url: 'https://pokeapi.co/api/v2/pokemon/151/'},
-  ];
-  res.status(200).json(gen1);
-});
-
-//pokemon Gen2
-
-router.get('/api/gen2', (req, res, next) => {
-  const gen2 = [
    {name: 'chikorita', url: 'https://pokeapi.co/api/v2/pokemon/152/'},
    {name: 'bayleef', url: 'https://pokeapi.co/api/v2/pokemon/153/'},
    {name: 'meganium', url: 'https://pokeapi.co/api/v2/pokemon/154/'},
@@ -295,14 +287,6 @@ router.get('/api/gen2', (req, res, next) => {
    {name: 'lugia', url: 'https://pokeapi.co/api/v2/pokemon/249/'},
    {name: 'ho-oh', url: 'https://pokeapi.co/api/v2/pokemon/250/'},
    {name: 'celebi', url: 'https://pokeapi.co/api/v2/pokemon/251/'},
-  ];
-  res.status(200).json(gen2);
-});
-
-//pokemon Gen3
-
-router.get('/api/gen3', (req, res, next) => {
-  const gen3 = [
    {name: 'treecko', url: 'https://pokeapi.co/api/v2/pokemon/252/'},
    {name: 'grovyle', url: 'https://pokeapi.co/api/v2/pokemon/253/'},
    {name: 'sceptile', url: 'https://pokeapi.co/api/v2/pokemon/254/'},
@@ -438,14 +422,6 @@ router.get('/api/gen3', (req, res, next) => {
    {name: 'rayquaza', url: 'https://pokeapi.co/api/v2/pokemon/384/'},
    {name: 'jirachi', url: 'https://pokeapi.co/api/v2/pokemon/385/'},
    {name: 'deoxys-normal', url: 'https://pokeapi.co/api/v2/pokemon/386/'},
-  ];
-  res.status(200).json(gen3);
-});
-
-//pokemon Gen4
-
-router.get('/api/gen4', (req, res, next) => {
-  const gen4 = [
    {name: 'turtwig', url: 'https://pokeapi.co/api/v2/pokemon/387/'},
    {name: 'grotle', url: 'https://pokeapi.co/api/v2/pokemon/388/'},
    {name: 'torterra', url: 'https://pokeapi.co/api/v2/pokemon/389/'},
@@ -553,14 +529,6 @@ router.get('/api/gen4', (req, res, next) => {
    {name: 'darkrai', url: 'https://pokeapi.co/api/v2/pokemon/491/'},
    {name: 'shaymin-land', url: 'https://pokeapi.co/api/v2/pokemon/492/'},
    {name: 'arceus', url: 'https://pokeapi.co/api/v2/pokemon/493/'},
-  ];
-  res.status(200).json(gen4);
-});
-
-//pokemon Gen5
-
-router.get('/api/gen5', (req, res, next) => {
-  const gen5 = [
    {name: 'victini', url: 'https://pokeapi.co/api/v2/pokemon/494/'},
    {name: 'snivy', url: 'https://pokeapi.co/api/v2/pokemon/495/'},
    {name: 'servine', url: 'https://pokeapi.co/api/v2/pokemon/496/'},
@@ -717,14 +685,6 @@ router.get('/api/gen5', (req, res, next) => {
    {name: 'keldeo-ordinary', url: 'https://pokeapi.co/api/v2/pokemon/647/'},
    {name: 'meloetta-aria', url: 'https://pokeapi.co/api/v2/pokemon/648/'},
    {name: 'genesect', url: 'https://pokeapi.co/api/v2/pokemon/649/'},
-  ];
-  res.status(200).json(gen5);
-});
-
-//pokemon Gen6
-
-router.get('/api/gen6', (req, res, next) => {
-  const gen6 = [
    {name: 'chespin', url: 'https://pokeapi.co/api/v2/pokemon/650/'},
    {name: 'quilladin', url: 'https://pokeapi.co/api/v2/pokemon/651/'},
    {name: 'chesnaught', url: 'https://pokeapi.co/api/v2/pokemon/652/'},
@@ -797,14 +757,6 @@ router.get('/api/gen6', (req, res, next) => {
    {name: 'diancie', url: 'https://pokeapi.co/api/v2/pokemon/719/'},
    {name: 'hoopa', url: 'https://pokeapi.co/api/v2/pokemon/720/'},
    {name: 'volcanion', url: 'https://pokeapi.co/api/v2/pokemon/721/'},
-  ];
-  res.status(200).json(gen6);
-});
-
-//pokemon Gen7
-
-router.get('/api/gen7', (req, res, next) => {
-  const gen7 = [
    {name: 'rowlet', url: 'https://pokeapi.co/api/v2/pokemon/722/'},
    {name: 'dartrix', url: 'https://pokeapi.co/api/v2/pokemon/723/'},
    {name: 'decidueye', url: 'https://pokeapi.co/api/v2/pokemon/724/'},
@@ -894,8 +846,9 @@ router.get('/api/gen7', (req, res, next) => {
    {name: 'meltan', url: 'https://pokeapi.co/api/v2/pokemon/808/'},
    {name: 'melmetal', url: 'https://pokeapi.co/api/v2/pokemon/809/'},
   ];
-  res.status(200).json(gen7);
+  res.status(200).json(everyGen);
 });
+
 
 //App
 
