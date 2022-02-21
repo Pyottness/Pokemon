@@ -14,7 +14,7 @@ export default function FirstGeneration() {
     () => JSON.parse(window.localStorage.getItem('username'))
   )
 
-  const character = JSON.parse(window.localStorage.getItem('character'))
+const character = JSON.parse(window.localStorage.getItem('character')) === null ? '👨' : JSON.parse(window.localStorage.getItem('character'))
 
   const userLoggedin = () => {
       navigate(`/profile/${username[0]}`)
@@ -191,14 +191,12 @@ export default function FirstGeneration() {
   //pokedex constants//
   const [pokedexButton, setPokedexbutton] = React.useState(false)
   const [pokedexButtonStyle, setPokedexbuttonstyle] = React.useState({backgroundColor: 'blue'})
-  const [pokedexScreen, setPokedexscreen] = React.useState({color: 'black'})
 
   //pokedex//
   const pokedex = () => {
     if(pokedexButton === false) {
       setPokedexbutton(true)
       setPokedexbuttonstyle({backgroundColor: 'cyan'})
-      setPokedexscreen({color: 'lightgreen'})
       setDisableplay(false)
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white",})
@@ -209,7 +207,6 @@ export default function FirstGeneration() {
     } else {
       setPokedexbutton(false)
       setPokedexbuttonstyle({backgroundColor: 'blue'})
-      setPokedexscreen({color: 'black'})
       setDisableplay(true)
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "blue",})
@@ -428,6 +425,19 @@ export default function FirstGeneration() {
     }
   }
 
+  //score pokedexScreen
+
+  const Score = () => {
+    if(pokedexButton === true) {
+      return (<div className="score" alt="score">
+        <div>Score: {counter.count} </div>
+        <div>Highest score: {maxScore} </div>
+      </div>)
+    } else {
+      return (<div className="score" alt="score"></div>)
+    }
+  }
+
   //background image
 
   var divStyle = {
@@ -450,14 +460,11 @@ export default function FirstGeneration() {
 
         <div className="pokedexTop" alt="pokedexTop">
           <button className="pokedex-button pokedex-init" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex}>⚡</button>
-          <NavLink to="/about" className="pokedex-button users" alt="About" style={{backgroundColor: "yellow", textDecoration: "none"}}>❓</NavLink>
-          <button className="pokedex-button users" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: window.localStorage.getItem('character') === null ? "18px" : "5px", fontSize: "20px"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>{character}</button>
+          <NavLink to="/about" className="pokedex-button users" alt="About" style={{backgroundColor: "yellow", textDecoration: "none", padding: "5px", fontSize: "20px"}}>❓</NavLink>
+          <button className="pokedex-button users" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: "5px", fontSize: "20px"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>{character}</button>
         </div>
 
-          <div className="score" alt="score" style={pokedexScreen}>
-            <div>Score: {counter.count} </div>
-            <div>Highest score: {maxScore} </div>
-          </div>
+          <Score />
 
           <div alt="play">
             <button className="button" disabled={disablePlay} style={buttonPlay} onClick={() => {play();}}>Play</button>

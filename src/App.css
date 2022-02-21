@@ -55,6 +55,7 @@ body {
 /* The black screen in the pokedex. */
 
 .score {
+  height: 65px;
   padding: 10px;
   background-color: black;
   border-radius: 15%;
