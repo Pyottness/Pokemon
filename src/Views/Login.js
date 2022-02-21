@@ -35,14 +35,14 @@ export default function Login() {
           setUsername(result.username)
 
           window.localStorage.setItem('token', JSON.stringify(result.token))
-
+          window.localStorage.setItem('userId', JSON.stringify(result.userId))
           window.localStorage.setItem('username', JSON.stringify(result.username))
+          window.localStorage.setItem('character', JSON.stringify(result.character))
 
           navigate(`/profile/${ username }`);
         } else {
           alert(result.error);
         }
-        console.log(result)
       }
     )
     .catch(error => {

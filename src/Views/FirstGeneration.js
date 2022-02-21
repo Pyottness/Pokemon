@@ -14,6 +14,8 @@ export default function FirstGeneration() {
     () => JSON.parse(window.localStorage.getItem('username'))
   )
 
+  const character = JSON.parse(window.localStorage.getItem('character'))
+
   const userLoggedin = () => {
       navigate(`/profile/${username[0]}`)
   }
@@ -138,6 +140,7 @@ export default function FirstGeneration() {
   const [buttonB, setbuttonB] = React.useState({backgroundColor: "blue", color: "blue",})
   const [buttonC, setbuttonC] = React.useState({backgroundColor: "blue", color: "blue",})
   const [buttonD, setbuttonD] = React.useState({backgroundColor: "blue", color: "blue",})
+  const [navButton, setNavbutton] = React.useState(1)
 
   //image constant set to hidden//
   const [pokemonWho, setPokemonwho] = React.useState({
@@ -448,7 +451,7 @@ export default function FirstGeneration() {
         <div className="pokedexTop" alt="pokedexTop">
           <button className="pokedex-button pokedex-init" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex}>⚡</button>
           <NavLink to="/about" className="pokedex-button users" alt="About" style={{backgroundColor: "yellow", textDecoration: "none"}}>❓</NavLink>
-          <button className="pokedex-button users" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: "8px"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>🙋</button>
+          <button className="pokedex-button users" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: window.localStorage.getItem('character') === null ? "18px" : "5px", fontSize: "20px"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>{character}</button>
         </div>
 
           <div className="score" alt="score" style={pokedexScreen}>
@@ -461,18 +464,20 @@ export default function FirstGeneration() {
           </div>
 
           <div alt="answers">
-            <button className="button-answer" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonA}</button><button className="button-answer" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonB}</button>
-            <button className="button-answer" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonC}</button><button className="button-answer" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonD}</button>
+              <button className="button-answer" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonA}</button>
+              <button className="button-answer" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonB}</button>
+              <button className="button-answer" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonC}</button>
+              <button className="button-answer" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonD}</button>
           </div>
 
           <div alt="links">
-            <button className="button buttonNav" alt="FirstGeneration" onClick={(n) => {pokemonDatahandler(n = 1);}}>1</button>
-            <button className="button buttonNav"  alt="SecondGeneration" onClick={(n) => {pokemonDatahandler(n = 2);}}>2</button>
-            <button className="button buttonNav" alt="ThirdGeneration" onClick={(n) => {pokemonDatahandler(n = 3);}}>3</button>
-            <button className="button buttonNav" alt="FourthGeneration" onClick={(n) => {pokemonDatahandler(n = 4);}}>4</button>
-            <button className="button buttonNav" alt="FifthGeneration" onClick={(n) => {pokemonDatahandler(n = 5);}}>5</button>
-            <button className="button buttonNav" alt="SixthGeneration" onClick={(n) => {pokemonDatahandler(n = 6);}}>6</button>
-            <button className="button buttonNav" alt="SeventhGeneration" onClick={(n) => {pokemonDatahandler(n = 7);}}>7</button>
+            <button className="button buttonNav" alt="FirstGeneration" style={{backgroundColor: navButton === 1 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 1); setNavbutton(1);}}>1</button>
+            <button className="button buttonNav"  alt="SecondGeneration" style={{backgroundColor: navButton === 2 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 2); setNavbutton(2);}}>2</button>
+            <button className="button buttonNav" alt="ThirdGeneration" style={{backgroundColor: navButton === 3 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 3); setNavbutton(3);}}>3</button>
+            <button className="button buttonNav" alt="FourthGeneration" style={{backgroundColor: navButton === 4 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 4); setNavbutton(4);}}>4</button>
+            <button className="button buttonNav" alt="FifthGeneration" style={{backgroundColor: navButton === 5 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 5); setNavbutton(5);}}>5</button>
+            <button className="button buttonNav" alt="SixthGeneration" style={{backgroundColor: navButton === 6 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 6); setNavbutton(6);}}>6</button>
+            <button className="button buttonNav" alt="SeventhGeneration" style={{backgroundColor: navButton === 7 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 7); setNavbutton(7);}}>7</button>
           </div>
 
         </div>

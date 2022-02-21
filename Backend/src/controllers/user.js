@@ -9,6 +9,7 @@ exports.register = (req, res, next) => {
         email: req.body.email,
         password: hash,
         username: req.body.username,
+        character: req.body.character,
       });
       user.save().then(
         () => {
@@ -49,6 +50,7 @@ exports.login = (req, res, next) => {
           res.status(200).json({
             message: 'Connected',
             username: user.username,
+            character: user.character,
             userId: user._id,
             token: token
           });

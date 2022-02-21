@@ -6,6 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 export default function Register() {
 
   const [username, setUsername] = React.useState('')
+  const [character, setCharacter] = React.useState('👨')
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [rePassword, setRepassword] = React.useState('')
@@ -21,7 +22,8 @@ export default function Register() {
       method: 'POST',
       body: JSON.stringify({"email": email,
                             "password": password,
-                            "username": username}),
+                            "username": username,
+                            "character": character}),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -57,12 +59,26 @@ export default function Register() {
   return (
     <div className="App" style={ divStyle }>
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center"}}>
-    <form onSubmit={handleSubmit} style={{height: "420px"}} className="pokedexForm">
+    <form onSubmit={handleSubmit} style={{height: "480px"}} className="pokedexForm">
 
       <div alt="Registration Form">
 
       <label alt="Username">Username</label>
       <input alt="Username" type="text" onChange={event => setUsername(event.target.value)} placeholder="Enter Username"></input>
+
+      <label alt="Character">Character</label>
+      <select alt="Character" onChange={event => setCharacter(event.target.value)}>
+      <option value="👨">👨</option>
+      <option value="👩">👩</option>
+      <option value="👦">👦</option>
+      <option value="👧">👧</option>
+      <option value="👨‍🔬">👨‍🔬</option>
+      <option value="👩‍🔬‍‍">👩‍🔬‍</option>
+      <option value="👨‍🍳‍‍">👨‍🍳</option>
+      <option value="👩‍🍳‍‍">👩‍🍳‍</option>
+      <option value="👨‍🎓‍‍">👨‍🎓</option>
+      <option value="👩‍🎓">👩‍🎓‍</option>
+      </select>
 
       <label alt="Email">Email</label>
       <input alt="Email" type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter Email"></input>

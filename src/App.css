@@ -177,7 +177,9 @@ label {
 }
 
 /* Input boxes in Login and Registration forms. */
-
+select {
+  width: 90%;
+}
 input {
   -webkit-appearance: none;
   background-color: black;
