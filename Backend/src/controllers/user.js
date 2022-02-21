@@ -48,6 +48,7 @@ exports.login = (req, res, next) => {
             { expiresIn: '24h'});
           res.status(200).json({
             message: 'Connected',
+            username: user.username,
             userId: user._id,
             token: token
           });

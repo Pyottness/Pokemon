@@ -1,10 +1,26 @@
 import background from '../Assets/Images/PokemonBackground.png';
 import '../App.css';
 import * as React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 export default function FirstGeneration() {
+
+  const navigate = useNavigate();
+
+  //User data
+
+  const username = React.useState(
+    () => JSON.parse(window.localStorage.getItem('username'))
+  )
+
+  const userLoggedin = () => {
+      navigate(`/profile/${username[0]}`)
+  }
+
+  const login = () => {
+      navigate("/login")
+  }
 
   //First Generation Pokemon data
 
@@ -432,8 +448,7 @@ export default function FirstGeneration() {
         <div className="pokedexTop" alt="pokedexTop">
           <button className="pokedex-button pokedex-init" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex}>⚡</button>
           <NavLink to="/about" className="pokedex-button users" alt="About" style={{backgroundColor: "yellow", textDecoration: "none"}}>❓</NavLink>
-          <NavLink to="/login" className="pokedex-button users" alt="Login" style={({ isLoggedIn }) => {
-            return {backgroundColor: isLoggedIn ? "green" : "red", textDecoration: "none"};}}>🙋</NavLink>
+          <button className="pokedex-button users" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: "8px"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>🙋</button>
         </div>
 
           <div className="score" alt="score" style={pokedexScreen}>

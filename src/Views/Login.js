@@ -5,16 +5,14 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Login() {
 
+  const navigate = useNavigate();
+
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
-  const [token, setToken] = React.useState(
-    () => JSON.parse(window.localStorage.getItem('token')))
 
-  React.useEffect(() => {
-    window.localStorage.setItem('token', JSON.stringify(token))
-  }, [token])
-
-  const navigate = useNavigate();
+  const [username, setUsername] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('username'))
+  )
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -34,9 +32,13 @@ export default function Login() {
       (result) => {
         if(result.message === 'Connected'){
 
-          setToken(result.token)
+          setUsername(result.username)
 
-          navigate('/');
+          window.localStorage.setItem('token', JSON.stringify(result.token))
+
+          window.localStorage.setItem('username', JSON.stringify(result.username))
+
+          navigate(`/profile/${ username }`);
         } else {
           alert(result.error);
         }
