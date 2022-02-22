@@ -2,11 +2,31 @@ import background from '../Assets/Images/PokemonBackground.png';
 import '../App.css';
 import * as React from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
-
+import turnOn from "../Assets/Sounds/turn on.mp3";
+import turnOff from "../Assets/Sounds/turn off.mp3";
+import correct from "../Assets/Sounds/correct.mp3";
+import incorrect from "../Assets/Sounds/incorrect.mp3";
 
 export default function FirstGeneration() {
 
   const navigate = useNavigate();
+
+  //Audio constants
+
+  const [audioPlay, setAudioplay] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('audioPlay') ?? true)
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('audioPlay', JSON.stringify(audioPlay))
+  }, [audioPlay])
+
+  const turnOnplay = new Audio(turnOn)
+  const turnOffplay = new Audio(turnOff)
+  const correctplay = new Audio(correct)
+  const incorrectplay = new Audio(incorrect)
+
+  const audioEmoji = audioPlay === true ? '🔊' : '🔈'
 
   //User data
 
@@ -154,8 +174,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   function reducer(counter, action) {
     switch (action.type) {
       case 'increment':
+      if(audioPlay === true){correctplay.play()}
       return {count: counter.count + 1}
       case 'reset':
+      if(audioPlay === true){incorrectplay.play()}
       return {count: counter.count = 0}
       default:
       throw new Error();
@@ -195,6 +217,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   //pokedex//
   const pokedex = () => {
     if(pokedexButton === false) {
+      if(audioPlay === true){turnOnplay.play()}
       setPokedexbutton(true)
       setPokedexbuttonstyle({backgroundColor: 'cyan'})
       setDisableplay(false)
@@ -205,6 +228,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       setbuttonC({backgroundColor: "blue", color: "white",})
       setbuttonD({backgroundColor: "blue", color: "white",})
     } else {
+      if(audioPlay === true){turnOffplay.play()}
       setPokedexbutton(false)
       setPokedexbuttonstyle({backgroundColor: 'blue'})
       setDisableplay(true)
@@ -460,6 +484,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
         <div className="pokedexTop" alt="pokedexTop">
           <button className="pokedex-button pokedex-init" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex}>⚡</button>
+          <button className="pokedex-button users" alt="Sound" style={{backgroundColor: audioPlay === true ? "blue" : "red", textDecoration: "none", height: "40px", width: "40px", fontSize: "20px"}} onClick={() => {audioPlay === true ? setAudioplay(false) : setAudioplay(true)}}>{audioEmoji}</button>
           <NavLink to="/about" className="pokedex-button users" alt="About" style={{backgroundColor: "yellow", textDecoration: "none", padding: "5px", fontSize: "20px"}}>❓</NavLink>
           <button className="pokedex-button users" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: "5px", fontSize: "20px"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>{character}</button>
         </div>
