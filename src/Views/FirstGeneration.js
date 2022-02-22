@@ -155,11 +155,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [pokemonD, setPokemonD] = React.useState('Pikachu')
 
   //button constants//
-  const [buttonPlay, setButtonplay] = React.useState({backgroundColor: "blue", color: "blue",})
-  const [buttonA, setbuttonA] = React.useState({backgroundColor: "blue", color: "blue",})
-  const [buttonB, setbuttonB] = React.useState({backgroundColor: "blue", color: "blue",})
-  const [buttonC, setbuttonC] = React.useState({backgroundColor: "blue", color: "blue",})
-  const [buttonD, setbuttonD] = React.useState({backgroundColor: "blue", color: "blue",})
+  const [buttonPlay, setButtonplay] = React.useState({backgroundColor: "blue", color: "blue", cursor: "default"})
+  const [buttonA, setbuttonA] = React.useState({backgroundColor: "blue", color: "blue", cursor: "default"})
+  const [buttonB, setbuttonB] = React.useState({backgroundColor: "blue", color: "blue", cursor: "default"})
+  const [buttonC, setbuttonC] = React.useState({backgroundColor: "blue", color: "blue", cursor: "default"})
+  const [buttonD, setbuttonD] = React.useState({backgroundColor: "blue", color: "blue", cursor: "default"})
   const [navButton, setNavbutton] = React.useState(1)
 
   //image constant set to hidden//
@@ -212,32 +212,32 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //pokedex constants//
   const [pokedexButton, setPokedexbutton] = React.useState(false)
-  const [pokedexButtonStyle, setPokedexbuttonstyle] = React.useState({backgroundColor: 'blue'})
+  const [pokedexButtonStyle, setPokedexbuttonstyle] = React.useState({backgroundColor: 'blue', cursor: "pointer"})
 
   //pokedex//
   const pokedex = () => {
     if(pokedexButton === false) {
       if(audioPlay === true){turnOnplay.play()}
       setPokedexbutton(true)
-      setPokedexbuttonstyle({backgroundColor: 'cyan'})
+      setPokedexbuttonstyle({backgroundColor: 'cyan', cursor: "pointer"})
       setDisableplay(false)
       setDisable(true)
-      setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "white",})
-      setbuttonB({backgroundColor: "blue", color: "white",})
-      setbuttonC({backgroundColor: "blue", color: "white",})
-      setbuttonD({backgroundColor: "blue", color: "white",})
+      setButtonplay({backgroundColor: "blue", color: "white", cursor: "pointer"})
+      setbuttonA({backgroundColor: "blue", color: "white", cursor: "default"})
+      setbuttonB({backgroundColor: "blue", color: "white", cursor: "default"})
+      setbuttonC({backgroundColor: "blue", color: "white", cursor: "default"})
+      setbuttonD({backgroundColor: "blue", color: "white", cursor: "default"})
     } else {
       if(audioPlay === true){turnOffplay.play()}
       setPokedexbutton(false)
-      setPokedexbuttonstyle({backgroundColor: 'blue'})
+      setPokedexbuttonstyle({backgroundColor: 'blue', cursor: "pointer"})
       setDisableplay(true)
       setDisable(true)
-      setButtonplay({backgroundColor: "blue", color: "blue",})
-      setbuttonA({backgroundColor: "blue", color: "blue",})
-      setbuttonB({backgroundColor: "blue", color: "blue",})
-      setbuttonC({backgroundColor: "blue", color: "blue",})
-      setbuttonD({backgroundColor: "blue", color: "blue",})
+      setButtonplay({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
     }
   }
 
@@ -484,9 +484,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
         <div className="pokedexTop" alt="pokedexTop">
           <button className="pokedex-button pokedex-init" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex}>⚡</button>
-          <button className="pokedex-button users" alt="Sound" style={{backgroundColor: audioPlay === true ? "blue" : "red", textDecoration: "none", height: "40px", width: "40px", fontSize: "20px"}} onClick={() => {audioPlay === true ? setAudioplay(false) : setAudioplay(true)}}>{audioEmoji}</button>
+          <button className="pokedex-button users" alt="Sound" style={{backgroundColor: audioPlay === true ? "green" : "red", textDecoration: "none", height: "40px", width: "40px", fontSize: "20px", cursor: "pointer"}} onClick={() => {audioPlay === true ? setAudioplay(false) : setAudioplay(true)}}>{audioEmoji}</button>
           <NavLink to="/about" className="pokedex-button users" alt="About" style={{backgroundColor: "yellow", textDecoration: "none", padding: "5px", fontSize: "20px"}}>❓</NavLink>
-          <button className="pokedex-button users" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: "5px", fontSize: "20px"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>{character}</button>
+          <button className="pokedex-button users" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: "5px", fontSize: "20px", cursor: "pointer"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>{character}</button>
         </div>
 
           <Score />
