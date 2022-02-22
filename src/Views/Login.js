@@ -10,10 +10,6 @@ export default function Login() {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
 
-  const [username, setUsername] = React.useState(
-    () => JSON.parse(window.localStorage.getItem('username'))
-  )
-
   const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -32,14 +28,12 @@ export default function Login() {
       (result) => {
         if(result.message === 'Connected'){
 
-          setUsername(result.username)
-
           window.localStorage.setItem('token', JSON.stringify(result.token))
           window.localStorage.setItem('userId', JSON.stringify(result.userId))
           window.localStorage.setItem('username', JSON.stringify(result.username))
           window.localStorage.setItem('character', JSON.stringify(result.character))
 
-          navigate(`/profile/${ username }`);
+          navigate(`/profile/${ result.username }`);
         } else {
           alert(result.error);
         }

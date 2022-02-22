@@ -28,6 +28,13 @@ body {
   max-height: 90%;
 }
 
+/* The size of badges in profile */
+
+.badge {
+  max-width: 8%;
+  max-height: 8%;
+}
+
 /* The red remote in the game which is called a pokedex. */
 
 .pokedex {

@@ -65,3 +65,27 @@ exports.login = (req, res, next) => {
     }
   );
 };
+
+exports.profile = (req, res, next) => {
+  User.findOne({ username: req.body.username }).then(
+    (user) => {
+      if(!user) {
+        return res.status(401).json({
+          error: 'User not found!'
+        });
+      } else {
+        res.status(200).json({
+          message: 'User found',
+          username: user.username,
+          character: user.character,
+        });
+      }
+    }
+  ).catch(
+    (error) => {
+      res.status(500).json({
+        error: error
+      });
+    }
+  );
+};

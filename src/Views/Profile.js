@@ -6,8 +6,47 @@ import { NavLink, useParams } from "react-router-dom";
 export default function Profile() {
 
   const { username } = useParams();
+  const token = JSON.parse(window.localStorage.getItem("token"))
+  const [character, setCharacter] = React.useState()
+  const [profileUser, setProfileuser] = React.useState(false)
 
-  const character = JSON.parse(window.localStorage.getItem('character'))
+  const EditProfile = () => {
+    if(profileUser === true){
+      return (<NavLink to="/" className="button" style={({ isActive }) => {
+      return {backgroundColor: isActive ? "cyan" : ""};}} onClick={() => {window.localStorage.removeItem('token')}} alt="log out">Log out</NavLink>)
+    } else {
+      return <></>
+    }
+
+  }
+
+  React.useEffect(() => {
+    fetch("/.netlify/functions/app/auth/profile", {
+      method: 'POST',
+      body: JSON.stringify({"username": username}),
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer ' + token
+      }
+    })
+    .then(res => res.json())
+    .then(
+      (result) => {
+        if(result.message === 'User found'){
+
+          setCharacter(result.character)
+          setProfileuser(true)
+
+        } else {
+          alert(result.error);
+          setProfileuser(false)
+        }
+      }
+    )
+    .catch(error => {
+      console.error(error);
+    });
+  })
 
   //Gen 1 badges
 
@@ -90,15 +129,7 @@ export default function Profile() {
   const ice = require('../Assets/Images/pokemon badges/Gen7 badges/IceBadge.png')
   const fairy2 = require('../Assets/Images/pokemon badges/Gen7 badges/FairyBadge.png')
 
-  //Badge images
-
-  var badgeImages = {
-    maxWidth: "8%",
-    maxHeight: "8%",
-  }
-
-
-  //Background image
+  //Background image style
 
   var divStyle = {
     backgroundImage: `url(${background})`,
@@ -106,6 +137,87 @@ export default function Profile() {
     backgroundSize: "100% 100%",
     backgroundPosition: "center",
   }
+
+  //Badges achieved
+
+  const boulderBadge = window.localStorage.getItem('boulderBadge')
+  const cascadeBadge = window.localStorage.getItem('cascadeBadge')
+  const thunderBadge = window.localStorage.getItem('thunderBadge')
+  const rainbowBadge = window.localStorage.getItem('rainbowBadge')
+  const soulBadge = window.localStorage.getItem('soulBadge')
+  const marshBadge = window.localStorage.getItem('marshBadge')
+  const volcanoBadge = window.localStorage.getItem('volcanoBadge')
+  const earthBadge = window.localStorage.getItem('earthBadge')
+
+  //Gen 2 Badges
+
+  const zephyrBadge = window.localStorage.getItem('zephyrBadge')
+  const hiveBadge = window.localStorage.getItem('hiveBadge')
+  const plainBadge = window.localStorage.getItem('plainBadge')
+  const fogBadge = window.localStorage.getItem('fogBadge')
+  const stormBadge = window.localStorage.getItem('stormBadge')
+  const mineralBadge = window.localStorage.getItem('mineralBadge')
+  const glacierBadge = window.localStorage.getItem('glacierBadge')
+  const risingBadge = window.localStorage.getItem('risingBadge')
+
+  //Gen 3 Badges
+
+  const stoneBadge = window.localStorage.getItem('stoneBadge')
+  const knuckleBadge = window.localStorage.getItem('knuckleBadge')
+  const dynamoBadge = window.localStorage.getItem('dynamoBadge')
+  const heatBadge = window.localStorage.getItem('heatBadge')
+  const balanceBadge = window.localStorage.getItem('balanceBadge')
+  const featherBadge = window.localStorage.getItem('featherBadge')
+  const mindBadge = window.localStorage.getItem('mindBadge')
+  const rainBadge = window.localStorage.getItem('rainBadge')
+
+  //Gen 4 Badges
+
+  const coalBadge = window.localStorage.getItem('coalBadge')
+  const forestBadge = window.localStorage.getItem('forestBadge')
+  const cobbleBadge = window.localStorage.getItem('cobbleBadge')
+  const fenBadge = window.localStorage.getItem('fenBadge')
+  const relicBadge = window.localStorage.getItem('relicBadge')
+  const mineBadge = window.localStorage.getItem('mineBadge')
+  const icicleBadge = window.localStorage.getItem('icicleBadge')
+  const beaconBadge = window.localStorage.getItem('beaconBadge')
+
+  //Gen 5 Badges
+
+  const trioBadge = window.localStorage.getItem('trioBadge')
+  const basicBadge = window.localStorage.getItem('basicBadge')
+  const insectBadge = window.localStorage.getItem('insectBadge')
+  const boltBadge = window.localStorage.getItem('boltBadge')
+  const quakeBadge = window.localStorage.getItem('quakeBadge')
+  const jetBadge = window.localStorage.getItem('jetBadge')
+  const freezeBadge = window.localStorage.getItem('freezeBadge')
+  const legendBadge = window.localStorage.getItem('legendBadge')
+  const toxicBadge = window.localStorage.getItem('toxicBadge')
+  const waveBadge = window.localStorage.getItem('waveBadge')
+
+  //Gen 6 Badges
+
+  const bugBadge = window.localStorage.getItem('bugBadge')
+  const cliffBadge = window.localStorage.getItem('cliffBadge')
+  const rumbleBadge = window.localStorage.getItem('rumbleBadge')
+  const plantBadge = window.localStorage.getItem('plantBadge')
+  const voltageBadge = window.localStorage.getItem('voltageBadge')
+  const fairyBadge = window.localStorage.getItem('fairyBadge')
+  const psychicBadge = window.localStorage.getItem('psychicBadge')
+  const icebergBadge = window.localStorage.getItem('icebergBadge')
+
+  //Gen 7 Badges
+
+  const grassBadge = window.localStorage.getItem('grassBadge')
+  const waterBadge = window.localStorage.getItem('waterBadge')
+  const fireBadge = window.localStorage.getItem('fireBadge')
+  const fightingBadge = window.localStorage.getItem('fightingBadge')
+  const rockBadge = window.localStorage.getItem('rockBadge')
+  const darkBadge = window.localStorage.getItem('darkBadge')
+  const dragonBadge = window.localStorage.getItem('dragonBadge')
+  const ghostBadge = window.localStorage.getItem('ghostBadge')
+  const iceBadge = window.localStorage.getItem('iceBadge')
+  const fairy2Badge = window.localStorage.getItem('fairy2Badge')
 
   return (
     <div className="App" style={ divStyle }>
@@ -120,90 +232,90 @@ export default function Profile() {
 
       <label>Generation I:</label>
       <div>
-      <img src={ boulder } alt="boulder badge" style={ badgeImages } />
-      <img src={ cascade } alt="cascade badge" style={ badgeImages } />
-      <img src={ thunder } alt="thunder badge" style={ badgeImages } />
-      <img src={ rainbow } alt="rainbow badge" style={ badgeImages } />
-      <img src={ soul } alt="soul badge" style={ badgeImages } />
-      <img src={ marsh } alt="marsh badge" style={ badgeImages } />
-      <img src={ volcano } alt="volcano badge" style={ badgeImages } />
-      <img src={ earth } alt="earth badge" style={ badgeImages } />
+      <img className="badge" src={ boulder } alt="boulder badge" style={ { filter: boulderBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ cascade } alt="cascade badge" style={ { filter: cascadeBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ thunder } alt="thunder badge" style={ { filter: thunderBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ rainbow } alt="rainbow badge" style={ { filter: rainbowBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ soul } alt="soul badge" style={ { filter: soulBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ marsh } alt="marsh badge" style={ { filter: marshBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ volcano } alt="volcano badge" style={ { filter: volcanoBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ earth } alt="earth badge" style={ { filter: earthBadge === null ? "brightness(0)" : "brightness()"} } />
       </div>
 
       <label>Generation II:</label>
       <div>
-      <img src={ zephyr } alt="zephyr badge" style={ badgeImages } />
-      <img src={ hive } alt="hive badge" style={ badgeImages } />
-      <img src={ plain } alt="plain badge" style={ badgeImages } />
-      <img src={ fog } alt="fog badge" style={ badgeImages } />
-      <img src={ storm } alt="storm badge" style={ badgeImages } />
-      <img src={ mineral } alt="mineral badge" style={ badgeImages } />
-      <img src={ glacier } alt="glacier badge" style={ badgeImages } />
-      <img src={ rising } alt="rising badge" style={ badgeImages } />
+      <img className="badge" src={ zephyr } alt="zephyr badge" style={ { filter: zephyrBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ hive } alt="hive badge" style={ { filter: hiveBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ plain } alt="plain badge" style={ { filter: plainBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ fog } alt="fog badge" style={ { filter: fogBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ storm } alt="storm badge" style={ { filter: stormBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ mineral } alt="mineral badge" style={ { filter: mineralBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ glacier } alt="glacier badge" style={ { filter: glacierBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ rising } alt="rising badge" style={ { filter: risingBadge === null ? "brightness(0)" : "brightness()"} } />
       </div>
 
       <label>Generation III:</label>
       <div>
-      <img src={ stone } alt="stone badge" style={ badgeImages } />
-      <img src={ knuckle } alt="knuckle badge" style={ badgeImages } />
-      <img src={ dynamo } alt="dynamo badge" style={ badgeImages } />
-      <img src={ heat } alt="heat badge" style={ badgeImages } />
-      <img src={ balance } alt="balance badge" style={ badgeImages } />
-      <img src={ feather } alt="feather badge" style={ badgeImages } />
-      <img src={ mind } alt="mind badge" style={ badgeImages } />
-      <img src={ rain } alt="rain badge" style={ badgeImages } />
+      <img className="badge" src={ stone } alt="stone badge" style={ { filter: stoneBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ knuckle } alt="knuckle badge" style={ { filter: knuckleBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ dynamo } alt="dynamo badge" style={ { filter: dynamoBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ heat } alt="heat badge" style={ { filter: heatBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ balance } alt="balance badge" style={ { filter: balanceBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ feather } alt="feather badge" style={ { filter: featherBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ mind } alt="mind badge" style={ { filter: mindBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ rain } alt="rain badge" style={ { filter: rainBadge === null ? "brightness(0)" : "brightness()"} } />
       </div>
 
       <label>Generation IV:</label>
       <div>
-      <img src={ coal } alt="coal badge" style={ badgeImages } />
-      <img src={ forest } alt="forest badge" style={ badgeImages } />
-      <img src={ cobble } alt="cobble badge" style={ badgeImages } />
-      <img src={ fen } alt="fen badge" style={ badgeImages } />
-      <img src={ relic } alt="relic badge" style={ badgeImages } />
-      <img src={ mine } alt="mine badge" style={ badgeImages } />
-      <img src={ icicle } alt="icicle badge" style={ badgeImages } />
-      <img src={ beacon } alt="beacon badge" style={ badgeImages } />
+      <img className="badge" src={ coal } alt="coal badge" style={ { filter: coalBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ forest } alt="forest badge" style={ { filter: forestBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ cobble } alt="cobble badge" style={ { filter: cobbleBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ fen } alt="fen badge" style={ { filter: fenBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ relic } alt="relic badge" style={ { filter: relicBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ mine } alt="mine badge" style={ { filter: mineBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ icicle } alt="icicle badge" style={ { filter: icicleBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ beacon } alt="beacon badge" style={ { filter: beaconBadge === null ? "brightness(0)" : "brightness()"} } />
       </div>
 
       <label>Generation V:</label>
       <div>
-      <img src={ trio } alt="trio" style={ badgeImages } />
-      <img src={ basic } alt="basic badge" style={ badgeImages } />
-      <img src={ insect } alt="insect badge" style={ badgeImages } />
-      <img src={ bolt } alt="bolt badge" style={ badgeImages } />
-      <img src={ quake } alt="quake badge" style={ badgeImages } />
-      <img src={ jet } alt="jet badge" style={ badgeImages } />
-      <img src={ freeze } alt="freeze badge" style={ badgeImages } />
-      <img src={ legend } alt="legend badge" style={ badgeImages } />
-      <img src={ toxic } alt="toxic badge" style={ badgeImages } />
-      <img src={ wave } alt="wave badge" style={ badgeImages } />
+      <img className="badge" src={ trio } alt="trio" style={ { filter: trioBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ basic } alt="basic badge" style={ { filter: basicBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ insect } alt="insect badge" style={ { filter: insectBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ bolt } alt="bolt badge" style={ { filter: boltBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ quake } alt="quake badge" style={ { filter: quakeBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ jet } alt="jet badge" style={ { filter: jetBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ freeze } alt="freeze badge" style={ { filter: freezeBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ legend } alt="legend badge" style={ { filter: legendBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ toxic } alt="toxic badge" style={ { filter: toxicBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ wave } alt="wave badge" style={ { filter: waveBadge === null ? "brightness(0)" : "brightness()"} } />
       </div>
 
       <label>Generation VI:</label>
       <div>
-      <img src={ bug } alt="bug badge" style={ badgeImages } />
-      <img src={ cliff } alt="cliff badge" style={ badgeImages } />
-      <img src={ rumble } alt="rumble badge" style={ badgeImages } />
-      <img src={ plant } alt="plant badge" style={ badgeImages } />
-      <img src={ voltage } alt="voltage" style={ badgeImages } />
-      <img src={ fairy } alt="fairy badge" style={ badgeImages } />
-      <img src={ psychic } alt="psychic badge" style={ badgeImages } />
-      <img src={ iceberg } alt="iceberg badge" style={ badgeImages } />
+      <img className="badge" src={ bug } alt="bug badge" style={ { filter: bugBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ cliff } alt="cliff badge" style={ { filter: cliffBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ rumble } alt="rumble badge" style={ { filter: rumbleBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ plant } alt="plant badge" style={ { filter: plantBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ voltage } alt="voltage" style={ { filter: voltageBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ fairy } alt="fairy badge" style={ { filter: fairyBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ psychic } alt="psychic badge" style={ { filter: psychicBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ iceberg } alt="iceberg badge" style={ { filter: icebergBadge === null ? "brightness(0)" : "brightness()"} } />
       </div>
 
       <label>Generation VII:</label>
       <div>
-      <img src={ grass } alt="grass badge" style={ badgeImages } />
-      <img src={ water } alt="water badge" style={ badgeImages } />
-      <img src={ fire } alt="fire badge" style={ badgeImages } />
-      <img src={ fighting } alt="fighting badge" style={ badgeImages } />
-      <img src={ fairy2 } alt="fairy badge" style={ badgeImages } />
-      <img src={ rock } alt="rock badge" style={ badgeImages } />
-      <img src={ dark } alt="dark badge" style={ badgeImages } />
-      <img src={ dragon } alt=" dragon badge" style={ badgeImages } />
-      <img src={ ghost } alt="ghost badge" style={ badgeImages } />
-      <img src={ ice } alt="ice badge" style={ badgeImages } />
+      <img className="badge" src={ grass } alt="grass badge" style={ { filter: grassBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ water } alt="water badge" style={ { filter: waterBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ fire } alt="fire badge" style={ { filter: fireBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ fighting } alt="fighting badge" style={ { filter: fightingBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ fairy2 } alt="fairy badge" style={ { filter: fairy2Badge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ rock } alt="rock badge" style={ { filter: rockBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ dark } alt="dark badge" style={ { filter: darkBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ dragon } alt=" dragon badge" style={ { filter: dragonBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ ghost } alt="ghost badge" style={ { filter: ghostBadge === null ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ ice } alt="ice badge" style={ { filter: iceBadge === null ? "brightness(0)" : "brightness()"} } />
       </div>
 
       </div>
@@ -212,8 +324,7 @@ export default function Profile() {
 
       <NavLink to="/" className="button" style={({ isActive }) => {
         return {backgroundColor: isActive ? "cyan" : ""};}} alt="FirstGeneration">Home</NavLink>
-      <NavLink to="/" className="button" style={({ isActive }) => {
-        return {backgroundColor: isActive ? "cyan" : ""};}} onClick={() => {window.localStorage.removeItem('token')}} alt="log out">Log out</NavLink>
+      <EditProfile />
 
       </div>
 

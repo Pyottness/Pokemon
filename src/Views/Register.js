@@ -68,16 +68,16 @@ export default function Register() {
 
       <label alt="Character">Character</label>
       <select alt="Character" onChange={event => setCharacter(event.target.value)}>
-      <option value="👨">👨</option>
-      <option value="👩">👩</option>
-      <option value="👦">👦</option>
-      <option value="👧">👧</option>
-      <option value="👨‍🔬">👨‍🔬</option>
-      <option value="👩‍🔬‍‍">👩‍🔬‍</option>
-      <option value="👨‍🍳‍‍">👨‍🍳</option>
-      <option value="👩‍🍳‍‍">👩‍🍳‍</option>
-      <option value="👨‍🎓‍‍">👨‍🎓</option>
-      <option value="👩‍🎓">👩‍🎓‍</option>
+      <option value="👨">👨 Man</option>
+      <option value="👩">👩 Woman</option>
+      <option value="👦">👦 Boy</option>
+      <option value="👧">👧 Girl</option>
+      <option value="👨‍🔬">👨‍🔬 Scientist (m)</option>
+      <option value="👩‍🔬‍‍">👩‍🔬‍ Scientist (f)</option>
+      <option value="👨‍🍳‍‍">👨‍🍳 Chef (m)</option>
+      <option value="👩‍🍳‍‍">👩‍🍳‍ Chef (f)</option>
+      <option value="👨‍🎓‍‍">👨‍🎓 Student (m)</option>
+      <option value="👩‍🎓">👩‍🎓‍ Student (f)</option>
       </select>
 
       <label alt="Email">Email</label>
