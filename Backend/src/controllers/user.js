@@ -1,6 +1,8 @@
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+//comment out for production
+//const secrets = require('../secrets');
 
 exports.register = (req, res, next) => {
   bcrypt.genSalt(10, function(err, salt) {
@@ -105,7 +107,7 @@ exports.login = (req, res, next) => {
           }
           const token = jwt.sign(
             { userId: user._id },
-            'RANDOM_TOKEN_SECRET',
+            process.env.RANDOM_TOKEN_SECRET,
             { expiresIn: '24h'});
           res.status(200).json({
             message: 'Connected',
@@ -130,7 +132,7 @@ exports.profile = (req, res, next) => {
   User.findOne({ username: req.body.username }).then(
     (user) => {
       const token = req.headers.authorization.split(' ')[1];
-      const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+      const decodedToken = jwt.verify(token, process.env.RANDOM_TOKEN_SECRET);
       const userId = decodedToken.userId;
       const mongoId = user._id.toString();
 
