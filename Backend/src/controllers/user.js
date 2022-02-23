@@ -64,7 +64,7 @@ exports.register = (req, res, next) => {
         water: req.body.water,
         fire: req.body.fire,
         fighting: req.body.fighting,
-        fairy: req.body.fairy,
+        fairy2: req.body.fairy2,
         rock: req.body.rock,
         dark: req.body.dark,
         dragon: req.body.dragon,
