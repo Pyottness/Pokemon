@@ -7,6 +7,7 @@ import Login from './Views/Login.js'
 import Register from './Views/Register.js'
 import About from './Views/About.js'
 import Profile from './Views/Profile.js'
+import Error from './Views/Error.js'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route path="/register" element={<Register />} />
       <Route path="/about" element={<About />} />
       <Route path="/profile/:username" element={<Profile />} />
+      <Route path="*" element={<Error />} />
     </Routes>
   </BrowserRouter>
   </React.StrictMode>,

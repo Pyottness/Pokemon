@@ -3,7 +3,7 @@ const express = require('express');
 const serverless = require('serverless-http');
 const mongoose = require('mongoose');
 //comment out for production
-//const secrets = require('./secrets');
+const secrets = require('./secrets');
 const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");

@@ -29,7 +29,6 @@ export default function Login() {
         if(result.message === 'Connected'){
 
           window.localStorage.setItem('token', JSON.stringify(result.token))
-          window.localStorage.setItem('userId', JSON.stringify(result.userId))
           window.localStorage.setItem('username', JSON.stringify(result.username))
           window.localStorage.setItem('character', JSON.stringify(result.character))
 

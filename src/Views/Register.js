@@ -32,7 +32,7 @@ export default function Register() {
     .then(
       (result) => {
         if(result.message === 'User created successfully'){
-          navigate('/');
+          navigate('/login');
         } else if(result.error.message.match('expected `username` to be unique.') && result.error.message.match('expected `email` to be unique.')){
           alert('User already created.')
         } else if(result.error.message.match('expected `username` to be unique.')){

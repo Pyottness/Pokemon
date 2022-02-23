@@ -477,7 +477,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       <div className="game">
 
         <div alt="which pokemon">
-        <img src={pokemonImage} style={pokemonWho} className="pokemon" alt="Pokemon" />
+        <img className="pokemon" alt="Pokemon" src={pokemonImage} style={pokemonWho} />
         </div>
 
         <div className="pokedex" alt="pokedex">
