@@ -60,7 +60,7 @@ const userSchema = mongoose.Schema({
   water: { type: Boolean },
   fire: { type: Boolean },
   fighting: { type: Boolean },
-  fairy: { type: Boolean },
+  fairy2: { type: Boolean },
   rock: { type: Boolean },
   dark: { type: Boolean },
   dragon: { type: Boolean },

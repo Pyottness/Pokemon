@@ -11,6 +11,89 @@ export default function Profile() {
   const [character, setCharacter] = React.useState()
   const [profileUser, setProfileuser] = React.useState(false)
 
+  //Badges achieved
+
+  const [boulderBadge, setBoulderbadge] = React.useState(false)
+  const [cascadeBadge, setCascadebadge] = React.useState(false)
+  const [thunderBadge, setThunderbadge] = React.useState(false)
+  const [rainbowBadge, setRainbowbadge] = React.useState(false)
+  const [soulBadge, setSoulbadge] = React.useState(false)
+  const [marshBadge, setMarshbadge] = React.useState(false)
+  const [volcanoBadge, setVolcanobadge] = React.useState(false)
+  const [earthBadge, setEarthbadge] = React.useState(false)
+
+  //Gen 2 Badges
+
+  const [zephyrBadge, setZephyrbadge] = React.useState(false)
+  const [hiveBadge, setHivebadge] = React.useState(false)
+  const [plainBadge, setPlainbadge] = React.useState(false)
+  const [fogBadge, setFogbadge] = React.useState(false)
+  const [stormBadge, setStormbadge] = React.useState(false)
+  const [mineralBadge, setMineralbadge] = React.useState(false)
+  const [glacierBadge, setGlacierbadge] = React.useState(false)
+  const [risingBadge, setRisingbadge] = React.useState(false)
+
+  //Gen 3 Badges
+
+  const [stoneBadge, setStonebadge] = React.useState(false)
+  const [knuckleBadge, setKnucklebadge] = React.useState(false)
+  const [dynamoBadge, setDynamobadge] = React.useState(false)
+  const [heatBadge, setHeatbadge] = React.useState(false)
+  const [balanceBadge, setBalancebadge] = React.useState(false)
+  const [featherBadge, setFeatherbadge] = React.useState(false)
+  const [mindBadge, setMindbadge] = React.useState(false)
+  const [rainBadge, setRainbadge] = React.useState(false)
+
+  //Gen 4 Badges
+
+  const [coalBadge, setCoalbadge] = React.useState(false)
+  const [forestBadge, setForestbadge] = React.useState(false)
+  const [cobbleBadge, setCobblebadge] = React.useState(false)
+  const [fenBadge, setFenbadge] = React.useState(false)
+  const [relicBadge, setRelicbadge] = React.useState(false)
+  const [mineBadge, setMinebadge] = React.useState(false)
+  const [icicleBadge, setIciclebadge] = React.useState(false)
+  const [beaconBadge, setBeaconbadge] = React.useState(false)
+
+  //Gen 5 Badges
+
+  const [trioBadge, setTriobadge] = React.useState(false)
+  const [basicBadge, setBasicbadge] = React.useState(false)
+  const [insectBadge, setInsectbadge] = React.useState(false)
+  const [boltBadge, setBoltbadge] = React.useState(false)
+  const [quakeBadge, setQuakebadge] = React.useState(false)
+  const [jetBadge, setJetbadge] = React.useState(false)
+  const [freezeBadge, setFreezebadge] = React.useState(false)
+  const [legendBadge, setLegendbadge] = React.useState(false)
+  const [toxicBadge, setToxicbadge] = React.useState(false)
+  const [waveBadge, setWavebadge] = React.useState(false)
+
+  //Gen 6 Badges
+
+  const [bugBadge, setBugbadge] = React.useState(false)
+  const [cliffBadge, setCliffbadge] = React.useState(false)
+  const [rumbleBadge, setRumblebadge] = React.useState(false)
+  const [plantBadge, setPlantbadge] = React.useState(false)
+  const [voltageBadge, setVoltagebadge] = React.useState(false)
+  const [fairyBadge, setFairybadge] = React.useState(false)
+  const [psychicBadge, setPsychicbadge] = React.useState(false)
+  const [icebergBadge, setIcebergbadge] = React.useState(false)
+
+  //Gen 7 Badges
+
+  const [grassBadge, setGrassbadge] = React.useState(false)
+  const [waterBadge, setWaterbadge] = React.useState(false)
+  const [fireBadge, setFirebadge] = React.useState(false)
+  const [fightingBadge, setFightingbadge] = React.useState(false)
+  const [rockBadge, setRockbadge] = React.useState(false)
+  const [darkBadge, setDarkbadge] = React.useState(false)
+  const [dragonBadge, setDragonbadge] = React.useState(false)
+  const [ghostBadge, setGhostbadge] = React.useState(false)
+  const [iceBadge, setIcebadge] = React.useState(false)
+  const [fairy2Badge, setFairy2badge] = React.useState(false)
+
+  //Show or Hide edit
+
   const EditProfile = () => {
     if(profileUser === true){
       return (<NavLink to="/" className="button" style={({ isActive }) => {
@@ -36,14 +119,174 @@ export default function Profile() {
         if(result.message === 'Profile owner'){
 
           setCharacter(result.character)
-          setFreezebadge(result.freeze)
           setProfileuser(true)
+
+          //Gen 1 Badges
+
+          setBoulderbadge(result.boulder)
+          setCascadebadge(result.cascade)
+          setThunderbadge(result.thunder)
+          setRainbowbadge(result.rainbow)
+          setSoulbadge(result.soul)
+          setMarshbadge(result.marsh)
+          setVolcanobadge(result.volcano)
+          setEarthbadge(result.earth)
+
+          //Gen 2 Badges
+
+          setZephyrbadge(result.zephyr)
+          setHivebadge(result.hive)
+          setPlainbadge(result.plain)
+          setFogbadge(result.fog)
+          setStormbadge(result.storm)
+          setMineralbadge(result.mineral)
+          setGlacierbadge(result.glacier)
+          setRisingbadge(result.rising)
+
+          //Gen 3 Badges
+
+          setStonebadge(result.stone)
+          setKnucklebadge(result.knuckle)
+          setDynamobadge(result.dynamo)
+          setHeatbadge(result.heat)
+          setBalancebadge(result.balance)
+          setFeatherbadge(result.feather)
+          setMindbadge(result.mind)
+          setRainbadge(result.rain)
+
+          //Gen 4 Badges
+
+          setCoalbadge(result.coal)
+          setForestbadge(result.forest)
+          setCobblebadge(result.cobble)
+          setFenbadge(result.fen)
+          setRelicbadge(result.relic)
+          setMinebadge(result.mine)
+          setIciclebadge(result.icicle)
+          setBeaconbadge(result.beacon)
+
+          //Gen 5 Badges
+
+          setTriobadge(result.trio)
+          setBasicbadge(result.basic)
+          setInsectbadge(result.insect)
+          setBoltbadge(result.bolt)
+          setQuakebadge(result.quake)
+          setJetbadge(result.jet)
+          setFreezebadge(result.freeze)
+          setLegendbadge(result.legend)
+          setToxicbadge(result.toxic)
+          setWavebadge(result.wave)
+
+          //Gen 6 Badges
+
+          setBugbadge(result.bug)
+          setCliffbadge(result.cliff)
+          setRumblebadge(result.rumble)
+          setPlantbadge(result.plant)
+          setVoltagebadge(result.voltage)
+          setFairybadge(result.fairy)
+          setPsychicbadge(result.psychic)
+          setIcebergbadge(result.iceberg)
+
+          //Gen 7 Badges
+
+          setGrassbadge(result.grass)
+          setWaterbadge(result.water)
+          setFirebadge(result.fire)
+          setFightingbadge(result.fighting)
+          setRockbadge(result.rock)
+          setDarkbadge(result.dark)
+          setDragonbadge(result.dragon)
+          setGhostbadge(result.ghost)
+          setIcebadge(result.ice)
+          setFairy2badge(result.fairy2)
 
         } else if(result.message === 'Profile visitor') {
 
           setCharacter(result.character)
-          setFreezebadge(result.freeze)
           setProfileuser(false)
+
+          //Gen 1 Badges
+
+          setBoulderbadge(result.boulder)
+          setCascadebadge(result.cascade)
+          setThunderbadge(result.thunder)
+          setRainbowbadge(result.rainbow)
+          setSoulbadge(result.soul)
+          setMarshbadge(result.marsh)
+          setVolcanobadge(result.volcano)
+          setEarthbadge(result.earth)
+
+          //Gen 2 Badges
+
+          setZephyrbadge(result.zephyr)
+          setHivebadge(result.hive)
+          setPlainbadge(result.plain)
+          setFogbadge(result.fog)
+          setStormbadge(result.storm)
+          setMineralbadge(result.mineral)
+          setGlacierbadge(result.glacier)
+          setRisingbadge(result.rising)
+
+          //Gen 3 Badges
+
+          setStonebadge(result.stone)
+          setKnucklebadge(result.knuckle)
+          setDynamobadge(result.dynamo)
+          setHeatbadge(result.heat)
+          setBalancebadge(result.balance)
+          setFeatherbadge(result.feather)
+          setMindbadge(result.mind)
+          setRainbadge(result.rain)
+
+          //Gen 4 Badges
+
+          setCoalbadge(result.coal)
+          setForestbadge(result.forest)
+          setCobblebadge(result.cobble)
+          setFenbadge(result.fen)
+          setRelicbadge(result.relic)
+          setMinebadge(result.mine)
+          setIciclebadge(result.icicle)
+          setBeaconbadge(result.beacon)
+
+          //Gen 5 Badges
+
+          setTriobadge(result.trio)
+          setBasicbadge(result.basic)
+          setInsectbadge(result.insect)
+          setBoltbadge(result.bolt)
+          setQuakebadge(result.quake)
+          setJetbadge(result.jet)
+          setFreezebadge(result.freeze)
+          setLegendbadge(result.legend)
+          setToxicbadge(result.toxic)
+          setWavebadge(result.wave)
+
+          //Gen 6 Badges
+
+          setBugbadge(result.bug)
+          setCliffbadge(result.cliff)
+          setRumblebadge(result.rumble)
+          setPlantbadge(result.plant)
+          setVoltagebadge(result.voltage)
+          setFairybadge(result.fairy)
+          setPsychicbadge(result.psychic)
+          setIcebergbadge(result.iceberg)
+
+          //Gen 7 Badges
+
+          setGrassbadge(result.grass)
+          setWaterbadge(result.water)
+          setFirebadge(result.fire)
+          setFightingbadge(result.fighting)
+          setRockbadge(result.rock)
+          setDarkbadge(result.dark)
+          setDragonbadge(result.dragon)
+          setGhostbadge(result.ghost)
+          setIcebadge(result.ice)
+          setFairy2badge(result.fairy2)
 
         } else {
           setProfileuser(false)
@@ -145,87 +388,6 @@ export default function Profile() {
     backgroundSize: "100% 100%",
     backgroundPosition: "center",
   }
-
-  //Badges achieved
-
-  const boulderBadge = window.localStorage.getItem('boulderBadge')
-  const cascadeBadge = window.localStorage.getItem('cascadeBadge')
-  const thunderBadge = window.localStorage.getItem('thunderBadge')
-  const rainbowBadge = window.localStorage.getItem('rainbowBadge')
-  const soulBadge = window.localStorage.getItem('soulBadge')
-  const marshBadge = window.localStorage.getItem('marshBadge')
-  const volcanoBadge = window.localStorage.getItem('volcanoBadge')
-  const earthBadge = window.localStorage.getItem('earthBadge')
-
-  //Gen 2 Badges
-
-  const zephyrBadge = window.localStorage.getItem('zephyrBadge')
-  const hiveBadge = window.localStorage.getItem('hiveBadge')
-  const plainBadge = window.localStorage.getItem('plainBadge')
-  const fogBadge = window.localStorage.getItem('fogBadge')
-  const stormBadge = window.localStorage.getItem('stormBadge')
-  const mineralBadge = window.localStorage.getItem('mineralBadge')
-  const glacierBadge = window.localStorage.getItem('glacierBadge')
-  const risingBadge = window.localStorage.getItem('risingBadge')
-
-  //Gen 3 Badges
-
-  const stoneBadge = window.localStorage.getItem('stoneBadge')
-  const knuckleBadge = window.localStorage.getItem('knuckleBadge')
-  const dynamoBadge = window.localStorage.getItem('dynamoBadge')
-  const heatBadge = window.localStorage.getItem('heatBadge')
-  const balanceBadge = window.localStorage.getItem('balanceBadge')
-  const featherBadge = window.localStorage.getItem('featherBadge')
-  const mindBadge = window.localStorage.getItem('mindBadge')
-  const rainBadge = window.localStorage.getItem('rainBadge')
-
-  //Gen 4 Badges
-
-  const coalBadge = window.localStorage.getItem('coalBadge')
-  const forestBadge = window.localStorage.getItem('forestBadge')
-  const cobbleBadge = window.localStorage.getItem('cobbleBadge')
-  const fenBadge = window.localStorage.getItem('fenBadge')
-  const relicBadge = window.localStorage.getItem('relicBadge')
-  const mineBadge = window.localStorage.getItem('mineBadge')
-  const icicleBadge = window.localStorage.getItem('icicleBadge')
-  const beaconBadge = window.localStorage.getItem('beaconBadge')
-
-  //Gen 5 Badges
-
-  const trioBadge = window.localStorage.getItem('trioBadge')
-  const basicBadge = window.localStorage.getItem('basicBadge')
-  const insectBadge = window.localStorage.getItem('insectBadge')
-  const boltBadge = window.localStorage.getItem('boltBadge')
-  const quakeBadge = window.localStorage.getItem('quakeBadge')
-  const jetBadge = window.localStorage.getItem('jetBadge')
-  const [freezeBadge, setFreezebadge] = React.useState(false)
-  const legendBadge = window.localStorage.getItem('legendBadge')
-  const toxicBadge = window.localStorage.getItem('toxicBadge')
-  const waveBadge = window.localStorage.getItem('waveBadge')
-
-  //Gen 6 Badges
-
-  const bugBadge = window.localStorage.getItem('bugBadge')
-  const cliffBadge = window.localStorage.getItem('cliffBadge')
-  const rumbleBadge = window.localStorage.getItem('rumbleBadge')
-  const plantBadge = window.localStorage.getItem('plantBadge')
-  const voltageBadge = window.localStorage.getItem('voltageBadge')
-  const fairyBadge = window.localStorage.getItem('fairyBadge')
-  const psychicBadge = window.localStorage.getItem('psychicBadge')
-  const icebergBadge = window.localStorage.getItem('icebergBadge')
-
-  //Gen 7 Badges
-
-  const grassBadge = window.localStorage.getItem('grassBadge')
-  const waterBadge = window.localStorage.getItem('waterBadge')
-  const fireBadge = window.localStorage.getItem('fireBadge')
-  const fightingBadge = window.localStorage.getItem('fightingBadge')
-  const rockBadge = window.localStorage.getItem('rockBadge')
-  const darkBadge = window.localStorage.getItem('darkBadge')
-  const dragonBadge = window.localStorage.getItem('dragonBadge')
-  const ghostBadge = window.localStorage.getItem('ghostBadge')
-  const iceBadge = window.localStorage.getItem('iceBadge')
-  const fairy2Badge = window.localStorage.getItem('fairy2Badge')
 
   return (
     <div className="App" style={ divStyle }>
