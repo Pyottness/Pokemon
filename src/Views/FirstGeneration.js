@@ -121,7 +121,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       fetch('/.netlify/functions/app/api/everygen', {
         method: 'GET',
         headers: {
-          'authorization': process.env.AUTH
+          'authorization': 'welovePoke'
         }
       })
       .then((response) => response.json()

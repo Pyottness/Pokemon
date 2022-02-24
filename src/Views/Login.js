@@ -23,7 +23,7 @@ export default function Login() {
                             "password": password}),
       headers: {
         'Content-Type': 'application/json',
-        'authorization': process.env.AUTH
+        'authorization': 'welovePoke'
       }
     })
     .then(res => res.json())
