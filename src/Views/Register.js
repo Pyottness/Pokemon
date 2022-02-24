@@ -88,7 +88,7 @@ export default function Register() {
                             "ice": false}),
       headers: {
         'Content-Type': 'application/json',
-        'authorization': 'welovePoke'
+        'authorization': process.env.REACT_APP_AUTH
       }
     })
     .then(res => res.json())

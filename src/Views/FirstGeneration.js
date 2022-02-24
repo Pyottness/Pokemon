@@ -119,9 +119,8 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   React.useEffect(() => {
     if (window.localStorage.getItem('pokemons') === null){
       fetch('/.netlify/functions/app/api/everygen', {
-        method: 'GET',
         headers: {
-          'authorization': 'welovePoke'
+          'authorization': process.env.REACT_APP_AUTH
         }
       })
       .then((response) => response.json()
