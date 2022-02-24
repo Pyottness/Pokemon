@@ -10,6 +10,8 @@ export default function Register() {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [rePassword, setRepassword] = React.useState('')
+  const [emailError, setEmailerror] = React.useState('')
+  const [usernameError, setUsernameerror] = React.useState('')
 
   const navigate = useNavigate();
 
@@ -94,11 +96,12 @@ export default function Register() {
         if(result.message === 'User created successfully'){
           navigate('/login');
         } else if(result.error.message.match('expected `username` to be unique.') && result.error.message.match('expected `email` to be unique.')){
-          alert('User already created.')
+          setUsernameerror('*User already created.')
+          setEmailerror('*User already created.')
         } else if(result.error.message.match('expected `username` to be unique.')){
-          alert('Username already taken')
+          setUsernameerror('*Username already taken')
         } else if(result.error.message.match('expected `email` to be unique.')){
-          alert('Email already in use.')
+          setEmailerror('*Email already in use.')
         } else {
           alert(result.error.message);
         }
@@ -119,12 +122,13 @@ export default function Register() {
   return (
     <div className="App" style={ divStyle }>
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center"}}>
-    <form onSubmit={handleSubmit} style={{height: "480px"}} className="pokedexForm">
+    <form onSubmit={handleSubmit} style={{height: "90%"}} className="pokedexForm">
 
       <div alt="Registration Form">
 
       <label alt="Username">Username</label>
       <input alt="Username" type="text" onChange={event => setUsername(event.target.value)} placeholder="Enter Username"></input>
+      <div style={{color: "red", width: "90%", height: "25px"}}>{usernameError}</div>
 
       <label alt="Character">Character</label>
       <select alt="Character" onChange={event => setCharacter(event.target.value)}>
@@ -142,6 +146,7 @@ export default function Register() {
 
       <label alt="Email">Email</label>
       <input alt="Email" type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter Email"></input>
+      <div style={{color: "red", width: "90%", height: "25px"}}>{emailError}</div>
 
       <label alt="Password">Password</label>
       <input alt="Password" type="password" style={password === rePassword && password.length !== 0  ? {backgroundColor: "green"} : password.length === 0 ? {backgroundColor: "black"} : {backgroundColor: "red"}} onChange={event => setPassword(event.target.value)} placeholder="Enter Password"></input>
@@ -152,7 +157,7 @@ export default function Register() {
       </div>
 
       <div>
-        <button type="submit" disabled={password === rePassword && password.length !== 0 && username.length !== 0 && email.length !== 0 ? false : true} className="button" alt="register">Register</button>
+        <button className="button" alt="register" type="submit" disabled={password === rePassword && password.length !== 0 && username.length !== 0 && email.length !== 0 ? false : true} onClick={() => {setEmailerror(''); setUsernameerror('');}}>Register</button>
       </div>
 
       <p style={{color: "white"}}>Already a user?</p>
