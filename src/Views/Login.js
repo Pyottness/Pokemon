@@ -9,6 +9,8 @@ export default function Login() {
 
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
+  const [emailError, setEmailerror] = React.useState('')
+  const [passwordError, setPassworderror] = React.useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -33,8 +35,10 @@ export default function Login() {
           window.localStorage.setItem('character', JSON.stringify(result.character))
 
           navigate(`/profile/${ result.username }`);
+        } else if(result.message === 'User not found!') {
+          setEmailerror(result.message)
         } else {
-          alert(result.error);
+          setPassworderror(result.message)
         }
       }
     )
@@ -58,15 +62,17 @@ export default function Login() {
       <div alt="Login Form">
 
       <label alt="Email">Email</label>
-      <input alt="Email" type="email" value={email} onChange={event => setEmail(event.target.value)} placeholder="Enter Email" />
+      <input alt="Email" type="email" value={email} autocomplete="on" onChange={event => setEmail(event.target.value)} placeholder="Enter Email" />
+      <div style={{color: "red", width: "90%", height: "25px"}}>{emailError}</div>
 
       <label alt="Password">Password</label>
-      <input alt="Password" type="password" value={password} onChange={event => setPassword(event.target.value)} placeholder="Enter Password" />
+      <input alt="Password" type="password" value={password} autocomplete="on" onChange={event => setPassword(event.target.value)} placeholder="Enter Password" />
+      <div style={{color: "red", width: "90%", height: "25px"}}>{passwordError}</div>
 
       </div>
 
       <div>
-        <button type="submit" className="button" alt="log in">Log in</button>
+        <button type="submit" className="button" alt="log in" onClick={() => {setEmailerror(''); setPassworderror('')}}>Log in</button>
       </div>
 
       <p style={{color: 'white'}}>Don't have an account?</p>
