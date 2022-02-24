@@ -62,11 +62,11 @@ export default function Login() {
       <div alt="Login Form">
 
       <label alt="Email">Email</label>
-      <input alt="Email" type="email" value={email} autocomplete="on" onChange={event => setEmail(event.target.value)} placeholder="Enter Email" />
+      <input alt="Email" type="email" value={email} autoComplete="on" onChange={event => setEmail(event.target.value)} placeholder="Enter Email" />
       <div style={{color: "red", width: "90%", height: "25px"}}>{emailError}</div>
 
       <label alt="Password">Password</label>
-      <input alt="Password" type="password" value={password} autocomplete="on" onChange={event => setPassword(event.target.value)} placeholder="Enter Password" />
+      <input alt="Password" type="password" value={password} autoComplete="on" onChange={event => setPassword(event.target.value)} placeholder="Enter Password" />
       <div style={{color: "red", width: "90%", height: "25px"}}>{passwordError}</div>
 
       </div>

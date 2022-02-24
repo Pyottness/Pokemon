@@ -127,7 +127,7 @@ export default function Register() {
       <div alt="Registration Form">
 
       <label alt="Username">Username</label>
-      <input alt="Username" type="text" onChange={event => setUsername(event.target.value)} placeholder="Enter Username"></input>
+      <input alt="Username" type="text" onChange={event => setUsername(event.target.value.toLowerCase())} placeholder="Enter Username"></input>
       <div style={{color: "red", width: "90%", height: "25px"}}>{usernameError}</div>
 
       <label alt="Character">Character</label>

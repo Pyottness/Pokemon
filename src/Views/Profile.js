@@ -10,6 +10,7 @@ export default function Profile() {
   const token = JSON.parse(window.localStorage.getItem("token"))
   const [character, setCharacter] = React.useState()
   const [profileUser, setProfileuser] = React.useState(false)
+  const [search, setSearch] = React.useState("")
 
   //Badges achieved
 
@@ -102,6 +103,13 @@ export default function Profile() {
       return <></>
     }
 
+  }
+
+  // Handle user Search
+
+  const handleSearch = () => {
+
+    navigate(`/profile/${search.toLowerCase()}`)
   }
 
   React.useEffect(() => {
@@ -394,9 +402,14 @@ export default function Profile() {
 
     <div className="pokedexForm" alt="profile" style={{height: "85%", width: "85%"}}>
 
+      <div className="search" alt="search" style={{color: "white", textAlign: "center"}}>Search:
+      <input className="search" alt="search" value={search} onChange={event => setSearch(event.target.value)} style={{width: "40%", margin: "1%"}} placeholder="Find a user..." />
+      <button className="button" type="button" style={{height: "40px", width: "40px", fontSize: "20px"}} onClick={() => {handleSearch()}}>🔍</button>
+      </div>
+
       <div className="userInfo" alt="user information">
 
-      <h1 style={{color: "white", textAlign: "center"}}>{ username }</h1>
+      <h1 style={{color: "white", textAlign: "center"}}>{ username.charAt(0).toUpperCase() + username.slice(1) }</h1>
       <div style={{textAlign: "center", fontSize: "50px"}}>{ character }</div>
       <p style={{color: "white", textAlign: "center"}}>Badges</p>
 
