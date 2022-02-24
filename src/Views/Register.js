@@ -87,7 +87,8 @@ export default function Register() {
                             "ghost": false,
                             "ice": false}),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': process.env.AUTH
       }
     })
     .then(res => res.json())

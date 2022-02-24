@@ -22,7 +22,8 @@ export default function Login() {
       body: JSON.stringify({"email": email,
                             "password": password}),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': process.env.AUTH
       }
     })
     .then(res => res.json())

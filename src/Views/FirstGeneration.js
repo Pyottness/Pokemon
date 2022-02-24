@@ -118,7 +118,12 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   React.useEffect(() => {
     if (window.localStorage.getItem('pokemons') === null){
-      fetch('/.netlify/functions/app/api/everygen')
+      fetch('/.netlify/functions/app/api/everygen', {
+        method: 'GET',
+        headers: {
+          'authorization': process.env.AUTH
+        }
+      })
       .then((response) => response.json()
       .then((response) => {
         const gen1 = response.slice(0, 151)
