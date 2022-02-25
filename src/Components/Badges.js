@@ -43,16 +43,16 @@ const badgesGen4 = [
 ]
 
 const badgesGen5 = [
-  trio: [""],
-  basic: [""],
-  insect: [""],
-  bolt: [""],
-  quake: [""],
-  jet: [""],
-  freeze: [""],
-  legend: [""],
-  toxic: [""],
-  wave: [""],
+  trio: ["snivy", "servine", "serperior", "pansage", "simisage", "sewaddle", "swadloon", "leavanny", "cottonee", "whimsicott", "petilil", "lilligant", "maractus", "deerling", "sawsbuck", "foongus", "amoonguss", "ferroseed", "ferrothorn", "virizion", "victini", "tepig", "pignite", "emboar", "pansear", "simisear", "darumaka", "darmanitan", "litwick", "lampent", "chandelure", "heatmor", "larvesta", "volcarona", "reshiram"],
+  basic: ["patrat", "watchog", "lillipup", "herdier", "stoutland", "pidove", "tranquill", "unfezant", "audino", "minccino", "cinccino", "deerling", "sawsbuck", "bouffalant", "rufflet", "braviary", "meloetta"],
+  insect: ["sewaddle", "swadloon", "leavanny", "venipede", "whirlipede", "scolipede", "dwebble", "crustle", "karrablast", "escavalier", "joltik", "galvantula", "shelmet", "accelgor", "durant", "larvesta", "volcarona", "genesect"],
+  bolt: ["blitzle", "zebstrika", "emolga", "joltik", "galvantula", "tynamo", "eelektrik", "eelektross", "stunfisk", "thundurus", "zekrom"],
+  quake: ["drilbur", "excadrill", "palpitoad", "seismitoad", "sandile", "krokorok", "krookodile", "stunfisk", "golett", "golurk", "landorus"],
+  jet: ["pidove", "tranquill", "unfezant", "woobat", "swoobat", "sigilyph", "archen", "archeops", "ducklett", "swanna", "emolga", "rufflet", "braviary", "vullaby", "mandibuzz", "tornadus", "thundurus", "landorus"],
+  freeze: ["vanillite", "vanillish", "vanilluxe", "cubchoo", "beartic", "cryogonal", "kyurem"],
+  legend: ["axew", "fraxure", "haxorus", "druddigon", "deino", "zweilous", "hydreigon", "reshiram", "zekrom", "kyurem"],
+  toxic: ["venipede", "whirlipede", "scolipede", "trubbish", "garbodor", "foongus", "amoonguss"],
+  wave: ["oshawott", "dewott", "samurott", "panpour", "simipour", "tympole", "palpitoad", "seismitoad", "basculin", "tirtouga", "carracosta", "ducklett", "swanna", "frillish", "jellicent", "alomomola", "keldeo"],
 ]
 
 const badgesGen6 = [
