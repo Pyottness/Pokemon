@@ -56,25 +56,25 @@ const badgesGen5 = [
 ]
 
 const badgesGen6 = [
-  bug: [""],
-  cliff: [""],
-  rumble: [""],
-  plant: [""],
-  voltage: [""],
-  fairy: [""],
-  psychic: [""],
-  iceberg: [""],
+  bug: ["scatterbug", "spewpa", "vivillon"],
+  cliff: ["binacle", "barbaracle", "tyrunt", "tyrantrum", "amaura", "aurorus", "carbink", "diancie"],
+  rumble: ["chesnaught", "pancham", "pangoro", "hawlucha"],
+  plant: ["chespin", "quilladin", "chesnaught", "skiddo", "gogoat", "phantump", "trevenant", "pumpkaboo", "gourgeist"],
+  voltage: ["helioptile", "heliolisk", "dedenne"],
+  fairy: ["flabebe", "floette", "florges", "spritzee", "aromatisse", "swirlix", "slurpuff", "sylveon", "dedenne", "carbink", "klefki", "xerneas", "diancie"],
+  psychic: ["delphox", "espurr", "meowstic", "inkay", "malamar", "hoopa"],
+  iceberg: ["amaura", "aurorus", "bergmite", "avalugg"],
 ]
 
 const badgesGen7 = [
-  grass: [""],
-  water: [""],
-  fire: [""],
-  fighting: [""],
-  fairy: [""],
-  rock: [""],
-  dark: [""],
-  dragon: [""],
-  ghost: [""],
-  ice: [""],
+  grass: ["rowlet", "dartrix", "decidueye", "fomantis", "lurantis", "morelull", "shiinotic", "bounsweet", "steenee", "tsareena", "dhelmise", "tapu", "kartana"],
+  water: ["popplio", "brionne", "primarina", "wishiwashi", "mareanie", "toxapex", "dewpider", "araquanid", "wimpod", "golisopod", "pyukumuku", "bruxish", "tapu"],
+  fire: ["litten", "torracat", "incineroar", "oricorio", "salandit", "salazzle", "turtonator", "blacephalon"],
+  fighting: ["crabrawler", "crabominable", "stufful", "bewear", "passimian", "hakamo", "kommo", "buzzwole", "pheromosa", "marshadow"],
+  fairy: ["primarina", "cutiefly", "ribombee", "morelull", "shiinotic", "comfey", "mimikyu", "tapu", "magearna"],
+  rock: ["rockruff", "lycanroc", "minior", "nihilego", "stakataka"],
+  dark: ["guzzlord"],
+  dragon: ["zygarde", "turtonator", "drampa", "jangmo", "hakamo", "kommo", "guzzlord", "necrozma", "naganadel"],
+  ghost: ["decidueye", "incineroar", "oricorio", "sandygast", "palossand", "mimikyu", "dhelmise", "lunala", "necrozma", "marshadow", "blacephalon"],
+  ice: ["crabominable"],
 ]

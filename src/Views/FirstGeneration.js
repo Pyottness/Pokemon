@@ -373,6 +373,15 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [psychicBadge, setPsychicbadge] = React.useState(false)
   const [icebergBadge, setIcebergbadge] = React.useState(false)
 
+  const bug = ["scatterbug", "spewpa", "vivillon"]
+  const cliff = ["binacle", "barbaracle", "tyrunt", "tyrantrum", "amaura", "aurorus", "carbink", "diancie"]
+  const rumble = ["chesnaught", "pancham", "pangoro", "hawlucha"]
+  const plant = ["chespin", "quilladin", "chesnaught", "skiddo", "gogoat", "phantump", "trevenant", "pumpkaboo", "gourgeist"]
+  const voltage = ["helioptile", "heliolisk", "dedenne"]
+  const fairy = ["flabebe", "floette", "florges", "spritzee", "aromatisse", "swirlix", "slurpuff", "sylveon", "dedenne", "carbink", "klefki", "xerneas", "diancie"]
+  const psychic = ["delphox", "espurr", "meowstic", "inkay", "malamar", "hoopa"]
+  const iceberg = ["amaura", "aurorus", "bergmite", "avalugg"]
+
   //Gen 7 Badges
 
   const [grassBadge, setGrassbadge] = React.useState(false)
@@ -385,6 +394,20 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [ghostBadge, setGhostbadge] = React.useState(false)
   const [iceBadge, setIcebadge] = React.useState(false)
   const [fairy2Badge, setFairy2badge] = React.useState(false)
+
+  const grass = ["rowlet", "dartrix", "decidueye", "fomantis", "lurantis", "morelull", "shiinotic", "bounsweet", "steenee", "tsareena", "dhelmise", "tapu", "kartana"]
+  const water = ["popplio", "brionne", "primarina", "wishiwashi", "mareanie", "toxapex", "dewpider", "araquanid", "wimpod", "golisopod", "pyukumuku", "bruxish", "tapu"]
+  const fire = ["litten", "torracat", "incineroar", "oricorio", "salandit", "salazzle", "turtonator", "blacephalon"]
+  const fighting = ["crabrawler", "crabominable", "stufful", "bewear", "passimian", "hakamo", "kommo", "buzzwole", "pheromosa", "marshadow"]
+  const fairy = ["primarina", "cutiefly", "ribombee", "morelull", "shiinotic", "comfey", "mimikyu", "tapu", "magearna"]
+  const rock = ["rockruff", "lycanroc", "minior", "nihilego", "stakataka"]
+  const dark = ["guzzlord"]
+  const dragon = ["zygarde", "turtonator", "drampa", "jangmo", "hakamo", "kommo", "guzzlord", "necrozma", "naganadel"]
+  const ghost = ["decidueye", "incineroar", "oricorio", "sandygast", "palossand", "mimikyu", "dhelmise", "lunala", "necrozma", "marshadow", "blacephalon"]
+  const ice = ["crabominable"]
+
+
+  //Score switch
 
   React.useEffect(() => {
     window.localStorage.setItem("maxScore", JSON.stringify(maxScore))
