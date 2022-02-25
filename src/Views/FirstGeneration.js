@@ -399,7 +399,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const water = ["popplio", "brionne", "primarina", "wishiwashi", "mareanie", "toxapex", "dewpider", "araquanid", "wimpod", "golisopod", "pyukumuku", "bruxish", "tapu"]
   const fire = ["litten", "torracat", "incineroar", "oricorio", "salandit", "salazzle", "turtonator", "blacephalon"]
   const fighting = ["crabrawler", "crabominable", "stufful", "bewear", "passimian", "hakamo", "kommo", "buzzwole", "pheromosa", "marshadow"]
-  const fairy = ["primarina", "cutiefly", "ribombee", "morelull", "shiinotic", "comfey", "mimikyu", "tapu", "magearna"]
+  const fairy2 = ["primarina", "cutiefly", "ribombee", "morelull", "shiinotic", "comfey", "mimikyu", "tapu", "magearna"]
   const rock = ["rockruff", "lycanroc", "minior", "nihilego", "stakataka"]
   const dark = ["guzzlord"]
   const dragon = ["zygarde", "turtonator", "drampa", "jangmo", "hakamo", "kommo", "guzzlord", "necrozma", "naganadel"]
