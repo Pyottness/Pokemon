@@ -453,6 +453,93 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
     }
   }
 
+  const winBadge = () => {
+    React.useEffect(() => {
+
+      //gen 1
+
+      if(answers1 === boulder){setBoulderbadge(true)}
+      if(answers1 === cascade){setCascadebadge(true)}
+      if(answers1 === thunder){setThunderbadge(true)}
+      if(answers1 === rainbow){setRainbowbadge(true)}
+      if(answers1 === soul){setSoulbadge(true)}
+      if(answers1 === marsh){setMarshbadge(true)}
+      if(answers1 === volcano){setVolcanobadge(true)}
+      if(answers1 === earth){setEarthbadge(true)}
+
+      //gen 2
+
+      if(answers2 === zephyr){setZephyrbadge(true)}
+      if(answers2 === hive){setHivebadge(true)}
+      if(answers2 === plain){setPlainbadge(true)}
+      if(answers2 === fog){setFogbadge(true)}
+      if(answers2 === storm){setStormbadge(true)}
+      if(answers2 === mineral){setMineralbadge(true)}
+      if(answers2 === glacier){setGlacierbadge(true)}
+      if(answers2 === rising){setRisingbadge(true)}
+
+      //gen3
+
+      if(answers3 === stone){setStonebadge(true)}
+      if(answers3 === knuckle){setKnucklebadge(true)}
+      if(answers3 === dynamo){setDynamobadge(true)}
+      if(answers3 === heat){setHeatbadge(true)}
+      if(answers3 === balance){setBalancebadge(true)}
+      if(answers3 === feather){setFeatherbadge(true)}
+      if(answers3 === mind){setMindbadge(true)}
+      if(answers3 === rain){setRainbadge(true)}
+
+      //gen 4
+
+      if(answers4 === coal){setCoalbadge(true)}
+      if(answers4 === forest){setForestbadge(true)}
+      if(answers4 === cobble){setCobblebadge(true)}
+      if(answers4 === fen){setFenbadge(true)}
+      if(answers4 === relic){setRelicbadge(true)}
+      if(answers4 === mine){setMinebadge(true)}
+      if(answers4 === icicle){setIciclebadge(true)}
+      if(answers4 === beacon){setBeaconbadge(true)}
+
+      //gen 5
+
+      if(answers5 === trio){setTriobadge(true)}
+      if(answers5 === basic){setBasicbadge(true)}
+      if(answers5 === insect){setInsectbadge(true)}
+      if(answers5 === bolt){setBoltbadge(true)}
+      if(answers5 === quake){setQuakebadge(true)}
+      if(answers5 === jet){setJetbadge(true)}
+      if(answers5 === freeze){setFreezebadge(true)}
+      if(answers5 === legend){setLegendbadge(true)}
+      if(answers5 === toxic){setToxicbadge(true)}
+      if(answers5 === wave){setWavebadge(true)}
+
+      //gen 6
+
+      if(answers6 === bug){setBugbadge(true)}
+      if(answers6 === cliff){setCliffbadge(true)}
+      if(answers6 === rumble){setRumblebadge(true)}
+      if(answers6 === plant){setPlantbadge(true)}
+      if(answers6 === voltage){setVoltagebadge(true)}
+      if(answers6 === fairy){setFairybadge(true)}
+      if(answers6 === psychic){setPsychicbadge(true)}
+      if(answers6 === iceberg){setIcebergbadge(true)}
+
+      //gen 7
+
+      if(answers7 === grass){setGrassbadge(true)}
+      if(answers7 === water){setWaterbadge(true)}
+      if(answers7 === fire){setFirebadge(true)}
+      if(answers7 === fighting){setFightingbadge(true)}
+      if(answers7 === rock){setRockbadge(true)}
+      if(answers7 === dark){setDarkbadge(true)}
+      if(answers7 === dragon){setDragonbadge(true)}
+      if(answers7 === ghost){setGhostbadge(true)}
+      if(answers7 === ice){setIcebadge(true)}
+      if(answers7 === fairy2){setFairy2badge(true)}
+
+    })
+  }
+
   //disable constant//
   const [disable, setDisable] = React.useState(true)
   const [disablePlay, setDisableplay] = React.useState(true)
@@ -743,10 +830,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           </div>
 
           <div alt="answers">
-              <button className="button-answer" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonA}</button>
-              <button className="button-answer" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonB}</button>
-              <button className="button-answer" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonC}</button>
-              <button className="button-answer" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonD}</button>
+              <button className="button-answer" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true); badges(e); winBadge();}}>{pokemonA}</button>
+              <button className="button-answer" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true); badges(e); winBadge();}}>{pokemonB}</button>
+              <button className="button-answer" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true); badges(e); winBadge();}}>{pokemonC}</button>
+              <button className="button-answer" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true); badges(e); winBadge();}}>{pokemonD}</button>
           </div>
 
           <div alt="links">
