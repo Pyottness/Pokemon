@@ -287,6 +287,15 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [glacierBadge, setGlacierbadge] = React.useState(false)
   const [risingBadge, setRisingbadge] = React.useState(false)
 
+  const zephyr = ["hoothoot", "noctowl", "ledyba", "ledian", "crobat", "togetic", "natu", "xatu", "hoppip", "skiploom", "jumpluff", "yanma", "murkrow", "gligar", "delibird", "mantine", "skarmory", "lugia", "ho-oh"]
+  const hive = ["ledyba", "ledian", "spinarak", "ariados", "yanma", "pineco", "forretress", "scizor", "shuckle", "heracross"]
+  const plain = ["sentret", "furret", "hoothoot", "noctowl", "igglybuff", "aipom", "girafarig", "dunsparce", "teddiursa", "ursaring", "porygon2", "stantler", "smeargle", "miltank", "blissey"]
+  const fog = ["misdreavus"]
+  const storm = ["heracross", "tyrogue", "hitmontop"]
+  const mineral = ["forretress", "steelix", "scizor", "skarmory"]
+  const glacier = ["sneasel", "swinub", "piloswine", "delibird", "smoochum"]
+  const rising = ["kingdra"]
+
   //Gen 3 Badges
 
   const [stoneBadge, setStonebadge] = React.useState(false)
@@ -298,6 +307,16 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [mindBadge, setMindbadge] = React.useState(false)
   const [rainBadge, setRainbadge] = React.useState(false)
 
+  const stone = ["nosepass", "aron", "lairon", "aggron", "numel", "camerupt", "lunatone", "solrock", "lileep", "cradily", "anorith", "armaldo", "relicanth", "regirock"]
+  const knuckle = ["combusken", "blaziken", "breloom", "makuhita", "hariyama", "meditite", "medicham"]
+  const dynamo = ["electrike", "manectric", "plusle", "minun", "barboach", "whiscash", "corphish", "crawdaunt"]
+  const heat = ["torchic", "combusken", "blaziken", "numel", "camerupt", "torkoal", "castform"]
+  const balance = ["zigzagoon", "linoone", "taillow", "swellow", "slakoth", "vigoroth", "slaking", "whismur", "loudred", "exploud", "azurill", "skitty", "delcatty", "spinda", "swablu", "zangoose", "castform", "kecleon"]
+  const feather = ["beautifly", "taillow", "swellow", "wingull", "pelipper", "masquerain", "ninjask", "swablu", "altaria", "tropius", "salamence", "rayquaza"]
+  const mind = ["kirlia", "gardevoir", "meditite", "medicham", "spoink", "grumpig", "lunatone", "solrock", "baltoy", "claydol", "chimecho", "wynaut", "beldum", "metang", "metagross", "latias", "latios", "jirachi", "deoxys"]
+  const rain = ["mudkip", "marshtomp", "swampert", "lotad", "lombre", "ludicolo", "wingull", "pelipper", "surskit", "carvanha", "sharpedo", "wailmer", "wailord", "feebas", "milotic", "castform", "spheal", "sealeo", "walrein", "clamperl", "huntail", "gorebyss", "relicanth", "luvdisc", "kyogre"]
+
+
   //Gen 4 Badges
 
   const [coalBadge, setCoalbadge] = React.useState(false)
@@ -308,6 +327,15 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [mineBadge, setMinebadge] = React.useState(false)
   const [icicleBadge, setIciclebadge] = React.useState(false)
   const [beaconBadge, setBeaconbadge] = React.useState(false)
+
+  const coal = ["cranidos", "rampardos", "shieldon", "bastiodon", "bonsly", "rhyperior", "probopass"]
+  const forest = ["turtwig", "grotle", "torterra", "budew", "roserade", "wormadam", "cherubi", "cherrim", "carnivine", "snover", "abomasnow"]
+  const cobble = ["monferno", "infernape", "riolu", "lucario", "croagunk", "toxicroak", "gallade"]
+  const fen = ["piplup", "prinplup", "empoleon", "bibarel", "buizel", "floatzel", "shellos", "gastrodon", "finneon", "lumineon", "mantyke", "rotom", "palkia", "phione", "manaphy"]
+  const relic = ["drifloon", "drifblim", "mismagius", "spiritomb", "dusknoir", "froslass", "rotom", "giratina"]
+  const mine = ["empoleon", "shieldon", "bastiodon", "wormadam", "bronzor", "bronzong", "lucario", "magnezone", "probopass", "dialga", "heatran"]
+  const icicle = ["snover", "abomasnow", "weavile", "glaceon", "mamoswine", "froslass", "rotom"]
+  const beacon = ["shinx", "luxio", "luxray", "pachirisu", "magnezone", "electivire", "rotom"]
 
   //Gen 5 Badges
 
