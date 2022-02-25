@@ -193,6 +193,159 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
     () => JSON.parse(window.localStorage.getItem("maxScore")) ?? counter.count,
   )
 
+  //Badges achieved
+
+  //Constants of arrays containing given correct answers which are not repeated
+
+  const answersInit = []
+  const [answers1, setAnswers1] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('answers1')) ?? answersInit
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('answers1', JSON.stringify(answers1))
+  }, [answers1])
+
+  const [answers2, setAnswers2] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('answers2')) ?? answersInit
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('answers2', JSON.stringify(answers2))
+  }, [answers2])
+
+  const [answers3, setAnswers3] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('answers3')) ?? answersInit
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('answers3', JSON.stringify(answers3))
+  }, [answers3])
+
+  const [answers4, setAnswers4] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('answers4')) ?? answersInit
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('answers4', JSON.stringify(answers4))
+  }, [answers4])
+
+  const [answers5, setAnswers5] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('answers5')) ?? answersInit
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('answers5', JSON.stringify(answers5))
+  }, [answers5])
+
+  const [answers6, setAnswers6] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('answers6')) ?? answersInit
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('answers6', JSON.stringify(answers6))
+  }, [answers6])
+
+  const [answers7, setAnswers7] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('answers7')) ?? answersInit
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('answers7', JSON.stringify(answers7))
+  }, [answers7])
+
+
+  //Gen 1 Badges
+
+  const [boulderBadge, setBoulderbadge] = React.useState(false)
+  const [cascadeBadge, setCascadebadge] = React.useState(false)
+  const [thunderBadge, setThunderbadge] = React.useState(false)
+  const [rainbowBadge, setRainbowbadge] = React.useState(false)
+  const [soulBadge, setSoulbadge] = React.useState(false)
+  const [marshBadge, setMarshbadge] = React.useState(false)
+  const [volcanoBadge, setVolcanobadge] = React.useState(false)
+  const [earthBadge, setEarthbadge] = React.useState(false)
+
+  const boulder = ["geodude", "graveler", "golem", "onix", "rhyhorn", "rhydon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl"]
+  const cascade = ["squirtle", "wartortle", "blastoise", "psyduck", "golduck", "poliwag", "poliwhirl", "poliwrath", "tentacool", "tentacruel", "slowpoke", "slowbro", "seel", "dewgong", "shellder", "cloyster", "krabby", "kingler", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "magikarp", "gyarados", "lapras", "vaporeon", "omanyte", "omastar", "kabuto", "kabutops"]
+  const thunder = ["pikachu", "raichu", "magnemite", "magneton", "voltorb", "electrode", "electabuzz", "jolteon", "zapdos", ]
+  const rainbow = ["bulbasaur", "ivysaur", "venusaur", "oddish", "gloom", "vileplume", "paras", "parasect", "bellsprout", "weepinbell", "victreebel", "exeggcute", "exeggutor", "tangela"]
+  const soul = ["bulbasaur", "ivysaur", "venusaur", "butterfree", "weedle", "kakuna", "beedrill", "ekans", "arbok", "nidoran-m", "nidoran-f", "nidorina", "nidorino", "nidoqueen", "nidoking", "zubat", "golbat", "oddish", "gloom", "vileplume", "venonat", "venomoth", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "grimer", "muk", "gastly", "haunter", "gengar", "koffing", "weezing"]
+  const marsh = ["abra", "kadabra", "alakazam", "slowpoke", "slowbro", "drowzee", "hypno", "exeggcute", "exeggutor", "starmie", "mr-mime", "jynx", "mewtwo", "mew"]
+  const volcano = ["charmander", "charmeleon", "charizard", "vulpix", "ninetales", "growlithe", "arcanine", "ponyta", "rapidash", "magmar", "flareon", "moltres"]
+  const earth = ["sandshrew", "sandslash", "nidoqueen", "nidoking", "diglett", "dugtrio", "geodude", "graveler", "golem", "onix", "cubone", "marowak", "rhyhorn", "rhydon"]
+
+
+  //Gen 2 Badges
+
+  const [zephyrBadge, setZephyrbadge] = React.useState(false)
+  const [hiveBadge, setHivebadge] = React.useState(false)
+  const [plainBadge, setPlainbadge] = React.useState(false)
+  const [fogBadge, setFogbadge] = React.useState(false)
+  const [stormBadge, setStormbadge] = React.useState(false)
+  const [mineralBadge, setMineralbadge] = React.useState(false)
+  const [glacierBadge, setGlacierbadge] = React.useState(false)
+  const [risingBadge, setRisingbadge] = React.useState(false)
+
+  //Gen 3 Badges
+
+  const [stoneBadge, setStonebadge] = React.useState(false)
+  const [knuckleBadge, setKnucklebadge] = React.useState(false)
+  const [dynamoBadge, setDynamobadge] = React.useState(false)
+  const [heatBadge, setHeatbadge] = React.useState(false)
+  const [balanceBadge, setBalancebadge] = React.useState(false)
+  const [featherBadge, setFeatherbadge] = React.useState(false)
+  const [mindBadge, setMindbadge] = React.useState(false)
+  const [rainBadge, setRainbadge] = React.useState(false)
+
+  //Gen 4 Badges
+
+  const [coalBadge, setCoalbadge] = React.useState(false)
+  const [forestBadge, setForestbadge] = React.useState(false)
+  const [cobbleBadge, setCobblebadge] = React.useState(false)
+  const [fenBadge, setFenbadge] = React.useState(false)
+  const [relicBadge, setRelicbadge] = React.useState(false)
+  const [mineBadge, setMinebadge] = React.useState(false)
+  const [icicleBadge, setIciclebadge] = React.useState(false)
+  const [beaconBadge, setBeaconbadge] = React.useState(false)
+
+  //Gen 5 Badges
+
+  const [trioBadge, setTriobadge] = React.useState(false)
+  const [basicBadge, setBasicbadge] = React.useState(false)
+  const [insectBadge, setInsectbadge] = React.useState(false)
+  const [boltBadge, setBoltbadge] = React.useState(false)
+  const [quakeBadge, setQuakebadge] = React.useState(false)
+  const [jetBadge, setJetbadge] = React.useState(false)
+  const [freezeBadge, setFreezebadge] = React.useState(false)
+  const [legendBadge, setLegendbadge] = React.useState(false)
+  const [toxicBadge, setToxicbadge] = React.useState(false)
+  const [waveBadge, setWavebadge] = React.useState(false)
+
+  //Gen 6 Badges
+
+  const [bugBadge, setBugbadge] = React.useState(false)
+  const [cliffBadge, setCliffbadge] = React.useState(false)
+  const [rumbleBadge, setRumblebadge] = React.useState(false)
+  const [plantBadge, setPlantbadge] = React.useState(false)
+  const [voltageBadge, setVoltagebadge] = React.useState(false)
+  const [fairyBadge, setFairybadge] = React.useState(false)
+  const [psychicBadge, setPsychicbadge] = React.useState(false)
+  const [icebergBadge, setIcebergbadge] = React.useState(false)
+
+  //Gen 7 Badges
+
+  const [grassBadge, setGrassbadge] = React.useState(false)
+  const [waterBadge, setWaterbadge] = React.useState(false)
+  const [fireBadge, setFirebadge] = React.useState(false)
+  const [fightingBadge, setFightingbadge] = React.useState(false)
+  const [rockBadge, setRockbadge] = React.useState(false)
+  const [darkBadge, setDarkbadge] = React.useState(false)
+  const [dragonBadge, setDragonbadge] = React.useState(false)
+  const [ghostBadge, setGhostbadge] = React.useState(false)
+  const [iceBadge, setIcebadge] = React.useState(false)
+  const [fairy2Badge, setFairy2badge] = React.useState(false)
+
   React.useEffect(() => {
     window.localStorage.setItem("maxScore", JSON.stringify(maxScore))
   }, [maxScore])
@@ -207,6 +360,33 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       } else {
         dispatch({type: 'reset'})
       }
+    }
+  }
+
+  //Check if you earnt a trophy
+
+  const badges = (e) => {
+    if(navButton === 1 && correctName === e.target.value && answers1.includes(e.target.value) === false) {
+      setAnswers1(answers1 => [...answers1, e.target.value])
+      console.log(answers1)
+    } else if(navButton === 2 && correctName === e.target.value && answers2.includes(e.target.value) === false) {
+      setAnswers2(answers2 => [...answers2, e.target.value])
+      console.log(answers2)
+    } else if(navButton === 3 && correctName === e.target.value && answers3.includes(e.target.value) === false) {
+      setAnswers3(answers3 => [...answers3, e.target.value])
+      console.log(answers3)
+    } else if(navButton === 4 && correctName === e.target.value && answers4.includes(e.target.value) === false) {
+      setAnswers4(answers4 => [...answers4, e.target.value])
+      console.log(answers4)
+    } else if(navButton === 5 && correctName === e.target.value && answers5.includes(e.target.value) === false) {
+      setAnswers5(answers5 => [...answers5, e.target.value])
+      console.log(answers5)
+    } else if(navButton === 6 && correctName === e.target.value && answers6.includes(e.target.value) === false) {
+      setAnswers6(answers6 => [...answers6, e.target.value])
+      console.log(answers6)
+    } else if(navButton === 7 && correctName === e.target.value && answers7.includes(e.target.value) === false) {
+      setAnswers7(answers7 => [...answers7, e.target.value])
+      console.log(answers7)
     }
   }
 
@@ -500,10 +680,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           </div>
 
           <div alt="answers">
-              <button className="button-answer" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonA}</button>
-              <button className="button-answer" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonB}</button>
-              <button className="button-answer" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonC}</button>
-              <button className="button-answer" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true);}}>{pokemonD}</button>
+              <button className="button-answer" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonA}</button>
+              <button className="button-answer" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonB}</button>
+              <button className="button-answer" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonC}</button>
+              <button className="button-answer" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonD}</button>
           </div>
 
           <div alt="links">

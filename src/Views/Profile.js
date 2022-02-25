@@ -13,6 +13,7 @@ export default function Profile() {
   const [search, setSearch] = React.useState("")
 
   //Badges achieved
+  //Gen 1 Badges
 
   const [boulderBadge, setBoulderbadge] = React.useState(false)
   const [cascadeBadge, setCascadebadge] = React.useState(false)
