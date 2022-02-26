@@ -453,92 +453,91 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
     }
   }
 
-  const winBadge = () => {
     React.useEffect(() => {
+      let checker = (arr, target) => target.every(v => arr.includes(v));
 
       //gen 1
 
-      if(answers1 === boulder){setBoulderbadge(true)}
-      if(answers1 === cascade){setCascadebadge(true)}
-      if(answers1 === thunder){setThunderbadge(true)}
-      if(answers1 === rainbow){setRainbowbadge(true)}
-      if(answers1 === soul){setSoulbadge(true)}
-      if(answers1 === marsh){setMarshbadge(true)}
-      if(answers1 === volcano){setVolcanobadge(true)}
-      if(answers1 === earth){setEarthbadge(true)}
+      if(boulderBadge === false && checker(boulder, answers1)){setBoulderbadge(true)}
+      if(cascadeBadge === false && checker(cascade, answers1)){setCascadebadge(true)}
+      if(thunderBadge === false && checker(thunder, answers1)){setThunderbadge(true)}
+      if(rainbowBadge === false && checker(rainbow, answers1)){setRainbowbadge(true)}
+      if(soulBadge === false && checker(soul, answers1)){setSoulbadge(true)}
+      if(marshBadge === false && checker(marsh, answers1)){setMarshbadge(true)}
+      if(volcanoBadge === false && checker(volcano, answers1)){setVolcanobadge(true)}
+      if(earthBadge === false && checker(earth, answers1)){setEarthbadge(true)}
 
       //gen 2
 
-      if(answers2 === zephyr){setZephyrbadge(true)}
-      if(answers2 === hive){setHivebadge(true)}
-      if(answers2 === plain){setPlainbadge(true)}
-      if(answers2 === fog){setFogbadge(true)}
-      if(answers2 === storm){setStormbadge(true)}
-      if(answers2 === mineral){setMineralbadge(true)}
-      if(answers2 === glacier){setGlacierbadge(true)}
-      if(answers2 === rising){setRisingbadge(true)}
+      if(zephyrBadge === false && checker(zephyr, answers2)){setZephyrbadge(true)}
+      if(hiveBadge === false && checker(hive, answers2)){setHivebadge(true)}
+      if(plainBadge === false && checker(plain, answers2)){setPlainbadge(true)}
+      if(fogBadge === false && checker(fog, answers2)){setFogbadge(true)}
+      if(stormBadge === false && checker(storm, answers2)){setStormbadge(true)}
+      if(mineralBadge === false && checker(mineral, answers2)){setMineralbadge(true)}
+      if(glacierBadge === false && checker(glacier, answers2)){setGlacierbadge(true)}
+      if(risingBadge === false && checker(rising, answers2)){setRisingbadge(true)}
 
       //gen3
 
-      if(answers3 === stone){setStonebadge(true)}
-      if(answers3 === knuckle){setKnucklebadge(true)}
-      if(answers3 === dynamo){setDynamobadge(true)}
-      if(answers3 === heat){setHeatbadge(true)}
-      if(answers3 === balance){setBalancebadge(true)}
-      if(answers3 === feather){setFeatherbadge(true)}
-      if(answers3 === mind){setMindbadge(true)}
-      if(answers3 === rain){setRainbadge(true)}
+      if(stoneBadge === false && checker(stone, answers3)){setStonebadge(true)}
+      if(knuckleBadge === false && checker(knuckle, answers3)){setKnucklebadge(true)}
+      if(dynamoBadge === false && checker(dynamo, answers3)){setDynamobadge(true)}
+      if(heatBadge === false && checker(heat, answers3)){setHeatbadge(true)}
+      if(balanceBadge === false && checker(balance, answers3)){setBalancebadge(true)}
+      if(featherBadge === false && checker(feather, answers3)){setFeatherbadge(true)}
+      if(mindBadge === false && checker(mind, answers3)){setMindbadge(true)}
+      if(rainBadge === false && checker(rain, answers3)){setRainbadge(true)}
 
       //gen 4
 
-      if(answers4 === coal){setCoalbadge(true)}
-      if(answers4 === forest){setForestbadge(true)}
-      if(answers4 === cobble){setCobblebadge(true)}
-      if(answers4 === fen){setFenbadge(true)}
-      if(answers4 === relic){setRelicbadge(true)}
-      if(answers4 === mine){setMinebadge(true)}
-      if(answers4 === icicle){setIciclebadge(true)}
-      if(answers4 === beacon){setBeaconbadge(true)}
+      if(coalBadge === false && checker(coal, answers4)){setCoalbadge(true)}
+      if(forestBadge === false && checker(forest, answers4)){setForestbadge(true)}
+      if(cobbleBadge === false && checker(cobble, answers4)){setCobblebadge(true)}
+      if(fenBadge === false && checker(fen, answers4)){setFenbadge(true)}
+      if(relicBadge === false && checker(relic, answers4)){setRelicbadge(true)}
+      if(mineBadge === false && checker(mine, answers4)){setMinebadge(true)}
+      if(icicleBadge === false && checker(icicle, answers4)){setIciclebadge(true)}
+      if(beaconBadge === false && checker(beacon, answers4)){setBeaconbadge(true)}
 
       //gen 5
 
-      if(answers5 === trio){setTriobadge(true)}
-      if(answers5 === basic){setBasicbadge(true)}
-      if(answers5 === insect){setInsectbadge(true)}
-      if(answers5 === bolt){setBoltbadge(true)}
-      if(answers5 === quake){setQuakebadge(true)}
-      if(answers5 === jet){setJetbadge(true)}
-      if(answers5 === freeze){setFreezebadge(true)}
-      if(answers5 === legend){setLegendbadge(true)}
-      if(answers5 === toxic){setToxicbadge(true)}
-      if(answers5 === wave){setWavebadge(true)}
+      if(trioBadge === false && checker(trio, answers5)){setTriobadge(true)}
+      if(basicBadge === false && checker(basic, answers5)){setBasicbadge(true)}
+      if(insectBadge === false && checker(insect, answers5)){setInsectbadge(true)}
+      if(boltBadge === false && checker(bolt, answers5)){setBoltbadge(true)}
+      if(quakeBadge === false && checker(quake, answers5)){setQuakebadge(true)}
+      if(jetBadge === false && checker(jet, answers5)){setJetbadge(true)}
+      if(freezeBadge === false && checker(freeze, answers5)){setFreezebadge(true)}
+      if(legendBadge === false && checker(legend, answers5)){setLegendbadge(true)}
+      if(toxicBadge === false && checker(toxic, answers5)){setToxicbadge(true)}
+      if(waveBadge === false && checker(wave, answers5)){setWavebadge(true)}
 
       //gen 6
 
-      if(answers6 === bug){setBugbadge(true)}
-      if(answers6 === cliff){setCliffbadge(true)}
-      if(answers6 === rumble){setRumblebadge(true)}
-      if(answers6 === plant){setPlantbadge(true)}
-      if(answers6 === voltage){setVoltagebadge(true)}
-      if(answers6 === fairy){setFairybadge(true)}
-      if(answers6 === psychic){setPsychicbadge(true)}
-      if(answers6 === iceberg){setIcebergbadge(true)}
+      if(bugBadge === false && checker(bug, answers6)){setBugbadge(true)}
+      if(cliffBadge === false && checker(cliff, answers6)){setCliffbadge(true)}
+      if(rumbleBadge === false && checker(rumble, answers6)){setRumblebadge(true)}
+      if(plantBadge === false && checker(plant, answers6)){setPlantbadge(true)}
+      if(voltageBadge === false && checker(voltage, answers6)){setVoltagebadge(true)}
+      if(fairyBadge === false && checker(fairy, answers6)){setFairybadge(true)}
+      if(psychicBadge === false && checker(psychic, answers6)){setPsychicbadge(true)}
+      if(icebergBadge === false && checker(iceberg, answers6)){setIcebergbadge(true)}
 
       //gen 7
 
-      if(answers7 === grass){setGrassbadge(true)}
-      if(answers7 === water){setWaterbadge(true)}
-      if(answers7 === fire){setFirebadge(true)}
-      if(answers7 === fighting){setFightingbadge(true)}
-      if(answers7 === rock){setRockbadge(true)}
-      if(answers7 === dark){setDarkbadge(true)}
-      if(answers7 === dragon){setDragonbadge(true)}
-      if(answers7 === ghost){setGhostbadge(true)}
-      if(answers7 === ice){setIcebadge(true)}
-      if(answers7 === fairy2){setFairy2badge(true)}
+      if(grassBadge === false && checker(grass, answers7)){setGrassbadge(true)}
+      if(waterBadge === false && checker(water, answers7)){setWaterbadge(true)}
+      if(fireBadge === false && checker(fire, answers7)){setFirebadge(true)}
+      if(fightingBadge === false && checker(fighting, answers7)){setFightingbadge(true)}
+      if(rockBadge === false && checker(rock, answers7)){setRockbadge(true)}
+      if(darkBadge === false && checker(dark, answers7)){setDarkbadge(true)}
+      if(dragonBadge === false && checker(dragon, answers7)){setDragonbadge(true)}
+      if(ghostBadge === false && checker(ghost, answers7)){setGhostbadge(true)}
+      if(iceBadge === false && checker(ice, answers7)){setIcebadge(true)}
+      if(fairy2Badge === false && checker(fairy2, answers7)){setFairy2badge(true)}
 
-    })
-  }
+    }, [answers1, answers2, answers3, answers4, answers5, answers6, answers7, balance, balanceBadge, basic, basicBadge, beacon, beaconBadge, bolt, boltBadge, boulder, boulderBadge, bug, bugBadge, cascade, cascadeBadge, cliff, cliffBadge, coal, coalBadge, cobble, cobbleBadge, dark, darkBadge, dragon, dragonBadge, dynamo, dynamoBadge, earth, earthBadge, fairy, fairy2, fairy2Badge, fairyBadge, feather, featherBadge, fen, fenBadge, fighting, fightingBadge, fire, fireBadge, fog, fogBadge, forest, forestBadge, freeze, freezeBadge, ghost, ghostBadge, glacier, glacierBadge, grass, grassBadge, heat, heatBadge, hive, hiveBadge, ice, iceBadge, iceberg, icebergBadge, icicle, icicleBadge, insect, insectBadge, jet, jetBadge, knuckle, knuckleBadge, legend, legendBadge, marsh, marshBadge, mind, mindBadge, mine, mineBadge, mineral, mineralBadge, plain, plainBadge, plant, plantBadge, psychic, psychicBadge, quake, quakeBadge, rain, rainBadge, rainbow, rainbowBadge, relic, relicBadge, rising, risingBadge, rock, rockBadge, rumble, rumbleBadge, soul, soulBadge, stone, stoneBadge, storm, stormBadge, thunder, thunderBadge, toxic, toxicBadge, trio, trioBadge, volcano, volcanoBadge, voltage, voltageBadge, water, waterBadge, wave, waveBadge, zephyr, zephyrBadge])
 
   //disable constant//
   const [disable, setDisable] = React.useState(true)
@@ -830,10 +829,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           </div>
 
           <div alt="answers">
-              <button className="button-answer" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true); badges(e); winBadge();}}>{pokemonA}</button>
-              <button className="button-answer" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true); badges(e); winBadge();}}>{pokemonB}</button>
-              <button className="button-answer" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true); badges(e); winBadge();}}>{pokemonC}</button>
-              <button className="button-answer" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true); badges(e); winBadge();}}>{pokemonD}</button>
+              <button className="button-answer" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonA}</button>
+              <button className="button-answer" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonB}</button>
+              <button className="button-answer" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonC}</button>
+              <button className="button-answer" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonD}</button>
           </div>
 
           <div alt="links">
