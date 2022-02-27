@@ -266,14 +266,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [volcanoBadge, setVolcanobadge] = React.useState(false)
   const [earthBadge, setEarthbadge] = React.useState(false)
 
-  const boulder = ["geodude", "graveler", "golem", "onix", "rhyhorn", "rhydon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl"]
-  const cascade = ["squirtle", "wartortle", "blastoise", "psyduck", "golduck", "poliwag", "poliwhirl", "poliwrath", "tentacool", "tentacruel", "slowpoke", "slowbro", "seel", "dewgong", "shellder", "cloyster", "krabby", "kingler", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "magikarp", "gyarados", "lapras", "vaporeon", "omanyte", "omastar", "kabuto", "kabutops"]
-  const thunder = ["pikachu", "raichu", "magnemite", "magneton", "voltorb", "electrode", "electabuzz", "jolteon", "zapdos", ]
-  const rainbow = ["bulbasaur", "ivysaur", "venusaur", "oddish", "gloom", "vileplume", "paras", "parasect", "bellsprout", "weepinbell", "victreebel", "exeggcute", "exeggutor", "tangela"]
-  const soul = ["bulbasaur", "ivysaur", "venusaur", "butterfree", "weedle", "kakuna", "beedrill", "ekans", "arbok", "nidoran-m", "nidoran-f", "nidorina", "nidorino", "nidoqueen", "nidoking", "zubat", "golbat", "oddish", "gloom", "vileplume", "venonat", "venomoth", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "grimer", "muk", "gastly", "haunter", "gengar", "koffing", "weezing"]
-  const marsh = ["abra", "kadabra", "alakazam", "slowpoke", "slowbro", "drowzee", "hypno", "exeggcute", "exeggutor", "starmie", "mr-mime", "jynx", "mewtwo", "mew"]
-  const volcano = ["charmander", "charmeleon", "charizard", "vulpix", "ninetales", "growlithe", "arcanine", "ponyta", "rapidash", "magmar", "flareon", "moltres"]
-  const earth = ["sandshrew", "sandslash", "nidoqueen", "nidoking", "diglett", "dugtrio", "geodude", "graveler", "golem", "onix", "cubone", "marowak", "rhyhorn", "rhydon"]
+  const boulder = React.useState(["geodude", "graveler", "golem", "onix", "rhyhorn", "rhydon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl"])
+  const cascade = React.useState(["squirtle", "wartortle", "blastoise", "psyduck", "golduck", "poliwag", "poliwhirl", "poliwrath", "tentacool", "tentacruel", "slowpoke", "slowbro", "seel", "dewgong", "shellder", "cloyster", "krabby", "kingler", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "magikarp", "gyarados", "lapras", "vaporeon", "omanyte", "omastar", "kabuto", "kabutops"])
+  const thunder = React.useState(["pikachu", "raichu", "magnemite", "magneton", "voltorb", "electrode", "electabuzz", "jolteon", "zapdos"])
+  const rainbow = React.useState(["bulbasaur", "ivysaur", "venusaur", "oddish", "gloom", "vileplume", "paras", "parasect", "bellsprout", "weepinbell", "victreebel", "exeggcute", "exeggutor", "tangela"])
+  const soul = React.useState(["bulbasaur", "ivysaur", "venusaur", "butterfree", "weedle", "kakuna", "beedrill", "ekans", "arbok", "nidoran-m", "nidoran-f", "nidorina", "nidorino", "nidoqueen", "nidoking", "zubat", "golbat", "oddish", "gloom", "vileplume", "venonat", "venomoth", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "grimer", "muk", "gastly", "haunter", "gengar", "koffing", "weezing"])
+  const marsh = React.useState(["abra", "kadabra", "alakazam", "slowpoke", "slowbro", "drowzee", "hypno", "exeggcute", "exeggutor", "starmie", "mr-mime", "jynx", "mewtwo", "mew"])
+  const volcano = React.useState(["charmander", "charmeleon", "charizard", "vulpix", "ninetales", "growlithe", "arcanine", "ponyta", "rapidash", "magmar", "flareon", "moltres"])
+  const earth = React.useState(["sandshrew", "sandslash", "nidoqueen", "nidoking", "diglett", "dugtrio", "geodude", "graveler", "golem", "onix", "cubone", "marowak", "rhyhorn", "rhydon"])
 
 
   //Gen 2 Badges
@@ -287,14 +287,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [glacierBadge, setGlacierbadge] = React.useState(false)
   const [risingBadge, setRisingbadge] = React.useState(false)
 
-  const zephyr = ["hoothoot", "noctowl", "ledyba", "ledian", "crobat", "togetic", "natu", "xatu", "hoppip", "skiploom", "jumpluff", "yanma", "murkrow", "gligar", "delibird", "mantine", "skarmory", "lugia", "ho-oh"]
-  const hive = ["ledyba", "ledian", "spinarak", "ariados", "yanma", "pineco", "forretress", "scizor", "shuckle", "heracross"]
-  const plain = ["sentret", "furret", "hoothoot", "noctowl", "igglybuff", "aipom", "girafarig", "dunsparce", "teddiursa", "ursaring", "porygon2", "stantler", "smeargle", "miltank", "blissey"]
-  const fog = ["misdreavus"]
-  const storm = ["heracross", "tyrogue", "hitmontop"]
-  const mineral = ["forretress", "steelix", "scizor", "skarmory"]
-  const glacier = ["sneasel", "swinub", "piloswine", "delibird", "smoochum"]
-  const rising = ["kingdra"]
+  const zephyr = React.useState(["hoothoot", "noctowl", "ledyba", "ledian", "crobat", "togetic", "natu", "xatu", "hoppip", "skiploom", "jumpluff", "yanma", "murkrow", "gligar", "delibird", "mantine", "skarmory", "lugia", "ho-oh"])
+  const hive = React.useState(["ledyba", "ledian", "spinarak", "ariados", "yanma", "pineco", "forretress", "scizor", "shuckle", "heracross"])
+  const plain = React.useState(["sentret", "furret", "hoothoot", "noctowl", "igglybuff", "aipom", "girafarig", "dunsparce", "teddiursa", "ursaring", "porygon2", "stantler", "smeargle", "miltank", "blissey"])
+  const fog = React.useState(["misdreavus"])
+  const storm = React.useState(["heracross", "tyrogue", "hitmontop"])
+  const mineral = React.useState(["forretress", "steelix", "scizor", "skarmory"])
+  const glacier = React.useState(["sneasel", "swinub", "piloswine", "delibird", "smoochum"])
+  const rising = React.useState(["kingdra"])
 
   //Gen 3 Badges
 
@@ -307,14 +307,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [mindBadge, setMindbadge] = React.useState(false)
   const [rainBadge, setRainbadge] = React.useState(false)
 
-  const stone = ["nosepass", "aron", "lairon", "aggron", "numel", "camerupt", "lunatone", "solrock", "lileep", "cradily", "anorith", "armaldo", "relicanth", "regirock"]
-  const knuckle = ["combusken", "blaziken", "breloom", "makuhita", "hariyama", "meditite", "medicham"]
-  const dynamo = ["electrike", "manectric", "plusle", "minun", "barboach", "whiscash", "corphish", "crawdaunt"]
-  const heat = ["torchic", "combusken", "blaziken", "numel", "camerupt", "torkoal", "castform"]
-  const balance = ["zigzagoon", "linoone", "taillow", "swellow", "slakoth", "vigoroth", "slaking", "whismur", "loudred", "exploud", "azurill", "skitty", "delcatty", "spinda", "swablu", "zangoose", "castform", "kecleon"]
-  const feather = ["beautifly", "taillow", "swellow", "wingull", "pelipper", "masquerain", "ninjask", "swablu", "altaria", "tropius", "salamence", "rayquaza"]
-  const mind = ["kirlia", "gardevoir", "meditite", "medicham", "spoink", "grumpig", "lunatone", "solrock", "baltoy", "claydol", "chimecho", "wynaut", "beldum", "metang", "metagross", "latias", "latios", "jirachi", "deoxys"]
-  const rain = ["mudkip", "marshtomp", "swampert", "lotad", "lombre", "ludicolo", "wingull", "pelipper", "surskit", "carvanha", "sharpedo", "wailmer", "wailord", "feebas", "milotic", "castform", "spheal", "sealeo", "walrein", "clamperl", "huntail", "gorebyss", "relicanth", "luvdisc", "kyogre"]
+  const stone = React.useState(["nosepass", "aron", "lairon", "aggron", "numel", "camerupt", "lunatone", "solrock", "lileep", "cradily", "anorith", "armaldo", "relicanth", "regirock"])
+  const knuckle = React.useState(["combusken", "blaziken", "breloom", "makuhita", "hariyama", "meditite", "medicham"])
+  const dynamo = React.useState(["electrike", "manectric", "plusle", "minun", "barboach", "whiscash", "corphish", "crawdaunt"]) 
+  const heat = React.useState(["torchic", "combusken", "blaziken", "numel", "camerupt", "torkoal", "castform"])
+  const balance = React.useState(["zigzagoon", "linoone", "taillow", "swellow", "slakoth", "vigoroth", "slaking", "whismur", "loudred", "exploud", "azurill", "skitty", "delcatty", "spinda", "swablu", "zangoose", "castform", "kecleon"])
+  const feather = React.useState(["beautifly", "taillow", "swellow", "wingull", "pelipper", "masquerain", "ninjask", "swablu", "altaria", "tropius", "salamence", "rayquaza"])
+  const mind = React.useState(["kirlia", "gardevoir", "meditite", "medicham", "spoink", "grumpig", "lunatone", "solrock", "baltoy", "claydol", "chimecho", "wynaut", "beldum", "metang", "metagross", "latias", "latios", "jirachi", "deoxys"])
+  const rain = React.useState(["mudkip", "marshtomp", "swampert", "lotad", "lombre", "ludicolo", "wingull", "pelipper", "surskit", "carvanha", "sharpedo", "wailmer", "wailord", "feebas", "milotic", "castform", "spheal", "sealeo", "walrein", "clamperl", "huntail", "gorebyss", "relicanth", "luvdisc", "kyogre"])
 
 
   //Gen 4 Badges
@@ -328,14 +328,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [icicleBadge, setIciclebadge] = React.useState(false)
   const [beaconBadge, setBeaconbadge] = React.useState(false)
 
-  const coal = ["cranidos", "rampardos", "shieldon", "bastiodon", "bonsly", "rhyperior", "probopass"]
-  const forest = ["turtwig", "grotle", "torterra", "budew", "roserade", "wormadam", "cherubi", "cherrim", "carnivine", "snover", "abomasnow"]
-  const cobble = ["monferno", "infernape", "riolu", "lucario", "croagunk", "toxicroak", "gallade"]
-  const fen = ["piplup", "prinplup", "empoleon", "bibarel", "buizel", "floatzel", "shellos", "gastrodon", "finneon", "lumineon", "mantyke", "rotom", "palkia", "phione", "manaphy"]
-  const relic = ["drifloon", "drifblim", "mismagius", "spiritomb", "dusknoir", "froslass", "rotom", "giratina"]
-  const mine = ["empoleon", "shieldon", "bastiodon", "wormadam", "bronzor", "bronzong", "lucario", "magnezone", "probopass", "dialga", "heatran"]
-  const icicle = ["snover", "abomasnow", "weavile", "glaceon", "mamoswine", "froslass", "rotom"]
-  const beacon = ["shinx", "luxio", "luxray", "pachirisu", "magnezone", "electivire", "rotom"]
+  const coal = React.useState(["cranidos", "rampardos", "shieldon", "bastiodon", "bonsly", "rhyperior", "probopass"])
+  const forest = React.useState(["turtwig", "grotle", "torterra", "budew", "roserade", "wormadam", "cherubi", "cherrim", "carnivine", "snover", "abomasnow"])
+  const cobble = React.useState(["monferno", "infernape", "riolu", "lucario", "croagunk", "toxicroak", "gallade"])
+  const fen = React.useState(["piplup", "prinplup", "empoleon", "bibarel", "buizel", "floatzel", "shellos", "gastrodon", "finneon", "lumineon", "mantyke", "rotom", "palkia", "phione", "manaphy"])
+  const relic = React.useState(["drifloon", "drifblim", "mismagius", "spiritomb", "dusknoir", "froslass", "rotom", "giratina"])
+  const mine = React.useState(["empoleon", "shieldon", "bastiodon", "wormadam", "bronzor", "bronzong", "lucario", "magnezone", "probopass", "dialga", "heatran"])
+  const icicle = React.useState(["snover", "abomasnow", "weavile", "glaceon", "mamoswine", "froslass", "rotom"])
+  const beacon = React.useState(["shinx", "luxio", "luxray", "pachirisu", "magnezone", "electivire", "rotom"])
 
   //Gen 5 Badges
 
@@ -351,16 +351,16 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [waveBadge, setWavebadge] = React.useState(false)
 
 
-  const trio = ["snivy", "servine", "serperior", "pansage", "simisage", "sewaddle", "swadloon", "leavanny", "cottonee", "whimsicott", "petilil", "lilligant", "maractus", "deerling", "sawsbuck", "foongus", "amoonguss", "ferroseed", "ferrothorn", "virizion", "victini", "tepig", "pignite", "emboar", "pansear", "simisear", "darumaka", "darmanitan", "litwick", "lampent", "chandelure", "heatmor", "larvesta", "volcarona", "reshiram"]
-  const basic = ["patrat", "watchog", "lillipup", "herdier", "stoutland", "pidove", "tranquill", "unfezant", "audino", "minccino", "cinccino", "deerling", "sawsbuck", "bouffalant", "rufflet", "braviary", "meloetta"]
-  const insect = ["sewaddle", "swadloon", "leavanny", "venipede", "whirlipede", "scolipede", "dwebble", "crustle", "karrablast", "escavalier", "joltik", "galvantula", "shelmet", "accelgor", "durant", "larvesta", "volcarona", "genesect"]
-  const bolt = ["blitzle", "zebstrika", "emolga", "joltik", "galvantula", "tynamo", "eelektrik", "eelektross", "stunfisk", "thundurus", "zekrom"]
-  const quake = ["drilbur", "excadrill", "palpitoad", "seismitoad", "sandile", "krokorok", "krookodile", "stunfisk", "golett", "golurk", "landorus"]
-  const jet = ["pidove", "tranquill", "unfezant", "woobat", "swoobat", "sigilyph", "archen", "archeops", "ducklett", "swanna", "emolga", "rufflet", "braviary", "vullaby", "mandibuzz", "tornadus", "thundurus", "landorus"]
-  const freeze = ["vanillite", "vanillish", "vanilluxe", "cubchoo", "beartic", "cryogonal", "kyurem"]
-  const legend = ["axew", "fraxure", "haxorus", "druddigon", "deino", "zweilous", "hydreigon", "reshiram", "zekrom", "kyurem"]
-  const toxic = ["venipede", "whirlipede", "scolipede", "trubbish", "garbodor", "foongus", "amoonguss"]
-  const wave = ["oshawott", "dewott", "samurott", "panpour", "simipour", "tympole", "palpitoad", "seismitoad", "basculin", "tirtouga", "carracosta", "ducklett", "swanna", "frillish", "jellicent", "alomomola", "keldeo"]
+  const trio = React.useState(["snivy", "servine", "serperior", "pansage", "simisage", "sewaddle", "swadloon", "leavanny", "cottonee", "whimsicott", "petilil", "lilligant", "maractus", "deerling", "sawsbuck", "foongus", "amoonguss", "ferroseed", "ferrothorn", "virizion", "victini", "tepig", "pignite", "emboar", "pansear", "simisear", "darumaka", "darmanitan", "litwick", "lampent", "chandelure", "heatmor", "larvesta", "volcarona", "reshiram"])
+  const basic = React.useState(["patrat", "watchog", "lillipup", "herdier", "stoutland", "pidove", "tranquill", "unfezant", "audino", "minccino", "cinccino", "deerling", "sawsbuck", "bouffalant", "rufflet", "braviary", "meloetta"])
+  const insect = React.useState(["sewaddle", "swadloon", "leavanny", "venipede", "whirlipede", "scolipede", "dwebble", "crustle", "karrablast", "escavalier", "joltik", "galvantula", "shelmet", "accelgor", "durant", "larvesta", "volcarona", "genesect"])
+  const bolt = React.useState(["blitzle", "zebstrika", "emolga", "joltik", "galvantula", "tynamo", "eelektrik", "eelektross", "stunfisk", "thundurus", "zekrom"])
+  const quake = React.useState(["drilbur", "excadrill", "palpitoad", "seismitoad", "sandile", "krokorok", "krookodile", "stunfisk", "golett", "golurk", "landorus"])
+  const jet = React.useState(["pidove", "tranquill", "unfezant", "woobat", "swoobat", "sigilyph", "archen", "archeops", "ducklett", "swanna", "emolga", "rufflet", "braviary", "vullaby", "mandibuzz", "tornadus", "thundurus", "landorus"])
+  const freeze = React.useState(["vanillite", "vanillish", "vanilluxe", "cubchoo", "beartic", "cryogonal", "kyurem"])
+  const legend = React.useState(["axew", "fraxure", "haxorus", "druddigon", "deino", "zweilous", "hydreigon", "reshiram", "zekrom", "kyurem"])
+  const toxic = React.useState(["venipede", "whirlipede", "scolipede", "trubbish", "garbodor", "foongus", "amoonguss"])
+  const wave = React.useState(["oshawott", "dewott", "samurott", "panpour", "simipour", "tympole", "palpitoad", "seismitoad", "basculin", "tirtouga", "carracosta", "ducklett", "swanna", "frillish", "jellicent", "alomomola", "keldeo"])
 
   //Gen 6 Badges
 
@@ -373,14 +373,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [psychicBadge, setPsychicbadge] = React.useState(false)
   const [icebergBadge, setIcebergbadge] = React.useState(false)
 
-  const bug = ["scatterbug", "spewpa", "vivillon"]
-  const cliff = ["binacle", "barbaracle", "tyrunt", "tyrantrum", "amaura", "aurorus", "carbink", "diancie"]
-  const rumble = ["chesnaught", "pancham", "pangoro", "hawlucha"]
-  const plant = ["chespin", "quilladin", "chesnaught", "skiddo", "gogoat", "phantump", "trevenant", "pumpkaboo", "gourgeist"]
-  const voltage = ["helioptile", "heliolisk", "dedenne"]
-  const fairy = ["flabebe", "floette", "florges", "spritzee", "aromatisse", "swirlix", "slurpuff", "sylveon", "dedenne", "carbink", "klefki", "xerneas", "diancie"]
-  const psychic = ["delphox", "espurr", "meowstic", "inkay", "malamar", "hoopa"]
-  const iceberg = ["amaura", "aurorus", "bergmite", "avalugg"]
+  const bug = React.useState(["scatterbug", "spewpa", "vivillon"])
+  const cliff = React.useState(["binacle", "barbaracle", "tyrunt", "tyrantrum", "amaura", "aurorus", "carbink", "diancie"])
+  const rumble = React.useState(["chesnaught", "pancham", "pangoro", "hawlucha"])
+  const plant = React.useState(["chespin", "quilladin", "chesnaught", "skiddo", "gogoat", "phantump", "trevenant", "pumpkaboo", "gourgeist"])
+  const voltage = React.useState(["helioptile", "heliolisk", "dedenne"])
+  const fairy = React.useState(["flabebe", "floette", "florges", "spritzee", "aromatisse", "swirlix", "slurpuff", "sylveon", "dedenne", "carbink", "klefki", "xerneas", "diancie"])
+  const psychic = React.useState(["delphox", "espurr", "meowstic", "inkay", "malamar", "hoopa"])
+  const iceberg = React.useState(["amaura", "aurorus", "bergmite", "avalugg"])
 
   //Gen 7 Badges
 
@@ -395,16 +395,16 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const [iceBadge, setIcebadge] = React.useState(false)
   const [fairy2Badge, setFairy2badge] = React.useState(false)
 
-  const grass = ["rowlet", "dartrix", "decidueye", "fomantis", "lurantis", "morelull", "shiinotic", "bounsweet", "steenee", "tsareena", "dhelmise", "tapu", "kartana"]
-  const water = ["popplio", "brionne", "primarina", "wishiwashi", "mareanie", "toxapex", "dewpider", "araquanid", "wimpod", "golisopod", "pyukumuku", "bruxish", "tapu"]
-  const fire = ["litten", "torracat", "incineroar", "oricorio", "salandit", "salazzle", "turtonator", "blacephalon"]
-  const fighting = ["crabrawler", "crabominable", "stufful", "bewear", "passimian", "hakamo", "kommo", "buzzwole", "pheromosa", "marshadow"]
-  const fairy2 = ["primarina", "cutiefly", "ribombee", "morelull", "shiinotic", "comfey", "mimikyu", "tapu", "magearna"]
-  const rock = ["rockruff", "lycanroc", "minior", "nihilego", "stakataka"]
-  const dark = ["guzzlord"]
-  const dragon = ["zygarde", "turtonator", "drampa", "jangmo", "hakamo", "kommo", "guzzlord", "necrozma", "naganadel"]
-  const ghost = ["decidueye", "incineroar", "oricorio", "sandygast", "palossand", "mimikyu", "dhelmise", "lunala", "necrozma", "marshadow", "blacephalon"]
-  const ice = ["crabominable"]
+  const grass = React.useState(["rowlet", "dartrix", "decidueye", "fomantis", "lurantis", "morelull", "shiinotic", "bounsweet", "steenee", "tsareena", "dhelmise", "tapu", "kartana"])
+  const water = React.useState(["popplio", "brionne", "primarina", "wishiwashi", "mareanie", "toxapex", "dewpider", "araquanid", "wimpod", "golisopod", "pyukumuku", "bruxish", "tapu"])
+  const fire = React.useState(["litten", "torracat", "incineroar", "oricorio", "salandit", "salazzle", "turtonator", "blacephalon"])
+  const fighting = React.useState(["crabrawler", "crabominable", "stufful", "bewear", "passimian", "hakamo", "kommo", "buzzwole", "pheromosa", "marshadow"])
+  const fairy2 = React.useState(["primarina", "cutiefly", "ribombee", "morelull", "shiinotic", "comfey", "mimikyu", "tapu", "magearna"])
+  const rock = React.useState(["rockruff", "lycanroc", "minior", "nihilego", "stakataka"])
+  const dark = React.useState(["guzzlord"])
+  const dragon = React.useState(["zygarde", "turtonator", "drampa", "jangmo", "hakamo", "kommo", "guzzlord", "necrozma", "naganadel"])
+  const ghost = React.useState(["decidueye", "incineroar", "oricorio", "sandygast", "palossand", "mimikyu", "dhelmise", "lunala", "necrozma", "marshadow", "blacephalon"])
+  const ice = React.useState(["crabominable"])
 
 
   //Score switch
