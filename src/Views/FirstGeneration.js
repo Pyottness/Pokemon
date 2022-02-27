@@ -257,14 +257,69 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //Gen 1 Badges
 
-  const [boulderBadge, setBoulderbadge] = React.useState(false)
-  const [cascadeBadge, setCascadebadge] = React.useState(false)
-  const [thunderBadge, setThunderbadge] = React.useState(false)
-  const [rainbowBadge, setRainbowbadge] = React.useState(false)
-  const [soulBadge, setSoulbadge] = React.useState(false)
-  const [marshBadge, setMarshbadge] = React.useState(false)
-  const [volcanoBadge, setVolcanobadge] = React.useState(false)
-  const [earthBadge, setEarthbadge] = React.useState(false)
+  const [boulderBadge, setBoulderbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('boulderBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('boulderBadge', JSON.stringify(boulderBadge))
+  }, [boulderBadge])
+
+  const [cascadeBadge, setCascadebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('cascadeBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('cascadeBadge', JSON.stringify(cascadeBadge))
+  }, [cascadeBadge])
+
+  const [thunderBadge, setThunderbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('thunderBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('thunderBadge', JSON.stringify(thunderBadge))
+  }, [thunderBadge])
+
+  const [rainbowBadge, setRainbowbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('rainbowBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('rainbowBadge', JSON.stringify(rainbowBadge))
+  }, [rainbowBadge])
+
+  const [soulBadge, setSoulbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('soulBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('soulBadge', JSON.stringify(soulBadge))
+  }, [soulBadge])
+
+  const [marshBadge, setMarshbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('marshBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('marshBadge', JSON.stringify(marshBadge))
+  }, [marshBadge])
+
+  const [volcanoBadge, setVolcanobadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('volcanoBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('volcanoBadge', JSON.stringify(volcanoBadge))
+  }, [volcanoBadge])
+
+  const [earthBadge, setEarthbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('earthBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('earthBadge', JSON.stringify(earthBadge))
+  }, [earthBadge])
 
   const boulder = React.useState(["geodude", "graveler", "golem", "onix", "rhyhorn", "rhydon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl"])
   const cascade = React.useState(["squirtle", "wartortle", "blastoise", "psyduck", "golduck", "poliwag", "poliwhirl", "poliwrath", "tentacool", "tentacruel", "slowpoke", "slowbro", "seel", "dewgong", "shellder", "cloyster", "krabby", "kingler", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "magikarp", "gyarados", "lapras", "vaporeon", "omanyte", "omastar", "kabuto", "kabutops"])
@@ -278,14 +333,69 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //Gen 2 Badges
 
-  const [zephyrBadge, setZephyrbadge] = React.useState(false)
-  const [hiveBadge, setHivebadge] = React.useState(false)
-  const [plainBadge, setPlainbadge] = React.useState(false)
-  const [fogBadge, setFogbadge] = React.useState(false)
-  const [stormBadge, setStormbadge] = React.useState(false)
-  const [mineralBadge, setMineralbadge] = React.useState(false)
-  const [glacierBadge, setGlacierbadge] = React.useState(false)
-  const [risingBadge, setRisingbadge] = React.useState(false)
+  const [zephyrBadge, setZephyrbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('zephyrBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('zephyrBadge', JSON.stringify(zephyrBadge))
+  }, [zephyrBadge])
+
+  const [hiveBadge, setHivebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('hiveBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('hiveBadge', JSON.stringify(hiveBadge))
+  }, [hiveBadge])
+
+  const [plainBadge, setPlainbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('plainBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('plainBadge', JSON.stringify(plainBadge))
+  }, [plainBadge])
+
+  const [fogBadge, setFogbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('fogBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('fogBadge', JSON.stringify(fogBadge))
+  }, [fogBadge])
+
+  const [stormBadge, setStormbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('stormBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('stormBadge', JSON.stringify(stormBadge))
+  }, [stormBadge])
+
+  const [mineralBadge, setMineralbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('mineralBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('mineralBadge', JSON.stringify(mineralBadge))
+  }, [mineralBadge])
+
+  const [glacierBadge, setGlacierbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('glacierBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('glacierBadge', JSON.stringify(glacierBadge))
+  }, [glacierBadge])
+
+  const [risingBadge, setRisingbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('risingBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('risingBadge', JSON.stringify(risingBadge))
+  }, [risingBadge])
 
   const zephyr = React.useState(["hoothoot", "noctowl", "ledyba", "ledian", "crobat", "togetic", "natu", "xatu", "hoppip", "skiploom", "jumpluff", "yanma", "murkrow", "gligar", "delibird", "mantine", "skarmory", "lugia", "ho-oh"])
   const hive = React.useState(["ledyba", "ledian", "spinarak", "ariados", "yanma", "pineco", "forretress", "scizor", "shuckle", "heracross"])
@@ -298,18 +408,73 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //Gen 3 Badges
 
-  const [stoneBadge, setStonebadge] = React.useState(false)
-  const [knuckleBadge, setKnucklebadge] = React.useState(false)
-  const [dynamoBadge, setDynamobadge] = React.useState(false)
-  const [heatBadge, setHeatbadge] = React.useState(false)
-  const [balanceBadge, setBalancebadge] = React.useState(false)
-  const [featherBadge, setFeatherbadge] = React.useState(false)
-  const [mindBadge, setMindbadge] = React.useState(false)
-  const [rainBadge, setRainbadge] = React.useState(false)
+  const [stoneBadge, setStonebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('stoneBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('stoneBadge', JSON.stringify(stoneBadge))
+  }, [stoneBadge])
+
+  const [knuckleBadge, setKnucklebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('knuckleBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('knuckleBadge', JSON.stringify(knuckleBadge))
+  }, [knuckleBadge])
+
+  const [dynamoBadge, setDynamobadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('dynamoBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('dynamoBadge', JSON.stringify(dynamoBadge))
+  }, [dynamoBadge])
+
+  const [heatBadge, setHeatbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('heatBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('heatBadge', JSON.stringify(heatBadge))
+  }, [heatBadge])
+
+  const [balanceBadge, setBalancebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('balanceBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('balanceBadge', JSON.stringify(balanceBadge))
+  }, [balanceBadge])
+
+  const [featherBadge, setFeatherbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('featherBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('featherBadge', JSON.stringify(featherBadge))
+  }, [featherBadge])
+
+  const [mindBadge, setMindbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('mindBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('mindBadge', JSON.stringify(mindBadge))
+  }, [mindBadge])
+
+  const [rainBadge, setRainbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('rainBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('rainBadge', JSON.stringify(rainBadge))
+  }, [rainBadge])
 
   const stone = React.useState(["nosepass", "aron", "lairon", "aggron", "numel", "camerupt", "lunatone", "solrock", "lileep", "cradily", "anorith", "armaldo", "relicanth", "regirock"])
   const knuckle = React.useState(["combusken", "blaziken", "breloom", "makuhita", "hariyama", "meditite", "medicham"])
-  const dynamo = React.useState(["electrike", "manectric", "plusle", "minun", "barboach", "whiscash", "corphish", "crawdaunt"]) 
+  const dynamo = React.useState(["electrike", "manectric", "plusle", "minun", "barboach", "whiscash", "corphish", "crawdaunt"])
   const heat = React.useState(["torchic", "combusken", "blaziken", "numel", "camerupt", "torkoal", "castform"])
   const balance = React.useState(["zigzagoon", "linoone", "taillow", "swellow", "slakoth", "vigoroth", "slaking", "whismur", "loudred", "exploud", "azurill", "skitty", "delcatty", "spinda", "swablu", "zangoose", "castform", "kecleon"])
   const feather = React.useState(["beautifly", "taillow", "swellow", "wingull", "pelipper", "masquerain", "ninjask", "swablu", "altaria", "tropius", "salamence", "rayquaza"])
@@ -319,14 +484,69 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //Gen 4 Badges
 
-  const [coalBadge, setCoalbadge] = React.useState(false)
-  const [forestBadge, setForestbadge] = React.useState(false)
-  const [cobbleBadge, setCobblebadge] = React.useState(false)
-  const [fenBadge, setFenbadge] = React.useState(false)
-  const [relicBadge, setRelicbadge] = React.useState(false)
-  const [mineBadge, setMinebadge] = React.useState(false)
-  const [icicleBadge, setIciclebadge] = React.useState(false)
-  const [beaconBadge, setBeaconbadge] = React.useState(false)
+  const [coalBadge, setCoalbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('coalBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('coalBadge', JSON.stringify(coalBadge))
+  }, [coalBadge])
+
+  const [forestBadge, setForestbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('forestBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('forestBadge', JSON.stringify(forestBadge))
+  }, [forestBadge])
+
+  const [cobbleBadge, setCobblebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('cobbleBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('cobbleBadge', JSON.stringify(cobbleBadge))
+  }, [cobbleBadge])
+
+  const [fenBadge, setFenbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('fenBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('fenBadge', JSON.stringify(fenBadge))
+  }, [fenBadge])
+
+  const [relicBadge, setRelicbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('relicBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('relicBadge', JSON.stringify(relicBadge))
+  }, [relicBadge])
+
+  const [mineBadge, setMinebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('mineBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('mineBadge', JSON.stringify(mineBadge))
+  }, [mineBadge])
+
+  const [icicleBadge, setIciclebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('icicleBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('icicleBadge', JSON.stringify(icicleBadge))
+  }, [icicleBadge])
+
+  const [beaconBadge, setBeaconbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('beaconBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('beaconBadge', JSON.stringify(beaconBadge))
+  }, [beaconBadge])
 
   const coal = React.useState(["cranidos", "rampardos", "shieldon", "bastiodon", "bonsly", "rhyperior", "probopass"])
   const forest = React.useState(["turtwig", "grotle", "torterra", "budew", "roserade", "wormadam", "cherubi", "cherrim", "carnivine", "snover", "abomasnow"])
@@ -339,16 +559,85 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //Gen 5 Badges
 
-  const [trioBadge, setTriobadge] = React.useState(false)
-  const [basicBadge, setBasicbadge] = React.useState(false)
-  const [insectBadge, setInsectbadge] = React.useState(false)
-  const [boltBadge, setBoltbadge] = React.useState(false)
-  const [quakeBadge, setQuakebadge] = React.useState(false)
-  const [jetBadge, setJetbadge] = React.useState(false)
-  const [freezeBadge, setFreezebadge] = React.useState(false)
-  const [legendBadge, setLegendbadge] = React.useState(false)
-  const [toxicBadge, setToxicbadge] = React.useState(false)
-  const [waveBadge, setWavebadge] = React.useState(false)
+  const [trioBadge, setTriobadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('trioBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('trioBadge', JSON.stringify(trioBadge))
+  }, [trioBadge])
+
+  const [basicBadge, setBasicbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('basicBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('basicBadge', JSON.stringify(basicBadge))
+  }, [basicBadge])
+
+  const [insectBadge, setInsectbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('insectBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('insectBadge', JSON.stringify(insectBadge))
+  }, [insectBadge])
+
+  const [boltBadge, setBoltbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('boltBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('boltBadge', JSON.stringify(boltBadge))
+  }, [boltBadge])
+
+  const [quakeBadge, setQuakebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('quakeBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('quakeBadge', JSON.stringify(quakeBadge))
+  }, [quakeBadge])
+
+  const [jetBadge, setJetbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('jetBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('jetBadge', JSON.stringify(jetBadge))
+  }, [jetBadge])
+
+  const [freezeBadge, setFreezebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('freezeBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('freezeBadge', JSON.stringify(freezeBadge))
+  }, [freezeBadge])
+
+  const [legendBadge, setLegendbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('legendBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('legendBadge', JSON.stringify(legendBadge))
+  }, [legendBadge])
+
+  const [toxicBadge, setToxicbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('toxicBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('toxicBadge', JSON.stringify(toxicBadge))
+  }, [toxicBadge])
+
+  const [waveBadge, setWavebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('waveBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('waveBadge', JSON.stringify(waveBadge))
+  }, [waveBadge])
 
 
   const trio = React.useState(["snivy", "servine", "serperior", "pansage", "simisage", "sewaddle", "swadloon", "leavanny", "cottonee", "whimsicott", "petilil", "lilligant", "maractus", "deerling", "sawsbuck", "foongus", "amoonguss", "ferroseed", "ferrothorn", "virizion", "victini", "tepig", "pignite", "emboar", "pansear", "simisear", "darumaka", "darmanitan", "litwick", "lampent", "chandelure", "heatmor", "larvesta", "volcarona", "reshiram"])
@@ -364,14 +653,69 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //Gen 6 Badges
 
-  const [bugBadge, setBugbadge] = React.useState(false)
-  const [cliffBadge, setCliffbadge] = React.useState(false)
-  const [rumbleBadge, setRumblebadge] = React.useState(false)
-  const [plantBadge, setPlantbadge] = React.useState(false)
-  const [voltageBadge, setVoltagebadge] = React.useState(false)
-  const [fairyBadge, setFairybadge] = React.useState(false)
-  const [psychicBadge, setPsychicbadge] = React.useState(false)
-  const [icebergBadge, setIcebergbadge] = React.useState(false)
+  const [bugBadge, setBugbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('bugBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('bugBadge', JSON.stringify(bugBadge))
+  }, [bugBadge])
+
+  const [cliffBadge, setCliffbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('cliffBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('cliffBadge', JSON.stringify(cliffBadge))
+  }, [cliffBadge])
+
+  const [rumbleBadge, setRumblebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('rumbleBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('rumbleBadge', JSON.stringify(rumbleBadge))
+  }, [rumbleBadge])
+
+  const [plantBadge, setPlantbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('plantBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('plantBadge', JSON.stringify(plantBadge))
+  }, [plantBadge])
+
+  const [voltageBadge, setVoltagebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('voltageBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('voltageBadge', JSON.stringify(voltageBadge))
+  }, [voltageBadge])
+
+  const [fairyBadge, setFairybadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('fairyBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('fairyBadge', JSON.stringify(fairyBadge))
+  }, [fairyBadge])
+
+  const [psychicBadge, setPsychicbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('psychicBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('psychicBadge', JSON.stringify(psychicBadge))
+  }, [psychicBadge])
+
+  const [icebergBadge, setIcebergbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('icebergBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('icebergBadge', JSON.stringify(icebergBadge))
+  }, [icebergBadge])
 
   const bug = React.useState(["scatterbug", "spewpa", "vivillon"])
   const cliff = React.useState(["binacle", "barbaracle", "tyrunt", "tyrantrum", "amaura", "aurorus", "carbink", "diancie"])
@@ -384,16 +728,85 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //Gen 7 Badges
 
-  const [grassBadge, setGrassbadge] = React.useState(false)
-  const [waterBadge, setWaterbadge] = React.useState(false)
-  const [fireBadge, setFirebadge] = React.useState(false)
-  const [fightingBadge, setFightingbadge] = React.useState(false)
-  const [rockBadge, setRockbadge] = React.useState(false)
-  const [darkBadge, setDarkbadge] = React.useState(false)
-  const [dragonBadge, setDragonbadge] = React.useState(false)
-  const [ghostBadge, setGhostbadge] = React.useState(false)
-  const [iceBadge, setIcebadge] = React.useState(false)
-  const [fairy2Badge, setFairy2badge] = React.useState(false)
+  const [grassBadge, setGrassbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('grassBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('grassBadge', JSON.stringify(grassBadge))
+  }, [grassBadge])
+
+  const [waterBadge, setWaterbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('waterBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('waterBadge', JSON.stringify(waterBadge))
+  }, [waterBadge])
+
+  const [fireBadge, setFirebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('fireBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('fireBadge', JSON.stringify(fireBadge))
+  }, [fireBadge])
+
+  const [fightingBadge, setFightingbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('fightingBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('fightingBadge', JSON.stringify(fightingBadge))
+  }, [fightingBadge])
+
+  const [rockBadge, setRockbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('rockBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('rockBadge', JSON.stringify(rockBadge))
+  }, [rockBadge])
+
+  const [darkBadge, setDarkbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('darkBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('darkBadge', JSON.stringify(darkBadge))
+  }, [darkBadge])
+
+  const [dragonBadge, setDragonbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('dragonBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('dragonBadge', JSON.stringify(dragonBadge))
+  }, [dragonBadge])
+
+  const [ghostBadge, setGhostbadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('ghostBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('ghostBadge', JSON.stringify(ghostBadge))
+  }, [ghostBadge])
+
+  const [iceBadge, setIcebadge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('iceBadge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('iceBadge', JSON.stringify(iceBadge))
+  }, [iceBadge])
+
+  const [fairy2Badge, setFairy2badge] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('fairy2Badge')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('fairy2Badge', JSON.stringify(fairy2Badge))
+  }, [fairy2Badge])
 
   const grass = React.useState(["rowlet", "dartrix", "decidueye", "fomantis", "lurantis", "morelull", "shiinotic", "bounsweet", "steenee", "tsareena", "dhelmise", "tapu", "kartana"])
   const water = React.useState(["popplio", "brionne", "primarina", "wishiwashi", "mareanie", "toxapex", "dewpider", "araquanid", "wimpod", "golisopod", "pyukumuku", "bruxish", "tapu"])
