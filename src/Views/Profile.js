@@ -411,7 +411,7 @@ export default function Profile() {
       <div className="userInfo" alt="user information">
 
       <h1 style={{color: "white", textAlign: "center"}}>{ username.charAt(0).toUpperCase() + username.slice(1) }</h1>
-      <div style={{textAlign: "center", fontSize: "50px"}}>{ character }</div>
+      <div style={{textAlign: "center", fontSize: "50px"}}>{ character === null ? 'loading...' : character }</div>
       <p style={{color: "white", textAlign: "center"}}>Badges</p>
 
       <label>Generation I:</label>
