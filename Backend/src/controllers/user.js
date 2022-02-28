@@ -143,7 +143,7 @@ exports.login = (req, res, next) => {
 };
 
 exports.profile = (req, res, next) => {
-  User.findOne({ username: req.body.username }).then(
+  User.findOne({ username: req.headers.username }).then(
     (user) => {
       const token = req.headers.authorization.split(' ')[1];
       const decodedToken = jwt.verify(token, process.env.RANDOM_TOKEN_SECRET);
@@ -293,6 +293,88 @@ exports.profile = (req, res, next) => {
   ).catch(
     (error) => {
       res.status(500).json({
+        error: error
+      });
+    }
+  );
+};
+
+exports.modifyBadges = (req, res, next) => {
+  const token = req.headers.authorization.split(' ')[1];
+  const decodedToken = jwt.verify(token, process.env.RANDOM_TOKEN_SECRET);
+  const userId = decodedToken.userId;
+  const user = new User({
+    _id: userId,
+    boulder: req.body.boulder,
+    cascade: req.body.cascade,
+    thunder: req.body.thunder,
+    rainbow: req.body.rainbow,
+    soul: req.body.soul,
+    marsh: req.body.marsh,
+    volcano: req.body.volcano,
+    earth: req.body.earth,
+    zephyr: req.body.zephyr,
+    hive: req.body.hive,
+    plain: req.body.plain,
+    fog: req.body.fog,
+    storm: req.body.storm,
+    mineral: req.body.mineral,
+    glacier: req.body.glacier,
+    rising: req.body.rising,
+    stone: req.body.stone,
+    knuckle: req.body.knuckle,
+    dynamo: req.body.dynamo,
+    heat: req.body.heat,
+    balance: req.body.balance,
+    feather: req.body.feather,
+    mind: req.body.mind,
+    rain: req.body.rain,
+    coal: req.body.coal,
+    forest: req.body.forest,
+    cobble: req.body.cobble,
+    fen: req.body.fen,
+    relic: req.body.relic,
+    mine: req.body.mine,
+    icicle: req.body.icicle,
+    beacon: req.body.beacon,
+    trio: req.body.trio,
+    basic: req.body.basic,
+    insect: req.body.insect,
+    bolt: req.body.bolt,
+    quake: req.body.quake,
+    jet: req.body.jet,
+    freeze: req.body.freeze,
+    legend: req.body.legend,
+    toxic: req.body.toxic,
+    wave: req.body.wave,
+    bug: req.body.bug,
+    cliff: req.body.cliff,
+    rumble: req.body.rumble,
+    plant: req.body.plant,
+    voltage: req.body.voltage,
+    fairy: req.body.fairy,
+    psychic: req.body.psychic,
+    iceberg: req.body.iceberg,
+    grass: req.body.grass,
+    water: req.body.water,
+    fire: req.body.fire,
+    fighting: req.body.fighting,
+    fairy2: req.body.fairy2,
+    rock: req.body.rock,
+    dark: req.body.dark,
+    dragon: req.body.dragon,
+    ghost: req.body.ghost,
+    ice: req.body.ice
+  });
+  User.updateOne({_id: userId}, user).then(
+    () => {
+      res.status(201).json({
+        message: 'User updated successfully!'
+      });
+    }
+  ).catch(
+    (error) => {
+      res.status(400).json({
         error: error
       });
     }

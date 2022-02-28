@@ -7,6 +7,7 @@ const auth = require('../middleware/auth');
 
 router.post('/register', userCtrl.register);
 router.post('/login', userCtrl.login);
-router.post('/profile', userCtrl.profile);
+router.get('/profile', userCtrl.profile);
+router.put('/modifyBadges', userCtrl.modifyBadges);
 
 module.exports = router;

@@ -115,11 +115,11 @@ export default function Profile() {
 
   React.useEffect(() => {
     fetch("/.netlify/functions/app/auth/profile", {
-      method: 'POST',
-      body: JSON.stringify({"username": username}),
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'authorization': 'Bearer ' + token
+        'authorization': 'Bearer ' + token,
+        "username": username
       }
     })
     .then(res => res.json())

@@ -971,6 +971,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Rock type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": true,
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(cascadeBadge === false && checker(cascade[0], answers1) === true){
         setCascadebadge(true)
@@ -981,6 +1064,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Water type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": true,
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(thunderBadge === false && checker(thunder[0], answers1) === true){
         setThunderbadge(true)
@@ -991,6 +1157,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Electric type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": true,
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(rainbowBadge === false && checker(rainbow[0], answers1) === true){
         setRainbowbadge(true)
@@ -1001,6 +1250,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Grass type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": true,
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(soulBadge === false && checker(soul[0], answers1) === true === true){
         setSoulbadge(true)
@@ -1011,6 +1343,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Poison type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": true,
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(marshBadge === false && checker(marsh[0], answers1) === true){
         setMarshbadge(true)
@@ -1021,6 +1436,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Psychic type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": true,
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(volcanoBadge === false && checker(volcano[0], answers1) === true){
         setVolcanobadge(true)
@@ -1031,6 +1529,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Fire type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": true,
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(earthBadge === false && checker(earth[0], answers1) === true){
         setEarthbadge(true)
@@ -1041,6 +1622,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Ground type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": true,
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
 
       //gen 2
@@ -1054,6 +1718,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Flying type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": true,
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(hiveBadge === false && checker(hive[0], answers2)  === true){
         setHivebadge(true)
@@ -1064,6 +1811,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Bug type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": true,
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(plainBadge === false && checker(plain[0], answers2)  === true){
         setPlainbadge(true)
@@ -1074,6 +1904,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Normal type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": true,
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(fogBadge === false && checker(fog[0], answers2)  === true){
         setFogbadge(true)
@@ -1084,6 +1997,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Ghost type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": true,
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(stormBadge === false && checker(storm[0], answers2)  === true){
         setStormbadge(true)
@@ -1094,6 +2090,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Fighting type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": true,
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(mineralBadge === false && checker(mineral[0], answers2)  === true){
         setMineralbadge(true)
@@ -1104,6 +2183,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Steel type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": true,
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(glacierBadge === false && checker(glacier[0], answers2)  === true){
         setGlacierbadge(true)
@@ -1114,6 +2276,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Ice type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": true,
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(risingBadge === false && checker(rising[0], answers2)  === true){
         setRisingbadge(true)
@@ -1124,6 +2369,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Dragon type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": true,
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
 
       //gen3
@@ -1137,6 +2465,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Rock type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": true,
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(knuckleBadge === false && checker(knuckle[0], answers3) === true){
         setKnucklebadge(true)
@@ -1147,6 +2558,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Fighting type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": true,
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(dynamoBadge === false && checker(dynamo[0], answers3) === true === true){
         setDynamobadge(true)
@@ -1157,6 +2651,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Electric type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": true,
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(heatBadge === false && checker(heat[0], answers3) === true){
         setHeatbadge(true)
@@ -1167,6 +2744,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Fire type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": true,
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(balanceBadge === false && checker(balance[0], answers3) === true){
         setBalancebadge(true)
@@ -1177,6 +2837,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Normal type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": true,
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(featherBadge === false && checker(feather[0], answers3) === true){
         setFeatherbadge(true)
@@ -1187,6 +2930,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Flying type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": true,
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(mindBadge === false && checker(mind[0], answers3) === true){
         setMindbadge(true)
@@ -1197,6 +3023,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Psychic type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": true,
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(rainBadge === false && checker(rain[0], answers3) === true){
         setRainbadge(true)
@@ -1207,6 +3116,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Water type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": true,
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
 
       //gen 4
@@ -1220,6 +3212,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Rock type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": true,
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(forestBadge === false && checker(forest[0], answers4) === true){
         setForestbadge(true)
@@ -1230,6 +3305,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Grass type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": true,
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(cobbleBadge === false && checker(cobble[0], answers4) === true === true){
         setCobblebadge(true)
@@ -1240,6 +3398,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Fighting type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": true,
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(fenBadge === false && checker(fen[0], answers4) === true){
         setFenbadge(true)
@@ -1250,6 +3491,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Water type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": true,
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(relicBadge === false && checker(relic[0], answers4) === true){
         setRelicbadge(true)
@@ -1260,6 +3584,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Ghost type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": true,
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(mineBadge === false && checker(mine[0], answers4) === true){
         setMinebadge(true)
@@ -1270,6 +3677,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Steel type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": true,
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(icicleBadge === false && checker(icicle[0], answers4) === true){
         setIciclebadge(true)
@@ -1280,6 +3770,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Ice type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": true,
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(beaconBadge === false && checker(beacon[0], answers4) === true){
         setBeaconbadge(true)
@@ -1290,6 +3863,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Electric type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": true,
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
 
       //gen 5
@@ -1303,6 +3959,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Grass and Fire type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": true,
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(basicBadge === false && checker(basic[0], answers5) === true === true){
         setBasicbadge(true)
@@ -1313,6 +4052,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Normal type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": true,
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(insectBadge === false && checker(insect[0], answers5) === true){
         setInsectbadge(true)
@@ -1323,6 +4145,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Bug type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": true,
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(boltBadge === false && checker(bolt[0], answers5) === true){
         setBoltbadge(true)
@@ -1333,6 +4238,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Electric type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": true,
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(quakeBadge === false && checker(quake[0], answers5) === true){
         setQuakebadge(true)
@@ -1343,6 +4331,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Ground type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": true,
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(jetBadge === false && checker(jet[0], answers5) === true){
         setJetbadge(true)
@@ -1353,6 +4424,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Flying type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": true,
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(freezeBadge === false && checker(freeze[0], answers5) === true){
         setFreezebadge(true)
@@ -1363,6 +4517,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Ice type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": true,
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(legendBadge === false && checker(legend[0], answers5) === true){
         setLegendbadge(true)
@@ -1373,6 +4610,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Dragon type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": true,
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(toxicBadge === false && checker(toxic[0], answers5) === true){
         setToxicbadge(true)
@@ -1383,6 +4703,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Poison type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": true,
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(waveBadge === false && checker(wave[0], answers5) === true){
         setWavebadge(true)
@@ -1393,6 +4796,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Water type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": true,
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
 
       //gen 6
@@ -1406,6 +4892,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Bug type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": true,
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(cliffBadge === false && checker(cliff[0], answers6) === true){
         setCliffbadge(true)
@@ -1416,6 +4985,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Rock type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": true,
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(rumbleBadge === false && checker(rumble[0], answers6) === true){
         setRumblebadge(true)
@@ -1426,6 +5078,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Fighting type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": true,
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(plantBadge === false && checker(plant[0], answers6) === true){
         setPlantbadge(true)
@@ -1436,6 +5171,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Grass type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": true,
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(voltageBadge === false && checker(voltage[0], answers6) === true){
         setVoltagebadge(true)
@@ -1446,6 +5264,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Electric type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": true,
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(fairyBadge === false && checker(fairy[0], answers6) === true){
         setFairybadge(true)
@@ -1456,6 +5357,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Fairy type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": true,
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(psychicBadge === false && checker(psychic[0], answers6) === true){
         setPsychicbadge(true)
@@ -1466,6 +5450,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Psychic type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": true,
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(icebergBadge === false && checker(iceberg[0], answers6) === true){
         setIcebergbadge(true)
@@ -1476,6 +5543,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Ice type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": true,
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
 
       //gen 7
@@ -1489,6 +5639,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Grass type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": true,
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(waterBadge === false && checker(water[0], answers7) === true){
         setWaterbadge(true)
@@ -1499,6 +5732,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All water type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": true,
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(fireBadge === false && checker(fire[0], answers7) === true){
         setFirebadge(true)
@@ -1509,6 +5825,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Fire type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": true,
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(fightingBadge === false && checker(fighting[0], answers7) === true){
         setFightingbadge(true)
@@ -1519,6 +5918,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Fighting type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": true,
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(rockBadge === false && checker(rock[0], answers7) === true){
         setRockbadge(true)
@@ -1529,6 +6011,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Rock type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": true,
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(darkBadge === false && checker(dark[0], answers7) === true){
         setDarkbadge(true)
@@ -1539,6 +6104,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Dark type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": true,
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(dragonBadge === false && checker(dragon[0], answers7) === true){
         setDragonbadge(true)
@@ -1549,6 +6197,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Dragon type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": true,
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(ghostBadge === false && checker(ghost[0], answers7) === true){
         setGhostbadge(true)
@@ -1559,6 +6290,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Ghost type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": true,
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(iceBadge === false && checker(ice[0], answers7) === true){
         setIcebadge(true)
@@ -1569,6 +6383,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Ice type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": true}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
       if(fairy2Badge === false && checker(fairy2[0], answers7) === true){
         setFairy2badge(true)
@@ -1579,6 +6476,89 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           padding: "100px"
         })
         setPokemonbadgetext("All Fairy type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": true,
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
       }
 
     }, [answers1, answers2, answers3, answers4, answers5, answers6, answers7, balance, balanceBadge, basic, basicBadge, beacon, beaconBadge, bolt, boltBadge, boulder, boulderBadge, bug, bugBadge, cascade, cascadeBadge, cliff, cliffBadge, coal, coalBadge, cobble, cobbleBadge, dark, darkBadge, dragon, dragonBadge, dynamo, dynamoBadge, earth, earthBadge, fairy, fairy2, fairy2Badge, fairyBadge, feather, featherBadge, fen, fenBadge, fighting, fightingBadge, fire, fireBadge, fog, fogBadge, forest, forestBadge, freeze, freezeBadge, ghost, ghostBadge, glacier, glacierBadge, grass, grassBadge, heat, heatBadge, hive, hiveBadge, ice, iceBadge, iceberg, icebergBadge, icicle, icicleBadge, insect, insectBadge, jet, jetBadge, knuckle, knuckleBadge, legend, legendBadge, marsh, marshBadge, mind, mindBadge, mine, mineBadge, mineral, mineralBadge, plain, plainBadge, plant, plantBadge, psychic, psychicBadge, quake, quakeBadge, rain, rainBadge, rainbow, rainbowBadge, relic, relicBadge, rising, risingBadge, rock, rockBadge, rumble, rumbleBadge, soul, soulBadge, stone, stoneBadge, storm, stormBadge, thunder, thunderBadge, toxic, toxicBadge, trio, trioBadge, volcano, volcanoBadge, voltage, voltageBadge, water, waterBadge, wave, waveBadge, zephyr, zephyrBadge, balanceImage, basicImage, beaconImage, boltImage, boulderImage, bugImage, cascadeImage, cliffImage, coalImage, cobbleImage, darkImage, dragonImage, dynamoImage, earthImage, fairy2Image, fairyImage, featherImage, fenImage, fightingImage, fireImage, fogImage, forestImage, freezeImage, ghostImage, glacierImage, grassImage, heatImage, hiveImage, iceImage, icebergImage, icicleImage, insectImage, jetImage, knuckleImage, legendImage, marshImage, mindImage, mineImage, mineralImage, plainImage, plantImage, psychicImage, quakeImage, rainImage, rainbowImage, relicImage, risingImage, rockImage, rumbleImage, soulImage, stoneImage, stormImage, thunderImage, toxicImage, trioImage, volcanoImage, voltageImage, waterImage, waveImage, zephyrImage])
