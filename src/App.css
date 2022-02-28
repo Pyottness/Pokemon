@@ -59,6 +59,16 @@ body {
   box-shadow: 2px 5px red;
 }
 
+/* The red form in login and Registration pages. */
+
+.badgeText {
+  margin: 5%;
+  color: white;
+  padding: 0px 20px 20px 20px;
+  background-color: darkred;
+  box-shadow: 2px 5px red;
+}
+
 /* The black screen in the pokedex. */
 
 .score {

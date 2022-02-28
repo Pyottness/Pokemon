@@ -198,6 +198,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   //Constants of arrays containing given correct answers which are not repeated
 
   const [showBadge, setShowbadge] = React.useState(false)
+  const [pokemonBadgetext, setPokemonbadgetext] = React.useState()
 
   const answersInit = ["rattata"]
   const [answers1, setAnswers1] = React.useState(
@@ -967,7 +968,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(boulderImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Rock type Pokemon revealed!")
       }
       if(cascadeBadge === false && checker(cascade[0], answers1) === true){
         setCascadebadge(true)
@@ -975,7 +978,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(cascadeImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Water type Pokemon revealed!")
       }
       if(thunderBadge === false && checker(thunder[0], answers1) === true){
         setThunderbadge(true)
@@ -983,7 +988,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(thunderImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Electric type Pokemon revealed!")
       }
       if(rainbowBadge === false && checker(rainbow[0], answers1) === true){
         setRainbowbadge(true)
@@ -991,7 +998,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(rainbowImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Grass type Pokemon revealed!")
       }
       if(soulBadge === false && checker(soul[0], answers1) === true === true){
         setSoulbadge(true)
@@ -999,7 +1008,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(soulImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Poison type Pokemon revealed!")
       }
       if(marshBadge === false && checker(marsh[0], answers1) === true){
         setMarshbadge(true)
@@ -1007,7 +1018,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(marshImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Psychic type Pokemon revealed!")
       }
       if(volcanoBadge === false && checker(volcano[0], answers1) === true){
         setVolcanobadge(true)
@@ -1015,7 +1028,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(volcanoImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Fire type Pokemon revealed!")
       }
       if(earthBadge === false && checker(earth[0], answers1) === true){
         setEarthbadge(true)
@@ -1023,7 +1038,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(earthImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Ground type Pokemon revealed!")
       }
 
       //gen 2
@@ -1034,7 +1051,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(zephyrImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Flying type Pokemon revealed!")
       }
       if(hiveBadge === false && checker(hive[0], answers2)  === true){
         setHivebadge(true)
@@ -1042,7 +1061,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(hiveImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Bug type Pokemon revealed!")
       }
       if(plainBadge === false && checker(plain[0], answers2)  === true){
         setPlainbadge(true)
@@ -1050,7 +1071,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(plainImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Normal type Pokemon revealed!")
       }
       if(fogBadge === false && checker(fog[0], answers2)  === true){
         setFogbadge(true)
@@ -1058,7 +1081,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(fogImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Ghost type Pokemon revealed!")
       }
       if(stormBadge === false && checker(storm[0], answers2)  === true){
         setStormbadge(true)
@@ -1066,7 +1091,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(stormImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Fighting type Pokemon revealed!")
       }
       if(mineralBadge === false && checker(mineral[0], answers2)  === true){
         setMineralbadge(true)
@@ -1074,7 +1101,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(mineralImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Steel type Pokemon revealed!")
       }
       if(glacierBadge === false && checker(glacier[0], answers2)  === true){
         setGlacierbadge(true)
@@ -1082,7 +1111,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(glacierImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Ice type Pokemon revealed!")
       }
       if(risingBadge === false && checker(rising[0], answers2)  === true){
         setRisingbadge(true)
@@ -1090,9 +1121,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(risingImage)
         setPokemonwho({
           filter: "none",
-          height: "100%",
-          width: "100%"
+          padding: "100px"
         })
+        setPokemonbadgetext("All Dragon type Pokemon revealed!")
       }
 
       //gen3
@@ -1103,7 +1134,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(stoneImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Rock type Pokemon revealed!")
       }
       if(knuckleBadge === false && checker(knuckle[0], answers3) === true){
         setKnucklebadge(true)
@@ -1111,7 +1144,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(knuckleImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Fighting type Pokemon revealed!")
       }
       if(dynamoBadge === false && checker(dynamo[0], answers3) === true === true){
         setDynamobadge(true)
@@ -1119,7 +1154,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(dynamoImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Electric type Pokemon revealed!")
       }
       if(heatBadge === false && checker(heat[0], answers3) === true){
         setHeatbadge(true)
@@ -1127,7 +1164,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(heatImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Fire type Pokemon revealed!")
       }
       if(balanceBadge === false && checker(balance[0], answers3) === true){
         setBalancebadge(true)
@@ -1135,7 +1174,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(balanceImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Normal type Pokemon revealed!")
       }
       if(featherBadge === false && checker(feather[0], answers3) === true){
         setFeatherbadge(true)
@@ -1143,7 +1184,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(featherImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Flying type Pokemon revealed!")
       }
       if(mindBadge === false && checker(mind[0], answers3) === true){
         setMindbadge(true)
@@ -1151,7 +1194,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(mindImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Psychic type Pokemon revealed!")
       }
       if(rainBadge === false && checker(rain[0], answers3) === true){
         setRainbadge(true)
@@ -1159,7 +1204,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(rainImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Water type Pokemon revealed!")
       }
 
       //gen 4
@@ -1170,7 +1217,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(coalImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Rock type Pokemon revealed!")
       }
       if(forestBadge === false && checker(forest[0], answers4) === true){
         setForestbadge(true)
@@ -1178,7 +1227,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(forestImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Grass type Pokemon revealed!")
       }
       if(cobbleBadge === false && checker(cobble[0], answers4) === true === true){
         setCobblebadge(true)
@@ -1186,7 +1237,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(cobbleImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Fighting type Pokemon revealed!")
       }
       if(fenBadge === false && checker(fen[0], answers4) === true){
         setFenbadge(true)
@@ -1194,7 +1247,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(fenImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Water type Pokemon revealed!")
       }
       if(relicBadge === false && checker(relic[0], answers4) === true){
         setRelicbadge(true)
@@ -1202,7 +1257,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(relicImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Ghost type Pokemon revealed!")
       }
       if(mineBadge === false && checker(mine[0], answers4) === true){
         setMinebadge(true)
@@ -1210,7 +1267,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(mineImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Steel type Pokemon revealed!")
       }
       if(icicleBadge === false && checker(icicle[0], answers4) === true){
         setIciclebadge(true)
@@ -1218,7 +1277,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(icicleImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Ice type Pokemon revealed!")
       }
       if(beaconBadge === false && checker(beacon[0], answers4) === true){
         setBeaconbadge(true)
@@ -1226,7 +1287,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(beaconImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Electric type Pokemon revealed!")
       }
 
       //gen 5
@@ -1237,7 +1300,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(trioImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Grass and Fire type Pokemon revealed!")
       }
       if(basicBadge === false && checker(basic[0], answers5) === true === true){
         setBasicbadge(true)
@@ -1245,7 +1310,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(basicImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Normal type Pokemon revealed!")
       }
       if(insectBadge === false && checker(insect[0], answers5) === true){
         setInsectbadge(true)
@@ -1253,7 +1320,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(insectImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Bug type Pokemon revealed!")
       }
       if(boltBadge === false && checker(bolt[0], answers5) === true){
         setBoltbadge(true)
@@ -1261,7 +1330,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(boltImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Electric type Pokemon revealed!")
       }
       if(quakeBadge === false && checker(quake[0], answers5) === true){
         setQuakebadge(true)
@@ -1269,7 +1340,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(quakeImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Ground type Pokemon revealed!")
       }
       if(jetBadge === false && checker(jet[0], answers5) === true){
         setJetbadge(true)
@@ -1277,7 +1350,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(jetImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Flying type Pokemon revealed!")
       }
       if(freezeBadge === false && checker(freeze[0], answers5) === true){
         setFreezebadge(true)
@@ -1285,7 +1360,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(freezeImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Ice type Pokemon revealed!")
       }
       if(legendBadge === false && checker(legend[0], answers5) === true){
         setLegendbadge(true)
@@ -1293,7 +1370,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(legendImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Dragon type Pokemon revealed!")
       }
       if(toxicBadge === false && checker(toxic[0], answers5) === true){
         setToxicbadge(true)
@@ -1301,7 +1380,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(toxicImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Poison type Pokemon revealed!")
       }
       if(waveBadge === false && checker(wave[0], answers5) === true){
         setWavebadge(true)
@@ -1309,7 +1390,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(waveImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Water type Pokemon revealed!")
       }
 
       //gen 6
@@ -1320,7 +1403,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(bugImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Bug type Pokemon revealed!")
       }
       if(cliffBadge === false && checker(cliff[0], answers6) === true){
         setCliffbadge(true)
@@ -1328,7 +1413,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(cliffImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Rock type Pokemon revealed!")
       }
       if(rumbleBadge === false && checker(rumble[0], answers6) === true){
         setRumblebadge(true)
@@ -1336,7 +1423,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(rumbleImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Fighting type Pokemon revealed!")
       }
       if(plantBadge === false && checker(plant[0], answers6) === true){
         setPlantbadge(true)
@@ -1344,7 +1433,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(plantImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Grass type Pokemon revealed!")
       }
       if(voltageBadge === false && checker(voltage[0], answers6) === true){
         setVoltagebadge(true)
@@ -1352,7 +1443,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(voltageImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Electric type Pokemon revealed!")
       }
       if(fairyBadge === false && checker(fairy[0], answers6) === true){
         setFairybadge(true)
@@ -1360,7 +1453,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(fairyImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Fairy type Pokemon revealed!")
       }
       if(psychicBadge === false && checker(psychic[0], answers6) === true){
         setPsychicbadge(true)
@@ -1368,7 +1463,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(psychicImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Psychic type Pokemon revealed!")
       }
       if(icebergBadge === false && checker(iceberg[0], answers6) === true){
         setIcebergbadge(true)
@@ -1376,7 +1473,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(icebergImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Ice type Pokemon revealed!")
       }
 
       //gen 7
@@ -1387,7 +1486,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(grassImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Grass type Pokemon revealed!")
       }
       if(waterBadge === false && checker(water[0], answers7) === true){
         setWaterbadge(true)
@@ -1395,7 +1496,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(waterImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All water type Pokemon revealed!")
       }
       if(fireBadge === false && checker(fire[0], answers7) === true){
         setFirebadge(true)
@@ -1403,7 +1506,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(fireImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Fire type Pokemon revealed!")
       }
       if(fightingBadge === false && checker(fighting[0], answers7) === true){
         setFightingbadge(true)
@@ -1411,7 +1516,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(fightingImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Fighting type Pokemon revealed!")
       }
       if(rockBadge === false && checker(rock[0], answers7) === true){
         setRockbadge(true)
@@ -1419,7 +1526,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(rockImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Rock type Pokemon revealed!")
       }
       if(darkBadge === false && checker(dark[0], answers7) === true){
         setDarkbadge(true)
@@ -1427,7 +1536,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(darkImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Dark type Pokemon revealed!")
       }
       if(dragonBadge === false && checker(dragon[0], answers7) === true){
         setDragonbadge(true)
@@ -1435,7 +1546,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(dragonImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Dragon type Pokemon revealed!")
       }
       if(ghostBadge === false && checker(ghost[0], answers7) === true){
         setGhostbadge(true)
@@ -1443,7 +1556,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(ghostImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Ghost type Pokemon revealed!")
       }
       if(iceBadge === false && checker(ice[0], answers7) === true){
         setIcebadge(true)
@@ -1451,7 +1566,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(iceImage)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Ice type Pokemon revealed!")
       }
       if(fairy2Badge === false && checker(fairy2[0], answers7) === true){
         setFairy2badge(true)
@@ -1459,7 +1576,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonbadge(fairy2Image)
         setPokemonwho({
           filter: "none",
+          padding: "100px"
         })
+        setPokemonbadgetext("All Fairy type Pokemon revealed!")
       }
 
     }, [answers1, answers2, answers3, answers4, answers5, answers6, answers7, balance, balanceBadge, basic, basicBadge, beacon, beaconBadge, bolt, boltBadge, boulder, boulderBadge, bug, bugBadge, cascade, cascadeBadge, cliff, cliffBadge, coal, coalBadge, cobble, cobbleBadge, dark, darkBadge, dragon, dragonBadge, dynamo, dynamoBadge, earth, earthBadge, fairy, fairy2, fairy2Badge, fairyBadge, feather, featherBadge, fen, fenBadge, fighting, fightingBadge, fire, fireBadge, fog, fogBadge, forest, forestBadge, freeze, freezeBadge, ghost, ghostBadge, glacier, glacierBadge, grass, grassBadge, heat, heatBadge, hive, hiveBadge, ice, iceBadge, iceberg, icebergBadge, icicle, icicleBadge, insect, insectBadge, jet, jetBadge, knuckle, knuckleBadge, legend, legendBadge, marsh, marshBadge, mind, mindBadge, mine, mineBadge, mineral, mineralBadge, plain, plainBadge, plant, plantBadge, psychic, psychicBadge, quake, quakeBadge, rain, rainBadge, rainbow, rainbowBadge, relic, relicBadge, rising, risingBadge, rock, rockBadge, rumble, rumbleBadge, soul, soulBadge, stone, stoneBadge, storm, stormBadge, thunder, thunderBadge, toxic, toxicBadge, trio, trioBadge, volcano, volcanoBadge, voltage, voltageBadge, water, waterBadge, wave, waveBadge, zephyr, zephyrBadge, balanceImage, basicImage, beaconImage, boltImage, boulderImage, bugImage, cascadeImage, cliffImage, coalImage, cobbleImage, darkImage, dragonImage, dynamoImage, earthImage, fairy2Image, fairyImage, featherImage, fenImage, fightingImage, fireImage, fogImage, forestImage, freezeImage, ghostImage, glacierImage, grassImage, heatImage, hiveImage, iceImage, icebergImage, icicleImage, insectImage, jetImage, knuckleImage, legendImage, marshImage, mindImage, mineImage, mineralImage, plainImage, plantImage, psychicImage, quakeImage, rainImage, rainbowImage, relicImage, risingImage, rockImage, rumbleImage, soulImage, stoneImage, stormImage, thunderImage, toxicImage, trioImage, volcanoImage, voltageImage, waterImage, waveImage, zephyrImage])
@@ -1740,6 +1859,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
         <div alt="which pokemon">
         <img className="pokemon" alt="Pokemon" src={showBadge === false ? pokemonImage : pokemonBadge} style={pokemonWho} />
+        <p className={showBadge === false ? null : "badgeText"}>{showBadge === false ? null : pokemonBadgetext}</p>
         </div>
 
         <div className="pokedex" alt="pokedex">
