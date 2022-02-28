@@ -197,6 +197,8 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //Constants of arrays containing given correct answers which are not repeated
 
+  const [showBadge, setShowbadge] = React.useState(false)
+
   const answersInit = ["rattata"]
   const [answers1, setAnswers1] = React.useState(
     () => JSON.parse(window.localStorage.getItem('answers1')) ?? answersInit
@@ -819,6 +821,91 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const ghost = React.useState(["decidueye", "incineroar", "oricorio", "sandygast", "palossand", "mimikyu", "dhelmise", "lunala", "necrozma", "marshadow", "blacephalon"])
   const ice = React.useState(["crabominable"])
 
+  //constant to show pokemon badge
+
+  const [pokemonBadge, setPokemonbadge] = React.useState()
+
+  //Gen 1 badges
+
+  const boulderImage = require('../Assets/Images/pokemon badges/Gen1 badges/Boulderbadge.png')
+  const cascadeImage = require('../Assets/Images/pokemon badges/Gen1 badges/Cascadebadge.png')
+  const thunderImage = require('../Assets/Images/pokemon badges/Gen1 badges/Thunderbadge.png')
+  const rainbowImage = require('../Assets/Images/pokemon badges/Gen1 badges/Rainbowbadge.png')
+  const soulImage = require('../Assets/Images/pokemon badges/Gen1 badges/Soulbadge.png')
+  const marshImage = require('../Assets/Images/pokemon badges/Gen1 badges/Marshbadge.png')
+  const volcanoImage = require('../Assets/Images/pokemon badges/Gen1 badges/Volcanobadge.png')
+  const earthImage = require('../Assets/Images/pokemon badges/Gen1 badges/Earthbadge.png')
+
+  //Gen 2 Badges
+
+  const zephyrImage = require('../Assets/Images/pokemon badges/Gen2 badges/Zephyrbadge.png')
+  const hiveImage = require('../Assets/Images/pokemon badges/Gen2 badges/Hivebadge.png')
+  const plainImage = require('../Assets/Images/pokemon badges/Gen2 badges/Plainbadge.png')
+  const fogImage = require('../Assets/Images/pokemon badges/Gen2 badges/Fogbadge.png')
+  const stormImage = require('../Assets/Images/pokemon badges/Gen2 badges/Stormbadge.png')
+  const mineralImage = require('../Assets/Images/pokemon badges/Gen2 badges/Mineralbadge.png')
+  const glacierImage = require('../Assets/Images/pokemon badges/Gen2 badges/Glacierbadge.png')
+  const risingImage = require('../Assets/Images/pokemon badges/Gen2 badges/Risingbadge.png')
+
+  //Gen 3 Badges
+
+  const stoneImage = require('../Assets/Images/pokemon badges/Gen3 badges/Stonebadge.png')
+  const knuckleImage = require('../Assets/Images/pokemon badges/Gen3 badges/Knucklebadge.png')
+  const dynamoImage = require('../Assets/Images/pokemon badges/Gen3 badges/Dynamobadge.png')
+  const heatImage = require('../Assets/Images/pokemon badges/Gen3 badges/Heatbadge.png')
+  const balanceImage = require('../Assets/Images/pokemon badges/Gen3 badges/Balancebadge.png')
+  const featherImage = require('../Assets/Images/pokemon badges/Gen3 badges/Featherbadge.png')
+  const mindImage = require('../Assets/Images/pokemon badges/Gen3 badges/Mindbadge.png')
+  const rainImage = require('../Assets/Images/pokemon badges/Gen3 badges/Rainbadge.png')
+
+  //Gen 4 Badges
+
+  const coalImage = require('../Assets/Images/pokemon badges/Gen4 badges/Coalbadge.png')
+  const forestImage = require('../Assets/Images/pokemon badges/Gen4 badges/Forestbadge.png')
+  const cobbleImage = require('../Assets/Images/pokemon badges/Gen4 badges/Cobblebadge.png')
+  const fenImage = require('../Assets/Images/pokemon badges/Gen4 badges/Fenbadge.png')
+  const relicImage = require('../Assets/Images/pokemon badges/Gen4 badges/Relicbadge.png')
+  const mineImage = require('../Assets/Images/pokemon badges/Gen4 badges/Minebadge.png')
+  const icicleImage = require('../Assets/Images/pokemon badges/Gen4 badges/Iciclebadge.png')
+  const beaconImage = require('../Assets/Images/pokemon badges/Gen4 badges/Beaconbadge.png')
+
+  //Gen 5 Badges
+
+  const trioImage = require('../Assets/Images/pokemon badges/Gen5 badges/Triobadge.png')
+  const basicImage = require('../Assets/Images/pokemon badges/Gen5 badges/Basicbadge.png')
+  const insectImage = require('../Assets/Images/pokemon badges/Gen5 badges/Insectbadge.png')
+  const boltImage = require('../Assets/Images/pokemon badges/Gen5 badges/Boltbadge.png')
+  const quakeImage = require('../Assets/Images/pokemon badges/Gen5 badges/Quakebadge.png')
+  const jetImage = require('../Assets/Images/pokemon badges/Gen5 badges/Jetbadge.png')
+  const freezeImage = require('../Assets/Images/pokemon badges/Gen5 badges/Freezebadge.png')
+  const legendImage = require('../Assets/Images/pokemon badges/Gen5 badges/Legendbadge.png')
+  const toxicImage = require('../Assets/Images/pokemon badges/Gen5 badges/Toxicbadge.png')
+  const waveImage = require('../Assets/Images/pokemon badges/Gen5 badges/Wavebadge.png')
+
+  //Gen 6 Badges
+
+  const bugImage = require('../Assets/Images/pokemon badges/Gen6 badges/Bugbadge.png')
+  const cliffImage = require('../Assets/Images/pokemon badges/Gen6 badges/Cliffbadge.png')
+  const rumbleImage = require('../Assets/Images/pokemon badges/Gen6 badges/Rumblebadge.png')
+  const plantImage = require('../Assets/Images/pokemon badges/Gen6 badges/Plantbadge.png')
+  const voltageImage = require('../Assets/Images/pokemon badges/Gen6 badges/Voltagebadge.png')
+  const fairyImage = require('../Assets/Images/pokemon badges/Gen6 badges/Fairybadge.png')
+  const psychicImage = require('../Assets/Images/pokemon badges/Gen6 badges/Psychicbadge.png')
+  const icebergImage = require('../Assets/Images/pokemon badges/Gen6 badges/Icebergbadge.png')
+
+  //Gen 7 Badges
+
+  const grassImage = require('../Assets/Images/pokemon badges/Gen7 badges/GrassBadge.png')
+  const waterImage = require('../Assets/Images/pokemon badges/Gen7 badges/WaterBadge.png')
+  const fireImage = require('../Assets/Images/pokemon badges/Gen7 badges/FireBadge.png')
+  const fightingImage = require('../Assets/Images/pokemon badges/Gen7 badges/FightingBadge.png')
+  const rockImage = require('../Assets/Images/pokemon badges/Gen7 badges/RockBadge.png')
+  const darkImage = require('../Assets/Images/pokemon badges/Gen7 badges/DarkBadge.png')
+  const dragonImage = require('../Assets/Images/pokemon badges/Gen7 badges/DragonBadge.png')
+  const ghostImage = require('../Assets/Images/pokemon badges/Gen7 badges/GhostBadge.png')
+  const iceImage = require('../Assets/Images/pokemon badges/Gen7 badges/IceBadge.png')
+  const fairy2Image = require('../Assets/Images/pokemon badges/Gen7 badges/FairyBadge.png')
+
 
   //Score switch
 
@@ -842,27 +929,29 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   //Check if you earnt a trophy
 
   const badges = (e) => {
-    if(navButton === 1 && correctName === e.target.value && answers1.includes(e.target.value) === false) {
-      setAnswers1(answers1 => [...answers1, e.target.value])
-      console.log(answers1)
-    } else if(navButton === 2 && correctName === e.target.value && answers2.includes(e.target.value) === false) {
-      setAnswers2(answers2 => [...answers2, e.target.value])
-      console.log(answers2)
-    } else if(navButton === 3 && correctName === e.target.value && answers3.includes(e.target.value) === false) {
-      setAnswers3(answers3 => [...answers3, e.target.value])
-      console.log(answers3)
-    } else if(navButton === 4 && correctName === e.target.value && answers4.includes(e.target.value) === false) {
-      setAnswers4(answers4 => [...answers4, e.target.value])
-      console.log(answers4)
-    } else if(navButton === 5 && correctName === e.target.value && answers5.includes(e.target.value) === false) {
-      setAnswers5(answers5 => [...answers5, e.target.value])
-      console.log(answers5)
-    } else if(navButton === 6 && correctName === e.target.value && answers6.includes(e.target.value) === false) {
-      setAnswers6(answers6 => [...answers6, e.target.value])
-      console.log(answers6)
-    } else if(navButton === 7 && correctName === e.target.value && answers7.includes(e.target.value) === false) {
-      setAnswers7(answers7 => [...answers7, e.target.value])
-      console.log(answers7)
+    if(window.localStorage.getItem("token") !== null){
+      if(navButton === 1 && correctName === e.target.value && answers1.includes(e.target.value) === false) {
+        setAnswers1(answers1 => [...answers1, e.target.value])
+        console.log(answers1)
+      } else if(navButton === 2 && correctName === e.target.value && answers2.includes(e.target.value) === false) {
+        setAnswers2(answers2 => [...answers2, e.target.value])
+        console.log(answers2)
+      } else if(navButton === 3 && correctName === e.target.value && answers3.includes(e.target.value) === false) {
+        setAnswers3(answers3 => [...answers3, e.target.value])
+        console.log(answers3)
+      } else if(navButton === 4 && correctName === e.target.value && answers4.includes(e.target.value) === false) {
+        setAnswers4(answers4 => [...answers4, e.target.value])
+        console.log(answers4)
+      } else if(navButton === 5 && correctName === e.target.value && answers5.includes(e.target.value) === false) {
+        setAnswers5(answers5 => [...answers5, e.target.value])
+        console.log(answers5)
+      } else if(navButton === 6 && correctName === e.target.value && answers6.includes(e.target.value) === false) {
+        setAnswers6(answers6 => [...answers6, e.target.value])
+        console.log(answers6)
+      } else if(navButton === 7 && correctName === e.target.value && answers7.includes(e.target.value) === false) {
+        setAnswers7(answers7 => [...answers7, e.target.value])
+        console.log(answers7)
+      }
     }
   }
 
@@ -872,86 +961,508 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
       //gen 1
 
-      if(boulderBadge === false && checker(boulder[0], answers1) === true){setBoulderbadge(true)}
-      if(cascadeBadge === false && checker(cascade[0], answers1) === true){setCascadebadge(true)}
-      if(thunderBadge === false && checker(thunder[0], answers1) === true){setThunderbadge(true)}
-      if(rainbowBadge === false && checker(rainbow[0], answers1) === true){setRainbowbadge(true)}
-      if(soulBadge === false && checker(soul[0], answers1) === true === true){setSoulbadge(true)}
-      if(marshBadge === false && checker(marsh[0], answers1) === true){setMarshbadge(true)}
-      if(volcanoBadge === false && checker(volcano[0], answers1) === true){setVolcanobadge(true)}
-      if(earthBadge === false && checker(earth[0], answers1) === true){setEarthbadge(true)}
+      if(boulderBadge === false && checker(boulder[0], answers1) === true){
+        setBoulderbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(boulderImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(cascadeBadge === false && checker(cascade[0], answers1) === true){
+        setCascadebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(cascadeImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(thunderBadge === false && checker(thunder[0], answers1) === true){
+        setThunderbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(thunderImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(rainbowBadge === false && checker(rainbow[0], answers1) === true){
+        setRainbowbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(rainbowImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(soulBadge === false && checker(soul[0], answers1) === true === true){
+        setSoulbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(soulImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(marshBadge === false && checker(marsh[0], answers1) === true){
+        setMarshbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(marshImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(volcanoBadge === false && checker(volcano[0], answers1) === true){
+        setVolcanobadge(true)
+        setShowbadge(true)
+        setPokemonbadge(volcanoImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(earthBadge === false && checker(earth[0], answers1) === true){
+        setEarthbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(earthImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
 
       //gen 2
 
-      if(zephyrBadge === false && checker(zephyr[0], answers2)  === true){setZephyrbadge(true)}
-      if(hiveBadge === false && checker(hive[0], answers2)  === true){setHivebadge(true)}
-      if(plainBadge === false && checker(plain[0], answers2)  === true){setPlainbadge(true)}
-      if(fogBadge === false && checker(fog[0], answers2)  === true){setFogbadge(true)}
-      if(stormBadge === false && checker(storm[0], answers2)  === true){setStormbadge(true)}
-      if(mineralBadge === false && checker(mineral[0], answers2)  === true){setMineralbadge(true)}
-      if(glacierBadge === false && checker(glacier[0], answers2)  === true){setGlacierbadge(true)}
-      if(risingBadge === false && checker(rising[0], answers2)  === true){setRisingbadge(true)}
+      if(zephyrBadge === false && checker(zephyr[0], answers2)  === true){
+        setZephyrbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(zephyrImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(hiveBadge === false && checker(hive[0], answers2)  === true){
+        setHivebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(hiveImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(plainBadge === false && checker(plain[0], answers2)  === true){
+        setPlainbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(plainImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(fogBadge === false && checker(fog[0], answers2)  === true){
+        setFogbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(fogImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(stormBadge === false && checker(storm[0], answers2)  === true){
+        setStormbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(stormImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(mineralBadge === false && checker(mineral[0], answers2)  === true){
+        setMineralbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(mineralImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(glacierBadge === false && checker(glacier[0], answers2)  === true){
+        setGlacierbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(glacierImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(risingBadge === false && checker(rising[0], answers2)  === true){
+        setRisingbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(risingImage)
+        setPokemonwho({
+          filter: "none",
+          height: "100%",
+          width: "100%"
+        })
+      }
 
       //gen3
 
-      if(stoneBadge === false && checker(stone[0], answers3) === true){setStonebadge(true)}
-      if(knuckleBadge === false && checker(knuckle[0], answers3) === true){setKnucklebadge(true)}
-      if(dynamoBadge === false && checker(dynamo[0], answers3) === true === true){setDynamobadge(true)}
-      if(heatBadge === false && checker(heat[0], answers3) === true){setHeatbadge(true)}
-      if(balanceBadge === false && checker(balance[0], answers3) === true){setBalancebadge(true)}
-      if(featherBadge === false && checker(feather[0], answers3) === true){setFeatherbadge(true)}
-      if(mindBadge === false && checker(mind[0], answers3) === true){setMindbadge(true)}
-      if(rainBadge === false && checker(rain[0], answers3) === true){setRainbadge(true)}
+      if(stoneBadge === false && checker(stone[0], answers3) === true){
+        setStonebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(stoneImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(knuckleBadge === false && checker(knuckle[0], answers3) === true){
+        setKnucklebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(knuckleImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(dynamoBadge === false && checker(dynamo[0], answers3) === true === true){
+        setDynamobadge(true)
+        setShowbadge(true)
+        setPokemonbadge(dynamoImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(heatBadge === false && checker(heat[0], answers3) === true){
+        setHeatbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(heatImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(balanceBadge === false && checker(balance[0], answers3) === true){
+        setBalancebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(balanceImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(featherBadge === false && checker(feather[0], answers3) === true){
+        setFeatherbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(featherImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(mindBadge === false && checker(mind[0], answers3) === true){
+        setMindbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(mindImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(rainBadge === false && checker(rain[0], answers3) === true){
+        setRainbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(rainImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
 
       //gen 4
 
-      if(coalBadge === false && checker(coal[0], answers4) === true){setCoalbadge(true)}
-      if(forestBadge === false && checker(forest[0], answers4) === true){setForestbadge(true)}
-      if(cobbleBadge === false && checker(cobble[0], answers4) === true === true){setCobblebadge(true)}
-      if(fenBadge === false && checker(fen[0], answers4) === true){setFenbadge(true)}
-      if(relicBadge === false && checker(relic[0], answers4) === true){setRelicbadge(true)}
-      if(mineBadge === false && checker(mine[0], answers4) === true){setMinebadge(true)}
-      if(icicleBadge === false && checker(icicle[0], answers4) === true){setIciclebadge(true)}
-      if(beaconBadge === false && checker(beacon[0], answers4) === true){setBeaconbadge(true)}
+      if(coalBadge === false && checker(coal[0], answers4) === true){
+        setCoalbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(coalImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(forestBadge === false && checker(forest[0], answers4) === true){
+        setForestbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(forestImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(cobbleBadge === false && checker(cobble[0], answers4) === true === true){
+        setCobblebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(cobbleImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(fenBadge === false && checker(fen[0], answers4) === true){
+        setFenbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(fenImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(relicBadge === false && checker(relic[0], answers4) === true){
+        setRelicbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(relicImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(mineBadge === false && checker(mine[0], answers4) === true){
+        setMinebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(mineImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(icicleBadge === false && checker(icicle[0], answers4) === true){
+        setIciclebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(icicleImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(beaconBadge === false && checker(beacon[0], answers4) === true){
+        setBeaconbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(beaconImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
 
       //gen 5
 
-      if(trioBadge === false && checker(trio[0], answers5) === true){setTriobadge(true)}
-      if(basicBadge === false && checker(basic[0], answers5) === true === true){setBasicbadge(true)}
-      if(insectBadge === false && checker(insect[0], answers5) === true){setInsectbadge(true)}
-      if(boltBadge === false && checker(bolt[0], answers5) === true){setBoltbadge(true)}
-      if(quakeBadge === false && checker(quake[0], answers5) === true){setQuakebadge(true)}
-      if(jetBadge === false && checker(jet[0], answers5) === true){setJetbadge(true)}
-      if(freezeBadge === false && checker(freeze[0], answers5) === true){setFreezebadge(true)}
-      if(legendBadge === false && checker(legend[0], answers5) === true){setLegendbadge(true)}
-      if(toxicBadge === false && checker(toxic[0], answers5) === true){setToxicbadge(true)}
-      if(waveBadge === false && checker(wave[0], answers5) === true){setWavebadge(true)}
+      if(trioBadge === false && checker(trio[0], answers5) === true){
+        setTriobadge(true)
+        setShowbadge(true)
+        setPokemonbadge(trioImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(basicBadge === false && checker(basic[0], answers5) === true === true){
+        setBasicbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(basicImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(insectBadge === false && checker(insect[0], answers5) === true){
+        setInsectbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(insectImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(boltBadge === false && checker(bolt[0], answers5) === true){
+        setBoltbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(boltImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(quakeBadge === false && checker(quake[0], answers5) === true){
+        setQuakebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(quakeImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(jetBadge === false && checker(jet[0], answers5) === true){
+        setJetbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(jetImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(freezeBadge === false && checker(freeze[0], answers5) === true){
+        setFreezebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(freezeImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(legendBadge === false && checker(legend[0], answers5) === true){
+        setLegendbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(legendImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(toxicBadge === false && checker(toxic[0], answers5) === true){
+        setToxicbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(toxicImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(waveBadge === false && checker(wave[0], answers5) === true){
+        setWavebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(waveImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
 
       //gen 6
 
-      if(bugBadge === false && checker(bug[0], answers6) === true === true){setBugbadge(true)}
-      if(cliffBadge === false && checker(cliff[0], answers6) === true){setCliffbadge(true)}
-      if(rumbleBadge === false && checker(rumble[0], answers6) === true){setRumblebadge(true)}
-      if(plantBadge === false && checker(plant[0], answers6) === true){setPlantbadge(true)}
-      if(voltageBadge === false && checker(voltage[0], answers6) === true){setVoltagebadge(true)}
-      if(fairyBadge === false && checker(fairy[0], answers6) === true){setFairybadge(true)}
-      if(psychicBadge === false && checker(psychic[0], answers6) === true){setPsychicbadge(true)}
-      if(icebergBadge === false && checker(iceberg[0], answers6) === true){setIcebergbadge(true)}
+      if(bugBadge === false && checker(bug[0], answers6) === true === true){
+        setBugbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(bugImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(cliffBadge === false && checker(cliff[0], answers6) === true){
+        setCliffbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(cliffImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(rumbleBadge === false && checker(rumble[0], answers6) === true){
+        setRumblebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(rumbleImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(plantBadge === false && checker(plant[0], answers6) === true){
+        setPlantbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(plantImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(voltageBadge === false && checker(voltage[0], answers6) === true){
+        setVoltagebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(voltageImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(fairyBadge === false && checker(fairy[0], answers6) === true){
+        setFairybadge(true)
+        setShowbadge(true)
+        setPokemonbadge(fairyImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(psychicBadge === false && checker(psychic[0], answers6) === true){
+        setPsychicbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(psychicImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(icebergBadge === false && checker(iceberg[0], answers6) === true){
+        setIcebergbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(icebergImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
 
       //gen 7
 
-      if(grassBadge === false && checker(grass[0], answers7) === true){setGrassbadge(true)}
-      if(waterBadge === false && checker(water[0], answers7) === true){setWaterbadge(true)}
-      if(fireBadge === false && checker(fire[0], answers7) === true){setFirebadge(true)}
-      if(fightingBadge === false && checker(fighting[0], answers7) === true){setFightingbadge(true)}
-      if(rockBadge === false && checker(rock[0], answers7) === true){setRockbadge(true)}
-      if(darkBadge === false && checker(dark[0], answers7) === true){setDarkbadge(true)}
-      if(dragonBadge === false && checker(dragon[0], answers7) === true){setDragonbadge(true)}
-      if(ghostBadge === false && checker(ghost[0], answers7) === true){setGhostbadge(true)}
-      if(iceBadge === false && checker(ice[0], answers7) === true){setIcebadge(true)}
-      if(fairy2Badge === false && checker(fairy2[0], answers7) === true){setFairy2badge(true)}
+      if(grassBadge === false && checker(grass[0], answers7) === true){
+        setGrassbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(grassImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(waterBadge === false && checker(water[0], answers7) === true){
+        setWaterbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(waterImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(fireBadge === false && checker(fire[0], answers7) === true){
+        setFirebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(fireImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(fightingBadge === false && checker(fighting[0], answers7) === true){
+        setFightingbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(fightingImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(rockBadge === false && checker(rock[0], answers7) === true){
+        setRockbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(rockImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(darkBadge === false && checker(dark[0], answers7) === true){
+        setDarkbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(darkImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(dragonBadge === false && checker(dragon[0], answers7) === true){
+        setDragonbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(dragonImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(ghostBadge === false && checker(ghost[0], answers7) === true){
+        setGhostbadge(true)
+        setShowbadge(true)
+        setPokemonbadge(ghostImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(iceBadge === false && checker(ice[0], answers7) === true){
+        setIcebadge(true)
+        setShowbadge(true)
+        setPokemonbadge(iceImage)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
+      if(fairy2Badge === false && checker(fairy2[0], answers7) === true){
+        setFairy2badge(true)
+        setShowbadge(true)
+        setPokemonbadge(fairy2Image)
+        setPokemonwho({
+          filter: "none",
+        })
+      }
 
-    }, [answers1, answers2, answers3, answers4, answers5, answers6, answers7, balance, balanceBadge, basic, basicBadge, beacon, beaconBadge, bolt, boltBadge, boulder, boulderBadge, bug, bugBadge, cascade, cascadeBadge, cliff, cliffBadge, coal, coalBadge, cobble, cobbleBadge, dark, darkBadge, dragon, dragonBadge, dynamo, dynamoBadge, earth, earthBadge, fairy, fairy2, fairy2Badge, fairyBadge, feather, featherBadge, fen, fenBadge, fighting, fightingBadge, fire, fireBadge, fog, fogBadge, forest, forestBadge, freeze, freezeBadge, ghost, ghostBadge, glacier, glacierBadge, grass, grassBadge, heat, heatBadge, hive, hiveBadge, ice, iceBadge, iceberg, icebergBadge, icicle, icicleBadge, insect, insectBadge, jet, jetBadge, knuckle, knuckleBadge, legend, legendBadge, marsh, marshBadge, mind, mindBadge, mine, mineBadge, mineral, mineralBadge, plain, plainBadge, plant, plantBadge, psychic, psychicBadge, quake, quakeBadge, rain, rainBadge, rainbow, rainbowBadge, relic, relicBadge, rising, risingBadge, rock, rockBadge, rumble, rumbleBadge, soul, soulBadge, stone, stoneBadge, storm, stormBadge, thunder, thunderBadge, toxic, toxicBadge, trio, trioBadge, volcano, volcanoBadge, voltage, voltageBadge, water, waterBadge, wave, waveBadge, zephyr, zephyrBadge])
+    }, [answers1, answers2, answers3, answers4, answers5, answers6, answers7, balance, balanceBadge, basic, basicBadge, beacon, beaconBadge, bolt, boltBadge, boulder, boulderBadge, bug, bugBadge, cascade, cascadeBadge, cliff, cliffBadge, coal, coalBadge, cobble, cobbleBadge, dark, darkBadge, dragon, dragonBadge, dynamo, dynamoBadge, earth, earthBadge, fairy, fairy2, fairy2Badge, fairyBadge, feather, featherBadge, fen, fenBadge, fighting, fightingBadge, fire, fireBadge, fog, fogBadge, forest, forestBadge, freeze, freezeBadge, ghost, ghostBadge, glacier, glacierBadge, grass, grassBadge, heat, heatBadge, hive, hiveBadge, ice, iceBadge, iceberg, icebergBadge, icicle, icicleBadge, insect, insectBadge, jet, jetBadge, knuckle, knuckleBadge, legend, legendBadge, marsh, marshBadge, mind, mindBadge, mine, mineBadge, mineral, mineralBadge, plain, plainBadge, plant, plantBadge, psychic, psychicBadge, quake, quakeBadge, rain, rainBadge, rainbow, rainbowBadge, relic, relicBadge, rising, risingBadge, rock, rockBadge, rumble, rumbleBadge, soul, soulBadge, stone, stoneBadge, storm, stormBadge, thunder, thunderBadge, toxic, toxicBadge, trio, trioBadge, volcano, volcanoBadge, voltage, voltageBadge, water, waterBadge, wave, waveBadge, zephyr, zephyrBadge, balanceImage, basicImage, beaconImage, boltImage, boulderImage, bugImage, cascadeImage, cliffImage, coalImage, cobbleImage, darkImage, dragonImage, dynamoImage, earthImage, fairy2Image, fairyImage, featherImage, fenImage, fightingImage, fireImage, fogImage, forestImage, freezeImage, ghostImage, glacierImage, grassImage, heatImage, hiveImage, iceImage, icebergImage, icicleImage, insectImage, jetImage, knuckleImage, legendImage, marshImage, mindImage, mineImage, mineralImage, plainImage, plantImage, psychicImage, quakeImage, rainImage, rainbowImage, relicImage, risingImage, rockImage, rumbleImage, soulImage, stoneImage, stormImage, thunderImage, toxicImage, trioImage, volcanoImage, voltageImage, waterImage, waveImage, zephyrImage])
 
   //disable constant//
   const [disable, setDisable] = React.useState(true)
@@ -1110,6 +1621,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //play initializer//
   const play = async () => {
+
+    //Show pokemon Image
+    setShowbadge(false)
+
     //make answer buttons active//
     setDisable(false)
 
@@ -1224,7 +1739,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       <div className="game">
 
         <div alt="which pokemon">
-        <img className="pokemon" alt="Pokemon" src={pokemonImage} style={pokemonWho} />
+        <img className="pokemon" alt="Pokemon" src={showBadge === false ? pokemonImage : pokemonBadge} style={pokemonWho} />
         </div>
 
         <div className="pokedex" alt="pokedex">
