@@ -83,6 +83,17 @@ export default function Profile() {
 
   //Gen 7 Badges
 
+  const [boulderBadge7, setBoulderbadge7] = React.useState(false)
+  const [cascadeBadge7, setCascadebadge7] = React.useState(false)
+  const [thunderBadge7, setThunderbadge7] = React.useState(false)
+  const [rainbowBadge7, setRainbowbadge7] = React.useState(false)
+  const [soulBadge7, setSoulbadge7] = React.useState(false)
+  const [marshBadge7, setMarshbadge7] = React.useState(false)
+  const [volcanoBadge7, setVolcanobadge7] = React.useState(false)
+  const [earthBadge7, setEarthbadge7] = React.useState(false)
+
+  //Gen 8 Badges
+
   const [grassBadge, setGrassbadge] = React.useState(false)
   const [waterBadge, setWaterbadge] = React.useState(false)
   const [fireBadge, setFirebadge] = React.useState(false)
@@ -200,6 +211,17 @@ export default function Profile() {
 
           //Gen 7 Badges
 
+          setBoulderbadge7(result.boulder7)
+          setCascadebadge7(result.cascade7)
+          setThunderbadge7(result.thunder7)
+          setRainbowbadge7(result.rainbow7)
+          setSoulbadge7(result.soul7)
+          setMarshbadge7(result.marsh7)
+          setVolcanobadge7(result.volcano7)
+          setEarthbadge7(result.earth7)
+
+          //Gen 8 Badges
+
           setGrassbadge(result.grass)
           setWaterbadge(result.water)
           setFirebadge(result.fire)
@@ -285,6 +307,17 @@ export default function Profile() {
           setIcebergbadge(result.iceberg)
 
           //Gen 7 Badges
+
+          setBoulderbadge7(result.boulder7)
+          setCascadebadge7(result.cascade7)
+          setThunderbadge7(result.thunder7)
+          setRainbowbadge7(result.rainbow7)
+          setSoulbadge7(result.soul7)
+          setMarshbadge7(result.marsh7)
+          setVolcanobadge7(result.volcano7)
+          setEarthbadge7(result.earth7)
+
+          //Gen 8 Badges
 
           setGrassbadge(result.grass)
           setWaterbadge(result.water)
@@ -376,7 +409,18 @@ export default function Profile() {
   const psychic = require('../Assets/Images/pokemon badges/Gen6 badges/Psychicbadge.png')
   const iceberg = require('../Assets/Images/pokemon badges/Gen6 badges/Icebergbadge.png')
 
-  //Gen 7 Badges
+  //Gen 7 badges
+
+  const boulder7 = require('../Assets/Images/pokemon badges/Gen1 badges/Boulderbadge.png')
+  const cascade7 = require('../Assets/Images/pokemon badges/Gen1 badges/Cascadebadge.png')
+  const thunder7 = require('../Assets/Images/pokemon badges/Gen1 badges/Thunderbadge.png')
+  const rainbow7 = require('../Assets/Images/pokemon badges/Gen1 badges/Rainbowbadge.png')
+  const soul7 = require('../Assets/Images/pokemon badges/Gen1 badges/Soulbadge.png')
+  const marsh7 = require('../Assets/Images/pokemon badges/Gen1 badges/Marshbadge.png')
+  const volcano7 = require('../Assets/Images/pokemon badges/Gen1 badges/Volcanobadge.png')
+  const earth7 = require('../Assets/Images/pokemon badges/Gen1 badges/Earthbadge.png')
+
+  //Gen 8 Badges
 
   const grass = require('../Assets/Images/pokemon badges/Gen7 badges/GrassBadge.png')
   const water = require('../Assets/Images/pokemon badges/Gen7 badges/WaterBadge.png')
@@ -489,6 +533,18 @@ export default function Profile() {
       </div>
 
       <label>Generation VII:</label>
+      <div>
+      <img className="badge" src={ boulder7 } alt="boulder badge" style={ { filter: boulderBadge7 === false ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ cascade7 } alt="cascade badge" style={ { filter: cascadeBadge7 === false ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ thunder7 } alt="thunder badge" style={ { filter: thunderBadge7 === false ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ rainbow7 } alt="rainbow badge" style={ { filter: rainbowBadge7 === false ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ soul7 } alt="soul badge" style={ { filter: soulBadge7 === false ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ marsh7 } alt="marsh badge" style={ { filter: marshBadge7 === false ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ volcano7 } alt="volcano badge" style={ { filter: volcanoBadge7 === false ? "brightness(0)" : "brightness()"} } />
+      <img className="badge" src={ earth7 } alt="earth badge" style={ { filter: earthBadge7 === false ? "brightness(0)" : "brightness()"} } />
+      </div>
+
+      <label>Generation VIII:</label>
       <div>
       <img className="badge" src={ grass } alt="grass badge" style={ { filter: grassBadge === false ? "brightness(0)" : "brightness()"} } />
       <img className="badge" src={ water } alt="water badge" style={ { filter: waterBadge === false ? "brightness(0)" : "brightness()"} } />
