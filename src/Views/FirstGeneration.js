@@ -114,10 +114,16 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         window.localStorage.setItem('pokemons7', JSON.stringify(pokemons7))
       }, [pokemons7])
 
+      //Eigth Generation Pokemon data
+
+        const [pokemons8, setPokemons8] = React.useState(
+          () => JSON.parse(window.localStorage.getItem('pokemons8'))
+        )
+
   //fetch all the pokemon data
 
   React.useEffect(() => {
-    if (window.localStorage.getItem('pokemons') === null){
+    if (window.localStorage.getItem('pokemons') === null || window.localStorage.getItem('pokemons8') === null){
       fetch('/.netlify/functions/app/api/everygen', {
         headers: {
           'authorization': process.env.REACT_APP_AUTH
@@ -132,6 +138,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         const gen5 = response.slice(493, 649)
         const gen6 = response.slice(649, 721)
         const gen7 = response.slice(721, 809)
+        const gen8 = response.slice(809, 898)
         setPokemons(gen1)
         setPokemondata(gen1)
         setPokemons2(gen2)
@@ -140,6 +147,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemons5(gen5)
         setPokemons6(gen6)
         setPokemons7(gen7)
+        setPokemons8(gen8)
       })
       .catch((error) => console.log(error))
     )
@@ -149,6 +157,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   React.useEffect(() => {
     window.localStorage.setItem('pokemons', JSON.stringify(pokemons))
   }, [pokemons])
+
+  React.useEffect(() => {
+    window.localStorage.setItem('pokemons8', JSON.stringify(pokemons8))
+  }, [pokemons8])
 
   //pokemon constants//
   const [correctName, setCorrectname] = React.useState('Mew')
@@ -256,6 +268,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   React.useEffect(() => {
     window.localStorage.setItem('answers7', JSON.stringify(answers7))
   }, [answers7])
+
+  const [answers8, setAnswers8] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('answers8')) ?? answersInit
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('answers8', JSON.stringify(answers8))
+  }, [answers8])
 
 
   //Gen 1 Badges
@@ -731,6 +751,81 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //Gen 7 Badges
 
+  const [boulderBadge7, setBoulderbadge7] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('boulderBadge7')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('boulderBadge7', JSON.stringify(boulderBadge7))
+  }, [boulderBadge7])
+
+  const [cascadeBadge7, setCascadebadge7] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('cascadeBadge7')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('cascadeBadge7', JSON.stringify(cascadeBadge7))
+  }, [cascadeBadge7])
+
+  const [thunderBadge7, setThunderbadge7] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('thunderBadge7')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('thunderBadge7', JSON.stringify(thunderBadge7))
+  }, [thunderBadge7])
+
+  const [rainbowBadge7, setRainbowbadge7] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('rainbowBadge7')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('rainbowBadge7', JSON.stringify(rainbowBadge7))
+  }, [rainbowBadge7])
+
+  const [soulBadge7, setSoulbadge7] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('soulBadge7')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('soulBadge7', JSON.stringify(soulBadge7))
+  }, [soulBadge7])
+
+  const [marshBadge7, setMarshbadge7] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('marshBadge7')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('marshBadge7', JSON.stringify(marshBadge7))
+  }, [marshBadge7])
+
+  const [volcanoBadge7, setVolcanobadge7] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('volcanoBadge7')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('volcanoBadge7', JSON.stringify(volcanoBadge7))
+  }, [volcanoBadge7])
+
+  const [earthBadge7, setEarthbadge7] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('earthBadge7')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('earthBadge7', JSON.stringify(earthBadge7))
+  }, [earthBadge7])
+
+  const boulder7 = React.useState(["rockruff", "lycanroc", "minior", "nihilego", "stakataka"])
+  const cascade7 = React.useState(["popplio", "brionne", "primarina", "wishiwashi", "mareanie", "toxapex", "dewpider", "araquanid", "wimpod", "golisopod", "pyukumuku", "bruxish", "tapu"])
+  const thunder7 = React.useState(["charjabug", "vikavolt", "oricorio", "togedemaru", "koko", "xurkitree", "zeraora"])
+  const rainbow7 = React.useState(["rowlet", "dartrix", "decidueye", "fomantis", "lurantis", "morelull", "shiinotic", "bounsweet", "steenee", "tsareena", "dhelmise", "tapu", "kartana"])
+  const soul7 = React.useState(["decidueye", "incineroar", "oricorio", "sandygast", "palossand", "mimikyu", "dhelmise", "lunala", "necrozma", "marshadow", "blacephalon"])
+  const marsh7 = React.useState(["oricorio", "oranguru", "bruxish", "lele", "cosmog", "cosmoem", "solgaleo", "lunala", "necrozma"])
+  const volcano7 = React.useState(["litten", "torracat", "incineroar", "oricorio", "salandit", "salazzle", "turtonator", "blacephalon"])
+  const earth7 = React.useState(["zygarde", "mudbray", "mudsdale", "sandygast", "palossand"])
+
+  //Gen 8 Badges
+
   const [grassBadge, setGrassbadge] = React.useState(
     () => JSON.parse(window.localStorage.getItem('grassBadge')) ?? false
   )
@@ -811,16 +906,16 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
     window.localStorage.setItem('fairy2Badge', JSON.stringify(fairy2Badge))
   }, [fairy2Badge])
 
-  const grass = React.useState(["rowlet", "dartrix", "decidueye", "fomantis", "lurantis", "morelull", "shiinotic", "bounsweet", "steenee", "tsareena", "dhelmise", "tapu", "kartana"])
-  const water = React.useState(["popplio", "brionne", "primarina", "wishiwashi", "mareanie", "toxapex", "dewpider", "araquanid", "wimpod", "golisopod", "pyukumuku", "bruxish", "tapu"])
-  const fire = React.useState(["litten", "torracat", "incineroar", "oricorio", "salandit", "salazzle", "turtonator", "blacephalon"])
-  const fighting = React.useState(["crabrawler", "crabominable", "stufful", "bewear", "passimian", "hakamo", "kommo", "buzzwole", "pheromosa", "marshadow"])
-  const fairy2 = React.useState(["primarina", "cutiefly", "ribombee", "morelull", "shiinotic", "comfey", "mimikyu", "tapu", "magearna"])
-  const rock = React.useState(["rockruff", "lycanroc", "minior", "nihilego", "stakataka"])
-  const dark = React.useState(["guzzlord"])
-  const dragon = React.useState(["zygarde", "turtonator", "drampa", "jangmo", "hakamo", "kommo", "guzzlord", "necrozma", "naganadel"])
-  const ghost = React.useState(["decidueye", "incineroar", "oricorio", "sandygast", "palossand", "mimikyu", "dhelmise", "lunala", "necrozma", "marshadow", "blacephalon"])
-  const ice = React.useState(["crabominable"])
+  const grass = React.useState(["grookey", "thwackey", "rillaboom", "gossifleur", "eldegoss", "applin", "flapple", "appletun"])
+  const water = React.useState(["sobble", "drizzile", "inteleon", "chewtle", "drednaw", "cramorant", "arrokuda", "barraskewda", "dracovish", "arctovish"])
+  const fire = React.useState(["scorbunny", "raboot", "cinderace", "carkol", "coalossal", "sizzlipede", "centiskorch"])
+  const fighting = React.useState(["clobbopus", "grapploct", "sirfetchd", "falinks", "zamazenta"])
+  const fairy2 = React.useState(["hatterene", "impidimp", "morgrem", "grimmsnarl", "milcery", "alcremie", "zacian"])
+  const rock = React.useState(["drednaw", "rolycoly", "carkol", "coalossal", "silicobra", "sandaconda", "stonjourner"])
+  const dark = React.useState(["nickit", "thievul", "impidimp", "morgrem", "grimmsnarl", "obstagoon", "morpeko"])
+  const dragon = React.useState(["applin", "flapple", "appletun", "dracozolt", "dracovish", "duraludon", "dreepy", "drakloak", "dragapult", "eternatus"])
+  const ghost = React.useState(["sinistea", "polteageist", "cursola", "runerigus", "dreepy", "drakloak", "dragapult"])
+  const ice = React.useState(["mr-rime", "snom", "frosmoth", "eiscue", "arctozolt", "arctovish"])
 
   //constant to show pokemon badge
 
@@ -894,7 +989,18 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const psychicImage = require('../Assets/Images/pokemon badges/Gen6 badges/Psychicbadge.png')
   const icebergImage = require('../Assets/Images/pokemon badges/Gen6 badges/Icebergbadge.png')
 
-  //Gen 7 Badges
+  //Gen 7 badges
+
+  const boulderImage7 = require('../Assets/Images/pokemon badges/Gen1 badges/Boulderbadge.png')
+  const cascadeImage7 = require('../Assets/Images/pokemon badges/Gen1 badges/Cascadebadge.png')
+  const thunderImage7 = require('../Assets/Images/pokemon badges/Gen1 badges/Thunderbadge.png')
+  const rainbowImage7 = require('../Assets/Images/pokemon badges/Gen1 badges/Rainbowbadge.png')
+  const soulImage7 = require('../Assets/Images/pokemon badges/Gen1 badges/Soulbadge.png')
+  const marshImage7 = require('../Assets/Images/pokemon badges/Gen1 badges/Marshbadge.png')
+  const volcanoImage7 = require('../Assets/Images/pokemon badges/Gen1 badges/Volcanobadge.png')
+  const earthImage7 = require('../Assets/Images/pokemon badges/Gen1 badges/Earthbadge.png')
+
+  //Gen 8 Badges
 
   const grassImage = require('../Assets/Images/pokemon badges/Gen7 badges/GrassBadge.png')
   const waterImage = require('../Assets/Images/pokemon badges/Gen7 badges/WaterBadge.png')
@@ -933,25 +1039,20 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
     if(window.localStorage.getItem("token") !== null){
       if(navButton === 1 && correctName === e.target.value && answers1.includes(e.target.value) === false) {
         setAnswers1(answers1 => [...answers1, e.target.value])
-        console.log(answers1)
       } else if(navButton === 2 && correctName === e.target.value && answers2.includes(e.target.value) === false) {
         setAnswers2(answers2 => [...answers2, e.target.value])
-        console.log(answers2)
       } else if(navButton === 3 && correctName === e.target.value && answers3.includes(e.target.value) === false) {
         setAnswers3(answers3 => [...answers3, e.target.value])
-        console.log(answers3)
       } else if(navButton === 4 && correctName === e.target.value && answers4.includes(e.target.value) === false) {
         setAnswers4(answers4 => [...answers4, e.target.value])
-        console.log(answers4)
       } else if(navButton === 5 && correctName === e.target.value && answers5.includes(e.target.value) === false) {
         setAnswers5(answers5 => [...answers5, e.target.value])
-        console.log(answers5)
       } else if(navButton === 6 && correctName === e.target.value && answers6.includes(e.target.value) === false) {
         setAnswers6(answers6 => [...answers6, e.target.value])
-        console.log(answers6)
       } else if(navButton === 7 && correctName === e.target.value && answers7.includes(e.target.value) === false) {
         setAnswers7(answers7 => [...answers7, e.target.value])
-        console.log(answers7)
+      } else if(navButton === 8 && correctName === e.target.value && answers8.includes(e.target.value) === false) {
+        setAnswers8(answers8 => [...answers8, e.target.value])
       }
     }
   }
@@ -1026,6 +1127,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -1119,6 +1228,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -1212,6 +1329,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -1305,6 +1430,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -1334,7 +1467,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           console.log(error);
         });
       }
-      if(soulBadge === false && checker(soul[0], answers1) === true === true){
+      if(soulBadge === false && checker(soul[0], answers1) === true){
         setSoulbadge(true)
         setShowbadge(true)
         setPokemonbadge(soulImage)
@@ -1398,6 +1531,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -1491,6 +1632,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -1584,6 +1733,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -1677,6 +1834,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -1773,6 +1938,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -1866,6 +2039,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -1959,6 +2140,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2052,6 +2241,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2145,6 +2342,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2238,6 +2443,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2331,6 +2544,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2424,6 +2645,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2520,6 +2749,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2613,6 +2850,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2706,6 +2951,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2799,6 +3052,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2892,6 +3153,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -2985,6 +3254,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -3078,6 +3355,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -3171,6 +3456,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -3267,6 +3560,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -3360,6 +3661,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -3453,6 +3762,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -3546,6 +3863,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -3639,6 +3964,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -3732,6 +4065,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -3825,6 +4166,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -3918,6 +4267,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4014,6 +4371,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4107,6 +4472,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4200,6 +4573,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4293,6 +4674,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4386,6 +4775,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4479,6 +4876,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4572,6 +4977,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4665,6 +5078,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4758,6 +5179,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4851,6 +5280,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -4947,6 +5384,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -5040,6 +5485,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -5133,6 +5586,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -5226,6 +5687,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -5319,6 +5788,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -5412,6 +5889,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": true,
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -5505,6 +5990,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": true,
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -5598,6 +6091,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": true,
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -5630,7 +6131,818 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
       //gen 7
 
-      if(grassBadge === false && checker(grass[0], answers7) === true){
+      if(boulderBadge7 === false && checker(boulder7[0], answers7) === true){
+        setBoulderbadge7(true)
+        setShowbadge(true)
+        setPokemonbadge(boulderImage7)
+        setPokemonwho({
+          filter: "none",
+          padding: "100px"
+        })
+        setPokemonbadgetext("All Rock type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": true,
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
+      }
+      if(cascadeBadge7 === false && checker(cascade7[0], answers7) === true){
+        setCascadebadge7(true)
+        setShowbadge(true)
+        setPokemonbadge(cascadeImage7)
+        setPokemonwho({
+          filter: "none",
+          padding: "100px"
+        })
+        setPokemonbadgetext("All Water type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": true,
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
+      }
+      if(thunderBadge7 === false && checker(thunder7[0], answers7) === true){
+        setThunderbadge7(true)
+        setShowbadge(true)
+        setPokemonbadge(thunderImage7)
+        setPokemonwho({
+          filter: "none",
+          padding: "100px"
+        })
+        setPokemonbadgetext("All Electric type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": true,
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
+      }
+      if(rainbowBadge7 === false && checker(rainbow7[0], answers7) === true){
+        setRainbowbadge7(true)
+        setShowbadge(true)
+        setPokemonbadge(rainbowImage7)
+        setPokemonwho({
+          filter: "none",
+          padding: "100px"
+        })
+        setPokemonbadgetext("All Grass type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": true,
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
+      }
+      if(soulBadge7 === false && checker(soul7[0], answers7) === true){
+        setSoulbadge7(true)
+        setShowbadge(true)
+        setPokemonbadge(soulImage7)
+        setPokemonwho({
+          filter: "none",
+          padding: "100px"
+        })
+        setPokemonbadgetext("All Poison type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": true,
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
+      }
+      if(marshBadge7 === false && checker(marsh7[0], answers7) === true){
+        setMarshbadge7(true)
+        setShowbadge(true)
+        setPokemonbadge(marshImage7)
+        setPokemonwho({
+          filter: "none",
+          padding: "100px"
+        })
+        setPokemonbadgetext("All Psychic type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": true,
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
+      }
+      if(volcanoBadge7 === false && checker(volcano7[0], answers7) === true){
+        setVolcanobadge7(true)
+        setShowbadge(true)
+        setPokemonbadge(volcanoImage7)
+        setPokemonwho({
+          filter: "none",
+          padding: "100px"
+        })
+        setPokemonbadgetext("All Fire type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": true,
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
+      }
+      if(earthBadge7 === false && checker(earth7[0], answers7) === true){
+        setEarthbadge7(true)
+        setShowbadge(true)
+        setPokemonbadge(earthImage7)
+        setPokemonwho({
+          filter: "none",
+          padding: "100px"
+        })
+        setPokemonbadgetext("All Ground type Pokemon revealed!")
+
+        //update database user badges
+
+        fetch("/.netlify/functions/app/auth/modifyBadges", {
+          method: 'PUT',
+          body: JSON.stringify({"boulder": JSON.parse(window.localStorage.getItem("boulderBadge")),
+                                "cascade": JSON.parse(window.localStorage.getItem("cascadeBadge")),
+                                "thunder": JSON.parse(window.localStorage.getItem("thunderBadge")),
+                                "rainbow": JSON.parse(window.localStorage.getItem("rainbowBadge")),
+                                "soul": JSON.parse(window.localStorage.getItem("soulBadge")),
+                                "marsh": JSON.parse(window.localStorage.getItem("marshBadge")),
+                                "volcano": JSON.parse(window.localStorage.getItem("volcanoBadge")),
+                                "earth": JSON.parse(window.localStorage.getItem("earthBadge")),
+                                "zephyr": JSON.parse(window.localStorage.getItem("zephyrBadge")),
+                                "hive": JSON.parse(window.localStorage.getItem("hiveBadge")),
+                                "plain": JSON.parse(window.localStorage.getItem("plainBadge")),
+                                "fog": JSON.parse(window.localStorage.getItem("fogBadge")),
+                                "storm": JSON.parse(window.localStorage.getItem("stormBadge")),
+                                "mineral": JSON.parse(window.localStorage.getItem("mineralBadge")),
+                                "glacier": JSON.parse(window.localStorage.getItem("glacierBadge")),
+                                "rising": JSON.parse(window.localStorage.getItem("risingBadge")),
+                                "stone": JSON.parse(window.localStorage.getItem("stoneBadge")),
+                                "knuckle": JSON.parse(window.localStorage.getItem("knuckleBadge")),
+                                "dynamo": JSON.parse(window.localStorage.getItem("dynamoBadge")),
+                                "heat": JSON.parse(window.localStorage.getItem("heatBadge")),
+                                "balance": JSON.parse(window.localStorage.getItem("balanceBadge")),
+                                "feather": JSON.parse(window.localStorage.getItem("featherBadge")),
+                                "mind": JSON.parse(window.localStorage.getItem("mindBadge")),
+                                "rain": JSON.parse(window.localStorage.getItem("rainBadge")),
+                                "coal": JSON.parse(window.localStorage.getItem("coalBadge")),
+                                "forest": JSON.parse(window.localStorage.getItem("forestBadge")),
+                                "cobble": JSON.parse(window.localStorage.getItem("cobbleBadge")),
+                                "fen": JSON.parse(window.localStorage.getItem("fenBadge")),
+                                "relic": JSON.parse(window.localStorage.getItem("relicBadge")),
+                                "mine": JSON.parse(window.localStorage.getItem("mineBadge")),
+                                "icicle": JSON.parse(window.localStorage.getItem("icicleBadge")),
+                                "beacon": JSON.parse(window.localStorage.getItem("beaconBadge")),
+                                "trio": JSON.parse(window.localStorage.getItem("trioBadge")),
+                                "basic": JSON.parse(window.localStorage.getItem("basicBadge")),
+                                "insect": JSON.parse(window.localStorage.getItem("insectBadge")),
+                                "bolt": JSON.parse(window.localStorage.getItem("boltBadge")),
+                                "quake": JSON.parse(window.localStorage.getItem("quakeBadge")),
+                                "jet": JSON.parse(window.localStorage.getItem("jetBadge")),
+                                "freeze": JSON.parse(window.localStorage.getItem("freezeBadge")),
+                                "legend": JSON.parse(window.localStorage.getItem("legendBadge")),
+                                "toxic": JSON.parse(window.localStorage.getItem("toxicBadge")),
+                                "wave": JSON.parse(window.localStorage.getItem("waveBadge")),
+                                "bug": JSON.parse(window.localStorage.getItem("bugBadge")),
+                                "cliff": JSON.parse(window.localStorage.getItem("cliffBadge")),
+                                "rumble": JSON.parse(window.localStorage.getItem("rumbleBadge")),
+                                "plant": JSON.parse(window.localStorage.getItem("plantBadge")),
+                                "voltage": JSON.parse(window.localStorage.getItem("voltageBadge")),
+                                "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
+                                "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
+                                "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": true,
+                                "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
+                                "water": JSON.parse(window.localStorage.getItem("waterBadge")),
+                                "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
+                                "fighting": JSON.parse(window.localStorage.getItem("fightingBadge")),
+                                "fairy2": JSON.parse(window.localStorage.getItem("fairy2Badge")),
+                                "rock": JSON.parse(window.localStorage.getItem("rockBadge")),
+                                "dark": JSON.parse(window.localStorage.getItem("darkBadge")),
+                                "dragon": JSON.parse(window.localStorage.getItem("dragonBadge")),
+                                "ghost": JSON.parse(window.localStorage.getItem("ghostBadge")),
+                                "ice": JSON.parse(window.localStorage.getItem("iceBadge"))}),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+            } else {
+              console.log(result.error.message);
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+        });
+      }
+
+      //gen 8
+
+      if(grassBadge === false && checker(grass[0], answers8) === true){
         setGrassbadge(true)
         setShowbadge(true)
         setPokemonbadge(grassImage)
@@ -5694,6 +7006,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": true,
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -5723,7 +7043,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           console.log(error);
         });
       }
-      if(waterBadge === false && checker(water[0], answers7) === true){
+      if(waterBadge === false && checker(water[0], answers8) === true){
         setWaterbadge(true)
         setShowbadge(true)
         setPokemonbadge(waterImage)
@@ -5787,6 +7107,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": true,
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -5816,7 +7144,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           console.log(error);
         });
       }
-      if(fireBadge === false && checker(fire[0], answers7) === true){
+      if(fireBadge === false && checker(fire[0], answers8) === true){
         setFirebadge(true)
         setShowbadge(true)
         setPokemonbadge(fireImage)
@@ -5880,6 +7208,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": true,
@@ -5909,7 +7245,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           console.log(error);
         });
       }
-      if(fightingBadge === false && checker(fighting[0], answers7) === true){
+      if(fightingBadge === false && checker(fighting[0], answers8) === true){
         setFightingbadge(true)
         setShowbadge(true)
         setPokemonbadge(fightingImage)
@@ -5973,6 +7309,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -6002,7 +7346,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           console.log(error);
         });
       }
-      if(rockBadge === false && checker(rock[0], answers7) === true){
+      if(rockBadge === false && checker(rock[0], answers8) === true){
         setRockbadge(true)
         setShowbadge(true)
         setPokemonbadge(rockImage)
@@ -6066,6 +7410,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -6095,7 +7447,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           console.log(error);
         });
       }
-      if(darkBadge === false && checker(dark[0], answers7) === true){
+      if(darkBadge === false && checker(dark[0], answers8) === true){
         setDarkbadge(true)
         setShowbadge(true)
         setPokemonbadge(darkImage)
@@ -6159,6 +7511,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -6188,7 +7548,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           console.log(error);
         });
       }
-      if(dragonBadge === false && checker(dragon[0], answers7) === true){
+      if(dragonBadge === false && checker(dragon[0], answers8) === true){
         setDragonbadge(true)
         setShowbadge(true)
         setPokemonbadge(dragonImage)
@@ -6252,6 +7612,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -6281,7 +7649,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           console.log(error);
         });
       }
-      if(ghostBadge === false && checker(ghost[0], answers7) === true){
+      if(ghostBadge === false && checker(ghost[0], answers8) === true){
         setGhostbadge(true)
         setShowbadge(true)
         setPokemonbadge(ghostImage)
@@ -6345,6 +7713,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -6374,7 +7750,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           console.log(error);
         });
       }
-      if(iceBadge === false && checker(ice[0], answers7) === true){
+      if(iceBadge === false && checker(ice[0], answers8) === true){
         setIcebadge(true)
         setShowbadge(true)
         setPokemonbadge(iceImage)
@@ -6438,6 +7814,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -6467,7 +7851,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           console.log(error);
         });
       }
-      if(fairy2Badge === false && checker(fairy2[0], answers7) === true){
+      if(fairy2Badge === false && checker(fairy2[0], answers8) === true){
         setFairy2badge(true)
         setShowbadge(true)
         setPokemonbadge(fairy2Image)
@@ -6531,6 +7915,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
                                 "fairy": JSON.parse(window.localStorage.getItem("fairyBadge")),
                                 "psychic": JSON.parse(window.localStorage.getItem("psychicBadge")),
                                 "iceberg": JSON.parse(window.localStorage.getItem("icebergBadge")),
+                                "boulder7": JSON.parse(window.localStorage.getItem("boulderBadge7")),
+                                "cascade7": JSON.parse(window.localStorage.getItem("cascadeBadge7")),
+                                "thunder7": JSON.parse(window.localStorage.getItem("thunderBadge7")),
+                                "rainbow7": JSON.parse(window.localStorage.getItem("rainbowBadge7")),
+                                "soul7": JSON.parse(window.localStorage.getItem("soulBadge7")),
+                                "marsh7": JSON.parse(window.localStorage.getItem("marshBadge7")),
+                                "volcano7": JSON.parse(window.localStorage.getItem("volcanoBadge7")),
+                                "earth7": JSON.parse(window.localStorage.getItem("earthBadge7")),
                                 "grass": JSON.parse(window.localStorage.getItem("grassBadge")),
                                 "water": JSON.parse(window.localStorage.getItem("waterBadge")),
                                 "fire": JSON.parse(window.localStorage.getItem("fireBadge")),
@@ -6561,7 +7953,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         });
       }
 
-    }, [answers1, answers2, answers3, answers4, answers5, answers6, answers7, balance, balanceBadge, basic, basicBadge, beacon, beaconBadge, bolt, boltBadge, boulder, boulderBadge, bug, bugBadge, cascade, cascadeBadge, cliff, cliffBadge, coal, coalBadge, cobble, cobbleBadge, dark, darkBadge, dragon, dragonBadge, dynamo, dynamoBadge, earth, earthBadge, fairy, fairy2, fairy2Badge, fairyBadge, feather, featherBadge, fen, fenBadge, fighting, fightingBadge, fire, fireBadge, fog, fogBadge, forest, forestBadge, freeze, freezeBadge, ghost, ghostBadge, glacier, glacierBadge, grass, grassBadge, heat, heatBadge, hive, hiveBadge, ice, iceBadge, iceberg, icebergBadge, icicle, icicleBadge, insect, insectBadge, jet, jetBadge, knuckle, knuckleBadge, legend, legendBadge, marsh, marshBadge, mind, mindBadge, mine, mineBadge, mineral, mineralBadge, plain, plainBadge, plant, plantBadge, psychic, psychicBadge, quake, quakeBadge, rain, rainBadge, rainbow, rainbowBadge, relic, relicBadge, rising, risingBadge, rock, rockBadge, rumble, rumbleBadge, soul, soulBadge, stone, stoneBadge, storm, stormBadge, thunder, thunderBadge, toxic, toxicBadge, trio, trioBadge, volcano, volcanoBadge, voltage, voltageBadge, water, waterBadge, wave, waveBadge, zephyr, zephyrBadge, balanceImage, basicImage, beaconImage, boltImage, boulderImage, bugImage, cascadeImage, cliffImage, coalImage, cobbleImage, darkImage, dragonImage, dynamoImage, earthImage, fairy2Image, fairyImage, featherImage, fenImage, fightingImage, fireImage, fogImage, forestImage, freezeImage, ghostImage, glacierImage, grassImage, heatImage, hiveImage, iceImage, icebergImage, icicleImage, insectImage, jetImage, knuckleImage, legendImage, marshImage, mindImage, mineImage, mineralImage, plainImage, plantImage, psychicImage, quakeImage, rainImage, rainbowImage, relicImage, risingImage, rockImage, rumbleImage, soulImage, stoneImage, stormImage, thunderImage, toxicImage, trioImage, volcanoImage, voltageImage, waterImage, waveImage, zephyrImage])
+    }, [answers1, answers2, answers3, answers4, answers5, answers6, answers7, answers8, balance, balanceBadge, basic, basicBadge, beacon, beaconBadge, bolt, boltBadge, boulder, boulderBadge, bug, bugBadge, cascade, cascadeBadge, cliff, cliffBadge, coal, coalBadge, cobble, cobbleBadge, dark, darkBadge, dragon, dragonBadge, dynamo, dynamoBadge, earth, earthBadge, fairy, fairy2, fairy2Badge, fairyBadge, feather, featherBadge, fen, fenBadge, fighting, fightingBadge, fire, fireBadge, fog, fogBadge, forest, forestBadge, freeze, freezeBadge, ghost, ghostBadge, glacier, glacierBadge, grass, grassBadge, heat, heatBadge, hive, hiveBadge, ice, iceBadge, iceberg, icebergBadge, icicle, icicleBadge, insect, insectBadge, jet, jetBadge, knuckle, knuckleBadge, legend, legendBadge, marsh, marshBadge, mind, mindBadge, mine, mineBadge, mineral, mineralBadge, plain, plainBadge, plant, plantBadge, psychic, psychicBadge, quake, quakeBadge, rain, rainBadge, rainbow, rainbowBadge, relic, relicBadge, rising, risingBadge, rock, rockBadge, rumble, rumbleBadge, soul, soulBadge, stone, stoneBadge, storm, stormBadge, thunder, thunderBadge, toxic, toxicBadge, trio, trioBadge, volcano, volcanoBadge, voltage, voltageBadge, water, waterBadge, wave, waveBadge, zephyr, zephyrBadge, balanceImage, basicImage, beaconImage, boltImage, boulderImage, bugImage, cascadeImage, cliffImage, coalImage, cobbleImage, darkImage, dragonImage, dynamoImage, earthImage, fairy2Image, fairyImage, featherImage, fenImage, fightingImage, fireImage, fogImage, forestImage, freezeImage, ghostImage, glacierImage, grassImage, heatImage, hiveImage, iceImage, icebergImage, icicleImage, insectImage, jetImage, knuckleImage, legendImage, marshImage, mindImage, mineImage, mineralImage, plainImage, plantImage, psychicImage, quakeImage, rainImage, rainbowImage, relicImage, risingImage, rockImage, rumbleImage, soulImage, stoneImage, stormImage, thunderImage, toxicImage, trioImage, volcanoImage, voltageImage, waterImage, waveImage, zephyrImage, boulder7, boulderBadge7, boulderImage7, cascade7, cascadeBadge7, cascadeImage7, earth7, earthBadge7, earthImage7, marsh7, marshBadge7, marshImage7, rainbow7, rainbowBadge7, rainbowImage7, soul7, soulBadge7, soulImage7, thunder7, thunderBadge7, thunderImage7, volcano7, volcanoBadge7, volcanoImage7])
 
   //disable constant//
   const [disable, setDisable] = React.useState(true)
@@ -6702,6 +8094,22 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       setNumber(809)
       setPokemonA('bulbasaur')
       setPokemonB('melmetal')
+      setPokemonC('charizard')
+      setPokemonD('pikachu')
+      setDisable(true)
+      setButtonplay({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "white",})
+      setbuttonB({backgroundColor: "blue", color: "white",})
+      setbuttonC({backgroundColor: "blue", color: "white",})
+      setbuttonD({backgroundColor: "blue", color: "white",})
+      setPokemonwho({
+        filter: "brightness(0)",
+      })
+    } else if(n === 8){
+      setPokemondata(pokemons8)
+      setNumber(810)
+      setPokemonA('bulbasaur')
+      setPokemonB('grookey')
       setPokemonC('charizard')
       setPokemonD('pikachu')
       setDisable(true)
@@ -6872,6 +8280,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
             <button className="button buttonNav" alt="FifthGeneration" style={{backgroundColor: navButton === 5 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 5); setNavbutton(5);}}>5</button>
             <button className="button buttonNav" alt="SixthGeneration" style={{backgroundColor: navButton === 6 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 6); setNavbutton(6);}}>6</button>
             <button className="button buttonNav" alt="SeventhGeneration" style={{backgroundColor: navButton === 7 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 7); setNavbutton(7);}}>7</button>
+            <button className="button buttonNav" alt="EigthGeneration" style={{backgroundColor: navButton === 8 ? "cyan" : "blue"}} onClick={(n) => {pokemonDatahandler(n = 8); setNavbutton(8);}}>8</button>
           </div>
 
         </div>
