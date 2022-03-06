@@ -9,8 +9,18 @@ export default function Profile() {
   const navigate = useNavigate();
   const token = JSON.parse(window.localStorage.getItem("token"))
   const [character, setCharacter] = React.useState()
+  const characterOwner = JSON.parse(window.localStorage.getItem("character"))
+  const usernameOwner = JSON.parse(window.localStorage.getItem("username"))
   const [profileUser, setProfileuser] = React.useState(false)
   const [search, setSearch] = React.useState("")
+
+  const userLoggedin = () => {
+      navigate(`/profile/${usernameOwner}`)
+  }
+
+  const login = () => {
+      navigate("/login")
+  }
 
   //Badges achieved
   //Gen 1 Badges
@@ -111,6 +121,17 @@ export default function Profile() {
     if(profileUser === true){
       return (<NavLink to="/" className="button" style={({ isActive }) => {
       return {backgroundColor: isActive ? "cyan" : ""};}} onClick={() => {window.localStorage.removeItem('token')}} alt="log out">Log out</NavLink>)
+    } else {
+      return <></>
+    }
+
+  }
+
+  //Show or Hide edit
+
+  const ReturnProfile = () => {
+    if(profileUser !== true){
+      return (<button className="pokedex-button pokedex-init" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: "5px", margin: "2%", fontSize: "20px", cursor: "pointer"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>{characterOwner}</button>)
     } else {
       return <></>
     }
@@ -515,6 +536,7 @@ export default function Profile() {
 
     <div className="pokedexForm" alt="profile" style={{height: "85%", width: "85%"}}>
 
+      <ReturnProfile />
       <div className="search" alt="search" style={{color: "white", textAlign: "center"}}>Search:
       <input className="search" alt="search" value={search} onChange={event => setSearch(event.target.value)} onKeyDown={(e) => e.key === 'Enter' ? handleSearch() : null} style={{width: "40%", margin: "1%"}} placeholder="Find a user..." />
       <button className="button" type="button" style={{height: "40px", width: "40px", fontSize: "20px"}} onClick={() => {handleSearch()}}>🔍</button>
