@@ -2,7 +2,7 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 //comment out for production
-const secrets = require('../secrets');
+//const secrets = require('../secrets');
 
 exports.register = (req, res, next) => {
   const auth = req.headers.authorization;
