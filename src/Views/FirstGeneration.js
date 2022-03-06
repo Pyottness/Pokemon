@@ -7972,10 +7972,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       setDisableplay(false)
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white", cursor: "pointer"})
-      setbuttonA({backgroundColor: "blue", color: "white", cursor: "default"})
-      setbuttonB({backgroundColor: "blue", color: "white", cursor: "default"})
-      setbuttonC({backgroundColor: "blue", color: "white", cursor: "default"})
-      setbuttonD({backgroundColor: "blue", color: "white", cursor: "default"})
+      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
     } else {
       if(audioPlay === true){turnOffplay.play()}
       setPokedexbutton(false)
@@ -8002,10 +8002,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonD('pikachu')
         setDisable(true)
         setButtonplay({backgroundColor: "blue", color: "white",})
-        setbuttonA({backgroundColor: "blue", color: "white",})
-        setbuttonB({backgroundColor: "blue", color: "white",})
-        setbuttonC({backgroundColor: "blue", color: "white",})
-        setbuttonD({backgroundColor: "blue", color: "white",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
         setPokemonwho({
           filter: "brightness(0)",
         })
@@ -8018,10 +8018,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       setPokemonD('pikachu')
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "white",})
-      setbuttonB({backgroundColor: "blue", color: "white",})
-      setbuttonC({backgroundColor: "blue", color: "white",})
-      setbuttonD({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
       setPokemonwho({
         filter: "brightness(0)",
       })
@@ -8034,10 +8034,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       setPokemonD('pikachu')
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "white",})
-      setbuttonB({backgroundColor: "blue", color: "white",})
-      setbuttonC({backgroundColor: "blue", color: "white",})
-      setbuttonD({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
       setPokemonwho({
         filter: "brightness(0)",
       })
@@ -8050,10 +8050,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       setPokemonD('pikachu')
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "white",})
-      setbuttonB({backgroundColor: "blue", color: "white",})
-      setbuttonC({backgroundColor: "blue", color: "white",})
-      setbuttonD({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
       setPokemonwho({
         filter: "brightness(0)",
       })
@@ -8066,10 +8066,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       setPokemonD('pikachu')
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "white",})
-      setbuttonB({backgroundColor: "blue", color: "white",})
-      setbuttonC({backgroundColor: "blue", color: "white",})
-      setbuttonD({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
       setPokemonwho({
         filter: "brightness(0)",
       })
@@ -8082,10 +8082,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       setPokemonD('pikachu')
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "white",})
-      setbuttonB({backgroundColor: "blue", color: "white",})
-      setbuttonC({backgroundColor: "blue", color: "white",})
-      setbuttonD({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
       setPokemonwho({
         filter: "brightness(0)",
       })
@@ -8098,10 +8098,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       setPokemonD('pikachu')
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "white",})
-      setbuttonB({backgroundColor: "blue", color: "white",})
-      setbuttonC({backgroundColor: "blue", color: "white",})
-      setbuttonD({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
       setPokemonwho({
         filter: "brightness(0)",
       })
@@ -8114,10 +8114,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
       setPokemonD('pikachu')
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "white",})
-      setbuttonB({backgroundColor: "blue", color: "white",})
-      setbuttonC({backgroundColor: "blue", color: "white",})
-      setbuttonD({backgroundColor: "blue", color: "white",})
+      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
       setPokemonwho({
         filter: "brightness(0)",
       })
@@ -8128,6 +8128,12 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //play initializer//
   const play = async () => {
+
+    //set answer buttons to blue and color white
+    setbuttonA({backgroundColor: "blue", color: "white", cursor: "pointer"})
+    setbuttonB({backgroundColor: "blue", color: "white", cursor: "pointer"})
+    setbuttonC({backgroundColor: "blue", color: "white", cursor: "pointer"})
+    setbuttonD({backgroundColor: "blue", color: "white", cursor: "pointer"})
 
     //Show pokemon Image
     setShowbadge(false)
