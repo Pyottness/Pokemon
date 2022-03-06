@@ -6,6 +6,8 @@ const userSchema = mongoose.Schema({
   password: { type: String, required: true},
   username: { type: String, required: true, unique: true },
   character: { type: String, required: true },
+  followers: { type: Array },
+  following: { type: Array },
   boulder: { type: Boolean },
   cascade: { type: Boolean },
   thunder: { type: Boolean },

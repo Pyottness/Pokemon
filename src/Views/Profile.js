@@ -13,13 +13,18 @@ export default function Profile() {
   const usernameOwner = JSON.parse(window.localStorage.getItem("username"))
   const [profileUser, setProfileuser] = React.useState(false)
   const [search, setSearch] = React.useState("")
+  const [following, setFollowing] = React.useState(false)
+
+  // Handle user logged in
 
   const userLoggedin = () => {
-      navigate(`/profile/${usernameOwner}`)
+    navigate(`/profile/${usernameOwner}`)
   }
 
-  const login = () => {
-      navigate("/login")
+  // Handle user Search
+
+  const handleSearch = () => {
+    navigate(`/profile/${search.toLowerCase()}`)
   }
 
   //Badges achieved
@@ -114,36 +119,6 @@ export default function Profile() {
   const [ghostBadge, setGhostbadge] = React.useState(false)
   const [iceBadge, setIcebadge] = React.useState(false)
   const [fairy2Badge, setFairy2badge] = React.useState(false)
-
-  //Show or Hide edit
-
-  const EditProfile = () => {
-    if(profileUser === true){
-      return (<NavLink to="/" className="button" style={({ isActive }) => {
-      return {backgroundColor: isActive ? "cyan" : ""};}} onClick={() => {window.localStorage.removeItem('token')}} alt="log out">Log out</NavLink>)
-    } else {
-      return <></>
-    }
-
-  }
-
-  //Show or Hide edit
-
-  const ReturnProfile = () => {
-    if(profileUser !== true){
-      return (<button className="pokedex-button pokedex-init" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: "5px", margin: "2%", fontSize: "20px", cursor: "pointer"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>{characterOwner}</button>)
-    } else {
-      return <></>
-    }
-
-  }
-
-  // Handle user Search
-
-  const handleSearch = () => {
-
-    navigate(`/profile/${search.toLowerCase()}`)
-  }
 
   React.useEffect(() => {
     fetch("/.netlify/functions/app/auth/profile", {
@@ -428,7 +403,7 @@ export default function Profile() {
     .catch(error => {
       console.error(error);
     });
-  })
+  }, [navigate, token, username])
 
   //Gen 1 badges
 
@@ -522,6 +497,50 @@ export default function Profile() {
   const ice = require('../Assets/Images/pokemon badges/Gen7 badges/IceBadge.png')
   const fairy2 = require('../Assets/Images/pokemon badges/Gen7 badges/FairyBadge.png')
 
+  //Show or Hide edit
+
+  const EditProfile = () => {
+    if(profileUser === true){
+      return (<NavLink to="/" className="button" style={({ isActive }) => {
+      return {backgroundColor: isActive ? "cyan" : ""};}} onClick={() => {window.localStorage.removeItem('token')}} alt="log out">Log out</NavLink>)
+    } else {
+      return <></>
+    }
+
+  }
+
+  //Show or Hide return to profile
+
+  const ReturnProfile = () => {
+    if(profileUser !== true){
+      return (<button className="pokedex-button pokedex-init" alt="profile" style={{backgroundColor: "green", textDecoration: "none", padding: "5px", margin: "2%", fontSize: "20px", cursor: "pointer"}} onClick={() => { userLoggedin() }}>{characterOwner}</button>)
+    } else {
+      return <></>
+    }
+
+  }
+
+  //Show or Hide follow buttons
+
+  const Follow = () => {
+    if(profileUser !== true){
+      if(following !== true){
+        return (<div style={{textAlign: "center"}}>
+                <button className="button" alt="follow" onClick={() => { setFollowing(true) }}>Follow</button>
+                </div>
+              )
+      } else {
+        return (<div style={{textAlign: "center"}}>
+                <button className="button" alt="unfollow" onClick={() => { setFollowing(false) }}>Unfollow</button>
+                </div>
+              )
+      }
+    } else {
+      return <></>
+    }
+
+  }
+
   //Background image style
 
   var divStyle = {
@@ -538,7 +557,7 @@ export default function Profile() {
 
       <ReturnProfile />
       <div className="search" alt="search" style={{color: "white", textAlign: "center"}}>Search:
-      <input className="search" alt="search" value={search} onChange={event => setSearch(event.target.value)} onKeyDown={(e) => e.key === 'Enter' ? handleSearch() : null} style={{width: "40%", margin: "1%"}} placeholder="Find a user..." />
+      <input className="search" alt="search" value={search} onChange={event => setSearch(event.target.value)} onKeyDown={(e) => e.key === 'Enter' ? handleSearch() : null} style={{width: "40%", margin: "1%"}} placeholder="user..." />
       <button className="button" type="button" style={{height: "40px", width: "40px", fontSize: "20px"}} onClick={() => {handleSearch()}}>🔍</button>
       </div>
 
@@ -546,6 +565,7 @@ export default function Profile() {
 
       <h1 style={{color: "white", textAlign: "center"}}>{ username.charAt(0).toUpperCase() + username.slice(1) }</h1>
       <div style={{textAlign: "center", fontSize: "50px"}}>{ character === null ? 'loading...' : character }</div>
+      <Follow />
       <p style={{color: "white", textAlign: "center"}}>Badges</p>
 
       <label>Generation I:</label>

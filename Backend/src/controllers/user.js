@@ -2,7 +2,7 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 //comment out for production
-//const secrets = require('../secrets');
+const secrets = require('../secrets');
 
 exports.register = (req, res, next) => {
   const auth = req.headers.authorization;
@@ -14,6 +14,8 @@ exports.register = (req, res, next) => {
           password: hash,
           username: req.body.username,
           character: req.body.character,
+          followers: req.body.followers,
+          following: req.body.following,
           boulder: req.body.boulder,
           cascade: req.body.cascade,
           thunder: req.body.thunder,
@@ -169,6 +171,8 @@ exports.profile = (req, res, next) => {
           character: user.character,
           jwtId: userId,
           userId: user._id,
+          followers: user.followers,
+          following: user.following,
           boulder: user.boulder,
           cascade: user.cascade,
           thunder: user.thunder,
@@ -243,6 +247,8 @@ exports.profile = (req, res, next) => {
           message: 'Profile owner',
           username: user.username,
           character: user.character,
+          followers: user.followers,
+          following: user.following,
           boulder: user.boulder,
           cascade: user.cascade,
           thunder: user.thunder,
