@@ -425,7 +425,11 @@ exports.modifyProfile = (req, res, next) => {
     followers: req.body.followers,
     following: req.body.following
   });
-  User.updateOne({_id: userId}, user).then(
+  const user2 = new User({
+    followers: req.body.followers2,
+    following: req.body.following2
+  });
+  User.updateOne({_id: userId}, user) && User.updateOne({username: req.body.username}, user2).then(
     () => {
       res.status(201).json({
         message: 'User updated successfully!'

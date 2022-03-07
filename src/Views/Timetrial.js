@@ -187,6 +187,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   // Timer constant
 
   const [timer, setTimer] = React.useState(-1)
+  const [answer, setAnswer] = React.useState()
 
   React.useEffect(() => {
     timer > 0 && setTimeout(() => setTimer(timer - 1), 1000);
@@ -215,8 +216,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const score = (e) => {
     if(correctName === e.target.value) {
       dispatch({type: 'increment'})
+      setAnswer("✔️")
     } else {
       if(audioPlay === true){incorrectplay.play()}
+      setAnswer("❌")
       }
     }
 
@@ -457,7 +460,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
     if(pokedexButton === true) {
       return (<div className="score" alt="score">
         <div>Timer: {timer === -1 ? 0 : timer} </div>
-        <div>Score: {counter.count} </div>
+        <div>{answer} Score: {counter.count} {answer}</div>
       </div>)
     } else {
       return (<div className="score" alt="score"></div>)
@@ -468,11 +471,19 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   const TimedScore = () => {
     if(timer === 0) {
-      return (<div className="pokedex" alt="score" style={{ position: "absolute", zIndex: "1", width: "90%", height: "90%", textAlign: "center", color: "white" }}>
+      return (<div className="pokedex" alt="score" style={{ position: "absolute", zIndex: "1", width: "85%", height: "95%", textAlign: "center", color: "white" }}>
         <div>{navButton === 1 ? "First Generation" : navButton === 2 ? "Second Generation" : navButton === 3 ? "Third Generation" : navButton === 4 ? "Fourth Generation" : navButton === 5 ? "Fifth Generation" : navButton === 6 ? "Sixth Generation" : navButton === 7 ? "Seventh Generation" : "Eighth Generation"} </div>
         <div>Score: {counter.count} </div>
         <div>Share!</div>
-        <button className="button" onClick={() => { setTimer(-1) }}>Close</button>
+        <button className="button" onClick={() => {
+          setTimer(-1);
+          setDisable(true);
+          setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"});
+          setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"});
+          setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"});
+          setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"});
+          setAnswer("")
+         }}>Close</button>
       </div>)
     } else {
       return (<></>)

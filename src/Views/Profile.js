@@ -13,9 +13,11 @@ export default function Profile() {
   const usernameOwner = JSON.parse(window.localStorage.getItem("username"))
   const [profileUser, setProfileuser] = React.useState(false)
   const [search, setSearch] = React.useState("")
-  const [follow, setFollow] = React.useState(false)
+  const [follow, setFollow] = React.useState(null)
   const [following, setFollowing] = React.useState([])
   const [followers, setFollowers] = React.useState([])
+  const [ownerFollowing, setOwnerfollowing] = React.useState([])
+  const [ownerFollowers, setOwnerfollowers] = React.useState([])
 
   // Handle user logged in
 
@@ -138,8 +140,8 @@ export default function Profile() {
 
           setCharacter(result.character)
           setProfileuser(true)
-          setFollowing(result.following)
-          setFollowers(result.followers)
+          setOwnerfollowing(result.following)
+          setOwnerfollowers(result.followers)
 
           //Gen 1 Badges
 
@@ -529,6 +531,79 @@ export default function Profile() {
   //Show or Hide follow buttons
 
   const Follow = () => {
+
+    React.useEffect(() => {
+      if(follow === true){
+        //update database user followers
+
+        fetch("/.netlify/functions/app/auth/modifyProfile", {
+          method: 'PUT',
+          body: JSON.stringify({"followers": followers,
+                                "following": following,
+                                "followers2": ownerFollowers,
+                                "following2": ownerFollowing,
+                                "username": username,
+                                }),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+              setFollow(null)
+            } else {
+              console.log(result.error.message);
+              setFollow(null)
+            }
+          }
+        )
+        .catch(error => {
+          console.log(error);
+          setFollow(null)
+        });
+      }
+    }, [])
+
+    React.useEffect(() => {
+      if(follow === false){
+        //update database user followers
+
+        fetch("/.netlify/functions/app/auth/modifyProfile", {
+          method: 'PUT',
+          body: JSON.stringify({"followers": followers,
+                                "following": following,
+                                "followers2": ownerFollowers,
+                                "following2": ownerFollowing,
+                                "username": username,
+                                }),
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+          }
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if(result.message === 'User updated successfully!'){
+              console.log('User updated successfully!')
+              setFollow(null)
+            } else {
+              console.log(result.error.message);
+              setFollow(null)
+            }
+          }
+        )
+        .catch(error => {
+          setFollow(null)
+          console.log(error);
+        });
+      }
+    }, [])
+
     if(profileUser === true){
       return <></>
     } else {
