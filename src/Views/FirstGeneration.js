@@ -8272,10 +8272,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           </div>
 
           <div alt="answers">
-              <button className="button-answer" disabled={disable} value={pokemonA} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonA}</button>
-              <button className="button-answer" disabled={disable} value={pokemonB} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonB}</button>
-              <button className="button-answer" disabled={disable} value={pokemonC} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonC}</button>
-              <button className="button-answer" disabled={disable} value={pokemonD} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonD}</button>
+              <button className="button-answer" disabled={disable} value={pokemonA.toLowerCase()} style={buttonA} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonA.charAt(0).toUpperCase() + pokemonA.slice(1)}</button>
+              <button className="button-answer" disabled={disable} value={pokemonB.toLowerCase()} style={buttonB} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonB.charAt(0).toUpperCase() + pokemonB.slice(1)}</button>
+              <button className="button-answer" disabled={disable} value={pokemonC.toLowerCase()} style={buttonC} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonC.charAt(0).toUpperCase() + pokemonC.slice(1)}</button>
+              <button className="button-answer" disabled={disable} value={pokemonD.toLowerCase()} style={buttonD} onClick={(e) => {answer(); score(e); setDisable(true); badges(e);}}>{pokemonD.charAt(0).toUpperCase() + pokemonD.slice(1)}</button>
           </div>
 
           <div alt="links">
