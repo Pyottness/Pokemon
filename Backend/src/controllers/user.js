@@ -169,8 +169,6 @@ exports.profile = (req, res, next) => {
           message: 'Profile visitor',
           username: user.username,
           character: user.character,
-          jwtId: userId,
-          userId: user._id,
           followers: user.followers,
           following: user.following,
           boulder: user.boulder,
@@ -403,6 +401,29 @@ exports.modifyBadges = (req, res, next) => {
     dragon: req.body.dragon,
     ghost: req.body.ghost,
     ice: req.body.ice
+  });
+  User.updateOne({_id: userId}, user).then(
+    () => {
+      res.status(201).json({
+        message: 'User updated successfully!'
+      });
+    }
+  ).catch(
+    (error) => {
+      res.status(400).json({
+        error: error
+      });
+    }
+  );
+};
+
+exports.modifyProfile = (req, res, next) => {
+  const token = req.headers.authorization.split(' ')[1];
+  const decodedToken = jwt.verify(token, process.env.RANDOM_TOKEN_SECRET);
+  const userId = decodedToken.userId;
+  const user = new User({
+    followers: req.body.followers,
+    following: req.body.following
   });
   User.updateOne({_id: userId}, user).then(
     () => {

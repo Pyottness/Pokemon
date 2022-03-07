@@ -13,7 +13,9 @@ export default function Profile() {
   const usernameOwner = JSON.parse(window.localStorage.getItem("username"))
   const [profileUser, setProfileuser] = React.useState(false)
   const [search, setSearch] = React.useState("")
-  const [following, setFollowing] = React.useState(false)
+  const [follow, setFollow] = React.useState(false)
+  const [following, setFollowing] = React.useState([])
+  const [followers, setFollowers] = React.useState([])
 
   // Handle user logged in
 
@@ -136,6 +138,8 @@ export default function Profile() {
 
           setCharacter(result.character)
           setProfileuser(true)
+          setFollowing(result.following)
+          setFollowers(result.followers)
 
           //Gen 1 Badges
 
@@ -301,6 +305,8 @@ export default function Profile() {
 
           setCharacter(result.character)
           setProfileuser(false)
+          setFollowing(result.following)
+          setFollowers(result.followers)
 
           //Gen 1 Badges
 
@@ -523,20 +529,20 @@ export default function Profile() {
   //Show or Hide follow buttons
 
   const Follow = () => {
-    if(profileUser !== true){
-      if(following !== true){
+    if(profileUser === true){
+      return <></>
+    } else {
+      if(follow !== true){
         return (<div style={{textAlign: "center"}}>
-                <button className="button" alt="follow" onClick={() => { setFollowing(true) }}>Follow</button>
+                <button className="button" alt="follow" onClick={() => { setFollow(true) }}>Follow</button>
                 </div>
               )
       } else {
         return (<div style={{textAlign: "center"}}>
-                <button className="button" alt="unfollow" onClick={() => { setFollowing(false) }}>Unfollow</button>
+                <button className="button" alt="unfollow" onClick={() => { setFollow(false) }}>Unfollow</button>
                 </div>
               )
       }
-    } else {
-      return <></>
     }
 
   }
@@ -566,6 +572,18 @@ export default function Profile() {
       <h1 style={{color: "white", textAlign: "center"}}>{ username.charAt(0).toUpperCase() + username.slice(1) }</h1>
       <div style={{textAlign: "center", fontSize: "50px"}}>{ character === null ? 'loading...' : character }</div>
       <Follow />
+      <table style={{marginLeft: "auto", marginRight: "auto", color: "white", textAlign: "center"}}>
+      <tbody>
+      <tr>
+      <th>Following </th>
+      <th>Followers</th>
+      </tr>
+      <tr>
+      <td>{following.length}</td>
+      <td>{followers.length}</td>
+      </tr>
+      </tbody>
+      </table>
       <p style={{color: "white", textAlign: "center"}}>Badges</p>
 
       <label>Generation I:</label>
