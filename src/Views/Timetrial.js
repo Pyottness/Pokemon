@@ -199,10 +199,8 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   function reducer(counter, action) {
     switch (action.type) {
       case 'increment':
-      if(audioPlay === true){correctplay.play()}
       return {count: counter.count + 1}
       case 'reset':
-      if(audioPlay === true){incorrectplay.play()}
       return {count: counter.count = 0}
       default:
       throw new Error();
@@ -215,6 +213,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   const score = (e) => {
     if(correctName === e.target.value) {
+      if(audioPlay === true){correctplay.play()}
       dispatch({type: 'increment'})
       setAnswer("✔️")
     } else {
@@ -396,6 +395,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //play initializer//
   const play = async () => {
+    correctplay.remove()
+    incorrectplay.remove()
+    turnOnplay.remove()
+    turnOffplay.remove()
 
     if(timer === -1) {
       setTimer(60)
@@ -459,7 +462,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const Score = () => {
     if(pokedexButton === true) {
       return (<div className="score" alt="score">
-        <div>Timer: {timer === -1 ? 0 : timer} </div>
+        <div>Timer: <label style={{color: timer > 40 ? "lightgreen" : timer > 20 ? "yellow" : "red"}}>{timer === -1 ? 0 : timer}</label> </div>
         <div>{answer} Score: {counter.count} {answer}</div>
       </div>)
     } else {
@@ -471,11 +474,13 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   const TimedScore = () => {
     if(timer === 0) {
-      return (<div className="pokedex" alt="score" style={{ position: "absolute", zIndex: "1", width: "85%", height: "95%", textAlign: "center", color: "white" }}>
-        <div>{navButton === 1 ? "First Generation" : navButton === 2 ? "Second Generation" : navButton === 3 ? "Third Generation" : navButton === 4 ? "Fourth Generation" : navButton === 5 ? "Fifth Generation" : navButton === 6 ? "Sixth Generation" : navButton === 7 ? "Seventh Generation" : "Eighth Generation"} </div>
+      return (
+        <div className="pokedex" alt="score" style={{ position: "absolute", display: "flex", justifyContent: "center", alignItems: "center", zIndex: "1", width: "85%", height: "95%", textAlign: "center", color: "white" }}>
+        <div alt="score container">
+        <div>{navButton === 1 ? "First Generation Pokemon" : navButton === 2 ? "Second Generation Pokemon" : navButton === 3 ? "Third Generation Pokemon" : navButton === 4 ? "Fourth Generation Pokemon" : navButton === 5 ? "Fifth Generation Pokemon" : navButton === 6 ? "Sixth Generation Pokemon" : navButton === 7 ? "Seventh Generation Pokemon" : "Eighth Generation Pokemon"} </div>
         <div>Score: {counter.count} </div>
         <div>Share!</div>
-        <button className="button" onClick={() => {
+        <button className="button" style={{ width: "50%"}} onClick={() => {
           setTimer(-1);
           setDisable(true);
           setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"});
@@ -484,7 +489,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"});
           setAnswer("")
          }}>Close</button>
-      </div>)
+         </div>
+         </div>
+    )
     } else {
       return (<></>)
     }

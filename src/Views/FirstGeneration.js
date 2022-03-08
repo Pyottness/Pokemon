@@ -8129,6 +8129,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   //play initializer//
   const play = async () => {
 
+    correctplay.remove()
+    incorrectplay.remove()
+    turnOnplay.remove()
+    turnOffplay.remove()
+
     //set answer buttons to blue and color white
     setbuttonA({backgroundColor: "blue", color: "white", cursor: "pointer"})
     setbuttonB({backgroundColor: "blue", color: "white", cursor: "pointer"})
