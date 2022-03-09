@@ -19,6 +19,10 @@ export default function Profile() {
   const [following, setFollowing] = React.useState([])
   const [followers, setFollowers] = React.useState([])
 
+  const [showBadges, setShowbadges] = React.useState(true)
+  const [showFollowing, setShowfollowing] = React.useState(false)
+  const [showFollowers, setShowfollowers] = React.useState(false)
+
   const [ownerFollowing, setOwnerfollowing] = React.useState(
     () => JSON.parse(window.localStorage.getItem('ownerFollowing')) ?? []
   )
@@ -653,6 +657,180 @@ export default function Profile() {
 
   }
 
+  //Show Badges
+
+  const Badges = () => {
+    if(showBadges === true){
+      return(
+        <div>
+        <p style={{color: "white", textAlign: "center"}}>Badges</p>
+
+        <label>Generation I:</label>
+        <div>
+        <img className="badge" src={ boulder } alt="boulder badge" style={ { filter: boulderBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ cascade } alt="cascade badge" style={ { filter: cascadeBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ thunder } alt="thunder badge" style={ { filter: thunderBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ rainbow } alt="rainbow badge" style={ { filter: rainbowBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ soul } alt="soul badge" style={ { filter: soulBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ marsh } alt="marsh badge" style={ { filter: marshBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ volcano } alt="volcano badge" style={ { filter: volcanoBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ earth } alt="earth badge" style={ { filter: earthBadge === false ? "brightness(0)" : "brightness()"} } />
+        </div>
+
+        <label>Generation II:</label>
+        <div>
+        <img className="badge" src={ zephyr } alt="zephyr badge" style={ { filter: zephyrBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ hive } alt="hive badge" style={ { filter: hiveBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ plain } alt="plain badge" style={ { filter: plainBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ fog } alt="fog badge" style={ { filter: fogBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ storm } alt="storm badge" style={ { filter: stormBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ mineral } alt="mineral badge" style={ { filter: mineralBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ glacier } alt="glacier badge" style={ { filter: glacierBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ rising } alt="rising badge" style={ { filter: risingBadge === false ? "brightness(0)" : "brightness()"} } />
+        </div>
+
+        <label>Generation III:</label>
+        <div>
+        <img className="badge" src={ stone } alt="stone badge" style={ { filter: stoneBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ knuckle } alt="knuckle badge" style={ { filter: knuckleBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ dynamo } alt="dynamo badge" style={ { filter: dynamoBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ heat } alt="heat badge" style={ { filter: heatBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ balance } alt="balance badge" style={ { filter: balanceBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ feather } alt="feather badge" style={ { filter: featherBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ mind } alt="mind badge" style={ { filter: mindBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ rain } alt="rain badge" style={ { filter: rainBadge === false ? "brightness(0)" : "brightness()"} } />
+        </div>
+
+        <label>Generation IV:</label>
+        <div>
+        <img className="badge" src={ coal } alt="coal badge" style={ { filter: coalBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ forest } alt="forest badge" style={ { filter: forestBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ cobble } alt="cobble badge" style={ { filter: cobbleBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ fen } alt="fen badge" style={ { filter: fenBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ relic } alt="relic badge" style={ { filter: relicBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ mine } alt="mine badge" style={ { filter: mineBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ icicle } alt="icicle badge" style={ { filter: icicleBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ beacon } alt="beacon badge" style={ { filter: beaconBadge === false ? "brightness(0)" : "brightness()"} } />
+        </div>
+
+        <label>Generation V:</label>
+        <div>
+        <img className="badge" src={ trio } alt="trio" style={ { filter: trioBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ basic } alt="basic badge" style={ { filter: basicBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ insect } alt="insect badge" style={ { filter: insectBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ bolt } alt="bolt badge" style={ { filter: boltBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ quake } alt="quake badge" style={ { filter: quakeBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ jet } alt="jet badge" style={ { filter: jetBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ freeze } alt="freeze badge" style={ { filter: freezeBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ legend } alt="legend badge" style={ { filter: legendBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ toxic } alt="toxic badge" style={ { filter: toxicBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ wave } alt="wave badge" style={ { filter: waveBadge === false ? "brightness(0)" : "brightness()"} } />
+        </div>
+
+        <label>Generation VI:</label>
+        <div>
+        <img className="badge" src={ bug } alt="bug badge" style={ { filter: bugBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ cliff } alt="cliff badge" style={ { filter: cliffBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ rumble } alt="rumble badge" style={ { filter: rumbleBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ plant } alt="plant badge" style={ { filter: plantBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ voltage } alt="voltage" style={ { filter: voltageBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ fairy } alt="fairy badge" style={ { filter: fairyBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ psychic } alt="psychic badge" style={ { filter: psychicBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ iceberg } alt="iceberg badge" style={ { filter: icebergBadge === false ? "brightness(0)" : "brightness()"} } />
+        </div>
+
+        <label>Generation VII:</label>
+        <div>
+        <img className="badge" src={ boulder7 } alt="boulder badge" style={ { filter: boulderBadge7 === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ cascade7 } alt="cascade badge" style={ { filter: cascadeBadge7 === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ thunder7 } alt="thunder badge" style={ { filter: thunderBadge7 === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ rainbow7 } alt="rainbow badge" style={ { filter: rainbowBadge7 === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ soul7 } alt="soul badge" style={ { filter: soulBadge7 === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ marsh7 } alt="marsh badge" style={ { filter: marshBadge7 === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ volcano7 } alt="volcano badge" style={ { filter: volcanoBadge7 === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ earth7 } alt="earth badge" style={ { filter: earthBadge7 === false ? "brightness(0)" : "brightness()"} } />
+        </div>
+
+        <label>Generation VIII:</label>
+        <div>
+        <img className="badge" src={ grass } alt="grass badge" style={ { filter: grassBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ water } alt="water badge" style={ { filter: waterBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ fire } alt="fire badge" style={ { filter: fireBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ fighting } alt="fighting badge" style={ { filter: fightingBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ fairy2 } alt="fairy badge" style={ { filter: fairy2Badge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ rock } alt="rock badge" style={ { filter: rockBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ dark } alt="dark badge" style={ { filter: darkBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ dragon } alt=" dragon badge" style={ { filter: dragonBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ ghost } alt="ghost badge" style={ { filter: ghostBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ ice } alt="ice badge" style={ { filter: iceBadge === false ? "brightness(0)" : "brightness()"} } />
+        </div>
+        </div>
+      )
+    } else {
+      return (<></>)
+    }
+  }
+
+  //Show a list of followers
+
+  const Followers = () => {
+    if(showBadges === true){
+      return (<></>)
+    } else if(showFollowing === true){
+      return (<></>)
+    } else {
+      if(profileUser === false){
+        const listItems = followers.map((people) =>
+        <div key={people.toString()}>
+          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock" }} onClick={() => { navigate(`/profile/${people}`) }}>{people.charAt(0).toUpperCase() + people.slice(1)}</button>
+        </div>
+      );
+      return (
+        <div style={{ textAlign: "center" }}>{listItems}</div>
+      );
+      } else {
+        const listItems = ownerFollowers.map((people) =>
+        <div key={people.toString()}>
+          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock" }} onClick={() => { navigate(`/profile/${people}`) }}>{people.charAt(0).toUpperCase() + people.slice(1)}</button>
+        </div>
+      );
+      return (
+        <div style={{ textAlign: "center" }}>{listItems}</div>
+      );
+      }
+    }
+  }
+
+  //Show a list of following
+
+  const Following = () => {
+    if(showBadges === true){
+      return (<></>)
+    } else if(showFollowers === true){
+      return (<></>)
+    } else {
+      if(profileUser === false){
+        const listItems = following.map((people) =>
+        <div key={people.toString()}>
+          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock" }} onClick={() => { navigate(`/profile/${people}`) }}>{people.charAt(0).toUpperCase() + people.slice(1)}</button>
+        </div>
+      );
+      return (
+        <div style={{ textAlign: "center" }}>{listItems}</div>
+      );
+      } else {
+        const listItems = ownerFollowing.map((people) =>
+        <div key={people.toString()}>
+          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock" }} onClick={() => { navigate(`/profile/${people}`) }}>{people.charAt(0).toUpperCase() + people.slice(1)}</button>
+        </div>
+      );
+      return (
+        <div style={{ textAlign: "center" }}>{listItems}</div>
+      );
+      }
+    }
+  }
+
   //Background image style
 
   var divStyle = {
@@ -685,128 +863,19 @@ export default function Profile() {
       <th>Followers</th>
       </tr>
       <tr>
-      <td alt="following" onClick={() => {profileUser === true ? ownerFollowing.map((ownerFollowing) =>
-    <li key={ownerFollowing.toString()}>
-      {ownerFollowing}
-    </li>
-  ) : following.map((following) =>
-    <li key={following.toString()}>
-      {following}
-    </li>
-  )}}>{profileUser === true ? ownerFollowing.length : following.length}</td>
-      <td alt="followers" onClick={() => {profileUser === true ? ownerFollowers.map((ownerFollowers) =>
-    <li key={ownerFollowers.toString()}>
-      {ownerFollowers}
-    </li>
-  ) : followers.map((followers) =>
-<li key={followers.toString()}>
-  {followers}
-</li>
-)}}>{profileUser === true ? ownerFollowers.length : followers.length}</td>
+      <td alt="following" style={{ cursor: "pointer" }} onClick={() => {
+        showBadges === true || showFollowers === true ? setShowbadges(false) && setShowfollowers(false) && setShowfollowing(true) : setShowbadges(true)
+      }}>{profileUser === true ? ownerFollowing.length : following.length}</td>
+      <td alt="followers" style={{ cursor: "pointer" }} onClick={() => {
+        showBadges === true || showFollowing === true ? setShowbadges(false) && setShowfollowing(false) && setShowfollowers(true) : setShowbadges(true)
+      }}>{profileUser === true ? ownerFollowers.length : followers.length}</td>
       </tr>
       </tbody>
       </table>
-      <p style={{color: "white", textAlign: "center"}}>Badges</p>
 
-      <label>Generation I:</label>
-      <div>
-      <img className="badge" src={ boulder } alt="boulder badge" style={ { filter: boulderBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ cascade } alt="cascade badge" style={ { filter: cascadeBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ thunder } alt="thunder badge" style={ { filter: thunderBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ rainbow } alt="rainbow badge" style={ { filter: rainbowBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ soul } alt="soul badge" style={ { filter: soulBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ marsh } alt="marsh badge" style={ { filter: marshBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ volcano } alt="volcano badge" style={ { filter: volcanoBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ earth } alt="earth badge" style={ { filter: earthBadge === false ? "brightness(0)" : "brightness()"} } />
-      </div>
-
-      <label>Generation II:</label>
-      <div>
-      <img className="badge" src={ zephyr } alt="zephyr badge" style={ { filter: zephyrBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ hive } alt="hive badge" style={ { filter: hiveBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ plain } alt="plain badge" style={ { filter: plainBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ fog } alt="fog badge" style={ { filter: fogBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ storm } alt="storm badge" style={ { filter: stormBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ mineral } alt="mineral badge" style={ { filter: mineralBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ glacier } alt="glacier badge" style={ { filter: glacierBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ rising } alt="rising badge" style={ { filter: risingBadge === false ? "brightness(0)" : "brightness()"} } />
-      </div>
-
-      <label>Generation III:</label>
-      <div>
-      <img className="badge" src={ stone } alt="stone badge" style={ { filter: stoneBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ knuckle } alt="knuckle badge" style={ { filter: knuckleBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ dynamo } alt="dynamo badge" style={ { filter: dynamoBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ heat } alt="heat badge" style={ { filter: heatBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ balance } alt="balance badge" style={ { filter: balanceBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ feather } alt="feather badge" style={ { filter: featherBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ mind } alt="mind badge" style={ { filter: mindBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ rain } alt="rain badge" style={ { filter: rainBadge === false ? "brightness(0)" : "brightness()"} } />
-      </div>
-
-      <label>Generation IV:</label>
-      <div>
-      <img className="badge" src={ coal } alt="coal badge" style={ { filter: coalBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ forest } alt="forest badge" style={ { filter: forestBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ cobble } alt="cobble badge" style={ { filter: cobbleBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ fen } alt="fen badge" style={ { filter: fenBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ relic } alt="relic badge" style={ { filter: relicBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ mine } alt="mine badge" style={ { filter: mineBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ icicle } alt="icicle badge" style={ { filter: icicleBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ beacon } alt="beacon badge" style={ { filter: beaconBadge === false ? "brightness(0)" : "brightness()"} } />
-      </div>
-
-      <label>Generation V:</label>
-      <div>
-      <img className="badge" src={ trio } alt="trio" style={ { filter: trioBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ basic } alt="basic badge" style={ { filter: basicBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ insect } alt="insect badge" style={ { filter: insectBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ bolt } alt="bolt badge" style={ { filter: boltBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ quake } alt="quake badge" style={ { filter: quakeBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ jet } alt="jet badge" style={ { filter: jetBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ freeze } alt="freeze badge" style={ { filter: freezeBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ legend } alt="legend badge" style={ { filter: legendBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ toxic } alt="toxic badge" style={ { filter: toxicBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ wave } alt="wave badge" style={ { filter: waveBadge === false ? "brightness(0)" : "brightness()"} } />
-      </div>
-
-      <label>Generation VI:</label>
-      <div>
-      <img className="badge" src={ bug } alt="bug badge" style={ { filter: bugBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ cliff } alt="cliff badge" style={ { filter: cliffBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ rumble } alt="rumble badge" style={ { filter: rumbleBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ plant } alt="plant badge" style={ { filter: plantBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ voltage } alt="voltage" style={ { filter: voltageBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ fairy } alt="fairy badge" style={ { filter: fairyBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ psychic } alt="psychic badge" style={ { filter: psychicBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ iceberg } alt="iceberg badge" style={ { filter: icebergBadge === false ? "brightness(0)" : "brightness()"} } />
-      </div>
-
-      <label>Generation VII:</label>
-      <div>
-      <img className="badge" src={ boulder7 } alt="boulder badge" style={ { filter: boulderBadge7 === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ cascade7 } alt="cascade badge" style={ { filter: cascadeBadge7 === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ thunder7 } alt="thunder badge" style={ { filter: thunderBadge7 === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ rainbow7 } alt="rainbow badge" style={ { filter: rainbowBadge7 === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ soul7 } alt="soul badge" style={ { filter: soulBadge7 === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ marsh7 } alt="marsh badge" style={ { filter: marshBadge7 === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ volcano7 } alt="volcano badge" style={ { filter: volcanoBadge7 === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ earth7 } alt="earth badge" style={ { filter: earthBadge7 === false ? "brightness(0)" : "brightness()"} } />
-      </div>
-
-      <label>Generation VIII:</label>
-      <div>
-      <img className="badge" src={ grass } alt="grass badge" style={ { filter: grassBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ water } alt="water badge" style={ { filter: waterBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ fire } alt="fire badge" style={ { filter: fireBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ fighting } alt="fighting badge" style={ { filter: fightingBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ fairy2 } alt="fairy badge" style={ { filter: fairy2Badge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ rock } alt="rock badge" style={ { filter: rockBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ dark } alt="dark badge" style={ { filter: darkBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ dragon } alt=" dragon badge" style={ { filter: dragonBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ ghost } alt="ghost badge" style={ { filter: ghostBadge === false ? "brightness(0)" : "brightness()"} } />
-      <img className="badge" src={ ice } alt="ice badge" style={ { filter: iceBadge === false ? "brightness(0)" : "brightness()"} } />
-      </div>
+      <Followers />
+      <Following />
+      <Badges />
 
       </div>
 
