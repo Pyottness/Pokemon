@@ -417,29 +417,50 @@ exports.modifyBadges = (req, res, next) => {
   );
 };
 
-exports.modifyProfile = (req, res, next) => {
+exports.follow = async (req, res, next) => {
   const token = req.headers.authorization.split(' ')[1];
   const decodedToken = jwt.verify(token, process.env.RANDOM_TOKEN_SECRET);
   const userId = decodedToken.userId;
-  const user = new User({
-    followers: req.body.followers,
-    following: req.body.following
-  });
-  const user2 = new User({
-    followers: req.body.followers2,
-    following: req.body.following2
-  });
-  User.updateOne({_id: userId}, user) && User.updateOne({username: req.body.username}, user2).then(
-    () => {
-      res.status(201).json({
-        message: 'User updated successfully!'
-      });
-    }
-  ).catch(
-    (error) => {
-      res.status(400).json({
-        error: error
-      });
-    }
-  );
+
+  // Firstly, find the user account for the logged in user
+
+  const update = await User.findOneAndUpdate({ _id: userId }, {$push: {following: req.body.following}})
+
+  // Secondly, find the user account for the followed user
+
+  const update2 = await User.findOneAndUpdate({ username: req.body.username }, {$push: {followers: req.body.followers2}})
+
+  if (!update || !update2) {
+            return res.status(404).json({
+              error: 'Unable to follow that user'
+            })
+        } else {
+          return res.status(201).json({
+            message: 'Users updated successfully!'
+          })
+        }
+};
+
+exports.unfollow = async (req, res, next) => {
+  const token = req.headers.authorization.split(' ')[1];
+  const decodedToken = jwt.verify(token, process.env.RANDOM_TOKEN_SECRET);
+  const userId = decodedToken.userId;
+
+  // Firstly, find the user account for the logged in user
+
+  const update = await User.findOneAndUpdate({ _id: userId }, {$pull: {following: req.body.following}})
+
+  // Secondly, find the user account for the followed user
+
+  const update2 = await User.findOneAndUpdate({ username: req.body.username }, {$pull: {followers: req.body.followers2}})
+
+  if (!update || !update2) {
+            return res.status(404).json({
+              error: 'Unable to unfollow that user'
+            })
+        } else {
+          return res.status(201).json({
+            message: 'Users updated successfully!'
+          })
+        }
 };

@@ -31,6 +31,12 @@ export default function Profile() {
 
   const checker = (needle, haystack) => haystack.includes(needle)
 
+  React.useEffect(() => {
+    if(checker(username, ownerFollowing) === true){
+      setFollow(true)
+    }
+  }, [username, ownerFollowing])
+
   // Handle user logged in
 
   const userLoggedin = () => {
@@ -41,6 +47,81 @@ export default function Profile() {
 
   const handleSearch = () => {
     navigate(`/profile/${search.toLowerCase()}`)
+  }
+
+  // Handle follow
+
+  const handleFollow = () => {
+
+    //update database user followers
+
+    fetch("/.netlify/functions/app/auth/follow", {
+      method: 'PUT',
+      body: JSON.stringify({"following": username,
+                            "followers2": usernameOwner,
+                            "username": username,
+                            }),
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+      }
+    })
+    .then(res => res.json())
+    .then(
+      (result) => {
+        if(result.message === 'Users updated successfully!'){
+          console.log('Users updated successfully!')
+          setFollow(true)
+        } else {
+          console.log(result.error);
+          setFollow(false)
+        }
+      }
+    )
+    .catch(error => {
+      console.log(error);
+      setFollow(false)
+    });
+  }
+
+
+  // Handle unfollow
+
+  const handleUnfollow = () => {
+
+    console.log(ownerFollowing)
+    console.log(followers)
+    console.log(username)
+
+    //update database user followers
+
+    fetch("/.netlify/functions/app/auth/unfollow", {
+      method: 'PUT',
+      body: JSON.stringify({"following": username,
+                            "followers2": usernameOwner,
+                            "username": username,
+                            }),
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
+      }
+    })
+    .then(res => res.json())
+    .then(
+      (result) => {
+        if(result.message === 'Users updated successfully!'){
+          console.log('Users updated successfully!')
+          setFollow(false)
+        } else {
+          console.log(result.error);
+          setFollow(true)
+        }
+      }
+    )
+    .catch(error => {
+      console.log(error);
+      setFollow(true)
+    });
   }
 
 
@@ -418,7 +499,7 @@ export default function Profile() {
 
         } else {
           setProfileuser(false)
-          navigate("/error")
+          navigate("/login")
         }
       }
     )
@@ -438,10 +519,6 @@ export default function Profile() {
   React.useEffect(() => {
     window.localStorage.setItem('ownerFollowers', JSON.stringify(ownerFollowers))
   }, [ownerFollowers])
-
-  if(checker(username, ownerFollowing) === true){
-    setFollow(true)
-  }
 
   //Gen 1 badges
 
@@ -562,94 +639,21 @@ export default function Profile() {
 
   const Follow = () => {
 
-    // Handle follow
-
-    const handleFollow = () => {
-
-      setOwnerfollowing(ownerFollowing => [...ownerFollowing, username])
-
-      setFollowers(followers => [...followers, usernameOwner])
-
-      //update database user followers
-
-      fetch("/.netlify/functions/app/auth/modifyProfile", {
-        method: 'PUT',
-        body: JSON.stringify({"followers": ownerFollowers,
-                              "following": ownerFollowing,
-                              "followers2": followers,
-                              "following2": following,
-                              "username": username,
-                              }),
-        headers: {
-          'Content-Type': 'application/json',
-          'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
-        }
-      })
-      .then(res => res.json())
-      .then(
-        (result) => {
-          if(result.message === 'User updated successfully!'){
-            console.log('User updated successfully!')
-          } else {
-            console.log(result.error.message);
-          }
-        }
-      )
-      .catch(error => {
-        console.log(error);
-      });
-    }
-
-
-    // Handle unfollow
-
-    const handleUnfollow = () => {
-
-      setOwnerfollowing(ownerFollowing => [...ownerFollowing.splice(ownerFollowing.indexOf(username), 1)])
-
-      setFollowers(followers => [...followers.splice(followers.indexOf(usernameOwner), 1)])
-
-      //update database user followers
-
-      fetch("/.netlify/functions/app/auth/modifyProfile", {
-        method: 'PUT',
-        body: JSON.stringify({"followers": ownerFollowers,
-                              "following": ownerFollowing,
-                              "followers2": followers,
-                              "following2": following,
-                              "username": username,
-                              }),
-        headers: {
-          'Content-Type': 'application/json',
-          'authorization': 'Bearer ' + JSON.parse(window.localStorage.getItem("token"))
-        }
-      })
-      .then(res => res.json())
-      .then(
-        (result) => {
-          if(result.message === 'User updated successfully!'){
-            console.log('User updated successfully!')
-          } else {
-            console.log(result.error.message);
-          }
-        }
-      )
-      .catch(error => {
-        console.log(error);
-      });
-    }
-
     if(profileUser === true){
       return <></>
     } else {
       if(follow !== true){
         return (<div style={{textAlign: "center"}}>
-                <button className="button" alt="follow" onClick={() => { setFollow(true); handleFollow(); }}>Follow</button>
+                <button className="button" alt="follow" onClick={() => {
+                  handleFollow();
+                 }}>Follow</button>
                 </div>
               )
       } else {
         return (<div style={{textAlign: "center"}}>
-                <button className="button" alt="unfollow" onClick={() => { setFollow(false); handleUnfollow(); }}>Unfollow</button>
+                <button className="button" alt="unfollow" onClick={() => {
+                  handleUnfollow();
+                }}>Unfollow</button>
                 </div>
               )
       }
@@ -689,8 +693,8 @@ export default function Profile() {
       <th>Followers</th>
       </tr>
       <tr>
-      <td>{following.length}</td>
-      <td>{followers.length}</td>
+      <td>{profileUser === true ? ownerFollowing.length : following.length}</td>
+      <td>{profileUser === true ? ownerFollowers.length : followers.length}</td>
       </tr>
       </tbody>
       </table>
