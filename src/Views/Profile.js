@@ -70,10 +70,8 @@ export default function Profile() {
     .then(
       (result) => {
         if(result.message === 'Users updated successfully!'){
-          console.log('Users updated successfully!')
           setFollow(true)
         } else {
-          console.log(result.error);
           setFollow(false)
         }
       }
@@ -88,10 +86,6 @@ export default function Profile() {
   // Handle unfollow
 
   const handleUnfollow = () => {
-
-    console.log(ownerFollowing)
-    console.log(followers)
-    console.log(username)
 
     //update database user followers
 
@@ -110,10 +104,8 @@ export default function Profile() {
     .then(
       (result) => {
         if(result.message === 'Users updated successfully!'){
-          console.log('Users updated successfully!')
           setFollow(false)
         } else {
-          console.log(result.error);
           setFollow(true)
         }
       }
@@ -506,7 +498,7 @@ export default function Profile() {
     .catch(error => {
       console.error(error);
     });
-  }, [navigate, token, username])
+  }, [navigate, token, username, follow])
 
   React.useEffect(() => {
     window.localStorage.setItem('usernameOwner', JSON.stringify(usernameOwner))
@@ -693,8 +685,24 @@ export default function Profile() {
       <th>Followers</th>
       </tr>
       <tr>
-      <td>{profileUser === true ? ownerFollowing.length : following.length}</td>
-      <td>{profileUser === true ? ownerFollowers.length : followers.length}</td>
+      <td alt="following" onClick={() => {profileUser === true ? ownerFollowing.map((ownerFollowing) =>
+    <li key={ownerFollowing.toString()}>
+      {ownerFollowing}
+    </li>
+  ) : following.map((following) =>
+    <li key={following.toString()}>
+      {following}
+    </li>
+  )}}>{profileUser === true ? ownerFollowing.length : following.length}</td>
+      <td alt="followers" onClick={() => {profileUser === true ? ownerFollowers.map((ownerFollowers) =>
+    <li key={ownerFollowers.toString()}>
+      {ownerFollowers}
+    </li>
+  ) : followers.map((followers) =>
+<li key={followers.toString()}>
+  {followers}
+</li>
+)}}>{profileUser === true ? ownerFollowers.length : followers.length}</td>
       </tr>
       </tbody>
       </table>
