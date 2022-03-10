@@ -31,16 +31,6 @@ export default function Profile() {
     () => JSON.parse(window.localStorage.getItem('ownerFollowers')) ?? []
   )
 
-  //function to check if a string is in an array
-
-  const checker = (needle, haystack) => haystack.includes(needle)
-
-  React.useEffect(() => {
-    if(checker(username, ownerFollowing) === true){
-      setFollow(true)
-    }
-  }, [username, ownerFollowing])
-
   // Handle user logged in
 
   const userLoggedin = () => {
@@ -62,7 +52,9 @@ export default function Profile() {
     fetch("/.netlify/functions/app/auth/follow", {
       method: 'PUT',
       body: JSON.stringify({"following": username,
+                            "character": character,
                             "followers2": usernameOwner,
+                            "character2": characterOwner,
                             "username": username,
                             }),
       headers: {
@@ -75,6 +67,10 @@ export default function Profile() {
       (result) => {
         if(result.message === 'Users updated successfully!'){
           setFollow(true)
+
+          setFollowers(followers => [...followers, {user: usernameOwner, emoji: characterOwner}])
+          setOwnerfollowing(ownerFollowing => [...ownerFollowing, {user: username, emoji: character}])
+          
         } else {
           setFollow(false)
         }
@@ -96,7 +92,9 @@ export default function Profile() {
     fetch("/.netlify/functions/app/auth/unfollow", {
       method: 'PUT',
       body: JSON.stringify({"following": username,
+                            "character": character,
                             "followers2": usernameOwner,
+                            "character2": characterOwner,
                             "username": username,
                             }),
       headers: {
@@ -109,6 +107,17 @@ export default function Profile() {
       (result) => {
         if(result.message === 'Users updated successfully!'){
           setFollow(false)
+
+          const indexFollowers = followers.findIndex(people => people.user === usernameOwner)
+          if(indexFollowers > -1){
+            setFollowers(followers => [...followers, ...followers.splice(indexFollowers, 1)])
+          }
+
+          const indexFollowing = ownerFollowing.findIndex(people => people.user === username)
+          if(indexFollowing > -1){
+            setOwnerfollowing(ownerFollowing => [...ownerFollowing, ...ownerFollowing.splice(indexFollowing, 1)])
+          }
+
         } else {
           setFollow(true)
         }
@@ -502,7 +511,7 @@ export default function Profile() {
     .catch(error => {
       console.error(error);
     });
-  }, [navigate, token, username, follow])
+  }, [navigate, token, username])
 
   React.useEffect(() => {
     window.localStorage.setItem('usernameOwner', JSON.stringify(usernameOwner))
@@ -515,6 +524,18 @@ export default function Profile() {
   React.useEffect(() => {
     window.localStorage.setItem('ownerFollowers', JSON.stringify(ownerFollowers))
   }, [ownerFollowers])
+
+  //function to check if a string is in an array
+
+  const checker = (needle, haystack) => haystack.some(x => x.user.includes(needle))
+
+  React.useEffect(() => {
+    if(checker(username, ownerFollowing) === true){
+      setFollow(true)
+    } else {
+      setFollow(false)
+    }
+  }, [username, ownerFollowing])
 
   //Gen 1 badges
 
@@ -648,7 +669,7 @@ export default function Profile() {
       } else {
         return (<div style={{textAlign: "center"}}>
                 <button className="button" alt="unfollow" onClick={() => {
-                  handleUnfollow();
+                  handleUnfollow()
                 }}>Unfollow</button>
                 </div>
               )
@@ -781,8 +802,8 @@ export default function Profile() {
     } else {
       if(profileUser === false){
         const listItems = followers.map((people) =>
-        <div key={people.toString()}>
-          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock" }} onClick={() => { navigate(`/profile/${people}`) }}>{people.charAt(0).toUpperCase() + people.slice(1)}</button>
+        <div key={people.user.toString()}>
+          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock", margin: "1%" }} onClick={() => { navigate(`/profile/${people.user}`) }}><label style={{ fontSize: "30px" }}>{people.emoji}</label>{people.user.charAt(0).toUpperCase() + people.user.slice(1)}</button>
         </div>
       );
       return (
@@ -790,8 +811,8 @@ export default function Profile() {
       );
       } else {
         const listItems = ownerFollowers.map((people) =>
-        <div key={people.toString()}>
-          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock" }} onClick={() => { navigate(`/profile/${people}`) }}>{people.charAt(0).toUpperCase() + people.slice(1)}</button>
+        <div key={people.user.toString()}>
+          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock", margin: "1%" }} onClick={() => { navigate(`/profile/${people.user}`) }}><label style={{ fontSize: "30px" }}>{people.emoji}</label>{people.user.charAt(0).toUpperCase() + people.user.slice(1)}</button>
         </div>
       );
       return (
@@ -810,18 +831,18 @@ export default function Profile() {
       return (<></>)
     } else {
       if(profileUser === false){
-        const listItems = following.map((people) =>
-        <div key={people.toString()}>
-          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock" }} onClick={() => { navigate(`/profile/${people}`) }}>{people.charAt(0).toUpperCase() + people.slice(1)}</button>
+        const listItems = following.map((peeps) =>
+        <div key={peeps.user.toString()}>
+          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock", margin: "1%" }} onClick={() => { navigate(`/profile/${peeps.user}`) }}><label style={{ fontSize: "30px" }}>{peeps.emoji}</label>{peeps.user.charAt(0).toUpperCase() + peeps.user.slice(1)}</button>
         </div>
       );
       return (
         <div style={{ textAlign: "center" }}>{listItems}</div>
       );
       } else {
-        const listItems = ownerFollowing.map((people) =>
-        <div key={people.toString()}>
-          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock" }} onClick={() => { navigate(`/profile/${people}`) }}>{people.charAt(0).toUpperCase() + people.slice(1)}</button>
+        const listItems = ownerFollowing.map((peeps) =>
+        <div key={peeps.user.toString()}>
+          <button style={{ border: "none", backgroundColor: "inherit", color: "white", cursor: "pointer", display: "inlineBlock", margin: "1%" }} onClick={() => { navigate(`/profile/${peeps.user}`) }}><label style={{ fontSize: "30px" }}>{peeps.emoji}</label>{peeps.user.charAt(0).toUpperCase() + peeps.user.slice(1)}</button>
         </div>
       );
       return (

@@ -424,11 +424,11 @@ exports.follow = async (req, res, next) => {
 
   // Firstly, find the user account for the logged in user
 
-  const update = await User.findOneAndUpdate({ _id: userId }, {$push: {following: req.body.following}})
+  const update = await User.findOneAndUpdate({ _id: userId }, {$push: {following: {user: req.body.following, emoji: req.body.character}}})
 
   // Secondly, find the user account for the followed user
 
-  const update2 = await User.findOneAndUpdate({ username: req.body.username }, {$push: {followers: req.body.followers2}})
+  const update2 = await User.findOneAndUpdate({ username: req.body.username }, {$push: {followers: {user: req.body.followers2, emoji: req.body.character2}}})
 
   if (!update || !update2) {
             return res.status(404).json({
@@ -448,11 +448,11 @@ exports.unfollow = async (req, res, next) => {
 
   // Firstly, find the user account for the logged in user
 
-  const update = await User.findOneAndUpdate({ _id: userId }, {$pull: {following: req.body.following}})
+  const update = await User.findOneAndUpdate({ _id: userId }, {$pull: {following: {user: req.body.following, emoji: req.body.character}}})
 
   // Secondly, find the user account for the followed user
 
-  const update2 = await User.findOneAndUpdate({ username: req.body.username }, {$pull: {followers: req.body.followers2}})
+  const update2 = await User.findOneAndUpdate({ username: req.body.username }, {$pull: {followers: {user: req.body.followers2, emoji: req.body.character2}}})
 
   if (!update || !update2) {
             return res.status(404).json({
