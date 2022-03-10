@@ -22,6 +22,9 @@ export default function About() {
       This website has been developed by <span alt="Developer" style={{color: 'yellow'}}>M. J. Pyott</span> with the intention of practising Nodejs and Reactjs.
       </p>
       <p style={{color: 'white'}}>
+      Pokemon images and names have all been obtained from PokeAPI.
+      </p>
+      <p style={{color: 'white'}}>
       Nintendo and The Pokemon Company hold all rights relating to the Pokemon images and names.
       </p>
 

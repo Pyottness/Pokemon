@@ -2,6 +2,8 @@ import background from '../Assets/Images/PokemonBackground.png';
 import '../App.css';
 import * as React from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
+import { FacebookShareButton, TelegramShareButton, TwitterShareButton, WhatsappShareButton } from "react-share";
+import { FacebookIcon, TelegramIcon, TwitterIcon, WhatsappIcon,} from "react-share";
 import turnOn from "../Assets/Sounds/turn on.mp3";
 import turnOff from "../Assets/Sounds/turn off.mp3";
 import correct from "../Assets/Sounds/correct.mp3";
@@ -474,12 +476,18 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   const TimedScore = () => {
     if(timer === 0) {
+      const pokeGen = navButton === 1 ? "First Generation Pokemon" : navButton === 2 ? "Second Generation Pokemon" : navButton === 3 ? "Third Generation Pokemon" : navButton === 4 ? "Fourth Generation Pokemon" : navButton === 5 ? "Fifth Generation Pokemon" : navButton === 6 ? "Sixth Generation Pokemon" : navButton === 7 ? "Seventh Generation Pokemon" : "Eighth Generation Pokemon";
       return (
         <div className="pokedex" alt="score" style={{ position: "absolute", display: "flex", justifyContent: "center", alignItems: "center", zIndex: "1", width: "85%", height: "95%", textAlign: "center", color: "white" }}>
         <div alt="score container">
-        <div>{navButton === 1 ? "First Generation Pokemon" : navButton === 2 ? "Second Generation Pokemon" : navButton === 3 ? "Third Generation Pokemon" : navButton === 4 ? "Fourth Generation Pokemon" : navButton === 5 ? "Fifth Generation Pokemon" : navButton === 6 ? "Sixth Generation Pokemon" : navButton === 7 ? "Seventh Generation Pokemon" : "Eighth Generation Pokemon"} </div>
+        <div>{pokeGen} </div>
         <div>Score: {counter.count} </div>
-        <div>Share!</div>
+        <div alt="share buttons">
+        <FacebookShareButton url="https://whoisthatpoke.netlify.app/" quote={pokeGen + "\n Score: " + counter.count + "\n How many can you guess?"}><FacebookIcon size={32} round={true} /></FacebookShareButton>
+        <TelegramShareButton url="https://whoisthatpoke.netlify.app/" title={pokeGen + "\n Score: " + counter.count + "\n How many can you guess?"}><TelegramIcon size={32} round={true} /></TelegramShareButton>
+        <WhatsappShareButton url="https://whoisthatpoke.netlify.app/" title={pokeGen + "\n Score: " + counter.count + "\n How many can you guess?"}><WhatsappIcon size={32} round={true} /></WhatsappShareButton>
+        <TwitterShareButton url="https://whoisthatpoke.netlify.app/" title={pokeGen + "\n Score: " + counter.count + "\n How many can you guess?"}><TwitterIcon size={32} round={true} /></TwitterShareButton>
+        </div>
         <button className="button" style={{ width: "50%"}} onClick={() => {
           setTimer(-1);
           setDisable(true);
