@@ -70,7 +70,7 @@ export default function Profile() {
 
           setFollowers(followers => [...followers, {user: usernameOwner, emoji: characterOwner}])
           setOwnerfollowing(ownerFollowing => [...ownerFollowing, {user: username, emoji: character}])
-          
+
         } else {
           setFollow(false)
         }
@@ -645,7 +645,7 @@ export default function Profile() {
 
   const ReturnProfile = () => {
     if(profileUser !== true){
-      return (<button className="pokedex-button pokedex-init" alt="profile" style={{backgroundColor: "green", textDecoration: "none", padding: "5px", margin: "2%", fontSize: "20px", cursor: "pointer"}} onClick={() => { userLoggedin() }}>{characterOwner}</button>)
+      return (<button className="pokedex-button pokedex-init" alt="profile" style={{backgroundColor: "green", textDecoration: "none", padding: "5px", margin: "2%", fontSize: "20px", cursor: "pointer", borderStyle: "none"}} onClick={() => { userLoggedin() }}>{characterOwner}</button>)
     } else {
       return <></>
     }

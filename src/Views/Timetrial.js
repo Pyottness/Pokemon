@@ -230,14 +230,14 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   //pokedex constants//
   const [pokedexButton, setPokedexbutton] = React.useState(false)
-  const [pokedexButtonStyle, setPokedexbuttonstyle] = React.useState({backgroundColor: 'blue', cursor: "pointer"})
+  const [pokedexButtonStyle, setPokedexbuttonstyle] = React.useState({backgroundColor: 'blue', cursor: "pointer", borderStyle: "none"})
 
   //pokedex//
   const pokedex = () => {
     if(pokedexButton === false) {
       if(audioPlay === true){turnOnplay.play()}
       setPokedexbutton(true)
-      setPokedexbuttonstyle({backgroundColor: 'cyan', cursor: "pointer"})
+      setPokedexbuttonstyle({backgroundColor: 'cyan', cursor: "pointer", borderStyle: "none"})
       setDisableplay(false)
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "white", cursor: "pointer"})
@@ -248,7 +248,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
     } else {
       if(audioPlay === true){turnOffplay.play()}
       setPokedexbutton(false)
-      setPokedexbuttonstyle({backgroundColor: 'blue', cursor: "pointer"})
+      setPokedexbuttonstyle({backgroundColor: 'blue', cursor: "pointer", borderStyle: "none"})
       setDisableplay(true)
       setDisable(true)
       setButtonplay({backgroundColor: "blue", color: "blue", cursor: "default"})
@@ -262,11 +262,160 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   //pokemon data handler that sets the pokemon generation
 
   const pokemonDatahandler = (n) => {
-    if (n === 1){
-        setPokemondata(pokemons)
-        setNumber(151)
+    if(pokedexButton === false){
+      if (n === 1){
+          setPokemondata(pokemons)
+          setNumber(151)
+          setPokemonA('bulbasaur')
+          setPokemonB('mew')
+          setPokemonC('charizard')
+          setPokemonD('pikachu')
+          setDisable(true)
+          setButtonplay({backgroundColor: "blue", color: "blue",})
+          setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+          setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+          setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+          setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+          setPokemonwho({
+            filter: "brightness(0)",
+          })
+      } else if(n === 2){
+        setPokemondata(pokemons2)
+        setNumber(251)
         setPokemonA('bulbasaur')
-        setPokemonB('mew')
+        setPokemonB('celebi')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "blue",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 3){
+        setPokemondata(pokemons3)
+        setNumber(252)
+        setPokemonA('bulbasaur')
+        setPokemonB('treecko')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "blue",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 4){
+        setPokemondata(pokemons4)
+        setNumber(387)
+        setPokemonA('bulbasaur')
+        setPokemonB('turtwig')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "blue",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 5){
+        setPokemondata(pokemons5)
+        setNumber(649)
+        setPokemonA('bulbasaur')
+        setPokemonB('genesect')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "blue",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 6){
+        setPokemondata(pokemons6)
+        setNumber(721)
+        setPokemonA('bulbasaur')
+        setPokemonB('volcanion')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "blue",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 7){
+        setPokemondata(pokemons7)
+        setNumber(809)
+        setPokemonA('bulbasaur')
+        setPokemonB('melmetal')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "blue",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 8){
+        setPokemondata(pokemons8)
+        setNumber(810)
+        setPokemonA('bulbasaur')
+        setPokemonB('grookey')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "blue",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else {
+          setPokemondata(pokemons)
+      }
+    } else {
+      if (n === 1){
+          setPokemondata(pokemons)
+          setNumber(151)
+          setPokemonA('bulbasaur')
+          setPokemonB('mew')
+          setPokemonC('charizard')
+          setPokemonD('pikachu')
+          setDisable(true)
+          setButtonplay({backgroundColor: "blue", color: "white",})
+          setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+          setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+          setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+          setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+          setPokemonwho({
+            filter: "brightness(0)",
+          })
+      } else if(n === 2){
+        setPokemondata(pokemons2)
+        setNumber(251)
+        setPokemonA('bulbasaur')
+        setPokemonB('celebi')
         setPokemonC('charizard')
         setPokemonD('pikachu')
         setDisable(true)
@@ -278,120 +427,105 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         setPokemonwho({
           filter: "brightness(0)",
         })
-    } else if(n === 2){
-      setPokemondata(pokemons2)
-      setNumber(251)
-      setPokemonA('bulbasaur')
-      setPokemonB('celebi')
-      setPokemonC('charizard')
-      setPokemonD('pikachu')
-      setDisable(true)
-      setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setPokemonwho({
-        filter: "brightness(0)",
-      })
-    } else if(n === 3){
-      setPokemondata(pokemons3)
-      setNumber(252)
-      setPokemonA('bulbasaur')
-      setPokemonB('treecko')
-      setPokemonC('charizard')
-      setPokemonD('pikachu')
-      setDisable(true)
-      setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setPokemonwho({
-        filter: "brightness(0)",
-      })
-    } else if(n === 4){
-      setPokemondata(pokemons4)
-      setNumber(387)
-      setPokemonA('bulbasaur')
-      setPokemonB('turtwig')
-      setPokemonC('charizard')
-      setPokemonD('pikachu')
-      setDisable(true)
-      setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setPokemonwho({
-        filter: "brightness(0)",
-      })
-    } else if(n === 5){
-      setPokemondata(pokemons5)
-      setNumber(649)
-      setPokemonA('bulbasaur')
-      setPokemonB('genesect')
-      setPokemonC('charizard')
-      setPokemonD('pikachu')
-      setDisable(true)
-      setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setPokemonwho({
-        filter: "brightness(0)",
-      })
-    } else if(n === 6){
-      setPokemondata(pokemons6)
-      setNumber(721)
-      setPokemonA('bulbasaur')
-      setPokemonB('volcanion')
-      setPokemonC('charizard')
-      setPokemonD('pikachu')
-      setDisable(true)
-      setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setPokemonwho({
-        filter: "brightness(0)",
-      })
-    } else if(n === 7){
-      setPokemondata(pokemons7)
-      setNumber(809)
-      setPokemonA('bulbasaur')
-      setPokemonB('melmetal')
-      setPokemonC('charizard')
-      setPokemonD('pikachu')
-      setDisable(true)
-      setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setPokemonwho({
-        filter: "brightness(0)",
-      })
-    } else if(n === 8){
-      setPokemondata(pokemons8)
-      setNumber(810)
-      setPokemonA('bulbasaur')
-      setPokemonB('grookey')
-      setPokemonC('charizard')
-      setPokemonD('pikachu')
-      setDisable(true)
-      setButtonplay({backgroundColor: "blue", color: "white",})
-      setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
-      setPokemonwho({
-        filter: "brightness(0)",
-      })
-    } else {
-        setPokemondata(pokemons)
+      } else if(n === 3){
+        setPokemondata(pokemons3)
+        setNumber(252)
+        setPokemonA('bulbasaur')
+        setPokemonB('treecko')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "white",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 4){
+        setPokemondata(pokemons4)
+        setNumber(387)
+        setPokemonA('bulbasaur')
+        setPokemonB('turtwig')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "white",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 5){
+        setPokemondata(pokemons5)
+        setNumber(649)
+        setPokemonA('bulbasaur')
+        setPokemonB('genesect')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "white",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 6){
+        setPokemondata(pokemons6)
+        setNumber(721)
+        setPokemonA('bulbasaur')
+        setPokemonB('volcanion')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "white",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 7){
+        setPokemondata(pokemons7)
+        setNumber(809)
+        setPokemonA('bulbasaur')
+        setPokemonB('melmetal')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "white",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else if(n === 8){
+        setPokemondata(pokemons8)
+        setNumber(810)
+        setPokemonA('bulbasaur')
+        setPokemonB('grookey')
+        setPokemonC('charizard')
+        setPokemonD('pikachu')
+        setDisable(true)
+        setButtonplay({backgroundColor: "blue", color: "white",})
+        setbuttonA({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"})
+        setPokemonwho({
+          filter: "brightness(0)",
+        })
+      } else {
+          setPokemondata(pokemons)
+      }
     }
   }
 
@@ -529,10 +663,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
         <div className="pokedexTop" alt="pokedexTop">
           <button className="pokedex-button pokedex-init" alt="pokedex-button" style={pokedexButtonStyle} onClick={pokedex}>⚡</button>
-          <button className="pokedex-button users" alt="Sound" style={{backgroundColor: audioPlay === true ? "green" : "red", textDecoration: "none", height: "40px", width: "40px", fontSize: "20px", cursor: "pointer"}} onClick={() => {audioPlay === true ? setAudioplay(false) : setAudioplay(true)}}>{audioEmoji}</button>
+          <button className="pokedex-button users" alt="Sound" style={{backgroundColor: audioPlay === true ? "green" : "red", textDecoration: "none", height: "40px", width: "40px", fontSize: "20px", cursor: "pointer", borderStyle: "none"}} onClick={() => {audioPlay === true ? setAudioplay(false) : setAudioplay(true)}}>{audioEmoji}</button>
           <NavLink to="/about" className="pokedex-button users" alt="About" style={{backgroundColor: "yellow", textDecoration: "none", padding: "5px", fontSize: "20px"}}>❓</NavLink>
           <NavLink to="/" className="pokedex-button users" alt="Home" style={{backgroundColor: "white", textDecoration: "none", padding: "5px", fontSize: "20px"}}>🏠</NavLink>
-          <button className="pokedex-button users" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: "5px", fontSize: "20px", cursor: "pointer"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>{character}</button>
+          <button className="pokedex-button users" alt="Login" style={{backgroundColor: window.localStorage.getItem('token') !== null ? "green" : "red", textDecoration: "none", padding: "5px", fontSize: "20px", cursor: "pointer", borderStyle: "none"}} onClick={() => { window.localStorage.getItem('token') !== null ? userLoggedin() : login() }}>{character}</button>
         </div>
 
           <Score />
