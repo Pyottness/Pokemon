@@ -11,6 +11,26 @@ export default function FirstGeneration() {
 
   const navigate = useNavigate();
 
+  //First time visiting the web page
+
+  const [visited, setVisited] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('visited')) ?? false
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('visited', JSON.stringify(visited))
+  }, [visited])
+
+  //Language settings
+
+  const [language, setLanguage] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('language')) ?? "English"
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('language', JSON.stringify(language))
+  }, [language])
+
   //Audio constants
 
   const [audioPlay, setAudioplay] = React.useState(
@@ -8368,11 +8388,49 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const Score = () => {
     if(pokedexButton === true) {
       return (<div className="score" alt="score">
-        <div>Score: {counter.count} </div>
-        <div>Highest score: {maxScore} </div>
+        <div>{language === "English" ? "Score: " : "Puntuación: "}{counter.count} </div>
+        <div>{language === "English" ? "Highest score: " : "Puntuación máxima: "}{maxScore} </div>
       </div>)
     } else {
       return (<div className="score" alt="score"></div>)
+    }
+  }
+
+  //First time visiting the page
+
+  const Welcome = () => {
+    if(visited === false) {
+
+      return (
+        <div className="pokedex" alt="score" style={{ position: "absolute", display: "flex", justifyContent: "center", zIndex: "1", width: "85%", height: "95%", boxShadow: "none", textAlign: "center", color: "white" }}>
+        <div alt="welcome container" style={{ overflowY: "scroll", margin: "1%" }}>
+        <h1>{language === "English" ? "Welcome to Whoisthatpoke!" : "Bienvenido a Whoisthatpoke!"}</h1>
+        <p><button className="pokedex-button" alt="pokedex-button" style={{ backgroundColor: "white", cursor: "pointer", borderStyle: "none" }} onClick={() => {language === "English" ? setLanguage("Spanish") : setLanguage("English")}}>{language === "English" ? "🇬🇧" : "🇪🇸"}</button>{language === "English" ? " Choose language." : "Elige idioma."}</p>
+        <p>{language === "English" ? "This website has been developed by M. J. Pyott with the intention of practising Nodejs and Reactjs." : "Ésta página web ha sido desarrollada por M. J. Pyott con la intención de practicar Nodejs y Reactjs."}</p>
+        <p>{language === "English" ? "Pokemon images and names have all been obtained from PokeAPI." : "Las imágenes y los nombres de los Pokémon han sido obtenidos de PokeAPI."}</p>
+        <p>{language === "English" ? "Nintendo and The Pokemon Company hold all rights relating to the Pokemon images and names." : "Nintendo y The Pokémon Company mantienen todos los derechos en cuánto a las imágenes Pokémon y sus nombres."}</p>
+        <p>{language === "English" ? "Below are some instructions on how to use the page." : "A continuación puede encontrar las instrucciones para usar la página."}</p>
+
+        <div className="pokedexTop" alt="pokedexTop">
+          <p><button className="pokedex-button" alt="pokedex-button" style={pokedexButtonStyle}>⚡</button>{language === "English" ? " This button turns on your Pokedex so you can play." : " Éste botón enciende la Pokédex para que puedas jugar."}</p>
+          <p><button className="pokedex-button" alt="Sound" style={{backgroundColor: "green", textDecoration: "none", height: "40px", width: "40px", fontSize: "20px", cursor: "pointer", borderStyle: "none"}}>{audioEmoji}</button> {language === "English" ? " This button allows you to turn the sound on or off." : "Éste botón te permite encender y apagar el sonido."}</p>
+          <p><button className="pokedex-button" alt="About" style={{backgroundColor: "yellow", textDecoration: "none", padding: "5px", fontSize: "20px", borderStyle: "none", cursor: "pointer"}}>❓</button>{language === "English" ? " This button will take you to the about page where you can also set your language settings." : "Éste botón te llevará a la página de Información dónde puedes cambiar el idioma."}</p>
+          <p><button className="pokedex-button" alt="Timetrial" style={{backgroundColor: "white", textDecoration: "none", padding: "5px", fontSize: "20px", borderStyle: "none", cursor: "pointer"}}>⏱️</button>{language === "English" ? " This button will take you to the Time Trial game." : "Éste botón te llevará a la página Contrarreloj."}</p>
+          <p><button className="pokedex-button" alt="Home" style={{backgroundColor: "white", textDecoration: "none", padding: "5px", fontSize: "20px", borderStyle: "none", cursor: "pointer"}}>🏠</button>{language === "English" ? " This button will take you to the Single Player game where you can earn badges if you are logged in." : "Éste botón te llevará a la página de Un Jugador dónde podrás ganar medallas si estás conectado."}</p>
+          <p><button className="pokedex-button" alt="Login" style={{backgroundColor: "red", textDecoration: "none", padding: "5px", fontSize: "20px", cursor: "pointer", borderStyle: "none"}}>👨</button>{language === "English" ? " This button will take you to the login page if you are not logged in and to your profile page if you are." : "Éste botón te llevará a tú perfil si estás conectado y si no lo estás te llevará a la página para conectarte."}</p>
+          <p>{language === "English" ? "By pressing the Accept button you are agreeing to the use of cookies and local storage so that the game works correctly." : "Al clicar en Aceptar estás aceptando el uso de posibles cookies y almacenamiento local para que el juego funcione de manera correcta."}</p>
+          <p>
+          <button className="button" style={{ width: "50%", marginBottom: "20px"}} onClick={() => {
+            setVisited(true)
+          }}>{language === "English" ? "Accept" : "Aceptar"}</button>
+          </p>
+        </div>
+
+         </div>
+         </div>
+    )
+    } else {
+      return (<></>)
     }
   }
 
@@ -8387,6 +8445,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
   return (
     <div className="App" style={ divStyle }>
+    <Welcome />
 
       <div className="game">
 
@@ -8408,7 +8467,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           <Score />
 
           <div alt="play">
-            <button className="button" disabled={disablePlay} style={buttonPlay} onClick={() => {play();}}>Play</button>
+            <button className="button" disabled={disablePlay} style={buttonPlay} onClick={() => {play();}}>{language === "English" ? "Play" : "Jugar"}</button>
           </div>
 
           <div alt="answers">

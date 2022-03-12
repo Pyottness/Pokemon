@@ -5,6 +5,16 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Register() {
 
+  //Language settings
+
+  const [language] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('language')) ?? "English"
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('language', JSON.stringify(language))
+  }, [language])
+
   const [username, setUsername] = React.useState('')
   const [character, setCharacter] = React.useState('👨')
   const [email, setEmail] = React.useState('')
@@ -135,46 +145,46 @@ export default function Register() {
 
       <div alt="Registration Form">
 
-      <label alt="Username">Username</label>
-      <input alt="Username" type="text" onChange={event => setUsername(event.target.value.toLowerCase())} placeholder="Enter Username"></input>
+      <label alt="Username">{language === "English" ? "Username" : "Usuario"}</label>
+      <input alt="Username" type="text" onChange={event => setUsername(event.target.value.toLowerCase())} placeholder={language === "English" ? "Enter Username" : "Introduzca Usuario"}></input>
       <div style={{color: "red", width: "90%", height: "25px"}}>{usernameError}</div>
 
-      <label alt="Character">Character</label>
+      <label alt="Character">{language === "English" ? "Character" : "Personaje"}</label>
       <select alt="Character" onChange={event => setCharacter(event.target.value)}>
-      <option value="👨">👨 Man</option>
-      <option value="👩">👩 Woman</option>
-      <option value="👦">👦 Boy</option>
-      <option value="👧">👧 Girl</option>
-      <option value="👨‍🔬">👨‍🔬 Scientist (m)</option>
-      <option value="👩‍🔬‍‍">👩‍🔬‍ Scientist (f)</option>
-      <option value="👨‍🍳‍‍">👨‍🍳 Chef (m)</option>
-      <option value="👩‍🍳‍‍">👩‍🍳‍ Chef (f)</option>
-      <option value="👨‍🎓‍‍">👨‍🎓 Student (m)</option>
-      <option value="👩‍🎓">👩‍🎓‍ Student (f)</option>
+      <option value="👨">👨 {language === "English" ? "Man" : "Hombre"}</option>
+      <option value="👩">👩 {language === "English" ? "Woman" : "Mujer"}</option>
+      <option value="👦">👦 {language === "English" ? "Boy" : "Niño"}</option>
+      <option value="👧">👧 {language === "English" ? "Girl" : "Niña"}</option>
+      <option value="👨‍🔬">👨‍🔬 {language === "English" ? "Scientist (m)" : "Científico"}</option>
+      <option value="👩‍🔬‍‍">👩‍🔬‍ {language === "English" ? "Scientist (f)" : "Científica"}</option>
+      <option value="👨‍🍳‍‍">👨‍🍳 {language === "English" ? "Chef (m)" : "Cocinero"}</option>
+      <option value="👩‍🍳‍‍">👩‍🍳‍ {language === "English" ? "Chef (f)" : "Cocinera"}</option>
+      <option value="👨‍🎓‍‍">👨‍🎓 {language === "English" ? "Student (m)" : "Alumno"}</option>
+      <option value="👩‍🎓">👩‍🎓‍ {language === "English" ? "Student (f)" : "Alumna"}</option>
       </select>
 
       <label alt="Email">Email</label>
-      <input alt="Email" type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter Email"></input>
+      <input alt="Email" type="email" onChange={event => setEmail(event.target.value)} placeholder={language === "English" ? "Enter Email" : "Introduzca Email"}></input>
       <div style={{color: "red", width: "90%", height: "25px"}}>{emailError}</div>
 
-      <label alt="Password">Password</label>
-      <input alt="Password" type="password" style={password === rePassword && password.length !== 0  ? {backgroundColor: "green"} : password.length === 0 ? {backgroundColor: "black"} : {backgroundColor: "red"}} onChange={event => setPassword(event.target.value)} placeholder="Enter Password"></input>
+      <label alt="Password">{language === "English" ? "Password" : "Contraseña"}</label>
+      <input alt="Password" type="password" style={password === rePassword && password.length !== 0  ? {backgroundColor: "green"} : password.length === 0 ? {backgroundColor: "black"} : {backgroundColor: "red"}} onChange={event => setPassword(event.target.value)} placeholder={language === "English" ? "Enter Password" : "Introduzca Contraseña"}></input>
 
-      <label alt="Repeat Password">Repeat Password</label>
-      <input alt="Repeat Password" type="password" style={password === rePassword && password.length !== 0  ? {backgroundColor: "green"} : rePassword.length === 0 ? {backgroundColor: "black"} : {backgroundColor: "red"}} onChange={event => setRepassword(event.target.value)} placeholder="Retype Password"></input>
+      <label alt="Repeat Password">{language === "English" ? "Repeat Password" : "Repetir Contraseña"}</label>
+      <input alt="Repeat Password" type="password" style={password === rePassword && password.length !== 0  ? {backgroundColor: "green"} : rePassword.length === 0 ? {backgroundColor: "black"} : {backgroundColor: "red"}} onChange={event => setRepassword(event.target.value)} placeholder={language === "English" ? "Retype Password" : "Repita Contraseña"}></input>
 
       </div>
 
       <div>
-        <button className="button" alt="register" type="submit" disabled={password === rePassword && password.length !== 0 && username.length !== 0 && email.length !== 0 ? false : true} onClick={() => {setEmailerror(''); setUsernameerror('');}}>Register</button>
+        <button className="button" alt="register" type="submit" disabled={password === rePassword && password.length !== 0 && username.length !== 0 && email.length !== 0 ? false : true} onClick={() => {setEmailerror(''); setUsernameerror('');}}>{language === "English" ? "Register" : "Registrarse"}</button>
       </div>
 
-      <p style={{color: "white"}}>Already a user?</p>
+      <p style={{color: "white"}}>{language === "English" ? "Already a user?" : "Ya eres usuario?"}</p>
 
       <div alt="links">
 
       <NavLink to="/login" className="button" style={({ isActive }) => {
-        return {backgroundColor: isActive ? "cyan" : ""};}} alt="Login">Login</NavLink>
+        return {backgroundColor: isActive ? "cyan" : ""};}} alt="Login">{language === "English" ? "Login" : "Conectarse"}</NavLink>
       <NavLink to="/" className="button" style={({ isActive }) => {
         return {backgroundColor: isActive ? "cyan" : ""};}} alt="FirstGeneration">Home</NavLink>
 

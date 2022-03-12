@@ -13,6 +13,16 @@ export default function Timetrial() {
 
   const navigate = useNavigate();
 
+  //Language settings
+
+  const [language] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('language')) ?? "English"
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('language', JSON.stringify(language))
+  }, [language])
+
   //Audio constants
 
   const [audioPlay, setAudioplay] = React.useState(
@@ -598,8 +608,8 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const Score = () => {
     if(pokedexButton === true) {
       return (<div className="score" alt="score">
-        <div>Timer: <label style={{color: timer > 40 ? "lightgreen" : timer > 20 ? "yellow" : "red"}}>{timer === -1 ? 0 : timer}</label> </div>
-        <div>{answer} Score: {counter.count} {answer}</div>
+        <div>{ language === "English" ? "Timer: " : "Tiempo: " }<label style={{color: timer > 40 ? "lightgreen" : timer > 20 ? "yellow" : "red"}}>{timer === -1 ? 0 : timer}</label> </div>
+        <div>{answer}{ language === "English" ? "Score: " : "Puntuación: " }{counter.count} {answer}</div>
       </div>)
     } else {
       return (<div className="score" alt="score"></div>)
@@ -611,16 +621,17 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   const TimedScore = () => {
     if(timer === 0) {
       const pokeGen = navButton === 1 ? "First Generation Pokemon" : navButton === 2 ? "Second Generation Pokemon" : navButton === 3 ? "Third Generation Pokemon" : navButton === 4 ? "Fourth Generation Pokemon" : navButton === 5 ? "Fifth Generation Pokemon" : navButton === 6 ? "Sixth Generation Pokemon" : navButton === 7 ? "Seventh Generation Pokemon" : "Eighth Generation Pokemon";
+      const pokeGenEs = navButton === 1 ? "Pokémon de Primera Generación" : navButton === 2 ? "Pokémon de Segunda Generación" : navButton === 3 ? "Pokémon de Tercera Generación" : navButton === 4 ? "Pokémon de Cuarta Generación" : navButton === 5 ? "Pokémon de Quinta Generación" : navButton === 6 ? "Pokémon de Sexta Generación" : navButton === 7 ? "Pokémon de Séptima Generación" : "Pokémon de Octava Generación";
       return (
         <div className="pokedex" alt="score" style={{ position: "absolute", display: "flex", justifyContent: "center", alignItems: "center", zIndex: "1", width: "85%", height: "95%", textAlign: "center", color: "white" }}>
         <div alt="score container">
-        <div>{pokeGen} </div>
-        <div>Score: {counter.count} </div>
+        <div>{language === "English" ? pokeGen : pokeGenEs} </div>
+        <div>{language === "English" ? "Score: " : "Puntuación: "}{counter.count} </div>
         <div alt="share buttons">
-        <FacebookShareButton url="https://whoisthatpoke.netlify.app/" quote={pokeGen + "\n Score: " + counter.count + "\n How many can you guess?"}><FacebookIcon size={32} round={true} /></FacebookShareButton>
-        <TelegramShareButton url="https://whoisthatpoke.netlify.app/" title={pokeGen + "\n Score: " + counter.count + "\n How many can you guess?"}><TelegramIcon size={32} round={true} /></TelegramShareButton>
-        <WhatsappShareButton url="https://whoisthatpoke.netlify.app/" title={pokeGen + "\n Score: " + counter.count + "\n How many can you guess?"}><WhatsappIcon size={32} round={true} /></WhatsappShareButton>
-        <TwitterShareButton url="https://whoisthatpoke.netlify.app/" title={pokeGen + "\n Score: " + counter.count + "\n How many can you guess?"}><TwitterIcon size={32} round={true} /></TwitterShareButton>
+        <FacebookShareButton url="https://whoisthatpoke.netlify.app/" quote={language === "English" ? pokeGen + "\n Score: " + counter.count + "\n How many can you guess?" : pokeGenEs + "\n Puntuación: " + counter.count + "\n Cuántos puedes adivinar?" }><FacebookIcon size={32} round={true} /></FacebookShareButton>
+        <TelegramShareButton url="https://whoisthatpoke.netlify.app/" title={language === "English" ? pokeGen + "\n Score: " + counter.count + "\n How many can you guess?" : pokeGenEs + "\n Puntuación: " + counter.count + "\n Cuántos puedes adivinar?" }><TelegramIcon size={32} round={true} /></TelegramShareButton>
+        <WhatsappShareButton url="https://whoisthatpoke.netlify.app/" title={language === "English" ? pokeGen + "\n Score: " + counter.count + "\n How many can you guess?" : pokeGenEs + "\n Puntuación: " + counter.count + "\n Cuántos puedes adivinar?" }><WhatsappIcon size={32} round={true} /></WhatsappShareButton>
+        <TwitterShareButton url="https://whoisthatpoke.netlify.app/" title={language === "English" ? pokeGen + "\n Score: " + counter.count + "\n How many can you guess?" : pokeGenEs + "\n Puntuación: " + counter.count + "\n Cuántos puedes adivinar?" }><TwitterIcon size={32} round={true} /></TwitterShareButton>
         </div>
         <button className="button" style={{ width: "50%"}} onClick={() => {
           setTimer(-1);
@@ -630,7 +641,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"});
           setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"});
           setAnswer("")
-         }}>Close</button>
+        }}>{language === "English" ? "Close" : "Cerrar"}</button>
          </div>
          </div>
     )
@@ -672,7 +683,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           <Score />
 
           <div alt="play">
-            <button className="button" disabled={disablePlay} style={buttonPlay} onClick={() => {play();}}>Play</button>
+            <button className="button" disabled={disablePlay} style={buttonPlay} onClick={() => {play();}}>{language === "English" ? "Play" : "Jugar"}</button>
           </div>
 
           <div alt="answers">

@@ -6,6 +6,17 @@ import { NavLink, useParams, useNavigate } from "react-router-dom";
 export default function Profile() {
 
   const { username } = useParams();
+
+  //Language settings
+
+  const [language] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('language')) ?? "English"
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('language', JSON.stringify(language))
+  }, [language])
+
   const navigate = useNavigate();
   const token = JSON.parse(window.localStorage.getItem("token"))
   const [character, setCharacter] = React.useState()
@@ -634,7 +645,7 @@ export default function Profile() {
   const EditProfile = () => {
     if(profileUser === true){
       return (<NavLink to="/" className="button" style={({ isActive }) => {
-      return {backgroundColor: isActive ? "cyan" : ""};}} onClick={() => {window.localStorage.removeItem('token')}} alt="log out">Log out</NavLink>)
+      return {backgroundColor: isActive ? "cyan" : ""};}} onClick={() => {window.localStorage.removeItem('token')}} alt="log out">{language === "English" ? "Log out" : "Desconectarse"}</NavLink>)
     } else {
       return <></>
     }
@@ -663,14 +674,14 @@ export default function Profile() {
         return (<div style={{textAlign: "center"}}>
                 <button className="button" alt="follow" onClick={() => {
                   handleFollow();
-                 }}>Follow</button>
+                }}>{language === "English" ? "Follow" : "Seguir"}</button>
                 </div>
               )
       } else {
         return (<div style={{textAlign: "center"}}>
                 <button className="button" alt="unfollow" onClick={() => {
                   handleUnfollow()
-                }}>Unfollow</button>
+                }}>{language === "English" ? "Unfollow" : "Dejar de Seguir"}</button>
                 </div>
               )
       }
@@ -684,9 +695,9 @@ export default function Profile() {
     if(showBadges === true){
       return(
         <div>
-        <p style={{color: "white", textAlign: "center"}}>Badges</p>
+        <p style={{color: "white", textAlign: "center"}}>{language === "English" ? "Badges" : "Medallas"}</p>
 
-        <label>Generation I:</label>
+        <label>{language === "English" ? "Generation I" : "1ª Generación"}</label>
         <div>
         <img className="badge" src={ boulder } alt="boulder badge" style={ { filter: boulderBadge === false ? "brightness(0)" : "brightness()"} } />
         <img className="badge" src={ cascade } alt="cascade badge" style={ { filter: cascadeBadge === false ? "brightness(0)" : "brightness()"} } />
@@ -698,7 +709,7 @@ export default function Profile() {
         <img className="badge" src={ earth } alt="earth badge" style={ { filter: earthBadge === false ? "brightness(0)" : "brightness()"} } />
         </div>
 
-        <label>Generation II:</label>
+        <label>{language === "English" ? "Generation II" : "2ª Generación"}</label>
         <div>
         <img className="badge" src={ zephyr } alt="zephyr badge" style={ { filter: zephyrBadge === false ? "brightness(0)" : "brightness()"} } />
         <img className="badge" src={ hive } alt="hive badge" style={ { filter: hiveBadge === false ? "brightness(0)" : "brightness()"} } />
@@ -710,7 +721,7 @@ export default function Profile() {
         <img className="badge" src={ rising } alt="rising badge" style={ { filter: risingBadge === false ? "brightness(0)" : "brightness()"} } />
         </div>
 
-        <label>Generation III:</label>
+        <label>{language === "English" ? "Generation III" : "3ª Generación"}</label>
         <div>
         <img className="badge" src={ stone } alt="stone badge" style={ { filter: stoneBadge === false ? "brightness(0)" : "brightness()"} } />
         <img className="badge" src={ knuckle } alt="knuckle badge" style={ { filter: knuckleBadge === false ? "brightness(0)" : "brightness()"} } />
@@ -722,7 +733,7 @@ export default function Profile() {
         <img className="badge" src={ rain } alt="rain badge" style={ { filter: rainBadge === false ? "brightness(0)" : "brightness()"} } />
         </div>
 
-        <label>Generation IV:</label>
+        <label>{language === "English" ? "Generation IV" : "4ª Generación"}</label>
         <div>
         <img className="badge" src={ coal } alt="coal badge" style={ { filter: coalBadge === false ? "brightness(0)" : "brightness()"} } />
         <img className="badge" src={ forest } alt="forest badge" style={ { filter: forestBadge === false ? "brightness(0)" : "brightness()"} } />
@@ -734,7 +745,7 @@ export default function Profile() {
         <img className="badge" src={ beacon } alt="beacon badge" style={ { filter: beaconBadge === false ? "brightness(0)" : "brightness()"} } />
         </div>
 
-        <label>Generation V:</label>
+        <label>{language === "English" ? "Generation V" : "5ª Generación"}</label>
         <div>
         <img className="badge" src={ trio } alt="trio" style={ { filter: trioBadge === false ? "brightness(0)" : "brightness()"} } />
         <img className="badge" src={ basic } alt="basic badge" style={ { filter: basicBadge === false ? "brightness(0)" : "brightness()"} } />
@@ -748,7 +759,7 @@ export default function Profile() {
         <img className="badge" src={ wave } alt="wave badge" style={ { filter: waveBadge === false ? "brightness(0)" : "brightness()"} } />
         </div>
 
-        <label>Generation VI:</label>
+        <label>{language === "English" ? "Generation VI" : "6ª Generación"}</label>
         <div>
         <img className="badge" src={ bug } alt="bug badge" style={ { filter: bugBadge === false ? "brightness(0)" : "brightness()"} } />
         <img className="badge" src={ cliff } alt="cliff badge" style={ { filter: cliffBadge === false ? "brightness(0)" : "brightness()"} } />
@@ -760,7 +771,7 @@ export default function Profile() {
         <img className="badge" src={ iceberg } alt="iceberg badge" style={ { filter: icebergBadge === false ? "brightness(0)" : "brightness()"} } />
         </div>
 
-        <label>Generation VII:</label>
+        <label>{language === "English" ? "Generation VII" : "7ª Generación"}</label>
         <div>
         <img className="badge" src={ boulder7 } alt="boulder badge" style={ { filter: boulderBadge7 === false ? "brightness(0)" : "brightness()"} } />
         <img className="badge" src={ cascade7 } alt="cascade badge" style={ { filter: cascadeBadge7 === false ? "brightness(0)" : "brightness()"} } />
@@ -772,7 +783,7 @@ export default function Profile() {
         <img className="badge" src={ earth7 } alt="earth badge" style={ { filter: earthBadge7 === false ? "brightness(0)" : "brightness()"} } />
         </div>
 
-        <label>Generation VIII:</label>
+        <label>{language === "English" ? "Generation VIII" : "8ª Generación"}</label>
         <div>
         <img className="badge" src={ grass } alt="grass badge" style={ { filter: grassBadge === false ? "brightness(0)" : "brightness()"} } />
         <img className="badge" src={ water } alt="water badge" style={ { filter: waterBadge === false ? "brightness(0)" : "brightness()"} } />
@@ -867,8 +878,8 @@ export default function Profile() {
     <div className="pokedexForm" alt="profile" style={{height: "85%", width: "85%"}}>
 
       <ReturnProfile />
-      <div className="search" alt="search" style={{color: "white", textAlign: "center"}}>Search:
-      <input className="search" alt="search" value={search} onChange={event => setSearch(event.target.value)} onKeyDown={(e) => e.key === 'Enter' ? handleSearch() : null} style={{width: "40%", margin: "1%"}} placeholder="user..." />
+      <div className="search" alt="search" style={{color: "white", textAlign: "center"}}>{language === "English" ? "Search:" : "Buscar:"}
+      <input className="search" alt="search" value={search} onChange={event => setSearch(event.target.value)} onKeyDown={(e) => e.key === 'Enter' ? handleSearch() : null} style={{width: "40%", margin: "1%"}} placeholder={language === "English" ? "user..." : "usuario..."} />
       <button className="button" type="button" style={{height: "40px", width: "40px", fontSize: "20px"}} onClick={() => {handleSearch()}}>🔍</button>
       </div>
 
@@ -880,8 +891,8 @@ export default function Profile() {
       <table style={{marginLeft: "auto", marginRight: "auto", color: "white", textAlign: "center"}}>
       <tbody>
       <tr>
-      <th>Following </th>
-      <th>Followers</th>
+      <th>{language === "English" ? "Following " : "Siguiendo "}</th>
+      <th>{language === "English" ? "Followers" : "Seguidores"}</th>
       </tr>
       <tr>
       <td alt="following" style={{ cursor: "pointer" }} onClick={() => {

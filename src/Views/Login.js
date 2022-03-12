@@ -7,6 +7,16 @@ export default function Login() {
 
   const navigate = useNavigate();
 
+  //Language settings
+
+  const [language] = React.useState(
+    () => JSON.parse(window.localStorage.getItem('language')) ?? "English"
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem('language', JSON.stringify(language))
+  }, [language])
+
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [emailError, setEmailerror] = React.useState('')
@@ -63,32 +73,32 @@ export default function Login() {
       <div alt="Login Form">
 
       <label alt="Email">Email</label>
-      <input alt="Email" type="email" value={email} autoComplete="on" onChange={event => setEmail(event.target.value)} placeholder="Enter Email" />
+      <input alt="Email" type="email" value={email} autoComplete="on" onChange={event => setEmail(event.target.value)} placeholder={language === "English" ? "Enter Email" : "Introduzca su Email"} />
       <div style={{color: "red", width: "90%", height: "25px"}}>{emailError}</div>
 
-      <label alt="Password">Password</label>
-      <input alt="Password" type="password" value={password} autoComplete="on" onChange={event => setPassword(event.target.value)} placeholder="Enter Password" />
+      <label alt="Password">{language === "English" ? "Password" : "Contraseña"}</label>
+      <input alt="Password" type="password" value={password} autoComplete="on" onChange={event => setPassword(event.target.value)} placeholder={language === "English" ? "Enter Password" : "Introduzca su Contraseña"} />
       <div style={{color: "red", width: "90%", height: "25px"}}>{passwordError}</div>
 
       </div>
 
       <div>
-        <button type="submit" className="button" alt="log in" onClick={() => {setEmailerror(''); setPassworderror('')}}>Log in</button>
+        <button type="submit" className="button" alt="log in" onClick={() => {setEmailerror(''); setPassworderror('')}}>{language === "English" ? "Log in" : "Conectarse"}</button>
       </div>
 
-      <p style={{color: 'white'}}>Don't have an account?</p>
+      <p style={{color: 'white'}}>{language === "English" ? "Don't have an account?" : "No tienes cuenta?"}</p>
 
       <div alt="links">
 
       <NavLink to="/register" className="button" style={({ isActive }) => {
-        return {backgroundColor: isActive ? "cyan" : ""};}} alt="Register">Register</NavLink>
+        return {backgroundColor: isActive ? "cyan" : ""};}} alt="Register">{language === "English" ? "Register" : "Registrarse"}</NavLink>
       <NavLink to="/" className="button" style={({ isActive }) => {
         return {backgroundColor: isActive ? "cyan" : ""};}} alt="FirstGeneration">Home</NavLink>
 
       </div>
 
       <div>
-      <p style={{color: 'white'}}>Forgot your password?</p>
+      <p style={{color: 'white'}}>{language === "English" ? "Forgot your password?" : "Olvidaste tu constraseña?"}</p>
       </div>
 
     </form>
