@@ -1091,7 +1091,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Rock type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Rock type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Roca han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -1192,7 +1196,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Water type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Water type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Agua han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -1293,7 +1301,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Electric type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Electric type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Eléctrico han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -1394,7 +1406,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Grass type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Grass type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Planta han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -1495,7 +1511,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Poison type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Poison type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Veneno han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -1596,7 +1616,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Psychic type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Psychic type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Psíquico han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -1697,7 +1721,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fire type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fire type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Fuego han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -1798,7 +1826,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ground type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ground type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Tierra han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -1902,7 +1934,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Flying type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Flying type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Volador han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -2003,7 +2039,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Bug type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Bug type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Insecto han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -2104,7 +2144,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Normal type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Normal type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Normal han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -2205,7 +2249,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ghost type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ghost type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Fantasma han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -2306,7 +2354,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fighting type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fighting type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Lucha han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -2407,7 +2459,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Steel type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Steel type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Acero han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -2508,7 +2564,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ice type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ice type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Hielo han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -2609,7 +2669,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Dragon type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Dragon type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Dragón han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -2713,7 +2777,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Rock type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Rock type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Roca han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -2814,7 +2882,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fighting type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fighting type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Lucha han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -2915,7 +2987,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Electric type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Electric type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Eléctrico han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -3016,7 +3092,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fire type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fire type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Fuego han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -3117,7 +3197,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Normal type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Normal type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Normal han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -3218,7 +3302,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Flying type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Flying type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Volador han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -3319,7 +3407,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Psychic type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Psychic type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Psíquico han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -3420,7 +3512,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Water type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Water type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Agua han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -3524,7 +3620,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Rock type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Rock type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Roca han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -3625,7 +3725,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Grass type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Grass type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Planta han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -3726,7 +3830,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fighting type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fighting type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Lucha han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -3827,7 +3935,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Water type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Water type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Agua han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -3928,7 +4040,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ghost type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ghost type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Fantasma han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -4029,7 +4145,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Steel type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Steel type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Acero han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -4130,7 +4250,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ice type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ice type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Hielo han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -4231,7 +4355,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Electric type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Electric type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Eléctrico han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -4335,7 +4463,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Grass and Fire type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Grass and Fire type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Planta y Fuego han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -4436,7 +4568,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Normal type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Normal type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Normal han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -4537,7 +4673,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Bug type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Bug type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Insecto han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -4638,7 +4778,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Electric type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Electric type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Eléctrico han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -4739,7 +4883,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ground type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ground type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Tierra han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -4840,7 +4988,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Flying type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Flying type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Volador han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -4941,7 +5093,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ice type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ice type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Hielo han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -5042,7 +5198,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Dragon type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Dragon type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Dragón han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -5143,7 +5303,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Poison type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Poison type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Veneno han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -5244,7 +5408,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Water type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Water type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Agua han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -5348,7 +5516,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Bug type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Bug type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Insecto han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -5449,7 +5621,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Rock type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Rock type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Roca han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -5550,7 +5726,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fighting type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fighting type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Lucha han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -5651,7 +5831,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Grass type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Grass type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Planta han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -5752,7 +5936,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Electric type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Electric type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Eléctrico han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -5853,7 +6041,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fairy type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fairy type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Hada han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -5954,7 +6146,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Psychic type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Psychic type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Psíquico han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -6055,7 +6251,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ice type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ice type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Hielo han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -6159,7 +6359,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Rock type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Rock type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Roca han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -6260,7 +6464,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Water type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Water type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Agua han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -6361,7 +6569,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Electric type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Electric type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Eléctrico han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -6462,7 +6674,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Grass type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Grass type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Planta han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -6563,7 +6779,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Poison type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Poison type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Veneno han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -6664,7 +6884,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Psychic type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Psychic type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Psíquico han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -6765,7 +6989,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fire type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fire type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Fuego han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -6866,7 +7094,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ground type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ground type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Tierra han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -6970,7 +7202,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Grass type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Grass type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Planta han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -7071,7 +7307,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All water type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Water type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Agua han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -7172,7 +7412,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fire type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fire type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Fuego han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -7273,7 +7517,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fighting type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fighting type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Lucha han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -7374,7 +7622,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Rock type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Rock type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Roca han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -7475,7 +7727,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Dark type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Dark type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Siniestro han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -7576,7 +7832,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Dragon type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Dragon type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Dragón han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -7677,7 +7937,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ghost type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ghost type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Fantasma han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -7778,7 +8042,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Ice type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Ice type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Hielo han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -7879,7 +8147,11 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           filter: "none",
           padding: "100px"
         })
-        setPokemonbadgetext("All Fairy type Pokemon revealed!")
+        if(language === "English"){
+          setPokemonbadgetext("All Fairy type Pokemon revealed!")
+        } else {
+          setPokemonbadgetext("Todos los Pokémon tipo Hada han sido encontrados!")
+        }
 
         //update database user badges
 
@@ -7973,7 +8245,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         });
       }
 
-    }, [answers1, answers2, answers3, answers4, answers5, answers6, answers7, answers8, balance, balanceBadge, basic, basicBadge, beacon, beaconBadge, bolt, boltBadge, boulder, boulderBadge, bug, bugBadge, cascade, cascadeBadge, cliff, cliffBadge, coal, coalBadge, cobble, cobbleBadge, dark, darkBadge, dragon, dragonBadge, dynamo, dynamoBadge, earth, earthBadge, fairy, fairy2, fairy2Badge, fairyBadge, feather, featherBadge, fen, fenBadge, fighting, fightingBadge, fire, fireBadge, fog, fogBadge, forest, forestBadge, freeze, freezeBadge, ghost, ghostBadge, glacier, glacierBadge, grass, grassBadge, heat, heatBadge, hive, hiveBadge, ice, iceBadge, iceberg, icebergBadge, icicle, icicleBadge, insect, insectBadge, jet, jetBadge, knuckle, knuckleBadge, legend, legendBadge, marsh, marshBadge, mind, mindBadge, mine, mineBadge, mineral, mineralBadge, plain, plainBadge, plant, plantBadge, psychic, psychicBadge, quake, quakeBadge, rain, rainBadge, rainbow, rainbowBadge, relic, relicBadge, rising, risingBadge, rock, rockBadge, rumble, rumbleBadge, soul, soulBadge, stone, stoneBadge, storm, stormBadge, thunder, thunderBadge, toxic, toxicBadge, trio, trioBadge, volcano, volcanoBadge, voltage, voltageBadge, water, waterBadge, wave, waveBadge, zephyr, zephyrBadge, balanceImage, basicImage, beaconImage, boltImage, boulderImage, bugImage, cascadeImage, cliffImage, coalImage, cobbleImage, darkImage, dragonImage, dynamoImage, earthImage, fairy2Image, fairyImage, featherImage, fenImage, fightingImage, fireImage, fogImage, forestImage, freezeImage, ghostImage, glacierImage, grassImage, heatImage, hiveImage, iceImage, icebergImage, icicleImage, insectImage, jetImage, knuckleImage, legendImage, marshImage, mindImage, mineImage, mineralImage, plainImage, plantImage, psychicImage, quakeImage, rainImage, rainbowImage, relicImage, risingImage, rockImage, rumbleImage, soulImage, stoneImage, stormImage, thunderImage, toxicImage, trioImage, volcanoImage, voltageImage, waterImage, waveImage, zephyrImage, boulder7, boulderBadge7, boulderImage7, cascade7, cascadeBadge7, cascadeImage7, earth7, earthBadge7, earthImage7, marsh7, marshBadge7, marshImage7, rainbow7, rainbowBadge7, rainbowImage7, soul7, soulBadge7, soulImage7, thunder7, thunderBadge7, thunderImage7, volcano7, volcanoBadge7, volcanoImage7])
+    }, [language, answers1, answers2, answers3, answers4, answers5, answers6, answers7, answers8, balance, balanceBadge, basic, basicBadge, beacon, beaconBadge, bolt, boltBadge, boulder, boulderBadge, bug, bugBadge, cascade, cascadeBadge, cliff, cliffBadge, coal, coalBadge, cobble, cobbleBadge, dark, darkBadge, dragon, dragonBadge, dynamo, dynamoBadge, earth, earthBadge, fairy, fairy2, fairy2Badge, fairyBadge, feather, featherBadge, fen, fenBadge, fighting, fightingBadge, fire, fireBadge, fog, fogBadge, forest, forestBadge, freeze, freezeBadge, ghost, ghostBadge, glacier, glacierBadge, grass, grassBadge, heat, heatBadge, hive, hiveBadge, ice, iceBadge, iceberg, icebergBadge, icicle, icicleBadge, insect, insectBadge, jet, jetBadge, knuckle, knuckleBadge, legend, legendBadge, marsh, marshBadge, mind, mindBadge, mine, mineBadge, mineral, mineralBadge, plain, plainBadge, plant, plantBadge, psychic, psychicBadge, quake, quakeBadge, rain, rainBadge, rainbow, rainbowBadge, relic, relicBadge, rising, risingBadge, rock, rockBadge, rumble, rumbleBadge, soul, soulBadge, stone, stoneBadge, storm, stormBadge, thunder, thunderBadge, toxic, toxicBadge, trio, trioBadge, volcano, volcanoBadge, voltage, voltageBadge, water, waterBadge, wave, waveBadge, zephyr, zephyrBadge, balanceImage, basicImage, beaconImage, boltImage, boulderImage, bugImage, cascadeImage, cliffImage, coalImage, cobbleImage, darkImage, dragonImage, dynamoImage, earthImage, fairy2Image, fairyImage, featherImage, fenImage, fightingImage, fireImage, fogImage, forestImage, freezeImage, ghostImage, glacierImage, grassImage, heatImage, hiveImage, iceImage, icebergImage, icicleImage, insectImage, jetImage, knuckleImage, legendImage, marshImage, mindImage, mineImage, mineralImage, plainImage, plantImage, psychicImage, quakeImage, rainImage, rainbowImage, relicImage, risingImage, rockImage, rumbleImage, soulImage, stoneImage, stormImage, thunderImage, toxicImage, trioImage, volcanoImage, voltageImage, waterImage, waveImage, zephyrImage, boulder7, boulderBadge7, boulderImage7, cascade7, cascadeBadge7, cascadeImage7, earth7, earthBadge7, earthImage7, marsh7, marshBadge7, marshImage7, rainbow7, rainbowBadge7, rainbowImage7, soul7, soulBadge7, soulImage7, thunder7, thunderBadge7, thunderImage7, volcano7, volcanoBadge7, volcanoImage7])
 
   //disable constant//
   const [disable, setDisable] = React.useState(true)
