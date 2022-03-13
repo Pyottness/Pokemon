@@ -26,11 +26,17 @@ export default function Profile() {
   )
   const [profileUser, setProfileuser] = React.useState(false)
   const [search, setSearch] = React.useState("")
+
+  const [showBadges, setShowbadges] = React.useState(true)
+  const [showBadgeinfo, setShowbadgeinfo] = React.useState(false)
+  const [badgeTextinfo, setBadgetextinfo] = React.useState("")
+  const [badgeTextinfoEs, setBadgetextinfoEs] = React.useState("")
+  const [badgeImageinfo, setBadgeimageinfo] = React.useState()
+
   const [follow, setFollow] = React.useState(false)
   const [following, setFollowing] = React.useState([])
   const [followers, setFollowers] = React.useState([])
 
-  const [showBadges, setShowbadges] = React.useState(true)
   const [showFollowing, setShowfollowing] = React.useState(false)
   const [showFollowers, setShowfollowers] = React.useState(false)
 
@@ -689,9 +695,35 @@ export default function Profile() {
 
   }
 
+  //show badge information
+
+  const Badgeinfo = () => {
+
+      if(showBadgeinfo === true){
+        return (
+          <div className="center">
+          <div className="pokedex" alt="badge info" style={{ display: "flex", zIndex: "1", justifyContent: "center", alignItems: "center", width: "50%", height: "50%", textAlign: "center", color: "white" }}>
+          <div alt="badge info">
+
+          <img className="badgeInfo" src={ badgeImageinfo } alt="badge" />
+          <div>{language === "English" ? badgeTextinfo : badgeTextinfoEs} </div>
+
+          <button className="button" style={{ width: "90%"}} onClick={() => {
+            setShowbadgeinfo(false)
+          }}>{language === "English" ? "Close" : "Cerrar"}</button>
+           </div>
+           </div>
+           </div>
+        )
+      } else {
+        return (<></>)
+      }
+  }
+
   //Show Badges
 
   const Badges = () => {
+
     if(showBadges === true){
       return(
         <div>
@@ -699,102 +731,102 @@ export default function Profile() {
 
         <label>{language === "English" ? "Generation I" : "1ª Generación"}</label>
         <div>
-        <img className="badge" src={ boulder } alt="boulder badge" style={ { filter: boulderBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ cascade } alt="cascade badge" style={ { filter: cascadeBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ thunder } alt="thunder badge" style={ { filter: thunderBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ rainbow } alt="rainbow badge" style={ { filter: rainbowBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ soul } alt="soul badge" style={ { filter: soulBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ marsh } alt="marsh badge" style={ { filter: marshBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ volcano } alt="volcano badge" style={ { filter: volcanoBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ earth } alt="earth badge" style={ { filter: earthBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ boulder } alt="boulder badge" style={ { filter: boulderBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(boulder); setBadgetextinfo("All Rock type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Roca han sido encontrados!")  }} />
+        <img className="badge" src={ cascade } alt="cascade badge" style={ { filter: cascadeBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(cascade); setBadgetextinfo("All Water type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Agua han sido encontrados!")  }} />
+        <img className="badge" src={ thunder } alt="thunder badge" style={ { filter: thunderBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(thunder); setBadgetextinfo("All Electric type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Eléctrico han sido encontrados!")  }} />
+        <img className="badge" src={ rainbow } alt="rainbow badge" style={ { filter: rainbowBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(rainbow); setBadgetextinfo("All Grass type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Planta han sido encontrados!")  }} />
+        <img className="badge" src={ soul } alt="soul badge" style={ { filter: soulBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(soul); setBadgetextinfo("All Poison type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Veneno han sido encontrados!")  }} />
+        <img className="badge" src={ marsh } alt="marsh badge" style={ { filter: marshBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(marsh); setBadgetextinfo("All Psychic type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Psíquico han sido encontrados!")  }} />
+        <img className="badge" src={ volcano } alt="volcano badge" style={ { filter: volcanoBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(volcano); setBadgetextinfo("All Fire type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Fuego han sido encontrados!")  }} />
+        <img className="badge" src={ earth } alt="earth badge" style={ { filter: earthBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(earth); setBadgetextinfo("All Ground type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Tierra han sido encontrados!")  }} />
         </div>
 
         <label>{language === "English" ? "Generation II" : "2ª Generación"}</label>
         <div>
-        <img className="badge" src={ zephyr } alt="zephyr badge" style={ { filter: zephyrBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ hive } alt="hive badge" style={ { filter: hiveBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ plain } alt="plain badge" style={ { filter: plainBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ fog } alt="fog badge" style={ { filter: fogBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ storm } alt="storm badge" style={ { filter: stormBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ mineral } alt="mineral badge" style={ { filter: mineralBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ glacier } alt="glacier badge" style={ { filter: glacierBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ rising } alt="rising badge" style={ { filter: risingBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ zephyr } alt="zephyr badge" style={ { filter: zephyrBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(zephyr); setBadgetextinfo("All Flying type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Volador han sido encontrados!")  }} />
+        <img className="badge" src={ hive } alt="hive badge" style={ { filter: hiveBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(hive); setBadgetextinfo("All Bug type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Insecto han sido encontrados!")  }} />
+        <img className="badge" src={ plain } alt="plain badge" style={ { filter: plainBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(plain); setBadgetextinfo("All Normal type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Normal han sido encontrados!")  }} />
+        <img className="badge" src={ fog } alt="fog badge" style={ { filter: fogBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(fog); setBadgetextinfo("All Ghost type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Fantasma han sido encontrados!")  }} />
+        <img className="badge" src={ storm } alt="storm badge" style={ { filter: stormBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(storm); setBadgetextinfo("All Fighting type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Lucha han sido encontrados!")  }} />
+        <img className="badge" src={ mineral } alt="mineral badge" style={ { filter: mineralBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(mineral); setBadgetextinfo("All Steel type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Acero han sido encontrados!")  }} />
+        <img className="badge" src={ glacier } alt="glacier badge" style={ { filter: glacierBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(glacier); setBadgetextinfo("All Ice type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Hielo han sido encontrados!")  }} />
+        <img className="badge" src={ rising } alt="rising badge" style={ { filter: risingBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(rising); setBadgetextinfo("All Dragon type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Dragón han sido encontrados!")  }} />
         </div>
 
         <label>{language === "English" ? "Generation III" : "3ª Generación"}</label>
         <div>
-        <img className="badge" src={ stone } alt="stone badge" style={ { filter: stoneBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ knuckle } alt="knuckle badge" style={ { filter: knuckleBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ dynamo } alt="dynamo badge" style={ { filter: dynamoBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ heat } alt="heat badge" style={ { filter: heatBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ balance } alt="balance badge" style={ { filter: balanceBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ feather } alt="feather badge" style={ { filter: featherBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ mind } alt="mind badge" style={ { filter: mindBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ rain } alt="rain badge" style={ { filter: rainBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ stone } alt="stone badge" style={ { filter: stoneBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(stone); setBadgetextinfo("All Rock type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Roca han sido encontrados!")  }} />
+        <img className="badge" src={ knuckle } alt="knuckle badge" style={ { filter: knuckleBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(knuckle); setBadgetextinfo("All Fighting type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Lucha han sido encontrados!")  }} />
+        <img className="badge" src={ dynamo } alt="dynamo badge" style={ { filter: dynamoBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(dynamo); setBadgetextinfo("All Electric type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Eléctrico han sido encontrados!")  }} />
+        <img className="badge" src={ heat } alt="heat badge" style={ { filter: heatBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(heat); setBadgetextinfo("All Fire type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Fuego han sido encontrados!")  }} />
+        <img className="badge" src={ balance } alt="balance badge" style={ { filter: balanceBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(balance); setBadgetextinfo("All Normal type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Normal han sido encontrados!")  }} />
+        <img className="badge" src={ feather } alt="feather badge" style={ { filter: featherBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(feather); setBadgetextinfo("All Flying type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo volador han sido encontrados!")  }} />
+        <img className="badge" src={ mind } alt="mind badge" style={ { filter: mindBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(mind); setBadgetextinfo("All Psychic type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Psíquico han sido encontrados!")  }} />
+        <img className="badge" src={ rain } alt="rain badge" style={ { filter: rainBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(rain); setBadgetextinfo("All Water type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Agua han sido encontrados!")  }} />
         </div>
 
         <label>{language === "English" ? "Generation IV" : "4ª Generación"}</label>
         <div>
-        <img className="badge" src={ coal } alt="coal badge" style={ { filter: coalBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ forest } alt="forest badge" style={ { filter: forestBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ cobble } alt="cobble badge" style={ { filter: cobbleBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ fen } alt="fen badge" style={ { filter: fenBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ relic } alt="relic badge" style={ { filter: relicBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ mine } alt="mine badge" style={ { filter: mineBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ icicle } alt="icicle badge" style={ { filter: icicleBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ beacon } alt="beacon badge" style={ { filter: beaconBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ coal } alt="coal badge" style={ { filter: coalBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(coal); setBadgetextinfo("All Rock type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Roca han sido encontrados!")  }} />
+        <img className="badge" src={ forest } alt="forest badge" style={ { filter: forestBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(forest); setBadgetextinfo("All Grass type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Planta han sido encontrados!")  }} />
+        <img className="badge" src={ cobble } alt="cobble badge" style={ { filter: cobbleBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(cobble); setBadgetextinfo("All Fighting type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Lucha han sido encontrados!")  }} />
+        <img className="badge" src={ fen } alt="fen badge" style={ { filter: fenBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(fen); setBadgetextinfo("All Water type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Agua han sido encontrados!")  }} />
+        <img className="badge" src={ relic } alt="relic badge" style={ { filter: relicBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(relic); setBadgetextinfo("All Ghost type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Fantasma han sido encontrados!")  }} />
+        <img className="badge" src={ mine } alt="mine badge" style={ { filter: mineBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(mine); setBadgetextinfo("All Steel type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Acero han sido encontrados!")  }} />
+        <img className="badge" src={ icicle } alt="icicle badge" style={ { filter: icicleBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(icicle); setBadgetextinfo("All Ice type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Hielo han sido encontrados!")  }} />
+        <img className="badge" src={ beacon } alt="beacon badge" style={ { filter: beaconBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(beacon); setBadgetextinfo("All Electric type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Eléctrico han sido encontrados!")  }} />
         </div>
 
         <label>{language === "English" ? "Generation V" : "5ª Generación"}</label>
         <div>
-        <img className="badge" src={ trio } alt="trio" style={ { filter: trioBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ basic } alt="basic badge" style={ { filter: basicBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ insect } alt="insect badge" style={ { filter: insectBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ bolt } alt="bolt badge" style={ { filter: boltBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ quake } alt="quake badge" style={ { filter: quakeBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ jet } alt="jet badge" style={ { filter: jetBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ freeze } alt="freeze badge" style={ { filter: freezeBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ legend } alt="legend badge" style={ { filter: legendBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ toxic } alt="toxic badge" style={ { filter: toxicBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ wave } alt="wave badge" style={ { filter: waveBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ trio } alt="trio" style={ { filter: trioBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(trio); setBadgetextinfo("All Grass and Fire type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Planta y Fuego han sido encontrados!")  }} />
+        <img className="badge" src={ basic } alt="basic badge" style={ { filter: basicBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(basic); setBadgetextinfo("All Normal type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Normal han sido encontrados!")  }} />
+        <img className="badge" src={ insect } alt="insect badge" style={ { filter: insectBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(insect); setBadgetextinfo("All Bug type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Insecto han sido encontrados!")  }} />
+        <img className="badge" src={ bolt } alt="bolt badge" style={ { filter: boltBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(bolt); setBadgetextinfo("All Electric type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Eléctrico han sido encontrados!")  }} />
+        <img className="badge" src={ quake } alt="quake badge" style={ { filter: quakeBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(quake); setBadgetextinfo("All Ground type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Tierra han sido encontrados!")  }} />
+        <img className="badge" src={ jet } alt="jet badge" style={ { filter: jetBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(jet); setBadgetextinfo("All Flying type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Volador han sido encontrados!")  }} />
+        <img className="badge" src={ freeze } alt="freeze badge" style={ { filter: freezeBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(freeze); setBadgetextinfo("All Ice type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Hielo han sido encontrados!")  }} />
+        <img className="badge" src={ legend } alt="legend badge" style={ { filter: legendBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(legend); setBadgetextinfo("All Dragon type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Dragón han sido encontrados!")  }} />
+        <img className="badge" src={ toxic } alt="toxic badge" style={ { filter: toxicBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(toxic); setBadgetextinfo("All Poison type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Veneno han sido encontrados!")  }} />
+        <img className="badge" src={ wave } alt="wave badge" style={ { filter: waveBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(wave); setBadgetextinfo("All Water type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Agua han sido encontrados!")  }} />
         </div>
 
         <label>{language === "English" ? "Generation VI" : "6ª Generación"}</label>
         <div>
-        <img className="badge" src={ bug } alt="bug badge" style={ { filter: bugBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ cliff } alt="cliff badge" style={ { filter: cliffBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ rumble } alt="rumble badge" style={ { filter: rumbleBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ plant } alt="plant badge" style={ { filter: plantBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ voltage } alt="voltage" style={ { filter: voltageBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ fairy } alt="fairy badge" style={ { filter: fairyBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ psychic } alt="psychic badge" style={ { filter: psychicBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ iceberg } alt="iceberg badge" style={ { filter: icebergBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ bug } alt="bug badge" style={ { filter: bugBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(bug); setBadgetextinfo("All Bug type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Insecto han sido encontrados!")  }} />
+        <img className="badge" src={ cliff } alt="cliff badge" style={ { filter: cliffBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(cliff); setBadgetextinfo("All Rock type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Roca han sido encontrados!")  }} />
+        <img className="badge" src={ rumble } alt="rumble badge" style={ { filter: rumbleBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(rumble); setBadgetextinfo("All Fighting type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Lucha han sido encontrados!")  }} />
+        <img className="badge" src={ plant } alt="plant badge" style={ { filter: plantBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(plant); setBadgetextinfo("All Grass type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Planta han sido encontrados!")  }} />
+        <img className="badge" src={ voltage } alt="voltage" style={ { filter: voltageBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(voltage); setBadgetextinfo("All Electric type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Eléctrico han sido encontrados!")  }} />
+        <img className="badge" src={ fairy } alt="fairy badge" style={ { filter: fairyBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(fairy); setBadgetextinfo("All Fairy type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Hada han sido encontrados!")  }} />
+        <img className="badge" src={ psychic } alt="psychic badge" style={ { filter: psychicBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(psychic); setBadgetextinfo("All Psychic type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Psíquico han sido encontrados!")  }} />
+        <img className="badge" src={ iceberg } alt="iceberg badge" style={ { filter: icebergBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(iceberg); setBadgetextinfo("All Ice type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Hielo han sido encontrados!")  }} />
         </div>
 
         <label>{language === "English" ? "Generation VII" : "7ª Generación"}</label>
         <div>
-        <img className="badge" src={ boulder7 } alt="boulder badge" style={ { filter: boulderBadge7 === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ cascade7 } alt="cascade badge" style={ { filter: cascadeBadge7 === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ thunder7 } alt="thunder badge" style={ { filter: thunderBadge7 === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ rainbow7 } alt="rainbow badge" style={ { filter: rainbowBadge7 === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ soul7 } alt="soul badge" style={ { filter: soulBadge7 === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ marsh7 } alt="marsh badge" style={ { filter: marshBadge7 === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ volcano7 } alt="volcano badge" style={ { filter: volcanoBadge7 === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ earth7 } alt="earth badge" style={ { filter: earthBadge7 === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ boulder7 } alt="boulder badge" style={ { filter: boulderBadge7 === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(boulder); setBadgetextinfo("All Rock type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Roca han sido encontrados!")  }} />
+        <img className="badge" src={ cascade7 } alt="cascade badge" style={ { filter: cascadeBadge7 === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(cascade); setBadgetextinfo("All Water type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Agua han sido encontrados!")  }} />
+        <img className="badge" src={ thunder7 } alt="thunder badge" style={ { filter: thunderBadge7 === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(thunder); setBadgetextinfo("All Electric type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Eléctrico han sido encontrados!")  }} />
+        <img className="badge" src={ rainbow7 } alt="rainbow badge" style={ { filter: rainbowBadge7 === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(rainbow); setBadgetextinfo("All Grass type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Planta han sido encontrados!")  }} />
+        <img className="badge" src={ soul7 } alt="soul badge" style={ { filter: soulBadge7 === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(soul); setBadgetextinfo("All Poison type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Veneno han sido encontrados!")  }} />
+        <img className="badge" src={ marsh7 } alt="marsh badge" style={ { filter: marshBadge7 === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(marsh); setBadgetextinfo("All Psychic type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Psíquico han sido encontrados!")  }} />
+        <img className="badge" src={ volcano7 } alt="volcano badge" style={ { filter: volcanoBadge7 === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(volcano); setBadgetextinfo("All Fire type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Fuego han sido encontrados!")  }} />
+        <img className="badge" src={ earth7 } alt="earth badge" style={ { filter: earthBadge7 === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(earth); setBadgetextinfo("All Ground type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Tierra han sido encontrados!")  }} />
         </div>
 
         <label>{language === "English" ? "Generation VIII" : "8ª Generación"}</label>
         <div>
-        <img className="badge" src={ grass } alt="grass badge" style={ { filter: grassBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ water } alt="water badge" style={ { filter: waterBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ fire } alt="fire badge" style={ { filter: fireBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ fighting } alt="fighting badge" style={ { filter: fightingBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ fairy2 } alt="fairy badge" style={ { filter: fairy2Badge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ rock } alt="rock badge" style={ { filter: rockBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ dark } alt="dark badge" style={ { filter: darkBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ dragon } alt=" dragon badge" style={ { filter: dragonBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ ghost } alt="ghost badge" style={ { filter: ghostBadge === false ? "brightness(0)" : "brightness()"} } />
-        <img className="badge" src={ ice } alt="ice badge" style={ { filter: iceBadge === false ? "brightness(0)" : "brightness()"} } />
+        <img className="badge" src={ grass } alt="grass badge" style={ { filter: grassBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(grass); setBadgetextinfo("All Grass type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Planta han sido encontrados!")  }} />
+        <img className="badge" src={ water } alt="water badge" style={ { filter: waterBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(water); setBadgetextinfo("All Water type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Agua han sido encontrados!")  }} />
+        <img className="badge" src={ fire } alt="fire badge" style={ { filter: fireBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(fire); setBadgetextinfo("All Fire type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Fuego han sido encontrados!")  }} />
+        <img className="badge" src={ fighting } alt="fighting badge" style={ { filter: fightingBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(fighting); setBadgetextinfo("All Fighting type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Lucha han sido encontrados!")  }} />
+        <img className="badge" src={ fairy2 } alt="fairy badge" style={ { filter: fairy2Badge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(fairy2); setBadgetextinfo("All Fairy type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Hada han sido encontrados!")  }} />
+        <img className="badge" src={ rock } alt="rock badge" style={ { filter: rockBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(rock); setBadgetextinfo("All Rock type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Roca han sido encontrados!")  }} />
+        <img className="badge" src={ dark } alt="dark badge" style={ { filter: darkBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(dark); setBadgetextinfo("All Dark type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Siniestro han sido encontrados!")  }} />
+        <img className="badge" src={ dragon } alt=" dragon badge" style={ { filter: dragonBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(dragon); setBadgetextinfo("All Dragon type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Dragón han sido encontrados!")  }} />
+        <img className="badge" src={ ghost } alt="ghost badge" style={ { filter: ghostBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(ghost); setBadgetextinfo("All Ghost type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Fantasma han sido encontrados!")  }} />
+        <img className="badge" src={ ice } alt="ice badge" style={ { filter: iceBadge === false ? "brightness(0)" : "brightness()"} } onClick={() => { setShowbadgeinfo(true); setBadgeimageinfo(ice); setBadgetextinfo("All Ice type Pokemon revealed!"); setBadgetextinfoEs("Todos los Pokémon tipo Hielo han sido encontrados!")  }} />
         </div>
         </div>
       )
@@ -907,6 +939,7 @@ export default function Profile() {
 
       <Followers />
       <Following />
+      <Badgeinfo />
       <Badges />
 
       </div>
