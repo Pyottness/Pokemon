@@ -8675,8 +8675,9 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
 
       return (
         <div className="pokedex" alt="score" style={{ position: "absolute", display: "flex", justifyContent: "center", zIndex: "1", width: "85%", height: "95%", boxShadow: "none", textAlign: "center", color: "white" }}>
-        <div alt="welcome container" style={{ overflowY: "scroll", margin: "1%" }}>
-        <h1>{language === "English" ? "Welcome to Whoisthatpoke!" : "Bienvenido a Whoisthatpoke!"}</h1>
+        <div alt="scroll container" style={{ overflowY: "scroll", margin: "2%" }}>
+        <div alt="welcome container" style={{ margin: "2%" }}>
+        <h1 style={{ fontSize: "1.7em" }}>{language === "English" ? "Welcome to Whoisthatpoke!" : "Bienvenido a Whoisthatpoke!"}</h1>
         <p><button className="pokedex-button" alt="pokedex-button" style={{ backgroundColor: "white", cursor: "pointer", borderStyle: "none" }} onClick={() => {language === "English" ? setLanguage("Spanish") : setLanguage("English")}}>{language === "English" ? "🇬🇧" : "🇪🇸"}</button>{language === "English" ? " Choose language." : "Elige idioma."}</p>
         <p>{language === "English" ? "This website has been developed by M. J. Pyott with the intention of practising Nodejs and Reactjs." : "Ésta página web ha sido desarrollada por M. J. Pyott con la intención de practicar Nodejs y Reactjs."}</p>
         <p>{language === "English" ? "Pokemon images and names have all been obtained from PokeAPI." : "Las imágenes y los nombres de los Pokémon han sido obtenidos de PokeAPI."}</p>
@@ -8690,6 +8691,12 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           <p><button className="pokedex-button" alt="Timetrial" style={{backgroundColor: "white", textDecoration: "none", padding: "5px", fontSize: "20px", borderStyle: "none", cursor: "pointer"}}>⏱️</button>{language === "English" ? " This button will take you to the Time Trial game." : "Éste botón te llevará a la página Contrarreloj."}</p>
           <p><button className="pokedex-button" alt="Home" style={{backgroundColor: "white", textDecoration: "none", padding: "5px", fontSize: "20px", borderStyle: "none", cursor: "pointer"}}>🏠</button>{language === "English" ? " This button will take you to the Single Player game where you can earn badges if you are logged in." : "Éste botón te llevará a la página de Un Jugador dónde podrás ganar medallas si estás conectado."}</p>
           <p><button className="pokedex-button" alt="Login" style={{backgroundColor: "red", textDecoration: "none", padding: "5px", fontSize: "20px", cursor: "pointer", borderStyle: "none"}}>👨</button>{language === "English" ? " This button will take you to the login page if you are not logged in and to your profile page if you are." : "Éste botón te llevará a tú perfil si estás conectado y si no lo estás te llevará a la página para conectarte."}</p>
+          <p>
+          <button className="button buttonNav" alt="FirstGeneration" style={{backgroundColor: "cyan"}}>1</button>
+          <button className="button buttonNav"  alt="SecondGeneration">2</button>
+          <button className="button buttonNav" alt="ThirdGeneration">3</button>
+          {language === "English" ? "The number on these buttons indicate what Pokemon Generation you are playing." : "El número de estos botones indica que Generación Pokémon estás jugando."}
+          </p>
           <p>{language === "English" ? "By pressing the Accept button you are agreeing to the use of cookies and local storage so that the game works correctly." : "Al clicar en Aceptar estás aceptando el uso de posibles cookies y almacenamiento local para que el juego funcione de manera correcta."}</p>
           <p>
           <button className="button" style={{ width: "50%", marginBottom: "20px"}} onClick={() => {
@@ -8698,6 +8705,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           </p>
         </div>
 
+        </div>
          </div>
          </div>
     )

@@ -43,12 +43,14 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: orange;
+  background-color: transparent;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: red;
+  background-color: orange;
+  border-radius: 20px;
+  border: 20px solid transparent;
 }
 
 /* The size of the pokemon image. */
