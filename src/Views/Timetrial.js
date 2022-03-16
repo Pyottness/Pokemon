@@ -199,7 +199,6 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
   // Timer constant
 
   const [timer, setTimer] = React.useState(-1)
-  const [answer, setAnswer] = React.useState()
 
   React.useEffect(() => {
     timer > 0 && setTimeout(() => setTimer(timer - 1), 1000);
@@ -227,10 +226,8 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
     if(correctName === e.target.value) {
       if(audioPlay === true){correctplay.play()}
       dispatch({type: 'increment'})
-      setAnswer("✔️")
     } else {
       if(audioPlay === true){incorrectplay.play()}
-      setAnswer("❌")
       }
     }
 
@@ -539,6 +536,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
     }
   }
 
+
   //play initializer//
   const play = async () => {
     correctplay.remove()
@@ -603,13 +601,57 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
     }
   }
 
+  const answer = () => {
+    if (pokemonA === correctName) {
+      setbuttonA({backgroundColor: "green", boxShadow: "0 5px darkgreen"})
+      setbuttonB({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonC({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonD({backgroundColor: "red", boxShadow: "0 5px brown"})
+      //set image appear//
+      setPokemonwho({
+        filter: "none",
+      })
+      setTimeout(play, 200)
+    } else if (pokemonB === correctName) {
+      setbuttonA({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonB({backgroundColor: "green", boxShadow: "0 5px darkgreen"})
+      setbuttonC({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonD({backgroundColor: "red", boxShadow: "0 5px brown"})
+      //set image appear//
+      setPokemonwho({
+        filter: "none",
+      })
+      setTimeout(play, 200)
+    } else if (pokemonC === correctName) {
+      setbuttonA({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonB({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonC({backgroundColor: "green", boxShadow: "0 5px darkgreen"})
+      setbuttonD({backgroundColor: "red", boxShadow: "0 5px brown"})
+      //set image appear//
+      setPokemonwho({
+        filter: "none",
+      })
+      setTimeout(play, 200)
+    } else {
+      setbuttonA({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonB({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonC({backgroundColor: "red", boxShadow: "0 5px brown"})
+      setbuttonD({backgroundColor: "green", boxShadow: "0 5px darkgreen"})
+      //set image appear//
+      setPokemonwho({
+        filter: "none",
+      })
+      setTimeout(play, 200)
+    }
+  }
+
   //score pokedexScreen
 
   const Score = () => {
     if(pokedexButton === true) {
       return (<div className="score" alt="score">
         <div>{ language === "English" ? "Timer: " : "Tiempo: " }<label style={{color: timer > 40 ? "lightgreen" : timer > 20 ? "yellow" : "red"}}>{timer === -1 ? 0 : timer}</label> </div>
-        <div>{answer}{ language === "English" ? "Score: " : "Puntuación: " }{counter.count} {answer}</div>
+        <div>{ language === "English" ? "Score: " : "Puntuación: " }{counter.count}</div>
       </div>)
     } else {
       return (<div className="score" alt="score"></div>)
@@ -628,6 +670,7 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
         <div>{language === "English" ? pokeGen : pokeGenEs} </div>
         <div>{language === "English" ? "Score: " : "Puntuación: "}{counter.count} </div>
         <div alt="share buttons">
+        <button className="button" style={{ width: "28%"}} onClick={() => {navigator.clipboard.writeText(language === "English" ? pokeGen + "\n Score: " + counter.count + "\n How many can you guess?" : pokeGenEs + "\n Puntuación: " + counter.count + "\n Cuántos puedes adivinar?")}}>Copy</button>
         <FacebookShareButton url="https://whoisthatpoke.netlify.app/" quote={language === "English" ? pokeGen + "\n Score: " + counter.count + "\n How many can you guess?" : pokeGenEs + "\n Puntuación: " + counter.count + "\n Cuántos puedes adivinar?" }><FacebookIcon size={32} round={true} /></FacebookShareButton>
         <TelegramShareButton url="https://whoisthatpoke.netlify.app/" title={language === "English" ? pokeGen + "\n Score: " + counter.count + "\n How many can you guess?" : pokeGenEs + "\n Puntuación: " + counter.count + "\n Cuántos puedes adivinar?" }><TelegramIcon size={32} round={true} /></TelegramShareButton>
         <WhatsappShareButton url="https://whoisthatpoke.netlify.app/" title={language === "English" ? pokeGen + "\n Score: " + counter.count + "\n How many can you guess?" : pokeGenEs + "\n Puntuación: " + counter.count + "\n Cuántos puedes adivinar?" }><WhatsappIcon size={32} round={true} /></WhatsappShareButton>
@@ -640,7 +683,6 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           setbuttonB({backgroundColor: "blue", color: "blue", cursor: "default"});
           setbuttonC({backgroundColor: "blue", color: "blue", cursor: "default"});
           setbuttonD({backgroundColor: "blue", color: "blue", cursor: "default"});
-          setAnswer("")
         }}>{language === "English" ? "Close" : "Cerrar"}</button>
          </div>
          </div>
@@ -687,10 +729,10 @@ const character = JSON.parse(window.localStorage.getItem('character')) === null 
           </div>
 
           <div alt="answers">
-              <button className="button-answer" disabled={disable} value={pokemonA.toLowerCase()} style={buttonA} onClick={(e) => {score(e); setDisable(true); play();}}>{pokemonA.charAt(0).toUpperCase() + pokemonA.slice(1)}</button>
-              <button className="button-answer" disabled={disable} value={pokemonB.toLowerCase()} style={buttonB} onClick={(e) => {score(e); setDisable(true); play();}}>{pokemonB.charAt(0).toUpperCase() + pokemonB.slice(1)}</button>
-              <button className="button-answer" disabled={disable} value={pokemonC.toLowerCase()} style={buttonC} onClick={(e) => {score(e); setDisable(true); play();}}>{pokemonC.charAt(0).toUpperCase() + pokemonC.slice(1)}</button>
-              <button className="button-answer" disabled={disable} value={pokemonD.toLowerCase()} style={buttonD} onClick={(e) => {score(e); setDisable(true); play();}}>{pokemonD.charAt(0).toUpperCase() + pokemonD.slice(1)}</button>
+              <button className="button-answer" disabled={disable} value={pokemonA.toLowerCase()} style={buttonA} onClick={(e) => {score(e); setDisable(true); answer();}}>{pokemonA.charAt(0).toUpperCase() + pokemonA.slice(1)}</button>
+              <button className="button-answer" disabled={disable} value={pokemonB.toLowerCase()} style={buttonB} onClick={(e) => {score(e); setDisable(true); answer();}}>{pokemonB.charAt(0).toUpperCase() + pokemonB.slice(1)}</button>
+              <button className="button-answer" disabled={disable} value={pokemonC.toLowerCase()} style={buttonC} onClick={(e) => {score(e); setDisable(true); answer();}}>{pokemonC.charAt(0).toUpperCase() + pokemonC.slice(1)}</button>
+              <button className="button-answer" disabled={disable} value={pokemonD.toLowerCase()} style={buttonD} onClick={(e) => {score(e); setDisable(true); answer();}}>{pokemonD.charAt(0).toUpperCase() + pokemonD.slice(1)}</button>
           </div>
 
           <div alt="links">
